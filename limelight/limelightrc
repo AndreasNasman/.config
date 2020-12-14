@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+limelight -m config width            2
+limelight -m config radius           9 # Same as Big Sur on Mac.
+limelight -m config placement        interior
+limelight -m config active_color     0xfff5539e
+limelight -m config normal_color     0xff555555
+
+echo "limelight configuration loaded.."
