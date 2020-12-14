@@ -1,0 +1,19 @@
+let mapleader = " "
+
+set clipboard+=unnamed
+set commentary
+set easymotion
+set hlsearch
+set ideajoin
+set ignorecase
+set incsearch
+set matchpairs+=<:>
+set multiple-cursors
+set number
+set relativenumber
+set ReplaceWithRegister
+set showmode
+set smartcase
+set surround
+set textobj-entire
+set timeout=off

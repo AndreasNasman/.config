@@ -1,0 +1,59 @@
+" Sources:
+" https://github.com/danielmiessler/vim/blob/master/.vim/vimrc
+" https://vim.fandom.com/wiki/Example_vimrc
+
+"/-------------/"
+
+" CONFIGURATIONS
+
+" Set 'nocompatible' to ward off unexpected things that your distribution might have made, as well as sanely reset options when re-sourcing .vimrc.
+set nocompatible
+
+" Change the looks to some beautiful color scheme!
+colorscheme iceberg
+"colorscheme codedark
+
+" Attempt to determine the type of a file based on its name and possibly its contents. Use this to allow intelligent auto-indenting for each filetype, and for plugins that are filetype specific.
+filetype indent plugin on
+
+set clipboard=unnamed		" Access system clipboard, register "* on macOS.
+set confirm			" Raise a dialogue asking if you wish to save changed files.
+set encoding=utf-8		" Encode with UTF-8.
+set hlsearch			" Highlight searches.
+set ignorecase			" Use case insensitive search.
+set incsearch			" Incrementally match searches.
+set laststatus=2		" Always display the status line.
+set nowrap			" Disable wrapping of text.
+set number			" Display line numbers.
+set relativenumber		" Display relative line numbers.
+set ruler			" Show current row and column.
+set showcmd			" Show partial commands.
+set smartcase			" Match capitalized word exactly when searching.
+set spelllang=en_us		" Spell check with English (US).
+set wildmenu			" Improve command-line completion.
+
+" Show syntax highlighting.
+syntax on
+
+"/------/"
+
+" MAPPINGS
+
+" Remaps leader.
+let mapleader = " "
+
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default.
+map Y y$
+
+" Shortcut for toggling swedish keymapping.
+:nnoremap <leader>s :call ToggleSwedishKeymap()<cr>
+
+function! ToggleSwedishKeymap()
+  if &keymap == "swedish"
+    echom "Switching to default keymap!"
+    set keymap=
+  else
+    echom "Switching to swedish keymap!"
+    set keymap=swedish
+  endif
+endfunction
