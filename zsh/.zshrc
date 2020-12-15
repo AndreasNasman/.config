@@ -1,3 +1,6 @@
+# zprof
+# zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -126,6 +129,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 ## Bitwarden
 export BW_SESSION="NKR+XrtKl8WxPUXQAN96MDlMswf4kZXwz1NHH1AQEHAcJzX07kWywo71sTraMg0C8OEKj2oPpqgSGjYCG654dA=="
 _evalcache bw completion --shell zsh; compdef _bw bw;
+
+## Docker
+_evalcache docker-machine env default
 
 ## jenv
 export PATH="$HOME/.jenv/bin:$PATH"
