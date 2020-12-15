@@ -71,12 +71,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+## nvm
+## Must be set before zsh-nvm is loaded.
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode wd zsh-syntax-highlighting)
+plugins=(evalcache git vi-mode wd zsh-nvm zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,25 +124,27 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # CONFIGURATIONS
 
 ## Bitwarden
-eval "$(bw completion --shell zsh); compdef _bw bw;"
 export BW_SESSION="NKR+XrtKl8WxPUXQAN96MDlMswf4kZXwz1NHH1AQEHAcJzX07kWywo71sTraMg0C8OEKj2oPpqgSGjYCG654dA=="
+_evalcache bw completion --shell zsh; compdef _bw bw;
 
 ## jenv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+_evalcache jenv init -
 
 ## Homebrew
 ### Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
 fpath=( $HOME/.local/share/zsh/site-functions $fpath )
 
-## nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 ## Vim
 export MYVIMRC="$HOME/.config/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
+
+# FUNCTIONS
+
+function time_zsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
 
 # -------------------- #
 
