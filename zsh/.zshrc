@@ -164,18 +164,13 @@ MY_IP="$(ipconfig getifaddr en0)"
 
 local HIBOX_CENTRE_PATH="/opt/hibox/centre/"
 
-function tomcat_shutdown() {
-  echo "Shutting down Tomcat...😿"
-  "${HIBOX_CENTRE_PATH}tomcat/bin/shutdown.sh"
-}
-
-function tomcat_shutdown_force() {
+function tomcat_kill() {
   echo "Forcefully shutting down all Tomcat instances!🙀"
   pkill -9 -f tomcat
 }
 
-function tomcat_startup() {
-  echo "Starting up Tomcat...😻"
+function tomcat_start() {
+  echo "Starting Tomcat...😻"
   "${HIBOX_CENTRE_PATH}tomcat/bin/startup.sh"
   tail -f "${HIBOX_CENTRE_PATH}tomcat/logs/catalina.out"
 }
