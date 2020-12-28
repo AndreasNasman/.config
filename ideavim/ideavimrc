@@ -17,3 +17,4 @@ set smartcase
 set surround
 set textobj-entire
 set timeout=off
+set visualbell
