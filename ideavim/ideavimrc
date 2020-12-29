@@ -1,5 +1,3 @@
-let mapleader = " "
-
 set clipboard+=unnamed
 set commentary
 set easymotion
@@ -18,3 +16,22 @@ set surround
 set textobj-entire
 set timeout=off
 set visualbell
+
+let mapleader = " "
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors.
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. 'ñ'.
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
