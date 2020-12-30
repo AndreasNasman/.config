@@ -7,3 +7,4 @@ limelight -m config active_color     0xfff5539e
 limelight -m config normal_color     0xff555555
 
 echo "limelight configuration loaded.."
+

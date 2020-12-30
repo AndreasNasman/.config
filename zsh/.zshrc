@@ -179,3 +179,4 @@ function weinre_start() {
   local -r WEINRE_HTTP_PORT=8001
   npx weinre --httpPort=$WEINRE_HTTP_PORT --boundHost=$MY_IP
 }
+

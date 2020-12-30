@@ -153,3 +153,4 @@ ctrl + alt - l  : yabai -m display --focus 1
 # alt - p : yabai -m window --toggle sticky;\
 #           yabai -m window --toggle topmost;\
 #           yabai -m window --toggle pip
+

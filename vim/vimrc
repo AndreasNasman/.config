@@ -57,3 +57,4 @@ function! ToggleSwedishKeymap()
     set keymap=swedish
   endif
 endfunction
+
