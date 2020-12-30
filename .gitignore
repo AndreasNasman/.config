@@ -34,5 +34,7 @@ Temporary Items
 
 # Other
 /configstore
+/vue
 .zcompdump*
 .zsh_history
+
