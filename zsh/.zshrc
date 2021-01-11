@@ -84,7 +84,7 @@ export NVM_LAZY_LOAD=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(evalcache git vi-mode wd zsh-nvm zsh-syntax-highlighting)
+plugins=(evalcache git vi-mode wd zsh-nvm yarn zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

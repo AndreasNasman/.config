@@ -8,10 +8,12 @@
 
 " Set 'nocompatible' to ward off unexpected things that your distribution might have made, as well as sanely reset options when re-sourcing .vimrc.
 set nocompatible
+"
+" Extend where to look for e.g. colorschemes.
+set runtimepath+=~/.config/vim/
 
 " Change the looks to some beautiful color scheme!
 colorscheme iceberg
-"colorscheme codedark
 
 " Attempt to determine the type of a file based on its name and possibly its contents. Use this to allow intelligent auto-indenting for each filetype, and for plugins that are filetype specific.
 filetype indent plugin on
