@@ -127,15 +127,21 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # CONFIGURATIONS
 
 ## Bitwarden
-export BW_SESSION="NKR+XrtKl8WxPUXQAN96MDlMswf4kZXwz1NHH1AQEHAcJzX07kWywo71sTraMg0C8OEKj2oPpqgSGjYCG654dA=="
-_evalcache bw completion --shell zsh; compdef _bw bw;
+if command -v bw > /dev/null 2>&1; then
+  export BW_SESSION="NKR+XrtKl8WxPUXQAN96MDlMswf4kZXwz1NHH1AQEHAcJzX07kWywo71sTraMg0C8OEKj2oPpqgSGjYCG654dA=="
+  _evalcache bw completion --shell zsh; compdef _bw bw;
+fi
 
 ## Docker
-_evalcache docker-machine env default
+if command -v docker-machine > /dev/null 2>&1; then
+  _evalcache docker-machine env default
+fi
 
 ## jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-_evalcache jenv init -
+if command -v jenv > /dev/null 2>&1; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  _evalcache jenv init -
+fi
 
 ## Homebrew
 ### Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
