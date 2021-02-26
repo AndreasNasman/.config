@@ -1,32 +1,37 @@
 let mapleader = " "
 
 set clipboard+=unnamed
-set commentary
-set easymotion
 set hlsearch
 set ideajoin
 set ignorecase
 set incsearch
 set matchpairs+=<:>
-set multiple-cursors
 set number
 set relativenumber
 set ReplaceWithRegister
 set showmode
 set smartcase
-set surround
-set textobj-entire
 set timeout=off
 set visualbell
 
+" PLUGINS "
+set commentary
+set easymotion
+set highlightedyank
+set multiple-cursors
+set surround
+set textobj-entire
+
+" PLUGINS CONFIGURATIONS "
+" multiple-cursors "
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors.
 nmap g<C-n> <Plug>NextOccurrence
 xmap g<C-n> <Plug>NextOccurrence
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
-nmap <C-p> <Plug>RemoveOccurrence
+"nmap <C-p> <Plug>RemoveOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
-nmap <C-x> <Plug>SkipOccurrence
+"nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
 
 " Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
