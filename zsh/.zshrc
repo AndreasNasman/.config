@@ -128,7 +128,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 ## Bitwarden
 if command -v bw > /dev/null 2>&1; then
-  export BW_SESSION="NKR+XrtKl8WxPUXQAN96MDlMswf4kZXwz1NHH1AQEHAcJzX07kWywo71sTraMg0C8OEKj2oPpqgSGjYCG654dA=="
+  export BW_SESSION="dbwnuLePcXPD1YUaB37/sJ2+16yQ7b/zG8WUUTF4rgxV9iN0ZrHFiZ8JCYGnhRHEUg3bR90N+QC0Gu9Mro+AFA=="
   _evalcache bw completion --shell zsh; compdef _bw bw;
 fi
 
