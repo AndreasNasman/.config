@@ -74,17 +74,19 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-## nvm
-## Must be set before zsh-nvm is loaded.
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(evalcache git vi-mode wd zsh-nvm yarn zsh-syntax-highlighting)
+plugins=(
+  #evalcache 
+  git
+  vi-mode
+  wd
+  yarn
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,39 +121,58 @@ source $ZSH/oh-my-zsh.sh
 
 # -------------------- #
 
-# VALUES
+# VARIABLES
 
 ## Needed for IntelliJ to find settings for IdeaVim.
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# CONFIGURATIONS
-
 ## Bitwarden
-if command -v bw > /dev/null 2>&1; then
-  export BW_SESSION="dbwnuLePcXPD1YUaB37/sJ2+16yQ7b/zG8WUUTF4rgxV9iN0ZrHFiZ8JCYGnhRHEUg3bR90N+QC0Gu9Mro+AFA=="
-  _evalcache bw completion --shell zsh; compdef _bw bw;
-fi
-
-## Docker
-if command -v docker-machine > /dev/null 2>&1; then
-  _evalcache docker-machine env default
-fi
-
-## jenv
-if command -v jenv > /dev/null 2>&1; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  _evalcache jenv init -
-fi
-
-## Homebrew
-### Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
-fpath=( $HOME/.local/share/zsh/site-functions $fpath )
+export BW_SESSION="dbwnuLePcXPD1YUaB37/sJ2+16yQ7b/zG8WUUTF4rgxV9iN0ZrHFiZ8JCYGnhRHEUg3bR90N+QC0Gu9Mro+AFA=="
 
 ## Vim
 export MYVIMRC="$HOME/.config/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
 
+# CONFIGURATIONS
+
+: '
+## Automatic eval
+
+### Bitwarden
+if command -v bw > /dev/null 2>&1; then
+  _evalcache bw completion --shell zsh; compdef _bw bw;
+fi
+
+### Docker
+if command -v docker-machine > /dev/null 2>&1; then
+  _evalcache docker-machine env default
+fi
+
+### jenv
+if command -v jenv > /dev/null 2>&1; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  _evalcache jenv init -
+fi
+'
+
+## Homebrew
+### Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
+fpath=( $HOME/.local/share/zsh/site-functions $fpath )
+
 # FUNCTIONS
+
+function eval_bitwarden() {
+  eval "$(bw completion --shell zsh); compdef _bw bw;"
+}
+
+function eval_docker() {
+  eval "$(docker-machine env default)"
+}
+
+function eval_jenv() {
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+}
 
 function time_zsh() {
   shell=${1-$SHELL}
