@@ -1,0 +1,12 @@
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[core]
+	autocrlf = false
+[pull]
+	rebase = true
+[push]
+	default = current
