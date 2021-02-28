@@ -1,6 +1,6 @@
 # Setup
 
-To properly link all files in the directories, these files should be configured:
+To properly link all files in the directories, these local files should be configured:
 
 `~/.gitconfig`
 
