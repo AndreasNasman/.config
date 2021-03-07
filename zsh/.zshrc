@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  #evalcache 
+  evalcache 
   git
   vi-mode
   wd
@@ -135,9 +135,9 @@ export VIMINIT="source $MYVIMRC"
 
 # CONFIGURATIONS
 
-: '
 ## Automatic eval
 
+: '
 ### Bitwarden
 if command -v bw > /dev/null 2>&1; then
   _evalcache bw completion --shell zsh; compdef _bw bw;
@@ -147,13 +147,13 @@ fi
 if command -v docker-machine > /dev/null 2>&1; then
   _evalcache docker-machine env default
 fi
+'
 
 ### jenv
 if command -v jenv > /dev/null 2>&1; then
   export PATH="$HOME/.jenv/bin:$PATH"
   _evalcache jenv init -
 fi
-'
 
 ## Homebrew
 ### Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.

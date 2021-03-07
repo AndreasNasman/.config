@@ -64,6 +64,7 @@ zsdoc/data
 
 # Other
 /configstore
+/gh
 /iterm2
 /vue
 .zsh_history
