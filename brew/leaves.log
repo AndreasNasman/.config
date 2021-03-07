@@ -1,10 +1,14 @@
+bitwarden-cli
+docker
+docker-machine
+ffmpeg
+gh
 git
 gnupg
 koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
-mongodb/brew/mongodb-community
 n
 pinentry-mac
-python@3.8
 vim
+yarn
 zsh
