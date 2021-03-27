@@ -185,7 +185,12 @@ function time_zsh() {
 
 ## VALUES
 
-MY_IP="$(ipconfig getifaddr en0)"
+### Docking station
+MY_IP="$(ipconfig getifaddr en10)"
+### WiFi
+if [ -z "$MY_IP" ]; then
+  MY_IP="$(ipconfig getifaddr en0)"
+fi
 
 ## FUNCTIONS
 
