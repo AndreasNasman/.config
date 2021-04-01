@@ -31,7 +31,7 @@ set relativenumber		" Display relative line numbers.
 set ruler			" Show current row and column.
 set showcmd			" Show partial commands.
 set smartcase			" Match capitalized word exactly when searching.
-set spell			" Enable spell check.
+"set spell			" Enable spell check.
 set spelllang=en_us		" Spell check with English (US).
 set wildmenu			" Improve command-line completion.
 
