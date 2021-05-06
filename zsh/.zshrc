@@ -127,7 +127,7 @@ source $ZSH/oh-my-zsh.sh
 export XDG_CONFIG_HOME="$HOME/.config"
 
 ## Bitwarden
-export BW_SESSION="dbwnuLePcXPD1YUaB37/sJ2+16yQ7b/zG8WUUTF4rgxV9iN0ZrHFiZ8JCYGnhRHEUg3bR90N+QC0Gu9Mro+AFA=="
+export BW_SESSION="vANtdpWhuDP+aUh2i1iEhd1LrcoX7JRWDPynd9S/aaI0oL0R4HCQQA/yZz3R2aH0tpDUpVOjFdoQDvH+LAKiog=="
 
 ## Vim
 export MYVIMRC="$HOME/.config/vim/vimrc"
