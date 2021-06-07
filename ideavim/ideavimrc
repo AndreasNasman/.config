@@ -17,6 +17,9 @@ set visualbell
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default.
 map Y y$
 
+map zC :action CollapseAllRegions<CR>
+map zO :action ExpandAllRegions<CR>
+
 " PLUGINS "
 set commentary
 set easymotion
@@ -43,4 +46,3 @@ nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
-
