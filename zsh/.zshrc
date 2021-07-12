@@ -195,20 +195,40 @@ fi
 
 ## FUNCTIONS
 
-local HIBOX_CENTRE_PATH="/opt/hibox/centre/"
+local HIBOX_CENTRE_PATH="/opt/hibox/centre"
+local HIBOX_REPO_PATH="${HOME}/Projects/Hibox/hiboxcentre"
+
+function gradle_dev_build() {
+  echo '\n📦 Running `devBuild` with Gradle'
+  "${HIBOX_REPO_PATH}/gradlew" -p "${HIBOX_REPO_PATH}"
+}
 
 function tomcat_kill() {
-  echo "Forcefully shutting down all Tomcat instances!🙀"
+  echo '\n🙀 Forcefully shutting down all Tomcat instances'
   pkill -9 -f tomcat
 }
 
-function tomcat_start() {
-  echo "Starting Tomcat...😻"
-  "${HIBOX_CENTRE_PATH}tomcat/bin/startup.sh"
-  tail -f "${HIBOX_CENTRE_PATH}tomcat/logs/catalina.out"
+function tomcat_log() {
+  tail -f "${HIBOX_CENTRE_PATH}/tomcat/logs/catalina.out"
+}
+
+function tomcat_shutdown() {
+  echo '\n😿 Shutting down Tomcat'
+  "${HIBOX_CENTRE_PATH}/tomcat/bin/shutdown.sh"
+}
+
+function tomcat_startup() {
+  echo '\n😻 Starting Tomcat'
+  "${HIBOX_CENTRE_PATH}/tomcat/bin/startup.sh"
+}
+
+function tomcat_restart() {
+  echo '\n😼 Restarting Tomcat'
+  tomcat_shutdown && gradle_dev_build && tomcat_startup
 }
 
 function weinre_start() {
+  echo '\n🌭 Starting Weinre'
   local -r WEINRE_HTTP_PORT=8001
   npx weinre --httpPort=$WEINRE_HTTP_PORT --boundHost=$MY_IP
 }
