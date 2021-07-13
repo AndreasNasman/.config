@@ -1,4 +1,6 @@
 bitwarden-cli
+brightness
+coreutils
 docker
 docker-machine
 ffmpeg
@@ -9,6 +11,8 @@ koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
 n
 pinentry-mac
+ripgrep
 vim
+wget
 yarn
 zsh
