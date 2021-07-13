@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 limelight -m config width            2
 limelight -m config radius           9 # Same as Big Sur on Mac.
 limelight -m config placement        interior
