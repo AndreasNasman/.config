@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/zsh,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=zsh,macos
+# Created by https://www.toptal.com/developers/gitignore/api/macos,zsh
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,zsh
 
 ### macOS ###
 # General
@@ -42,8 +42,8 @@ Temporary Items
 .zcalc_history
 
 # A popular plugin manager's files
-._zplugin
-.zplugin_lstupd
+._zinit
+.zinit_lstupd
 
 # zdharma/zshelldoc tool's files
 zsdoc/data
@@ -60,9 +60,9 @@ zsdoc/data
 /tests/_output/*
 !/tests/_output/.gitkeep
 
-# End of https://www.toptal.com/developers/gitignore/api/zsh,macos
+# End of https://www.toptal.com/developers/gitignore/api/macos,zsh
 
-# Other
+### Other ###
 /configstore
 /gh
 /iterm2

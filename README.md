@@ -6,7 +6,7 @@ To properly link all files in the directories, these local files should be confi
 
 ```shell
 [include]
-	path = ~/.config/git/gitconfig
+    path = ~/.config/git/gitconfig
 ```
 
 `~/.zshenv`
@@ -14,3 +14,4 @@ To properly link all files in the directories, these local files should be confi
 ```shell
 export ZDOTDIR="$HOME/.config/zsh"
 ```
+
