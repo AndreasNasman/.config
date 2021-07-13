@@ -1,5 +1,6 @@
 let mapleader = " "
 
+set ReplaceWithRegister
 set clipboard+=unnamed
 set hlsearch
 set ideajoin
@@ -8,7 +9,6 @@ set incsearch
 set matchpairs+=<:>
 set number
 set relativenumber
-set ReplaceWithRegister
 set showmode
 set smartcase
 set timeout=off
@@ -46,3 +46,4 @@ nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
+
