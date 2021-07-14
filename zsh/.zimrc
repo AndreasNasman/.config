@@ -1,0 +1,54 @@
+# Start configuration added by Zim install {{{
+# -------
+# Modules
+# -------
+
+# Sets sane Zsh built-in environment options.
+zmodule environment
+# Provides handy git aliases and functions.
+zmodule git
+# Applies correct bindkeys for input events.
+zmodule input
+# Sets a custom terminal title.
+zmodule termtitle
+# Utility aliases and functions. Adds colour to ls, grep and less.
+zmodule utility
+
+#
+# Prompt
+#
+# Exposes to prompts how long the last command took to execute, used by asciiship.
+zmodule duration-info
+# Exposes git repository status information to prompts, used by asciiship.
+zmodule git-info
+# A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
+zmodule asciiship
+
+# Additional completion definitions for Zsh.
+zmodule zsh-users/zsh-completions
+# Enables and configures smart and extensive tab completion.
+# completion must be sourced after zsh-users/zsh-completions
+zmodule completion
+# Fish-like autosuggestions for Zsh.
+zmodule zsh-users/zsh-autosuggestions
+# Fish-like syntax highlighting for Zsh.
+# zsh-users/zsh-syntax-highlighting must be sourced after completion
+zmodule zsh-users/zsh-syntax-highlighting
+# Fish-like history search (up arrow) for Zsh.
+# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+
+#
+# Personal
+#
+# A Zsh theme
+# Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience.
+zmodule romkatv/powerlevel10k
+# 🚀 Jump to custom directories in zsh
+# wd (warp directory) lets you jump to custom directories in zsh, without using cd. Why? Because cd seems inefficient when the folder is frequently visited or has a long path.
+zmodule danielporto/wd -s 'wd.plugin.zsh' -f '.'
+# 🐣 zsh plugin to cache eval loads to improve shell startup time
+# zsh plugin to cache the output of a binary initialization command, intended to help lower shell startup time.
+zmodule mroth/evalcache
+# }}} End configuration added by Zim install
+

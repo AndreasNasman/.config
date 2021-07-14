@@ -67,5 +67,7 @@ zsdoc/data
 /gh
 /iterm2
 /yarn
+.zim/
+.zcompcache
 .zsh_history
 
