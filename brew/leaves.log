@@ -4,6 +4,7 @@ coreutils
 docker
 docker-machine
 ffmpeg
+fzf
 gh
 git
 gnupg

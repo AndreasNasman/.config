@@ -166,6 +166,13 @@ export MYVIMRC="$HOME/.config/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
 
 
+# ---
+# fzf
+# ---
+
+[ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
+
+
 # --------------
 # Configurations
 # --------------
