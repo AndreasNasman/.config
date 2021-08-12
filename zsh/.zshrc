@@ -290,7 +290,7 @@ function tomcat_startup() {
 
 function tomcat_restart() {
   echo '\n😼 Restarting Tomcat'
-  tomcat_shutdown && gradle_dev_build && tomcat_startup
+  eval_jenv && tomcat_shutdown && gradle_dev_build && tomcat_startup
 }
 
 function weinre_start() {
