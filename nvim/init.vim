@@ -10,6 +10,10 @@ packadd! dracula_pro
 let g:dracula_colorterm = 0
 colorscheme dracula_pro
 
+if !exists('g:started_by_firenvim')
+  source $XDG_CONFIG_HOME/nvim/vim-plug/plugins.vim
+endif
+
 " -------
 " Options
 " -------
