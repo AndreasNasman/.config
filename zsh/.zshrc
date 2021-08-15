@@ -30,6 +30,12 @@ bindkey -v
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
+# -----------------
+# Zim configuration
+# -----------------
+
+# Use degit instead of git as the default tool to install and update modules.
+#zstyle ':zim:zmodule' use 'degit'
 
 # --------------------
 # Module configuration
@@ -123,6 +129,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
 
+
 # ------------- #
 
 # *************
@@ -143,6 +150,13 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/powerlevel10k/p10k.zsh.
 [[ ! -f ~/.config/powerlevel10k/p10k.zsh ]] || source ~/.config/powerlevel10k/p10k.zsh
+
+
+# -------
+# Aliases
+# -------
+
+alias vim="nvim"
 
 
 # ---------
