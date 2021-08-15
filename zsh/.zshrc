@@ -176,8 +176,9 @@ export PATH="/usr/local/sbin:${XDG_CONFIG_HOME}/bin:$PATH"
 # Vim
 #
 
-export MYVIMRC="$HOME/.config/vim/vimrc"
-export VIMINIT="source $MYVIMRC"
+# NOTE: Also affects which config file NeoVim will use.
+#export MYVIMRC="$HOME/.config/vim/vimrc"
+#export VIMINIT="source $MYVIMRC"
 
 
 # ---
