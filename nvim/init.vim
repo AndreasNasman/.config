@@ -1,24 +1,4 @@
 " -------
-" Plugins
-" -------
-
-"
-" Dracula Pro
-"
-
-packadd! dracula_pro
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
-
-if exists("g:started_by_firenvim")
-  "source $XDG_CONFIG_HOME/nvim/firenvim/firenvim.vim
-  source ~/.config/nvim/firenvim/firenvim.vim
-else
-  source $XDG_CONFIG_HOME/nvim/vim-plug/plugins.vim
-endif
-
-
-" -------
 " Options
 " -------
 
@@ -41,7 +21,7 @@ set smartindent       " Enable smart auto indenting on new lines.
 "
 
 set expandtab            " Use space characters instead of tabs.
-let spaces = 2
+let spaces=2
 let &shiftwidth=spaces  " Set how many spaces an (auto)indent is.
 let &softtabstop=spaces " Fine tune amount of white space to insert and delete when using <BS>.
 let &tabstop=spaces     " Set whitespace width of a tab character.
@@ -59,4 +39,32 @@ let mapleader = " "
 " ----------
 
 map Y y$
+
+
+" -------
+" Plugins
+" -------
+
+source ~/.config/nvim/vim-plug/plugins.vim
+
+"
+" Dracula Pro
+"
+
+packadd! dracula_pro
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+
+
+" -----
+" Other
+" -----
+
+"
+" Firenvim
+"
+
+if exists("g:started_by_firenvim")
+  source ~/.config/nvim/firenvim/firenvim.vim
+endif
 
