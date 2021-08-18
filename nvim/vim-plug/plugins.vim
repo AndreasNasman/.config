@@ -7,8 +7,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
   " Embed Neovim in your browser.
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+  " Multiple cursors plugin for vim/neovim
+  Plug 'mg979/vim-visual-multi'
+
   " repeat.vim: enable repeating supported plugin maps with "."
   Plug 'tpope/vim-repeat'
+
   " surround.vim: quoting/parenthesizing made simple
   Plug 'tpope/vim-surround'
 call plug#end()
