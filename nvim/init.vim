@@ -1,4 +1,19 @@
 " -------
+" Plugins
+" -------
+
+source ~/.config/nvim/vim-plug/plugins.vim
+
+"
+" Dracula Pro
+"
+
+packadd! dracula_pro
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+
+
+" -------
 " Options
 " -------
 
@@ -31,7 +46,7 @@ let &tabstop=spaces     " Set whitespace width of a tab character.
 " Mappings
 " --------
 
-let mapleader = " "
+let mapleader = "\<Space>"
 
 
 " ----------
@@ -39,21 +54,6 @@ let mapleader = " "
 " ----------
 
 map Y y$
-
-
-" -------
-" Plugins
-" -------
-
-source ~/.config/nvim/vim-plug/plugins.vim
-
-"
-" Dracula Pro
-"
-
-packadd! dracula_pro
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
 
 
 " -----
