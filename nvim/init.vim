@@ -35,7 +35,7 @@ set smartindent       " Enable smart auto indenting on new lines.
 " Tabs vs. spaces
 "
 
-set expandtab            " Use space characters instead of tabs.
+set expandtab             " Use space characters instead of tabs.
 let spaces = 2
 let &shiftwidth = spaces  " Set how many spaces an (auto)indent is.
 let &softtabstop = spaces " Fine tune amount of white space to insert and delete when using <BS>.
@@ -50,14 +50,20 @@ let &tabstop = spaces     " Set whitespace width of a tab character.
 " Leader
 "
 
-let leader = "\<Space>"
+let leader    = "\<Space>"
 let mapleader = leader
 
 "
 " vim-visual-multi
 "
 
-let g:VM_leader = leader
+let g:VM_leader                     = "<Leader><Leader>"
+
+let g:VM_maps                       = {}
+let g:VM_maps["Add Cursor Down"]    = '<C-j>'
+let g:VM_maps["Add Cursor Up"]      = '<C-k>'
+let g:VM_maps["Select Cursor Down"] = '<M-C-j>'
+let g:VM_maps["Select Cursor Up"]   = '<M-C-k>'
 
 
 " ----------
