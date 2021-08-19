@@ -43,7 +43,7 @@ set wrap
 let g:dont_write = v:false
 function! My_Write(timer) abort
   let g:dont_write = v:false
-  write
+  silent! write
 endfunction
 
 function! Delay_My_Write() abort
@@ -51,7 +51,7 @@ function! Delay_My_Write() abort
     return
   end
   let g:dont_write = v:true
-  let l:delay = 5000
+  let l:delay = 2500
   call timer_start(l:delay, 'My_Write')
 endfunction
 
