@@ -36,17 +36,28 @@ set smartindent       " Enable smart auto indenting on new lines.
 "
 
 set expandtab            " Use space characters instead of tabs.
-let spaces=2
-let &shiftwidth=spaces  " Set how many spaces an (auto)indent is.
-let &softtabstop=spaces " Fine tune amount of white space to insert and delete when using <BS>.
-let &tabstop=spaces     " Set whitespace width of a tab character.
+let spaces = 2
+let &shiftwidth = spaces  " Set how many spaces an (auto)indent is.
+let &softtabstop = spaces " Fine tune amount of white space to insert and delete when using <BS>.
+let &tabstop = spaces     " Set whitespace width of a tab character.
 
 
 " --------
 " Mappings
 " --------
 
-let mapleader = "\<Space>"
+"
+" Leader
+"
+
+let leader = "\<Space>"
+let mapleader = leader
+
+"
+" vim-visual-multi
+"
+
+let g:VM_leader = leader
 
 
 " ----------
