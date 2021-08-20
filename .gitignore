@@ -62,12 +62,10 @@ zsdoc/data
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,zsh
 
+
 ### Other ###
-/configstore
-/gh
-/iterm2
-/yarn
-.zim/
-.zcompcache
-.zsh_history
+/configstore/
+/gh/
+/iterm2/
+/yarn/
 
