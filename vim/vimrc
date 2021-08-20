@@ -10,8 +10,8 @@
 set nocompatible
 "
 " Extend where to look for e.g. colorschemes.
-set packpath+=~/.config/vim/
-set runtimepath+=~/.config/vim/
+set packpath+=$XDG_CONFIG_HOME/vim/
+set runtimepath+=$XDG_CONFIG_HOME/vim/
 
 " Dracula Pro
 packadd! dracula_pro
