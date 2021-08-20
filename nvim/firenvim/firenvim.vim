@@ -28,6 +28,7 @@ let g:firenvim_config = {
 
 set guifont=JetBrainsMono_Nerd_Font_Mono:h20
 set linebreak
+set spell
 set wrap
 
 
