@@ -5,6 +5,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()
+
+  " ------
+  " Remote
+  " ------
+
   " Embed Neovim in your browser.
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -16,5 +21,14 @@ call plug#begin()
 
   " surround.vim: quoting/parenthesizing made simple
   Plug 'tpope/vim-surround'
+
+
+  " -----
+  " Local
+  " -----
+
+  "🧛 Dark theme for all the things!
+  Plug '~/.config/nvim/plugged/dracula_pro'
+
 call plug#end()
 

@@ -4,13 +4,6 @@
 
 source ~/.config/nvim/vim-plug/plugins.vim
 
-"
-" Dracula Pro
-"
-
-packadd! dracula_pro
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
 
 
 " -------
@@ -30,6 +23,14 @@ set number            " Display line numbers.
 set relativenumber    " Display relative line numbers.
 set smartcase         " Match capitalized word exactly when searching.
 set smartindent       " Enable smart auto indenting on new lines.
+
+"
+" Color scheme
+"
+
+"let g:dracula_colorterm = 0 " Remove gray overlay present in the Dracula Pro theme.
+set termguicolors            " Use GUI-based colors in the terminal (also removes Dracula Pro theme gray overlay).
+colorscheme dracula_pro
 
 "
 " Tabs vs. spaces
