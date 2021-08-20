@@ -12,7 +12,7 @@ To properly link all files in the directories, these local files should be confi
 `~/.zshenv`
 
 ```shell
-export ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR=$HOME/.config/zsh
 source $ZDOTDIR/.zshenv
 ```
 

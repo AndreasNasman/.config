@@ -145,9 +145,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 # General
 #
 
-# Adds `XDG_CONFIG_HOME` variable. Needed for e.g. IntelliJ to find settings for IdeaVim.
+# Add `XDG_CONFIG_HOME` variable. Needed for e.g. IntelliJ to find settings for IdeaVim.
 export XDG_CONFIG_HOME=$HOME/.config
-# Adds `sbin` (used by some programs installed with `brew`) and a custom `bin` directory among the config files to `PATH`.
+# Add `sbin` (used by some programs installed with `brew`) and a custom `bin` directory among the config files to `PATH`.
 export PATH="/usr/local/sbin:${XDG_CONFIG_HOME}/bin:$PATH"
 
 #
@@ -155,7 +155,7 @@ export PATH="/usr/local/sbin:${XDG_CONFIG_HOME}/bin:$PATH"
 #
 
 # NOTE: Also affects which config file NeoVim will use.
-#export MYVIMRC="$HOME/.config/vim/vimrc"
+#export MYVIMRC=$XDG_CONFIG_HOME/vim/vimrc
 #export VIMINIT="source $MYVIMRC"
 
 
@@ -218,7 +218,7 @@ fi
 # Homebrew
 #
 
-# Customizes 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
+# Customize 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
 fpath=( $HOME/.local/share/zsh/site-functions $fpath )
 
 

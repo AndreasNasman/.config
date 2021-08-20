@@ -2,7 +2,7 @@
 " Plugins
 " -------
 
-source ~/.config/nvim/vim-plug/plugins.vim
+source $XDG_CONFIG_HOME/nvim/vim-plug/plugins.vim
 
 
 
@@ -83,6 +83,6 @@ map Y y$
 "
 
 if exists("g:started_by_firenvim")
-  source ~/.config/nvim/firenvim/firenvim.vim
+  source $XDG_CONFIG_HOME/nvim/firenvim/firenvim.vim
 endif
 

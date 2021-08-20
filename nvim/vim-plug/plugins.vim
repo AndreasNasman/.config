@@ -28,7 +28,7 @@ call plug#begin()
   " -----
 
   "🧛 Dark theme for all the things!
-  Plug '~/.config/nvim/plugged/dracula_pro'
+  Plug '$XDG_CONFIG_HOME/nvim/plugged/dracula_pro'
 
 call plug#end()
 
