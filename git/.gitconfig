@@ -6,7 +6,7 @@
 	gpgsign = true
 [core]
 	autocrlf = false
-	editor = vim -c 'set spell'
+	editor = nvim -c 'set spell'
 [init]
 	defaultBranch = main
 [pull]
