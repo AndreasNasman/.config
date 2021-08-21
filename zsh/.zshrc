@@ -150,6 +150,14 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Add `sbin` (used by some programs installed with `brew`) and a custom `bin` directory among the config files to `PATH`.
 export PATH="/usr/local/sbin:${XDG_CONFIG_HOME}/bin:$PATH"
 
+# Use NeoVim as the default editor for programs.
+export VISUAL=nvim
+export EDITOR=$VISUAL
+
+# Use NeoVim as the man page viewer.
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
+
 #
 # Vim
 #
