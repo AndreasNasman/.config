@@ -1,0 +1,3 @@
+#!/bin/zsh
+/usr/local/bin/brightness ${1:-1}
+
