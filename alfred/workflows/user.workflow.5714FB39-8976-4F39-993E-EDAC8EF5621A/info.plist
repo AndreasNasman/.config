@@ -65,7 +65,7 @@
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string>~/.config/bin/full-brightness</string>
+				<string>~/.config/bin/adjust-brightness</string>
 				<key>type</key>
 				<integer>8</integer>
 			</dict>
