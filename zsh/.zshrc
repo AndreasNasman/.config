@@ -142,6 +142,17 @@ bindkey -M vicmd 'j' history-substring-search-down
 # ---------
 
 #
+# Zsh
+#
+
+# Increase history size
+SIZE=1000000000
+export HISTFILESIZE=$SIZE
+export HISTSIZE=$SIZE
+
+setopt EXTENDED_HISTORY # Add timestamp to the commands saved in history.
+
+#
 # General
 #
 
@@ -178,7 +189,10 @@ export MANWIDTH=999
 # Aliases
 # -------
 
-alias vim="nvim"
+alias v.='nvim .'
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
 
 
 # -------------
