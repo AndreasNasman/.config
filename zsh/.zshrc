@@ -145,6 +145,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Zsh
 #
 
+# Edit the command line using your visual editor.
+bindkey -M vicmd ' ' edit-command-line
+
 # Increase history size
 SIZE=1000000000
 export HISTFILESIZE=$SIZE
