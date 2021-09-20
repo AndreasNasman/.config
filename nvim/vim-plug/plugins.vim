@@ -13,6 +13,12 @@ call plug#begin()
   " Embed Neovim in your browser.
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+  " 🌸 A command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+  " fzf ❤️ vim
+  Plug 'junegunn/fzf.vim'
+
   " Multiple cursors plugin for vim/neovim
   Plug 'mg979/vim-visual-multi'
 

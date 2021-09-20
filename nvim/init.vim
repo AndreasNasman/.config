@@ -11,6 +11,12 @@ source $XDG_CONFIG_HOME/nvim/vim-plug/plugins.vim
 " -------
 
 "
+" Lua
+"
+
+au TextYankPost * silent! lua vim.highlight.on_yank()
+
+"
 " General
 "
 
@@ -70,6 +76,11 @@ let g:VM_maps["Select Cursor Up"]   = '<M-C-k>'
 " ----------
 " Remappings
 " ----------
+
+nnoremap <Leader>h :nohlsearch<CR>
+nnoremap <Leader>os :Sexplore<CR>
+nnoremap <Leader>ov :Vexplore<CR>
+nnoremap <leader>s :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 map Y y$
 
