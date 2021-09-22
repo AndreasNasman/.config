@@ -19,8 +19,23 @@ call plug#begin()
   " fzf ❤️ vim
   Plug 'junegunn/fzf.vim'
 
+  " Vim plugin: Text objects for entire buffer
+  Plug 'kana/vim-textobj-entire'
+
+  " Vim plugin: Create your own text objects
+  Plug 'kana/vim-textobj-user'
+
   " Multiple cursors plugin for vim/neovim
   Plug 'mg979/vim-visual-multi'
+
+  " Easy text exchange operator for Vim
+  Plug 'tommcdo/vim-exchange'
+
+  " commentary.vim: comment stuff out
+  Plug 'tpope/vim-commentary'
+
+  " fugitive.vim: A Git wrapper so awesome, it should be illegal
+  Plug 'tpope/vim-fugitive'
 
   " repeat.vim: enable repeating supported plugin maps with "."
   Plug 'tpope/vim-repeat'
