@@ -149,7 +149,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M vicmd ' ' edit-command-line
 
 # Increase history size
-SIZE=1000000000
+local SIZE=1000000000
 export HISTFILESIZE=$SIZE
 export HISTSIZE=$SIZE
 
@@ -161,8 +161,6 @@ setopt EXTENDED_HISTORY # Add timestamp to the commands saved in history.
 
 # Add `XDG_CONFIG_HOME` variable. Needed for e.g. IntelliJ to find settings for IdeaVim.
 export XDG_CONFIG_HOME=$HOME/.config
-# Add `sbin` (used by some programs installed with `brew`) and a custom `bin` directory among the config files to `PATH`.
-export PATH="/usr/local/sbin:${XDG_CONFIG_HOME}/bin:$PATH"
 
 # Use NeoVim as the default editor for programs.
 export VISUAL=nvim
@@ -178,7 +176,7 @@ export MANWIDTH=999
 
 # NOTE: Also affects which config file NeoVim will use.
 #export MYVIMRC=$XDG_CONFIG_HOME/vim/vimrc
-#export VIMINIT="source $MYVIMRC"
+#export VIMINIT=source $MYVIMRC
 
 
 # ---
@@ -234,7 +232,7 @@ fi
 
 # jenv
 if command -v jenv > /dev/null 2>&1; then
-  export PATH="$HOME/.jenv/bin:$PATH"
+  export PATH=$HOME/.jenv/bin:$PATH
   _evalcache jenv init -
 fi
 '
@@ -246,6 +244,21 @@ fi
 # Customize 'fpath' to prefer Zsh's own git completion (with a symlink) to the one `brew install git` does.
 fpath=( $HOME/.local/share/zsh/site-functions $fpath )
 
+#
+# n
+#
+
+# Customize `n` install location to avoid hazzle with `brew` (`brew doctor` specifically).
+export N_PREFIX=$XDG_CONFIG_HOME/n
+
+#
+# Binary executables
+#
+
+local S_BIN=/usr/local/sbin # (system binaries, used by some programs installed with `brew`)
+local N_BIN=$N_PREFIX/bin
+local CUSTOM_BIN=$XDG_CONFIG_HOME/bin
+export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$PATH
 
 # ---------
 # Functions
@@ -264,7 +277,7 @@ function eval_docker() {
 }
 
 function eval_jenv() {
-  export PATH="$HOME/.jenv/bin:$PATH"
+  export PATH=$HOME/.jenv/bin:$PATH
   _evalcache jenv init -
 }
 
@@ -290,10 +303,10 @@ function time_zsh() {
 # ---------
 
 # Docking station
-MY_IP="$(ipconfig getifaddr en10)"
-if [ -z "$MY_IP" ]; then
+export MY_IP=$(ipconfig getifaddr en10)
+if [ -z $MY_IP ]; then
   # Wi-Fi
-  MY_IP="$(ipconfig getifaddr en0)"
+  export MY_IP=$(ipconfig getifaddr en0)
 fi
 
 
@@ -301,12 +314,12 @@ fi
 # Functions
 # ---------
 
-local HIBOX_CENTRE_PATH="/opt/hibox/centre"
-local HIBOX_REPO_PATH="${HOME}/Projects/Hibox/hiboxcentre"
+local HIBOX_CENTRE_PATH='/opt/hibox/centre'
+local HIBOX_REPO_PATH=$HOME/Projects/Hibox/hiboxcentre
 
 function gradle_dev_build() {
   echo '\n📦 Running `devBuild` with Gradle'
-  "${HIBOX_REPO_PATH}/gradlew" -p "${HIBOX_REPO_PATH}"
+  $HIBOX_REPO_PATH/gradlew -p $HIBOX_REPO_PATH devBuild
 }
 
 function tomcat_kill() {
@@ -315,17 +328,17 @@ function tomcat_kill() {
 }
 
 function tomcat_log() {
-  tail -f "${HIBOX_CENTRE_PATH}/tomcat/logs/catalina.out"
+  tail -f $HIBOX_CENTRE_PATH/tomcat/logs/catalina.out
 }
 
 function tomcat_shutdown() {
   echo '\n😿 Shutting down Tomcat'
-  "${HIBOX_CENTRE_PATH}/tomcat/bin/shutdown.sh"
+  $HIBOX_CENTRE_PATH/tomcat/bin/shutdown.sh
 }
 
 function tomcat_startup() {
   echo '\n😻 Starting Tomcat'
-  "${HIBOX_CENTRE_PATH}/tomcat/bin/startup.sh"
+  $HIBOX_CENTRE_PATH/tomcat/bin/startup.sh
 }
 
 function tomcat_restart() {
@@ -335,7 +348,7 @@ function tomcat_restart() {
 
 function weinre_start() {
   echo '\n🌭 Starting Weinre'
-  local -r WEINRE_HTTP_PORT=8001
+  local WEINRE_HTTP_PORT=8001
   npx weinre --httpPort=$WEINRE_HTTP_PORT --boundHost=$MY_IP
 }
 
