@@ -48,6 +48,12 @@ let &shiftwidth = spaces  " Set how many spaces an (auto)indent is.
 let &softtabstop = spaces " Fine tune amount of white space to insert and delete when using <BS>.
 let &tabstop = spaces     " Set whitespace width of a tab character.
 
+"
+" Language
+"
+
+" Currently, language is not properly set to `en_US` unless you explicitly set it.
+language en_US.UTF-8
 
 " --------
 " Mappings
