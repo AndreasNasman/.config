@@ -195,6 +195,9 @@ alias v=nvim
 alias vi=nvim
 alias vim=nvim
 
+alias vf.='vifm .'
+alias vf=vifm
+
 
 # -------------
 # Powerlevel10k
@@ -259,6 +262,7 @@ local S_BIN=/usr/local/sbin # (system binaries, used by some programs installed 
 local N_BIN=$N_PREFIX/bin
 local CUSTOM_BIN=$XDG_CONFIG_HOME/bin
 export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$PATH
+
 
 # ---------
 # Functions
