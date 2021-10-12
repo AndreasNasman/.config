@@ -63,7 +63,7 @@ au TextChangedI * ++nested call Delay_My_Write()
 " Fullscreen toggle
 "
 
-nnoremap <leader>f :call FullscreenToggle()<CR>
+nnoremap <leader>fs :call FullscreenToggle()<CR>
 
 let g:in_fullscreen = v:false
 function! FullscreenToggle()

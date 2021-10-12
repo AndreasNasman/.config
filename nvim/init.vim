@@ -5,7 +5,6 @@
 source $XDG_CONFIG_HOME/nvim/vim-plug/plugins.vim
 
 
-
 " -------
 " Options
 " -------
@@ -24,9 +23,11 @@ set clipboard=unnamed " Sync NeoVim and system clipboards (register `"*` on macO
 set confirm           " Raise a dialogue asking if you wish to e.g. save changed files.
 set ignorecase        " Use case insensitive search.
 set incsearch         " Incrementally match searches.
+set noshowmode        " Disable showing mode message, `vim-airline` plugin handles it.
 set nowrap            " Disable wrapping of text.
 set number            " Display line numbers.
 set relativenumber    " Display relative line numbers.
+set report=0          " Always show reporting number of lines changed.
 set smartcase         " Match capitalized word exactly when searching.
 set smartindent       " Enable smart auto indenting on new lines.
 
@@ -86,7 +87,8 @@ let g:VM_maps["Select Cursor Up"]   = '<M-C-k>'
 nnoremap <Leader>h :nohlsearch<CR>
 nnoremap <Leader>os :Sexplore<CR>
 nnoremap <Leader>ov :Vexplore<CR>
-nnoremap <leader>s :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>so :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 map Y y$
 
@@ -102,4 +104,23 @@ map Y y$
 if exists("g:started_by_firenvim")
   source $XDG_CONFIG_HOME/nvim/firenvim/firenvim.vim
 endif
+
+"
+" vim-airline
+"
+
+let g:airline_powerline_fonts = 1
+
+"
+" EasyMotion
+"
+
+" Coloring.
+hi link EasyMotionTarget Search
+hi link EasyMotionShade None
+hi link EasyMotionTarget2First ErrorMsg
+hi link EasyMotionTarget2Second ErrorMsg
+
+" Remaps.
+" nmap <C-;> <Plug>(easymotion-s) " Mapping `<C-;>` doesn't work.
 
