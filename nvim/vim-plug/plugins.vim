@@ -10,6 +10,9 @@ call plug#begin()
   " Remote
   " ------
 
+  " Vim motions on speed!
+  Plug 'easymotion/vim-easymotion'
+
   " Embed Neovim in your browser.
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -43,6 +46,8 @@ call plug#begin()
   " surround.vim: quoting/parenthesizing made simple
   Plug 'tpope/vim-surround'
 
+  " lean & mean status/tabline for vim that's light as air
+  Plug 'vim-airline/vim-airline'
 
   " -----
   " Local
