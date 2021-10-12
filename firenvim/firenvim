@@ -2,7 +2,7 @@
 mkdir -p /var/folders/6j/vpp223l55q5c084fstmlhbv40000gn/T//firenvim
 chmod 700 /var/folders/6j/vpp223l55q5c084fstmlhbv40000gn/T//firenvim
 cd /var/folders/6j/vpp223l55q5c084fstmlhbv40000gn/T//firenvim
-export PATH="$PATH:/usr/local/sbin:/Users/andreasnasman/.config/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/fzf/bin"
+export PATH="$PATH:/usr/local/sbin:/Users/andreasnasman/.config/n/bin:/Users/andreasnasman/.config/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/fzf/bin"
 unset NVIM_LISTEN_ADDRESS
 if [ -n "$VIM" ] && [ ! -d "$VIM" ]; then
   unset VIM
@@ -13,4 +13,3 @@ fi
 
 export XDG_CONFIG_HOME=$HOME/.config
 exec '/usr/local/bin/nvim' --headless --cmd 'let g:started_by_firenvim = v:true' -c 'call firenvim#run()'
-
