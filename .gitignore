@@ -66,6 +66,7 @@ zsdoc/data
 ### Other ###
 /configstore/
 /gh/
+/git-chain
 /iterm2/
 /n/
 /yarn/
