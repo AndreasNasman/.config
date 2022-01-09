@@ -190,6 +190,8 @@ export MANWIDTH=999
 # Aliases
 # -------
 
+alias rm='rm -i'
+
 alias v.='nvim .'
 alias v=nvim
 alias vi=nvim
