@@ -87,7 +87,7 @@ let g:VM_maps["Select Cursor Up"]   = '<M-C-k>'
 nnoremap <Leader>h :nohlsearch<CR>
 nnoremap <Leader>os :Sexplore<CR>
 nnoremap <Leader>ov :Vexplore<CR>
-nnoremap <leader>s :w<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>so :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 map Y y$
