@@ -13,6 +13,7 @@ let g:firenvim_config = {
         \ '.*': {
             \ 'cmdline': 'neovim',
             \ 'takeover': 'never',
+            \ 'filename': '{hostname%32}_{pathname%32}_{selector%32}.{extension}',
         \ },
     \ }
 \ }
