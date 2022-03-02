@@ -263,7 +263,8 @@ export N_PREFIX=$XDG_CONFIG_HOME/n
 local S_BIN=/usr/local/sbin # (system binaries, used by some programs installed with `brew`)
 local N_BIN=$N_PREFIX/bin
 local CUSTOM_BIN=$XDG_CONFIG_HOME/bin
-export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$PATH
+local HIBOX_BIN=$XDG_CONFIG_HOME/bin/hibox
+export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$HIBOX_BIN:$PATH
 
 
 # ---------
