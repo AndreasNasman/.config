@@ -1,0 +1,21 @@
+#!/usr/bin/env zx
+
+$.verbose = false;
+
+const issueNumber = Number(process.argv[3]);
+
+if (!issueNumber) {
+  console.error("Please provide a valid issue number!");
+  process.exit();
+}
+
+cd("/Users/andreasnasman/Projects/Hibox/hiboxcentre");
+
+const titleLine = (await $`glab issue view ${issueNumber} | grep title`).stdout;
+const title = titleLine.split("\t")[1].trim().toLowerCase().replace(/ /g, "-");
+
+const branchName = `${issueNumber}-${title}`;
+
+await $`git fetch upstream master`; # Fetch newest upstream/master.
+await $`git push origin upstream/master:master`; # Update origin/master based on upstream/master.
+await $`git switch -c ${branchName} origin/master`; # Create branch based on origin/master and track origin.
