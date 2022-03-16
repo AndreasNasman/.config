@@ -16,6 +16,6 @@ const title = titleLine.split("\t")[1].trim().toLowerCase().replace(/ /g, "-");
 
 const branchName = `${issueNumber}-${title}`;
 
-await $`git fetch upstream master`; # Fetch newest upstream/master.
-await $`git push origin upstream/master:master`; # Update origin/master based on upstream/master.
-await $`git switch -c ${branchName} origin/master`; # Create branch based on origin/master and track origin.
+await $`git fetch upstream master`; // Fetch newest upstream/master.
+await $`git push origin upstream/master:master`; // Update origin/master based on upstream/master.
+await $`git switch -c ${branchName} origin/master --no-track`; // Create branch based on origin/master but don't track anything.
