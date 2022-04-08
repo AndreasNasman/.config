@@ -230,11 +230,6 @@ if command -v bw > /dev/null 2>&1; then
   _evalcache bw completion --shell zsh; compdef _bw bw;
 fi
 
-# Docker
-if command -v docker-machine > /dev/null 2>&1; then
-  _evalcache docker-machine env default
-fi
-
 # jenv
 if command -v jenv > /dev/null 2>&1; then
   export PATH=$HOME/.jenv/bin:$PATH
@@ -277,10 +272,6 @@ export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$HIBOX_BIN:$PATH
 
 function eval_bitwarden() {
   _evalcache bw completion --shell zsh; compdef _bw bw;
-}
-
-function eval_docker() {
-  _evalcache docker-machine env default
 }
 
 function eval_jenv() {
