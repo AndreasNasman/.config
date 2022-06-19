@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+node --no-warnings main.mjs $@
