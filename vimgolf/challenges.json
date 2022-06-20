@@ -38,5 +38,10 @@
     "id": "4d1a6bafb8cb34093200008e",
     "name": "Wrap the text of an email message to 79 characters",
     "score": 5
+  },
+  {
+    "id": "4d1a6ed2b8cb3409320000c9",
+    "name": "Add fold markers to a .c file",
+    "score": 30
   }
 ]
