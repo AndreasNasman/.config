@@ -1,3 +1,20 @@
 #!/bin/zsh
 
-node --no-warnings main.mjs $@
+set -e
+
+VIM_CONFIG_FILE_TO_FIX=/usr/share/vim/vim82/indent/ruby.vim
+VIM_CONFIG_FILE_TO_FIX_BACKUP=/usr/share/vim/vim82/indent/ruby.vim.backup
+#cp $VIM_CONFIG_FILE_TO_FIX $VIM_CONFIG_FILE_TO_FIX_BACKUP
+
+#if [ ! -w $VIM_CONFIG_FILE_TO_FIX ]
+#then
+  #echo 'No write permissions for file!'
+  #sudo chmod +x $VIM_CONFIG_FILE_TO_FIX
+#fi
+
+LOG_FILE='console.log'
+script -qr $LOG_FILE node --no-warnings main.mjs $@
+rm -f $LOG_FILE
+
+#mv $VIM_CONFIG_FILE_TO_FIX_BACKUP $VIM_CONFIG_FILE_TO_FIX
+#rm $VIM_CONFIG_FILE_TO_FIX_BACKUP
