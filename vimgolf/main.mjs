@@ -26,10 +26,13 @@ async function loadChallenge(challenge, repeat = false) {
     encoding: "utf8",
     flag: "r",
   });
-  const scoreLine = logFile
-    .split("\r\n")
-    .reverse()
-    .find((line) => line.includes("Your score"));
+
+  const latestLines = logFile.split("\r\n").reverse();
+
+  const choiceLine = latestLines.find((line) => line.includes("Choice"));
+  if (choiceLine.toLowerCase().match(/x|q/)) return;
+
+  const scoreLine = latestLines.find((line) => line.includes("Your score"));
 
   if (scoreLine.toLowerCase().includes("fail")) return;
   else if (scoreLine.toLowerCase().includes("success")) {
@@ -52,8 +55,15 @@ async function loadChallenge(challenge, repeat = false) {
 }
 
 async function playAllChallenges() {
-  if (args.includes("--random")) challenges.sort(() => 0.5 - Math.random());
-  for (const challenge of challenges) {
+  let relevantChallenges = [...challenges];
+  if (args.includes("--random"))
+    relevantChallenges.sort(() => 0.5 - Math.random());
+  if (args.includes("--noteworthy"))
+    relevantChallenges = relevantChallenges.filter(
+      (challenge) => challenge.noteworthy
+    );
+
+  for (const challenge of relevantChallenges) {
     await loadChallenge(challenge);
   }
 }
