@@ -200,7 +200,6 @@ alias vim=nvim
 alias vf.='vifm .'
 alias vf=vifm
 
-
 # -------------
 # Powerlevel10k
 # -------------
@@ -229,12 +228,6 @@ fi
 if command -v bw > /dev/null 2>&1; then
   _evalcache bw completion --shell zsh; compdef _bw bw;
 fi
-
-# jenv
-if command -v jenv > /dev/null 2>&1; then
-  export PATH=$HOME/.jenv/bin:$PATH
-  _evalcache jenv init -
-fi
 '
 
 #
@@ -259,7 +252,9 @@ local S_BIN=/usr/local/sbin # (system binaries, used by some programs installed 
 local N_BIN=$N_PREFIX/bin
 local CUSTOM_BIN=$XDG_CONFIG_HOME/bin
 local HIBOX_BIN=$XDG_CONFIG_HOME/bin/hibox
-export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$HIBOX_BIN:$PATH
+local GNU_BIN=/usr/local/opt/grep/libexec/gnubin
+local GNU_GETOPT_BIN=/usr/local/opt/gnu-getopt/bin
+export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$HIBOX_BIN:$GNU_BIN:$GNU_GETOPT_BIN:$PATH
 
 
 # ---------
@@ -272,11 +267,6 @@ export PATH=$S_BIN:$N_BIN:$CUSTOM_BIN:$HIBOX_BIN:$PATH
 
 function eval_bitwarden() {
   _evalcache bw completion --shell zsh; compdef _bw bw;
-}
-
-function eval_jenv() {
-  export PATH=$HOME/.jenv/bin:$PATH
-  _evalcache jenv init -
 }
 
 #
@@ -301,7 +291,7 @@ function time_zsh() {
 # ---------
 
 # Docking station
-export MY_IP=$(ipconfig getifaddr en10)
+export MY_IP=$(ipconfig getifaddr en6)
 if [ -z $MY_IP ]; then
   # Wi-Fi
   export MY_IP=$(ipconfig getifaddr en0)
@@ -341,7 +331,7 @@ function tomcat_startup() {
 
 function tomcat_restart() {
   echo '\n😼 Restarting Tomcat'
-  eval_jenv && tomcat_shutdown && gradle_dev_build && tomcat_startup
+  tomcat_shutdown && gradle_dev_build && tomcat_startup
 }
 
 function weinre_start() {
