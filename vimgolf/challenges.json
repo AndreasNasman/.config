@@ -1,65 +1,47 @@
 [
   {
     "id": "4d1a1c36567bac34a9000002",
-    "name": "Reformat/Refactor a Golfer Class",
     "noteworthy": true,
-    "revised": false,
-    "score": 32
+    "revised": false
   },
   {
     "id": "4d1a34ccfa85f32065000004",
-    "name": "Simple text editing with Vim",
     "noteworthy": true,
-    "revised": true,
-    "score": 13
+    "revised": true
   },
   {
     "id": "4d1a4d82a860b7447200008d",
-    "name": "Whitespace, empty lines and tabs",
     "noteworthy": true,
-    "revised": true,
-    "score": 16
+    "revised": true
   },
   {
     "id": "4d1a4f2ba860b744720000bf",
-    "name": "Flodder-challenge",
     "noteworthy": false,
-    "revised": true,
-    "score": 27
+    "revised": true
   },
   {
     "id": "4d1a522ea860b7447200010b",
-    "name": "Braces or Brackets?",
     "noteworthy": false,
-    "revised": true,
-    "score": 34
+    "revised": true
   },
   {
     "id": "4d1a5275a860b74472000110",
-    "name": "Sort and add attributes",
     "noteworthy": true,
-    "revised": true,
-    "score": 33
+    "revised": true
   },
   {
     "id": "4d1a6a8eb8cb34093200007a",
-    "name": "Reconstruct the Sentence",
     "noteworthy": true,
-    "revised": true,
-    "score": 20
+    "revised": true
   },
   {
     "id": "4d1a6bafb8cb34093200008e",
-    "name": "Wrap the text of an email message to 79 characters",
     "noteworthy": true,
-    "revised": true,
-    "score": 5
+    "revised": true
   },
   {
     "id": "4d1a6ed2b8cb3409320000c9",
-    "name": "Add fold markers to a .c file",
     "noteworthy": true,
-    "revised": true,
-    "score": 30
+    "revised": false
   }
 ]
