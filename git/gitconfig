@@ -1,0 +1,13 @@
+[branch]
+	autosetuprebase = always
+[commit]
+	gpgsign = true
+[core]
+	autocrlf = false
+	editor = nvim -c 'set spell'
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	default = current
