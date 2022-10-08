@@ -21,6 +21,10 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Search history with <C-r>.
+# https://unix.stackexchange.com/a/30169
+bindkey '^R' history-incremental-pattern-search-backward
+
 # Aliases
 alias l='ls -al'
 alias ll='ls -al'
