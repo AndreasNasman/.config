@@ -41,6 +41,10 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
+# Path
+CONFIG_BIN=$XDG_CONFIG_HOME/bin
+export PATH=$CONFIG_BIN:$PATH
+
 # Neovim
 
 ## https://wiki.archlinux.org/title/environment_variables#Default_programs
