@@ -2,7 +2,7 @@
 HISTFILE=$XDG_STATE_HOME/zsh/history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
-setopt autocd beep extendedglob nomatch notify
+setopt autocd beep extendedglob hist_ignore_all_dups nomatch notify share_history
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
