@@ -51,3 +51,17 @@ export VISUAL=nvim
 ## `:h :Man`
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
+
+# GnuPG
+
+# Make `gpg-agent` cache SSH keys.
+# https://wiki.archlinux.org/title/GnuPG#Set_SSH_AUTH_SOCK
+unset SSH_AGENT_PID
+if [ ${gnupg_SSH_AUTH_SOCK_by:-0} -ne $$ ]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
+
+# Required for GPG to work in an X session.
+# https://wiki.archlinux.org/title/GnuPG#Configure_pinentry_to_use_the_correct_TTY
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
