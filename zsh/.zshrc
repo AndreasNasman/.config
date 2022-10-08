@@ -11,3 +11,15 @@ zstyle :compinstall filename '/home/nasse/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Aliases
+alias l='ls -al'
+alias ll='ls -al'
+alias ls='ls -al'
+
+alias rm='rm -i'
+
+alias v.='nvim .'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
