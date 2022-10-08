@@ -65,3 +65,7 @@ fi
 # https://wiki.archlinux.org/title/GnuPG#Configure_pinentry_to_use_the_correct_TTY
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Cambri
+CAMBRI_BIN=$HOME/Cambri/bin
+export PATH=$CAMBRI_BIN:$PATH
