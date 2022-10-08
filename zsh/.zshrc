@@ -15,6 +15,10 @@ autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
+# Case-insensitive completion, partial-word completion (case-sensitively), substring completion.
+# https://zsh.sourceforge.io/Guide/zshguide06.html#l170
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 # Edit the command line using your visual editor.
 # https://unix.stackexchange.com/a/6622
 autoload edit-command-line
