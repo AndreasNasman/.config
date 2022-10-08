@@ -44,4 +44,6 @@ setxkbmap eu -option caps:escape
 eval $(ssh-agent)
 
 # Load xmonad tiling window manager.
-exec xmonad
+# https://xmonad.org/INSTALL.html#dont-recompile-on-every-startup
+# https://wiki.archlinux.org/title/xmonad#Problems_with_finding_shared_libraries_after_update
+exec $XDG_CACHE_HOME/xmonad/xmonad-x86_64-linux
