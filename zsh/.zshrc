@@ -23,3 +23,14 @@ alias v.='nvim .'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
+# Neovim
+
+## https://wiki.archlinux.org/title/environment_variables#Default_programs
+export EDITOR=nvim
+export VISUAL=nvim
+
+## Use Neovim as a manpager.
+## `:h :Man`
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
