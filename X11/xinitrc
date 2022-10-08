@@ -38,3 +38,7 @@ fi
 # Map Caps Lock to Escape.
 # https://superuser.com/a/568573
 setxkbmap eu -option caps:escape
+
+# Start `ssh-agent` with each X session.
+# https://wiki.archlinux.org/title/SSH_keys#ssh-agent_as_a_wrapper_program
+eval $(ssh-agent)
