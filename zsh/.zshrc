@@ -15,6 +15,12 @@ autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
+# Edit the command line using your visual editor.
+# https://unix.stackexchange.com/a/6622
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # Aliases
 alias l='ls -al'
 alias ll='ls -al'
