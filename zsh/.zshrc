@@ -9,8 +9,11 @@ bindkey -v
 zstyle :compinstall filename '/home/nasse/.config/zsh/.zshrc'
 
 autoload -Uz compinit
-compinit
 # End of lines added by compinstall
+
+# https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 # Aliases
 alias l='ls -al'
