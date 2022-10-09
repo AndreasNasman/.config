@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<Leader>h",
-  ":set hlsearch!<CR>",
+  ":nohlsearch<CR>",
   { noremap = true, silent = true }
 )
 
