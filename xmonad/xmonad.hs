@@ -4,6 +4,7 @@ import XMonad
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Util.EZConfig
@@ -19,7 +20,7 @@ main = xmonad
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2 -- draculaCyan
+    { ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2  -- draculaCyan
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     , ppHidden          = draculaForeground . wrap " " ""
     , ppHiddenNoWindows = draculaComment . wrap " " ""
@@ -46,11 +47,16 @@ myXmobarPP = def
     draculaYellow     = xmobarColor "#f1fa8c" ""
 
 myConfig = def
-    { modMask  = mod4Mask     -- Rebind Mod to the Super key
-    , terminal = "alacritty"
+    { modMask    = mod4Mask      -- Rebind Mod to the Super key
+    , terminal   = "alacritty"
+    , manageHook = myManageHook  -- Match on certain windows
     }
   `additionalKeysP`
-    -- [ ("M-S-z", spawn "xscreensaver-command -lock")
-    [ ("M-C-s", unGrab *> spawn "scrot -s"        )
-    , ("M-f"  , spawn "firefox"                   )
+    [ ("M-C-s", unGrab *> spawn "scrot -s" )
+    , ("M-f"  , spawn "firefox"            )
+    ]
+
+myManageHook :: ManageHook
+myManageHook = composeAll
+    [ isDialog --> doFloat
     ]
