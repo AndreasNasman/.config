@@ -39,6 +39,12 @@ fi
 # https://superuser.com/a/568573
 setxkbmap eu -option caps:escape
 
+# Load a background image using feh.
+feh --no-fehbg --bg-fill '/usr/share/backgrounds/archlinux/wave.png'
+
+# Load xbanish in the background to hide the mouse when the keyboard is used.
+xbanish -m se -i all &
+
 # Start `ssh-agent` with each X session.
 # https://wiki.archlinux.org/title/SSH_keys#ssh-agent_as_a_wrapper_program
 eval $(ssh-agent)
