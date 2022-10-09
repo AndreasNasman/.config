@@ -2,7 +2,7 @@
 
 Config { overrideRedirect = False
        , font     = "xft:iosevka-9"
-       , bgColor  = "#5f5f5f"
+       , bgColor  = "#282a36" -- draculaBackground
        , fgColor  = "#f8f8f2"
        , position = TopW L 90
        , commands = [ Run Weather "EFTU"
