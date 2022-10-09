@@ -17,7 +17,8 @@ zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 # Case-insensitive completion, partial-word completion (case-sensitively), substring completion.
 # https://zsh.sourceforge.io/Guide/zshguide06.html#l170
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# https://unix.stackexchange.com/a/647095
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' 'r:|?=**'
 
 # Edit the command line using your visual editor.
 # https://unix.stackexchange.com/a/6622
