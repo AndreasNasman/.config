@@ -74,6 +74,13 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
   "x",
+  "<Leader>d",
+  "\"_d",
+  { noremap = true }
+)
+
+vim.api.nvim_set_keymap(
+  "x",
   "<Leader>p",
   "\"_dP",
   { noremap = true }
