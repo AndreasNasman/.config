@@ -1,36 +1,25 @@
 -- Based on https://xmonad.org/TUTORIAL.html#configuring-xmobar
 
-Config { overrideRedirect = False
-       , font     = "xft:iosevka-9"
-       , bgColor  = "#282a36" -- draculaBackground
-       , fgColor  = "#f8f8f2"
-       , position = TopW L 90
-       , commands = [ Run Weather "EFTU"
-                        [ "--template", "<weather> <tempC>°C"
-                        , "-L", "0"
-                        , "-H", "25"
-                        , "--low"   , "lightblue"
-                        , "--normal", "#f8f8f2"
-                        , "--high"  , "red"
-                        ] 36000
-                    , Run Cpu
-                        [ "-L", "3"
-                        , "-H", "50"
-                        , "--high"  , "red"
-                        , "--normal", "green"
-                        ] 10
-                    , Run Alsa "default" "Master"
-                        [ "--template", "<volumestatus>"
-                        , "--suffix"  , "True"
-                        , "--"
-                        , "--on", ""
-                        ]
-                    , Run Memory ["--template", "Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
-                    , Run XMonadLog
-                    ]
-       , sepChar  = "%"
-       , alignSep = "}{"
-       , template = "%XMonadLog% }{ %alsa:default:Master% | %cpu% | %memory% * %swap% | %EFTU% | %date% "
+-- See this link for the default config:
+-- https://hackage.haskell.org/package/xmobar-0.44.2/docs/src/Xmobar.App.Config.html#defaultConfig
+
+Config { bgColor     = "#282a36"  -- draculaBackground
+       , border      = BottomB
+       , borderColor = "#6272a4"  -- draculaComment
+       , fgColor     = "#f8f8f2"  -- draculaForeground
+       , font        = "xft:Sans Mono-10"
+       , commands    = [ Run XMonadLog
+                       , Run Date "%A, %B %-e · %X" "date" 10
+                       , Run Alsa "default" "Master" []
+                       , Run Weather "EFTU" [ "--template", "<tempC>°C, <weather>"
+                                            ] 600
+                       , Run Cpu [ "-L", "3"
+                                 , "-H", "50"
+                                 , "--high"  , "#ff5555" -- draculaRed
+                                 , "--normal", "#50fa7b" -- draculaGreen
+                                 ] 10
+                       , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                       ]
+       , position    = TopH 40
+       , template    = "%XMonadLog% } %date% { %alsa:default:Master%| %EFTU% | %cpu% | %memory% "
        }
