@@ -65,8 +65,9 @@ myConfig = def
     , terminal           = "alacritty"
     }
   `additionalKeysP`
-    [ ("M-C-s", unGrab *> spawn "scrot -s" )
-    , ("M-S-f", spawn "firefox"            )
+    [ ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
+    , ("M-C-s", unGrab *> spawn "scrot -s"                 )
+    , ("M-S-f", spawn "firefox"                            )
     ]
 
 myLayout = smartBorders
