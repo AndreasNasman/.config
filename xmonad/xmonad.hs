@@ -58,15 +58,15 @@ draculaPink       = "#ff79c6"
 myConfig = def
     { borderWidth        = 2
     , focusedBorderColor = draculaPink
-    , layoutHook         = myLayout           -- Use custom layouts
-    , manageHook         = myManageHook       -- Match on certain windows
-    , modMask            = mod4Mask           -- Rebind Mod to the Super key
+    , layoutHook         = myLayout      -- Use custom layouts
+    , manageHook         = myManageHook  -- Match on certain windows
+    , modMask            = mod4Mask      -- Rebind Mod to the Super key
     , normalBorderColor  = draculaBackground
     , terminal           = "alacritty"
     }
   `additionalKeysP`
     [ ("M-C-s", unGrab *> spawn "scrot -s" )
-    , ("M-f"  , spawn "firefox"            )
+    , ("M-S-f", spawn "firefox"            )
     ]
 
 myLayout = smartBorders
