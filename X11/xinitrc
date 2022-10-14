@@ -42,6 +42,9 @@ setxkbmap eu -option caps:escape
 # Load a background image using feh.
 feh --no-fehbg --bg-fill '/usr/share/backgrounds/archlinux/wave.png'
 
+# Load picom compositor in the background.
+picom -b
+
 # Load xbanish in the background to hide the mouse when the keyboard is used.
 xbanish -m se -i all &
 
