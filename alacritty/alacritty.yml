@@ -4,7 +4,7 @@
 # Font configuration
 font:
   # Point size
-  size: 16.0
+  size: 14.0
 #
 # Bindings are always filled by default, but will be replaced when a new
 # binding with the same triggers is defined. To unset a default binding, it can
