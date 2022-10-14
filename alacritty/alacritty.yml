@@ -1,20 +1,10 @@
 # See the Alacritty repo for the default config:
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
-# Font configuration
 font:
-  # Point size
   size: 14.0
-#
-# Bindings are always filled by default, but will be replaced when a new
-# binding with the same triggers is defined. To unset a default binding, it can
-# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
-# a no-op if you do not wish to receive input characters for that binding.
-#
-# If the same trigger is assigned to multiple actions, all of them are executed
-# in the order they were defined in.
+
 key_bindings:
-  # Vi Mode
   - { key: Space, mods: Shift|Control, mode: ~Search,    action: None           }
   - { key: V,     mods: Super,         mode: ~Search,    action: ToggleViMode   }
   - { key: 53,    mods: Shift,         mode: Vi|~Search, action: SearchBackward }
