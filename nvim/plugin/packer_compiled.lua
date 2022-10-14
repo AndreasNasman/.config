@@ -99,6 +99,16 @@ _G.packer_plugins = {
     path = "/home/nasse/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  ["vim-textobj-entire"] = {
+    loaded = true,
+    path = "/home/nasse/.local/share/nvim/site/pack/packer/start/vim-textobj-entire",
+    url = "https://github.com/kana/vim-textobj-entire"
+  },
+  ["vim-textobj-user"] = {
+    loaded = true,
+    path = "/home/nasse/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
+    url = "https://github.com/kana/vim-textobj-user"
+  },
   ["vim-unimpaired"] = {
     loaded = true,
     path = "/home/nasse/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
