@@ -100,6 +100,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
+  use 'kana/vim-textobj-entire' -- Vim plugin: Text objects for entire buffer
+  use 'kana/vim-textobj-user' -- Vim plugin: Create your own text objects
   use 'tpope/vim-commentary' -- commentary.vim: comment stuff out
   use 'tpope/vim-fugitive' -- fugitive.vim: A Git wrapper so awesome, it should be illegal
   use 'tpope/vim-repeat' -- repeat.vim: enable repeating supported plugin maps with "."
