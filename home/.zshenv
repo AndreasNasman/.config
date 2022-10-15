@@ -16,8 +16,7 @@ touch $XAUTHORITY
 # xinit
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
-export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
-alias startx="startx $XINITRC -- $XSERVERRC"
+alias startx="startx $XINITRC"
 
 # Zsh
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
