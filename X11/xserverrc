@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Based on `/etc/X11/xinit/xserverrc`.
-
-# https://wiki.archlinux.org/title/xorg#Rootless_Xorg
-# https://wiki.archlinux.org/title/Xinit#xserverrc
-exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
