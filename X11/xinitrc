@@ -48,10 +48,6 @@ picom -b
 # Load xbanish in the background to hide the mouse when the keyboard is used.
 xbanish -m se -i all &
 
-# Start `ssh-agent` with each X session.
-# https://wiki.archlinux.org/title/SSH_keys#ssh-agent_as_a_wrapper_program
-eval $(ssh-agent)
-
 # Load xmonad tiling window manager.
 # https://xmonad.org/INSTALL.html#dont-recompile-on-every-startup
 # https://wiki.archlinux.org/title/xmonad#Problems_with_finding_shared_libraries_after_update

@@ -15,8 +15,10 @@ touch $XAUTHORITY
 
 # xinit
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
+# Start `ssh-agent` with each X session.
+# https://wiki.archlinux.org/title/SSH_keys#ssh-agent_as_a_wrapper_program
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
-alias startx="startx $XINITRC"
+alias startx="ssh-agent startx $XINITRC"
 
 # Zsh
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
