@@ -11,7 +11,7 @@ Config { bgColor     = "#282a36"  -- draculaBackground
        , commands    = [ Run XMonadLog
                        , Run Date "%A, %B %-e · %X" "date" 10
                        , Run Alsa "default" "Master" []
-                       , Run Weather "EFTU" [ "--template", "<tempC>°C, <weather>"
+                       , Run Weather "EFTU" [ "--template", "<tempC>°C"
                                             ] 600
                        , Run Cpu [ "-L", "3"
                                  , "-H", "50"
