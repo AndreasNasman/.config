@@ -94,12 +94,22 @@ vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 -- https://github.com/tpope/vim-fugitive/issues/2057#issuecomment-1260136745
 vim.cmd[[au FileType gitcommit setlocal spell]]
 
+-- firenvim
+vim.g.firenvim_config = {
+  localSettings = {
+    [".*"] = {
+      takeover = "never"
+    }
+  }
+}
+
 -- packer.nvim
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
+  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end } -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
   use 'kana/vim-textobj-entire' -- Vim plugin: Text objects for entire buffer
   use 'kana/vim-textobj-user' -- Vim plugin: Create your own text objects
   use 'tpope/vim-commentary' -- commentary.vim: comment stuff out
