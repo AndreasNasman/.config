@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  firenvim = {
+    loaded = true,
+    path = "/home/nasse/.local/share/nvim/site/pack/packer/start/firenvim",
+    url = "https://github.com/glacambre/firenvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/nasse/.local/share/nvim/site/pack/packer/start/packer.nvim",
