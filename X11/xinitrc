@@ -48,7 +48,8 @@ picom -b
 # Load xbanish in the background to hide the mouse when the keyboard is used.
 xbanish -m se -i all &
 
-# Load xmonad tiling window manager.
+# Load xmonad tiling window manager with dbus enabled.
 # https://xmonad.org/INSTALL.html#dont-recompile-on-every-startup
 # https://wiki.archlinux.org/title/xmonad#Problems_with_finding_shared_libraries_after_update
-exec $XDG_CACHE_HOME/xmonad/xmonad-x86_64-linux
+# https://bbs.archlinux.org/viewtopic.php?id=193851
+exec dbus-launch $XDG_CACHE_HOME/xmonad/xmonad-x86_64-linux
