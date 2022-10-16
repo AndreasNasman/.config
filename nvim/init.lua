@@ -31,7 +31,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<Leader>s",
-  ":source $XDG_CONFIG_HOME/nvim/init.lua<CR>",
+  ":source $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>",
   { noremap = true }
 )
 
@@ -52,7 +52,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<Leader>os",
-  ":edit $XDG_CONFIG_HOME/nvim/init.lua<CR>",
+  ":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>",
   { noremap = true }
 )
 
