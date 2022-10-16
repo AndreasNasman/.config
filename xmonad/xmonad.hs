@@ -71,7 +71,7 @@ myConfig = def
     ]
 
 myLayout = smartBorders
-         $ smartSpacingWithEdge 10
+         $ smartSpacingWithEdge 9  -- Adjust this value if extra whitespace occurs at the bottom of the terminal.
          $ tiled ||| Mirror tiled ||| Full
   where
     tiled   = Tall nmaster delta ratio
