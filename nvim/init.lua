@@ -1,11 +1,9 @@
-vim.cmd([[
-  colorscheme default
-  set clipboard=unnamedplus
-  set ignorecase smartcase
-  set number relativenumber
-  set splitbelow splitright
-  set tabstop=2 shiftwidth=2 expandtab
-]])
+require('nasse.options')
+
+vim.api.nvim_create_user_command('Q', 'q', {})
+vim.api.nvim_create_user_command('W', 'write', {})
+vim.api.nvim_create_user_command('WQ', 'wq', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
 
 vim.g.mapleader = ' '
 
