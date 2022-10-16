@@ -55,6 +55,10 @@ myXmobarPP = def
 draculaBackground = "#282a36"
 draculaPink       = "#ff79c6"
 
+-- https://codeberg.org/xmobar/xmobar/src/branch/master/doc/quick-start.org#headline-24
+xmobarToggleCommand :: String
+xmobarToggleCommand = "dbus-send --session --dest=org.Xmobar.Control --type=method_call '/org/Xmobar/Control' org.Xmobar.Control.SendSignal 'string:Toggle 0'"
+
 myConfig = def
     { borderWidth        = 2
     , focusedBorderColor = draculaPink
@@ -66,6 +70,7 @@ myConfig = def
     }
   `additionalKeysP`
     [ ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
+    , ("M-t"  , spawn (xmobarToggleCommand)                )
     , ("M-C-s", unGrab *> spawn "scrot -s"                 )
     , ("M-S-f", spawn "firefox"                            )
     ]
