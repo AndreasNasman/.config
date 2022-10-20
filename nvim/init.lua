@@ -1,88 +1,11 @@
 require('nasse.options')
+require('nasse.keymaps')
 
 vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_user_command('W', 'write', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 
-vim.g.mapleader = ' '
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>e",
-  ":Explore<CR>",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>h",
-  ":nohlsearch<CR>",
-  { noremap = true, silent = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>l",
-  ":set spell!<CR>",
-  { noremap = true, silent = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>s",
-  ":source $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>w",
-  ":write<CR>",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>oc",
-  ":Explore $XDG_CONFIG_HOME<CR>",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>os",
-  ":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader><C-W>f",
-  "<C-W>_<C-W>|",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader><C-W><C-F>",
-  "<C-W>_<C-W>|",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "x",
-  "<Leader>d",
-  "\"_d",
-  { noremap = true }
-)
-
-vim.api.nvim_set_keymap(
-  "x",
-  "<Leader>p",
-  "\"_dP",
-  { noremap = true }
-)
 
 -- Highlight on yank.
 -- `:h lua-highlight`
