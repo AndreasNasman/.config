@@ -9,9 +9,16 @@ Config { bgColor     = "#282a36"  -- draculaBackground
        , fgColor     = "#f8f8f2"  -- draculaForeground
        , font        = "xft:Sans Mono-10"
        , commands    = [ Run XMonadLog
-                       , Run Battery [ "--template", "Batt: <left>%" ] 10
+                       , Run Battery [ "--template" , "Batt: <left>%"
+                                     , "--Low"      , "10"
+                                     , "--low"      , "#ff5555" -- draculaRed
+                                     ] 10
                        , Run Date "%A, %B %-e · %X" "date" 10
-                       , Run Alsa "default" "Master" []
+                       , Run Alsa "default" "Master" [ "--"
+                                                     , "--on"   , "[on]"    -- `--on` has a trailing space by default.
+                                                     , "--onc"  , "#50fa7b" -- draculaGreen
+                                                     , "--offc" , "#ff5555" -- draculaRed
+                                                     ]
                        , Run Weather "EFTU" [ "--template", "<tempC>°C" ] 600
                        , Run Cpu [ "--Low"   , "3"
                                  , "--High"  , "50"
@@ -21,5 +28,5 @@ Config { bgColor     = "#282a36"  -- draculaBackground
                        , Run Memory [ "--template", "Mem: <usedratio>%" ] 10
                        ]
        , position    = TopH 40
-       , template    = "%XMonadLog% } %date% { %battery% | %alsa:default:Master%| %EFTU% | %cpu% | %memory% "
+       , template    = "%XMonadLog% } %date% { %battery% | %alsa:default:Master% | %EFTU% | %cpu% | %memory% "
        }
