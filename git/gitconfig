@@ -11,3 +11,6 @@
 	rebase = true
 [push]
 	default = current
+[user]
+	name = Andreas Näsman
+	email = andreas.z.nasman@gmail.com

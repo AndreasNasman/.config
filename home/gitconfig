@@ -1,5 +1,2 @@
 [include]
 	path = /home/nasse/.config/git/gitconfig
-[user]
-	name = Andreas Näsman
-	email = andreas.z.nasman@gmail.com
