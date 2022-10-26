@@ -71,6 +71,9 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+# Node.js
+source /usr/share/nvm/init-nvm.sh
+
 # Cambri
 CAMBRI_BIN=$HOME/Cambri/bin
 export PATH=$CAMBRI_BIN:$PATH
