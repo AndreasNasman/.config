@@ -28,5 +28,5 @@ Config { bgColor     = "#282a36"  -- draculaBackground
                        , Run Memory [ "--template", "Mem: <usedratio>%" ] 10
                        ]
        , position    = TopH 40
-       , template    = "%XMonadLog% } %date% { %battery% | %alsa:default:Master% | %EFTU% | %cpu% | %memory% "
+       , template    = "%XMonadLog% } %date% · %EFTU% { %battery% | %alsa:default:Master% | %cpu% | %memory% "
        }
