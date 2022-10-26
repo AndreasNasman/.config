@@ -26,4 +26,4 @@ keymap("n", "<Leader><C-w>f", "<C-w>_<C-w>|", opts)
 
 -- Void delete and paste.
 keymap("v", "<Leader>d", "\"_d", opts)
-keymap("v", "<Leader>p", "\"_dP", opts)
+keymap("v", "<Leader>p", "\"_c<C-r>+<ESC>", opts)
