@@ -1,3 +1,12 @@
+-- https://github.com/wbthomason/packer.nvim#quickstart
+-- `PackerSync` fits my use cases better than `PackerCompile`.
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config.
 
