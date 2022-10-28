@@ -2,7 +2,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- Packer can manage itself
+  use 'wbthomason/packer.nvim' -- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config.
 
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end } -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
   use 'kana/vim-textobj-entire' -- Vim plugin: Text objects for entire buffer
