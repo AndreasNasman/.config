@@ -1,7 +1,7 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- 2. Normal mode.
 
@@ -25,5 +25,5 @@ keymap("n", "<Leader><C-w>f", "<C-w>_<C-w>|", opts)
 -- 3. Visual mode.
 
 -- Void delete and paste.
-keymap("v", "<Leader>d", "\"_d", opts)
-keymap("v", "<Leader>p", "\"_c<C-r>+<ESC>", opts)
+keymap("v", "<Leader>d", '"_d', opts)
+keymap("v", "<Leader>p", '"_c<C-r>+<ESC>', opts)
