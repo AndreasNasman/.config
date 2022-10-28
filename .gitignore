@@ -1,6 +1,10 @@
+# Directories
 Slack/
 dconf/
 google-chrome/
 htop/
 menus/
+nvim/plugin/
+
+# Files
 mimeapps.list
