@@ -1,6 +1,3 @@
--- packer.nvim
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config.
 
