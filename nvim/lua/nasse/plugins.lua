@@ -7,7 +7,7 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim' -- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config.
 
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end } -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
@@ -18,4 +18,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat' -- repeat.vim: enable repeating supported plugin maps with "."
   use 'tpope/vim-surround' -- surround.vim: quoting/parenthesizing made simple
   use 'tpope/vim-unimpaired' -- unimpaired.vim: Pairs of handy bracket mappings
-end)
+end,
+-- https://github.com/wbthomason/packer.nvim#using-a-floating-window
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+  }
+}})
