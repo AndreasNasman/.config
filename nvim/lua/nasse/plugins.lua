@@ -19,6 +19,17 @@ return require("packer").startup({
 			end,
 		})
 		use({
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-path",
+			"hrsh7th/nvim-cmp",
+		})
+		use({
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
+			"saadparwaiz1/cmp_luasnip",
+		})
+		use({
 			"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
 			"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 		})

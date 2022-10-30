@@ -2,6 +2,7 @@ require("nasse.options")
 require("nasse.keymaps")
 require("nasse.plugins")
 require("nasse.colorscheme")
+require("nasse.cmp")
 
 vim.api.nvim_create_user_command("Q", "q", {})
 vim.api.nvim_create_user_command("W", "write", {})
