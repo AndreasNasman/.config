@@ -33,6 +33,7 @@ return require("packer").startup({
 			"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
 			"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 		})
+		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
 		use({
 			"tpope/vim-commentary", -- commentary.vim: comment stuff out
 			"tpope/vim-fugitive", -- fugitive.vim: A Git wrapper so awesome, it should be illegal
