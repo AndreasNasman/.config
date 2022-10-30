@@ -66,7 +66,7 @@ myConfig = def
     , manageHook         = myManageHook  -- Match on certain windows
     , modMask            = mod4Mask      -- Rebind Mod to the Super key
     , normalBorderColor  = draculaBackground
-    , terminal           = "alacritty"
+    , terminal           = "kitty"
     }
   `additionalKeysP`
     [ ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
