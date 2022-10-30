@@ -21,7 +21,7 @@ settings.theme = `
 .sk_theme {
   background-color: var(--dracula-background);
   color: var(--dracula-foreground);
-  font-family: "Fira Mono";
+  font-family: "FiraCode Nerd Font";
 }
 
 .sk_theme input {
