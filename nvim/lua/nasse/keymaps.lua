@@ -11,7 +11,6 @@ keymap("n", "<Leader>s", ":source $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR
 keymap("n", "<Leader>w", ":write<CR>", opts)
 
 -- Toggle options.
-keymap("n", "<Leader>h", ":nohlsearch<CR>", opts)
 keymap("n", "<Leader>l", ":set spell!<CR>", opts)
 
 -- Edit config files.
