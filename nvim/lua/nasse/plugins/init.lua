@@ -3,7 +3,7 @@
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerSync
+    autocmd BufWritePost $XDG_CONFIG_HOME/nvim/lua/nasse/plugins/init.lua source <afile> | PackerSync
   augroup end
 ]])
 
