@@ -7,8 +7,7 @@ vim.g.mapleader = " "
 
 -- Convenience.
 keymap("n", "<Leader>e", ":Explore<CR>", opts)
-keymap("n", "<Leader>s", ":source $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>", opts)
-keymap("n", "<Leader>w", ":write<CR>", opts)
+keymap("n", "<Leader>s", ":write<CR>", opts)
 
 -- Toggle options.
 keymap("n", "<Leader>l", ":set spell!<CR>", opts)

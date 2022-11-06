@@ -28,6 +28,13 @@ require("packer").startup({
 			"saadparwaiz1/cmp_luasnip",
 		})
 
+		-- LSP
+		use({
+			"neovim/nvim-lspconfig",
+			"williamboman/mason-lspconfig.nvim",
+			"williamboman/mason.nvim",
+		})
+
 		-- Text objects
 		use({
 			"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
