@@ -6,6 +6,7 @@ local options = {
 	number = true,
 	relativenumber = true,
 	shiftwidth = 2,
+	signcolumn = "yes",
 	smartcase = true,
 	smartindent = true,
 	splitbelow = true,
