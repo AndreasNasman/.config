@@ -71,12 +71,12 @@ myConfig = def
   `additionalKeysP`
     [ ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
     , ("M-t"  , spawn (xmobarToggleCommand)                )
-    , ("M-C-s", unGrab *> spawn "scrot -s"                 )
+    , ("M-C-s", unGrab *> spawn "scrot --select"           )
     , ("M-S-f", spawn "firefox"                            )
     ]
 
 myLayout = smartBorders
-         $ smartSpacingWithEdge 9  -- Adjust this value if extra whitespace occurs at the bottom of the terminal.
+         $ smartSpacingWithEdge 10  -- Adjust this value if extra whitespace occurs at the bottom of the terminal.
          $ tiled ||| Mirror tiled ||| Full
   where
     tiled   = Tall nmaster delta ratio
