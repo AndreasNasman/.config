@@ -1,6 +1,3 @@
-require("nasse.plugins.firenvim")
-require("nasse.plugins.fugitive")
-
 -- https://github.com/wbthomason/packer.nvim#quickstart
 -- `PackerSync` fits my use cases better than `PackerCompile`.
 vim.cmd([[
@@ -63,3 +60,6 @@ require("packer").startup({
 		},
 	},
 })
+
+require("nasse.plugins.firenvim")
+require("nasse.plugins.fugitive")
