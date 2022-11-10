@@ -43,10 +43,15 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- https://github.com/williamboman/mason-lspconfig.nvim#automatic-server-setup-advanced-feature
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
 		require("lspconfig")[server_name].setup({
+			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 	end,
