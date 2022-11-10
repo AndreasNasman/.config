@@ -40,6 +40,11 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 
-require("lspconfig")["tsserver"].setup({
-	on_attach = on_attach,
+-- https://github.com/williamboman/mason-lspconfig.nvim#automatic-server-setup-advanced-feature
+require("mason-lspconfig").setup_handlers({
+	function(server_name)
+		require("lspconfig")[server_name].setup({
+			on_attach = on_attach,
+		})
+	end,
 })
