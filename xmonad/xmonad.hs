@@ -69,10 +69,10 @@ myConfig = def
     , terminal           = "kitty"
     }
   `additionalKeysP`
-    [ ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
-    , ("M-t"  , spawn (xmobarToggleCommand)                )
-    , ("M-C-s", unGrab *> spawn "scrot --select"           )
+    [ ("M-C-s", unGrab *> spawn "scrot --select"           )
+    , ("M-S-b", spawn (xmobarToggleCommand)                )
     , ("M-S-f", spawn "firefox"                            )
+    , ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
     ]
 
 myLayout = smartBorders
