@@ -1,6 +1,9 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim#setup
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	-- https://github.com/williamboman/mason-lspconfig.nvim#default-configuration
+	ensure_installed = { "sumneko_lua", "tsserver" },
+})
 
 -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
 
