@@ -17,22 +17,22 @@ require("packer").startup({
 
 		-- Completion & Snippets
 		use({
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-path",
-			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-buffer", --  nvim-cmp source for buffer words
+			"hrsh7th/cmp-cmdline", --  nvim-cmp source for vim's cmdline
+			"hrsh7th/cmp-path", --  nvim-cmp source for path
+			"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
 		})
 		use({
-			"L3MON4D3/LuaSnip",
-			"rafamadriz/friendly-snippets",
-			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip", --  Snippet Engine for Neovim written in Lua.
+			"rafamadriz/friendly-snippets", --  Set of preconfigured snippets for different languages.
+			"saadparwaiz1/cmp_luasnip", --  luasnip completion source for nvim-cmp
 		})
 
 		-- LSP
 		use({
-			"neovim/nvim-lspconfig",
-			"williamboman/mason-lspconfig.nvim",
-			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
+			"williamboman/mason-lspconfig.nvim", --  Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
+			"williamboman/mason.nvim", --  Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 		})
 
 		-- Text objects
