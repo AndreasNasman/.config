@@ -1,5 +1,6 @@
 local options = {
 	clipboard = "unnamedplus",
+	completeopt = "menu,menuone,noselect", -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
 	cursorline = true,
 	expandtab = true,
 	ignorecase = true,
