@@ -17,7 +17,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -47,12 +47,29 @@ end
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- https://github.com/williamboman/mason-lspconfig.nvim#automatic-server-setup-advanced-feature
+-- `:help mason-lspconfig.setup_handlers()`
+local lspconfig = require("lspconfig")
+
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		require("lspconfig")[server_name].setup({
+		lspconfig[server_name].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+	end,
+
+	["sumneko_lua"] = function()
+		lspconfig.sumneko_lua.setup({
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+					runtime = {
+						version = _VERSION, -- Downgrade the Lua version of `sumneko_lua` (currently 5.4) to Neovim's (currently 5.1). This fixes e.g. deprecation warnings.
+					},
+				},
+			},
 		})
 	end,
 })
