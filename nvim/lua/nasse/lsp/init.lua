@@ -12,19 +12,18 @@ local on_attach = require("nasse.lsp.mappings").on_attach
 
 -- `:help mason-lspconfig.setup_handlers()`
 local lspconfig = require("lspconfig")
+local config = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		lspconfig[server_name].setup(config)
 	end,
 
 	["sumneko_lua"] = function()
-		lspconfig.sumneko_lua.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+		lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", config, {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -35,6 +34,6 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
-		})
+		}))
 	end,
 })
