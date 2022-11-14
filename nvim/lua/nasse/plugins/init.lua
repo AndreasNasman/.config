@@ -51,6 +51,10 @@ require("packer").startup({
 			"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
 		})
 
+		-- Utility
+		use("arthurxavierx/vim-caser") --  Easily change word casing with motions, text objects or visual mode.
+		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
+
 		-- Miscellaneous
 		use({
 			"glacambre/firenvim", -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
@@ -58,7 +62,6 @@ require("packer").startup({
 				vim.fn["firenvim#install"](0)
 			end,
 		})
-		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
 	end,
 
 	-- https://github.com/wbthomason/packer.nvim#using-a-floating-window
