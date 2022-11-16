@@ -34,6 +34,10 @@ require("packer").startup({
 			"neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
 			"williamboman/mason-lspconfig.nvim", --  Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
 			"williamboman/mason.nvim", --  Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
+			{
+				"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+				requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+			},
 		})
 
 		-- Text objects
