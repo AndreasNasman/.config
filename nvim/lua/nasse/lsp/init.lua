@@ -1,5 +1,9 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim#setup
-require("mason").setup()
+require("mason").setup({
+	ui = {
+		border = "single",
+	},
+})
 require("mason-lspconfig").setup({
 	-- https://github.com/williamboman/mason-lspconfig.nvim#default-configuration
 	ensure_installed = { "sumneko_lua", "tsserver" },
@@ -7,6 +11,8 @@ require("mason-lspconfig").setup({
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 local lspconfig = require("lspconfig")
+require("lspconfig.ui.windows").default_options.border = "single"
+
 local config = {
 	-- Add additional capabilities supported by nvim-cmp
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
