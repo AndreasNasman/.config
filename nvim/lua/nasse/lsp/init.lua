@@ -6,17 +6,14 @@ require("mason-lspconfig").setup({
 })
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
--- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = require("nasse.lsp.mappings").on_attach
-
--- `:help mason-lspconfig.setup_handlers()`
 local lspconfig = require("lspconfig")
 local config = {
-	capabilities = capabilities,
-	on_attach = on_attach,
+	-- Add additional capabilities supported by nvim-cmp
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	on_attach = require("nasse.lsp.mappings").on_attach,
 }
 
+-- `:help mason-lspconfig.setup_handlers()`
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
 		lspconfig[server_name].setup(config)
