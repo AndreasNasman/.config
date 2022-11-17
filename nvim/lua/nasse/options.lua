@@ -21,7 +21,3 @@ local options = {
 for key, value in pairs(options) do
 	vim.opt[key] = value
 end
-
--- Highlight on yank.
--- `:h lua-highlight`
-vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
