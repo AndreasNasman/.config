@@ -13,12 +13,17 @@ local lspconfig = require("lspconfig")
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#customizing-how-diagnostics-are-displayed
 vim.diagnostic.config({
-	float = {
-		border = "single",
-	},
 	severity_sort = true,
 	virtual_text = false,
 })
+
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#borders
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or "single"
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 require("lspconfig.ui.windows").default_options.border = "single"
