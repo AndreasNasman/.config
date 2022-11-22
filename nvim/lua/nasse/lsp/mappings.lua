@@ -10,7 +10,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -34,6 +34,32 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
+
+	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
+	if client.server_capabilities.documentHighlightProvider then
+		vim.cmd([[
+      hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+      hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+      hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+    ]])
+		vim.api.nvim_create_augroup("lsp_document_highlight", {
+			clear = false,
+		})
+		vim.api.nvim_clear_autocmds({
+			buffer = bufnr,
+			group = "lsp_document_highlight",
+		})
+		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+			group = "lsp_document_highlight",
+			buffer = bufnr,
+			callback = vim.lsp.buf.document_highlight,
+		})
+		vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+			group = "lsp_document_highlight",
+			buffer = bufnr,
+			callback = vim.lsp.buf.clear_references,
+		})
+	end
 end
 
 return {

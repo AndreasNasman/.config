@@ -15,6 +15,7 @@ local options = {
 	tabstop = 2,
 	termguicolors = true,
 	undofile = true,
+	updatetime = 0, -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
 	wrap = false,
 }
 
