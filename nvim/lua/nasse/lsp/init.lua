@@ -9,8 +9,18 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "sumneko_lua", "tsserver" },
 })
 
--- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 local lspconfig = require("lspconfig")
+
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#customizing-how-diagnostics-are-displayed
+vim.diagnostic.config({
+	float = {
+		border = "single",
+	},
+	severity_sort = true,
+	virtual_text = false,
+})
+
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 require("lspconfig.ui.windows").default_options.border = "single"
 
 local config = {
