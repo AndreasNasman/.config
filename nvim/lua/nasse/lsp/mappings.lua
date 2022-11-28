@@ -60,6 +60,25 @@ local on_attach = function(client, bufnr)
 			callback = vim.lsp.buf.clear_references,
 		})
 	end
+
+	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save#sync-formatting
+	if client.supports_method("textDocument/formatting") then
+		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save#choosing-a-client-for-formatting
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+					filter = function(client)
+						return client.name == "null-ls"
+					end,
+				})
+			end,
+		})
+	end
 end
 
 return {
