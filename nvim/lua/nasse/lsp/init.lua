@@ -45,6 +45,7 @@ require("mason-lspconfig").setup_handlers({
 local null_ls = require("null-ls")
 
 null_ls.setup({
+	on_attach = config.on_attach,
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.luacheck,
