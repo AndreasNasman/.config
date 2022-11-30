@@ -1,6 +1,7 @@
 local options = {
 	clipboard = "unnamedplus",
-	completeopt = "menu,menuone,noselect", -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+	-- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+	completeopt = "menu,menuone,noselect",
 	cursorline = true,
 	expandtab = true,
 	ignorecase = true,
@@ -15,7 +16,10 @@ local options = {
 	tabstop = 2,
 	termguicolors = true,
 	undofile = true,
-	updatetime = 0, -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
+	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
+	-- `250` seems like a common low functioning value for `updatetime`.
+	-- Lowering it causes problems when running e.g. `ReloadConfig`.
+	updatetime = 300,
 	wrap = false,
 }
 
