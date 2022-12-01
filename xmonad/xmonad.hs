@@ -5,6 +5,7 @@
 
 import XMonad
 
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
@@ -63,6 +64,7 @@ myConfig = def
     { borderWidth        = 2
     , focusedBorderColor = draculaPink
     , layoutHook         = myLayout      -- Use custom layouts
+    , logHook            = updatePointer (0, 0) (0, 0)
     , manageHook         = myManageHook  -- Match on certain windows
     , modMask            = mod4Mask      -- Rebind Mod to the Super key
     , normalBorderColor  = draculaBackground

@@ -41,8 +41,9 @@ feh --no-fehbg --bg-fill '/usr/share/backgrounds/archlinux/wave.png'
 # Load picom compositor in the background.
 picom --daemon
 
-# Load xbanish in the background to hide the mouse when the keyboard is used.
-xbanish -m se -i all &
+# Load xbanish in the background.
+# Xmonad is responsible for moving the cursor out of the way.
+xbanish -i control -i shift &
 
 # Load xmonad tiling window manager with dbus enabled.
 # https://xmonad.org/INSTALL.html#dont-recompile-on-every-startup
