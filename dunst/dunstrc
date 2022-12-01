@@ -1,6 +1,7 @@
 # Based on `/etc/dunst/dunstrc`.
 
 [global]
+    offset = 0x20
     browser = /usr/bin/firefox
     mouse_left_click = do_action, close_current
     mouse_middle_click = close_all
