@@ -9,6 +9,7 @@ opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = true
 opt.expandtab = true
 opt.ignorecase = true
+opt.magic = false
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
