@@ -3,25 +3,27 @@ local silent = { silent = true }
 
 vim.g.mapleader = " "
 
--- 2. Normal mode.
-
--- Convenience.
-set("n", "<Leader>e", ":Explore<CR>", silent)
-set("n", "<Leader>s", ":write<CR>")
-
--- Toggle options.
-set("n", "<Leader>l", ":set spell!<CR>", silent)
-
--- Edit config files.
-set("n", "<Leader>oc", ":Explore $XDG_CONFIG_HOME<CR>", silent)
-set("n", "<Leader>os", ":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>", silent)
-
--- Full screen window.
-set("n", "<Leader><C-w><C-f>", "<C-w>_<C-w>|")
-set("n", "<Leader><C-w>f", "<C-w>_<C-w>|")
-
--- 3. Visual mode.
-
--- Void delete and paste.
-set("v", "<Leader>d", '"_d')
-set("v", "<Leader>p", '"_c<C-r>+<ESC>')
+set(
+	"n",
+	"<Leader>e",
+	":Explore<CR>",
+	vim.tbl_deep_extend("force", silent, { desc = "Explore directory of current file" })
+)
+set("n", "<Leader>s", ":write<CR>", { desc = "Save current buffer" })
+set("n", "<Leader>l", ":set spell!<CR>", silent, { desc = "Toggle spell checking" })
+set(
+	"n",
+	"<Leader>oc",
+	":Explore $XDG_CONFIG_HOME<CR>",
+	vim.tbl_deep_extend("force", silent, { desc = "Open .config directory" })
+)
+set(
+	"n",
+	"<Leader>os",
+	":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>",
+	vim.tbl_deep_extend("force", silent, { desc = "Edit Neovim options" })
+)
+set("n", "<Leader><C-w><C-f>", "<C-w>_<C-w>|", { desc = "Fullscreen window" })
+set("n", "<Leader><C-w>f", "<C-w>_<C-w>|", { desc = "Fullscreen window" })
+set("v", "<Leader>d", '"_d', { desc = "Void delete" })
+set("v", "<Leader>p", '"_c<C-r>+<ESC>', { desc = "Void paste" })
