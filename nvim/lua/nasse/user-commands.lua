@@ -1,3 +1,7 @@
+vim.api.nvim_create_user_command("ReloadConfig", function()
+	return require("nasse.custom.reload-config").reloadConfig()
+end, {})
+
 -- Case-insensitive versions of common commands.
 vim.api.nvim_create_user_command("Q", "quit", {})
 vim.api.nvim_create_user_command("QA", "qall", {})

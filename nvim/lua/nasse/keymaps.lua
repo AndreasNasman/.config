@@ -19,5 +19,8 @@ set(
 	vim.tbl_deep_extend("force", silent, { desc = "Open .config directory" })
 )
 set("n", "<Leader>s", ":write<CR>", { desc = "Save current buffer" })
+set("n", "<Leader>rc", function()
+	return require("nasse.custom.reload-config").reloadConfig()
+end, { silent = false })
 set("v", "<Leader>d", '"_d', { desc = "Void delete" })
 set("v", "<Leader>p", '"_c<C-r>+<ESC>', { desc = "Void paste" })
