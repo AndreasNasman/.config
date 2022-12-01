@@ -1,27 +1,27 @@
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local set = vim.keymap.set
+local silent = { silent = true }
 
 vim.g.mapleader = " "
 
 -- 2. Normal mode.
 
 -- Convenience.
-keymap("n", "<Leader>e", ":Explore<CR>", opts)
-keymap("n", "<Leader>s", ":write<CR>", opts)
+set("n", "<Leader>e", ":Explore<CR>", silent)
+set("n", "<Leader>s", ":write<CR>")
 
 -- Toggle options.
-keymap("n", "<Leader>l", ":set spell!<CR>", opts)
+set("n", "<Leader>l", ":set spell!<CR>", silent)
 
 -- Edit config files.
-keymap("n", "<Leader>oc", ":Explore $XDG_CONFIG_HOME<CR>", opts)
-keymap("n", "<Leader>os", ":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>", opts)
+set("n", "<Leader>oc", ":Explore $XDG_CONFIG_HOME<CR>", silent)
+set("n", "<Leader>os", ":edit $XDG_CONFIG_HOME/nvim/lua/nasse/options.lua<CR>", silent)
 
 -- Full screen window.
-keymap("n", "<Leader><C-w><C-f>", "<C-w>_<C-w>|", opts)
-keymap("n", "<Leader><C-w>f", "<C-w>_<C-w>|", opts)
+set("n", "<Leader><C-w><C-f>", "<C-w>_<C-w>|")
+set("n", "<Leader><C-w>f", "<C-w>_<C-w>|")
 
 -- 3. Visual mode.
 
 -- Void delete and paste.
-keymap("v", "<Leader>d", '"_d', opts)
-keymap("v", "<Leader>p", '"_c<C-r>+<ESC>', opts)
+set("v", "<Leader>d", '"_d')
+set("v", "<Leader>p", '"_c<C-r>+<ESC>')
