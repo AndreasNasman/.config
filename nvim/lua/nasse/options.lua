@@ -1,3 +1,5 @@
+vim.cmd([[colorscheme tokyonight-night]])
+
 local options = {
 	clipboard = "unnamedplus",
 	-- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
