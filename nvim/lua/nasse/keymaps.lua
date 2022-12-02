@@ -1,7 +1,7 @@
+vim.g.mapleader = " "
+
 local set = vim.keymap.set
 local silent = { silent = true }
-
-vim.g.mapleader = " "
 
 set("n", "<Leader>/", "/\\v", { desc = "Search using very magic" })
 set("n", "<Leader><C-w><C-f>", "<C-w>_<C-w>|", { desc = "Fullscreen window" })
