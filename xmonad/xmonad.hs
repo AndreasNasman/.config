@@ -5,6 +5,7 @@
 
 import XMonad
 
+import System.Exit
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
@@ -71,10 +72,12 @@ myConfig = def
     , terminal           = "kitty"
     }
   `additionalKeysP`
-    [ ("M-C-s", unGrab *> spawn "scrot --select"           )
-    , ("M-S-b", spawn (xmobarToggleCommand)                )
-    , ("M-S-f", spawn "firefox"                            )
-    , ("M-p"  , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
+    [ ("M-C-S-q", (io exitSuccess)                           )
+    , ("M-C-s"  , unGrab *> spawn "scrot --select"           )
+    , ("M-S-b"  , spawn (xmobarToggleCommand)                )
+    , ("M-S-f"  , spawn "firefox"                            )
+    , ("M-S-q"  , spawn ""                                   )  -- Unbind default quit keybinding.
+    , ("M-p"    , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
     ]
 
 myLayout = smartBorders
