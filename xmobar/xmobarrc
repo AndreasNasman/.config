@@ -7,7 +7,7 @@ Config { bgColor     = "#282a36"  -- draculaBackground
        , border      = BottomB
        , borderColor = "#6272a4"  -- draculaComment
        , fgColor     = "#f8f8f2"  -- draculaForeground
-       , font        = "xft:Sans Mono-10"
+       , font        = "xft:FiraCode Nerd Font Mono-10"
        , commands    = [ Run XMonadLog
                        , Run Battery [ "--template" , "Batt: <left>%"
                                      , "--Low"      , "10"
