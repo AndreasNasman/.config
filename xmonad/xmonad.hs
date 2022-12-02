@@ -27,10 +27,10 @@ main = xmonad
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2  -- draculaCyan
+    { ppCurrent         = wrap "" "" . xmobarBorder "Top" "#8be9fd" 2  -- draculaCyan
     , ppExtras          = [logTitles formatFocused formatUnfocused]
-    , ppHidden          = draculaForeground . wrap " " ""
-    , ppHiddenNoWindows = draculaComment . wrap " " ""
+    , ppHidden          = draculaForeground . wrap "" ""
+    , ppHiddenNoWindows = draculaComment . wrap "" ""
     , ppLayout          = draculaPurple
     , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
     , ppTitleSanitize   = xmobarStrip
