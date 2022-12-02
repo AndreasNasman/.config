@@ -1,9 +1,3 @@
--- https://github.com/L3MON4D3/LuaSnip#add-snippets
-require("luasnip/loaders/from_vscode").lazy_load()
-
--- https://github.com/hrsh7th/nvim-cmp
-local cmp = require("cmp")
-
 -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -11,6 +5,11 @@ local has_words_before = function()
 end
 
 local luasnip = require("luasnip")
+-- https://github.com/L3MON4D3/LuaSnip#add-snippets
+require("luasnip/loaders/from_vscode").lazy_load()
+
+-- https://github.com/hrsh7th/nvim-cmp
+local cmp = require("cmp")
 
 cmp.setup({
 	snippet = {
