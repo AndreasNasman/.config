@@ -1,11 +1,9 @@
 -- https://github.com/wbthomason/packer.nvim#quickstart
--- `PackerSync` fits my use cases better than `PackerCompile`.
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost $XDG_CONFIG_HOME/nvim/lua/nasse/plugins/init.lua source <afile> | PackerSync
-  augroup end
-]])
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua/nasse/plugins/init.lua", -- https://github.com/neovim/neovim/issues/17744
+	command = "source <afile> | PackerSync", -- `PackerSync` fits my use cases better than `PackerCompile`.
+	group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+})
 
 require("packer").startup({
 	function(use)
