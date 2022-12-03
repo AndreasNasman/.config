@@ -26,5 +26,12 @@ require("telescope").setup({
 		layout_config = {
 			horizontal = { height = 0.95, width = 0.95 },
 		},
+		-- `help telescope.defaults.history`
+		mappings = {
+			i = {
+				["<C-Down>"] = require("telescope.actions").cycle_history_next,
+				["<C-Up>"] = require("telescope.actions").cycle_history_prev,
+			},
+		},
 	},
 })
