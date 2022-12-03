@@ -28,6 +28,9 @@ require("packer").startup({
 			"saadparwaiz1/cmp_luasnip", --  luasnip completion source for nvim-cmp
 		})
 
+		-- Icons
+		use("nvim-tree/nvim-web-devicons") -- lua `fork` of vim-web-devicons for neovim
+
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
