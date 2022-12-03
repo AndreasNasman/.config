@@ -39,6 +39,12 @@ require("packer").startup({
 			},
 		})
 
+		-- Telescope
+		use({
+			"nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.
+			requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+		})
+
 		-- Text objects
 		use({
 			"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
