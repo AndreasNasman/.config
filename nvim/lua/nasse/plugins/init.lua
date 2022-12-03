@@ -15,17 +15,17 @@ require("packer").startup({
 
 		-- Completion & Snippets
 		use({
-			"hrsh7th/cmp-buffer", --  nvim-cmp source for buffer words
-			"hrsh7th/cmp-cmdline", --  nvim-cmp source for vim's cmdline
-			"hrsh7th/cmp-nvim-lsp", --  nvim-cmp source for neovim builtin LSP client
-			"hrsh7th/cmp-nvim-lua", --  nvim-cmp source for nvim lua
-			"hrsh7th/cmp-path", --  nvim-cmp source for path
+			"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
+			"hrsh7th/cmp-cmdline", -- nvim-cmp source for vim's cmdline
+			"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim builtin LSP client
+			"hrsh7th/cmp-nvim-lua", -- nvim-cmp source for nvim lua
+			"hrsh7th/cmp-path", -- nvim-cmp source for path
 			"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
 		})
 		use({
-			"L3MON4D3/LuaSnip", --  Snippet Engine for Neovim written in Lua.
-			"rafamadriz/friendly-snippets", --  Set of preconfigured snippets for different languages.
-			"saadparwaiz1/cmp_luasnip", --  luasnip completion source for nvim-cmp
+			"L3MON4D3/LuaSnip", -- Snippet Engine for Neovim written in Lua.
+			"rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
+			"saadparwaiz1/cmp_luasnip", -- luasnip completion source for nvim-cmp
 		})
 
 		-- Icons
@@ -33,9 +33,9 @@ require("packer").startup({
 
 		-- LSP
 		use({
-			"neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
-			"williamboman/mason-lspconfig.nvim", --  Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
-			"williamboman/mason.nvim", --  Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
+			"neovim/nvim-lspconfig", -- Quickstart configs for Nvim LSP
+			"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
+			"williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 			{
 				"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 				requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
@@ -64,7 +64,7 @@ require("packer").startup({
 		})
 
 		-- Utility
-		use("arthurxavierx/vim-caser") --  Easily change word casing with motions, text objects or visual mode.
+		use("arthurxavierx/vim-caser") -- Easily change word casing with motions, text objects or visual mode.
 		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
 		use({
 			"windwp/nvim-autopairs", -- autopairs for neovim written by lua
