@@ -18,3 +18,12 @@ set(
   builtin.help_tags,
   { desc = "Lists available help tags and opens a new window with the relevant help info on `<cr>`" }
 )
+
+require("telescope").setup({
+  defaults = {
+    -- https://github.com/nvim-telescope/telescope.nvim#layout-display
+    layout_config = {
+      horizontal = { width = 0.95 },
+    },
+  },
+})
