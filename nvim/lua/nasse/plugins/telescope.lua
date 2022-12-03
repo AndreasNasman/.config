@@ -1,3 +1,4 @@
+local set = vim.keymap.set
 local builtin = require("telescope.builtin")
 set("n", "<Leader>ff", builtin.find_files, { desc = "Search for files (respecting .gitignore)" })
 set(
