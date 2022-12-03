@@ -24,7 +24,7 @@ require("telescope").setup({
 	defaults = {
 		-- https://github.com/nvim-telescope/telescope.nvim#layout-display
 		layout_config = {
-			horizontal = { width = 0.95 },
+			horizontal = { height = 0.95, width = 0.95 },
 		},
 	},
 })
