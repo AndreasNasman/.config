@@ -89,3 +89,4 @@ require("packer").startup({
 
 require("nasse.plugins.firenvim")
 require("nasse.plugins.fugitive")
+require("nasse.plugins.telescope")
