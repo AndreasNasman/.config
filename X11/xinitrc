@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 
 # Based on the default config in `/etc/X11/xinit/xinitrc`.
 # https://wiki.archlinux.org/title/Xinit#xinitrc
@@ -44,6 +44,9 @@ picom --daemon
 # Load xbanish in the background.
 # Xmonad is responsible for moving the cursor out of the way.
 xbanish -i control -i shift &
+
+# Load a background image using feh.
+$XDG_CONFIG_HOME/feh/.fehbg
 
 # Load xmonad tiling window manager with dbus enabled.
 # https://xmonad.org/INSTALL.html#dont-recompile-on-every-startup
