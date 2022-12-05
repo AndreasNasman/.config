@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+
+# Load a background image using feh.
+feh --no-fehbg --bg-fill '/usr/share/backgrounds/archlinux/wave.png'
