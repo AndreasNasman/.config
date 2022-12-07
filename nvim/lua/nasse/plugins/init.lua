@@ -10,6 +10,15 @@ require("packer").startup({
 		-- Packer
 		use("wbthomason/packer.nvim") -- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config.
 
+		-- Annotation
+		use({
+			"danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
+			config = function()
+				require("neogen").setup({})
+			end,
+			requires = "nvim-treesitter/nvim-treesitter",
+		})
+
 		-- Color scheme
 		use("folke/tokyonight.nvim") -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 
