@@ -26,6 +26,7 @@ require("telescope").setup({
 		layout_config = {
 			horizontal = { height = 0.95, width = 0.95 },
 		},
+
 		-- `help telescope.defaults.history`
 		mappings = {
 			i = {
