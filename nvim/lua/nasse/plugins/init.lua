@@ -66,6 +66,7 @@ require("packer").startup({
 		-- Utility
 		use("arthurxavierx/vim-caser") -- Easily change word casing with motions, text objects or visual mode.
 		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
+		use("tommcdo/vim-exchange") -- Easy text exchange operator for Vim
 		use({
 			"windwp/nvim-autopairs", -- autopairs for neovim written by lua
 			config = function()
