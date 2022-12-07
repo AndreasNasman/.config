@@ -24,8 +24,9 @@ require("telescope").setup({
 	defaults = {
 		-- https://github.com/nvim-telescope/telescope.nvim#layout-display
 		layout_config = {
-			horizontal = { height = 0.95, width = 0.95 },
+			vertical = { height = 0.95, width = 0.95 },
 		},
+		layout_strategy = "vertical",
 
 		-- `help telescope.defaults.history`
 		mappings = {
