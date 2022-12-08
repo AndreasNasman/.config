@@ -72,6 +72,12 @@ require("packer").startup({
 			"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
 		})
 
+		-- Treesitter
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+		})
+
 		-- Utility
 		use("arthurxavierx/vim-caser") -- Easily change word casing with motions, text objects or visual mode.
 		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
@@ -103,3 +109,4 @@ require("packer").startup({
 require("nasse.plugins.firenvim")
 require("nasse.plugins.fugitive")
 require("nasse.plugins.telescope")
+require("nasse.plugins.treesitter")
