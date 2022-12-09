@@ -7,4 +7,10 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
+
+  -- https://github.com/p00f/nvim-ts-rainbow/#installation-and-setup
+	rainbow = {
+		enable = true,
+		extended_mode = false,
+	},
 })

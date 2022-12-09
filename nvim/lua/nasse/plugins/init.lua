@@ -74,8 +74,11 @@ require("packer").startup({
 
 		-- Treesitter
 		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
+			{
+				"nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
+				run = ":TSUpdate",
+			},
+			"p00f/nvim-ts-rainbow", -- Rainbow parentheses for neovim using tree-sitter. Use https://sr.ht/~p00f/nvim-ts-rainbow instead
 		})
 
 		-- Utility
