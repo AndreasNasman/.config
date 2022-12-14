@@ -38,6 +38,10 @@ fi
 # Enable numlock.
 numlockx &
 
+# Make keyboard repeat faster.
+# https://wiki.archlinux.org/title/Xorg/Keyboard_configuration#Using_xset
+xset r rate 200 30
+
 # Load picom compositor in the background.
 picom --daemon
 
