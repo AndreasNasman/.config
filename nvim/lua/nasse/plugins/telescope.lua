@@ -19,6 +19,8 @@ set(
 	builtin.help_tags,
 	{ desc = "Lists available help tags and opens a new window with the relevant help info on `<cr>`" }
 )
+set("n", "<Leader>fs", builtin.git_status, { desc = "Lists git status for current directory" })
+set("n", "<Leader>fo", builtin.oldfiles, { desc = "Lists previously open files, opens on `<cr>`" })
 
 require("telescope").setup({
 	defaults = {
