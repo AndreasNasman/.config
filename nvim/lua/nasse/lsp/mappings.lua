@@ -12,12 +12,14 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 local lsp_formatting = function(bufnr)
 	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save#choosing-a-client-for-formatting
 	vim.lsp.buf.format({
+		bufnr = bufnr,
 		filter = function(client)
 			return client.name == "null-ls"
 		end,
-		bufnr = bufnr,
 	})
 end
+
+local lsp_formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -43,7 +45,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>f", function()
-		vim.lsp.buf.format({ async = true })
+		lsp_formatting(bufnr)
 	end, bufopts)
 
 	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
@@ -69,10 +71,9 @@ local on_attach = function(client, bufnr)
 
 	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save#sync-formatting
 	if client.supports_method("textDocument/formatting") then
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_clear_autocmds({ group = lsp_formatting_augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
+			group = lsp_formatting_augroup,
 			buffer = bufnr,
 			callback = function()
 				lsp_formatting(bufnr)
