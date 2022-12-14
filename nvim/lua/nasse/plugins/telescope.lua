@@ -1,5 +1,11 @@
 local set = vim.keymap.set
 local builtin = require("telescope.builtin")
+set(
+	"n",
+	"<Leader>fb",
+	builtin.buffers,
+	{ desc = "Lists open buffers in current neovim instance, opens selected buffer on `<cr>`" }
+)
 set("n", "<Leader>ff", builtin.find_files, { desc = "Search for files (respecting .gitignore)" })
 set(
 	"n",
@@ -9,18 +15,12 @@ set(
 )
 set(
 	"n",
-	"<Leader>fb",
-	builtin.buffers,
-	{ desc = "Lists open buffers in current neovim instance, opens selected buffer on `<cr>`" }
-)
-set(
-	"n",
 	"<Leader>fh",
 	builtin.help_tags,
 	{ desc = "Lists available help tags and opens a new window with the relevant help info on `<cr>`" }
 )
-set("n", "<Leader>fs", builtin.git_status, { desc = "Lists git status for current directory" })
 set("n", "<Leader>fo", builtin.oldfiles, { desc = "Lists previously open files, opens on `<cr>`" })
+set("n", "<Leader>fs", builtin.git_status, { desc = "Lists git status for current directory" })
 
 require("telescope").setup({
 	defaults = {
