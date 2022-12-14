@@ -1,5 +1,9 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#customizing-how-diagnostics-are-displayed
 vim.diagnostic.config({
+	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-source-in-diagnostics
+	float = {
+		source = "always",
+	},
 	severity_sort = true,
 	virtual_text = false,
 })
