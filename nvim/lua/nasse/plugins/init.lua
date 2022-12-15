@@ -78,6 +78,7 @@ require("packer").startup({
 		-- UI & DX
 		use({
 			"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+			"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
 			"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 		})
 
