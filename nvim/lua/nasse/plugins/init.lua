@@ -19,9 +19,6 @@ require("packer").startup({
 			requires = "nvim-treesitter/nvim-treesitter",
 		})
 
-		-- Color scheme
-		use("folke/tokyonight.nvim") -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
-
 		-- Completion & Snippets
 		use({
 			"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
@@ -36,9 +33,6 @@ require("packer").startup({
 			"rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
 			"saadparwaiz1/cmp_luasnip", -- luasnip completion source for nvim-cmp
 		})
-
-		-- Icons
-		use("nvim-tree/nvim-web-devicons") -- lua `fork` of vim-web-devicons for neovim
 
 		-- LSP
 		use({
@@ -81,15 +75,23 @@ require("packer").startup({
 			"p00f/nvim-ts-rainbow", -- Rainbow parentheses for neovim using tree-sitter. Use https://sr.ht/~p00f/nvim-ts-rainbow instead
 		})
 
-		-- Utility
-		use("arthurxavierx/vim-caser") -- Easily change word casing with motions, text objects or visual mode.
-		use("romainl/vim-cool") -- A very simple plugin that makes hlsearch more useful.
-		use("tommcdo/vim-exchange") -- Easy text exchange operator for Vim
+		-- UI & DX
 		use({
-			"windwp/nvim-autopairs", -- autopairs for neovim written by lua
-			config = function()
-				require("nvim-autopairs").setup({})
-			end,
+			"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+			"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
+		})
+
+		-- Utility
+		use({
+			"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
+			"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
+			"tommcdo/vim-exchange", -- Easy text exchange operator for Vim
+			{
+				"windwp/nvim-autopairs", -- autopairs for neovim written by lua
+				config = function()
+					require("nvim-autopairs").setup({})
+				end,
+			},
 		})
 
 		-- Miscellaneous
