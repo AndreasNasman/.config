@@ -13,9 +13,6 @@ require("packer").startup({
 		-- Annotation
 		use({
 			"danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
-			config = function()
-				require("neogen").setup({})
-			end,
 			requires = "nvim-treesitter/nvim-treesitter",
 		})
 
@@ -88,12 +85,7 @@ require("packer").startup({
 			"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
 			"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
 			"tommcdo/vim-exchange", -- Easy text exchange operator for Vim
-			{
-				"windwp/nvim-autopairs", -- autopairs for neovim written by lua
-				config = function()
-					require("nvim-autopairs").setup({})
-				end,
-			},
+			"windwp/nvim-autopairs", -- autopairs for neovim written by lua
 		})
 
 		-- Miscellaneous
