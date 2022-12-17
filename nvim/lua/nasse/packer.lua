@@ -24,19 +24,20 @@ require("packer").startup({
 			"hrsh7th/cmp-nvim-lua", -- nvim-cmp source for nvim lua
 			"hrsh7th/cmp-path", -- nvim-cmp source for path
 			"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
-			-- Snippets
-			"L3MON4D3/LuaSnip", -- Snippet Engine for Neovim written in Lua.
-			"rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
-			"saadparwaiz1/cmp_luasnip", -- luasnip completion source for nvim-cmp
 
 			-- LSP
-			"neovim/nvim-lspconfig", -- Quickstart configs for Nvim LSP
-			"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
-			"williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 			{
 				"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 				requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 			},
+			"neovim/nvim-lspconfig", -- Quickstart configs for Nvim LSP
+			"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
+			"williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
+
+			-- Snippets
+			"L3MON4D3/LuaSnip", -- Snippet Engine for Neovim written in Lua.
+			"rafamadriz/friendly-snippets", -- Set of preconfigured snippets for different languages.
+			"saadparwaiz1/cmp_luasnip", -- luasnip completion source for nvim-cmp
 
 			-- Telescope
 			{
