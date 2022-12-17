@@ -79,6 +79,7 @@ require("packer").startup({
 		use({
 			"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 			"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
+			"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
 			"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 		})
 
@@ -116,3 +117,4 @@ require("nasse.plugins.firenvim")
 require("nasse.plugins.fugitive")
 require("nasse.plugins.telescope")
 require("nasse.plugins.treesitter")
+require("nasse.plugins.indent-blankline")
