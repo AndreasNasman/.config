@@ -25,10 +25,13 @@ require("packer").startup({
 			"hrsh7th/cmp-path", -- nvim-cmp source for path
 			"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
 
+			-- Dependencies
+			"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+
 			-- LSP
 			{
 				"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-				requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+				requires = { "nvim-lua/plenary.nvim" },
 			},
 			"neovim/nvim-lspconfig", -- Quickstart configs for Nvim LSP
 			"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
@@ -42,7 +45,7 @@ require("packer").startup({
 			-- Telescope
 			{
 				"nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.
-				requires = { "nvim-lua/plenary.nvim" }, -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+				requires = { "nvim-lua/plenary.nvim" },
 			},
 
 			-- Text objects
