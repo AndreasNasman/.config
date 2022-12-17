@@ -1,5 +1,6 @@
 local set = vim.keymap.set
 local builtin = require("telescope.builtin")
+
 set(
 	"n",
 	"<Leader>fb",
