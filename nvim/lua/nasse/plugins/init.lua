@@ -112,9 +112,3 @@ require("packer").startup({
 		},
 	},
 })
-
-require("nasse.plugins.firenvim")
-require("nasse.plugins.fugitive")
-require("nasse.plugins.telescope")
-require("nasse.plugins.treesitter")
-require("nasse.plugins.indent-blankline")
