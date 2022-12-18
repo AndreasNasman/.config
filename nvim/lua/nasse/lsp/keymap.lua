@@ -3,11 +3,13 @@ local lsp_leader = "\\"
 local set = vim.keymap.set
 local opts = { silent = true }
 
+-- stylua: ignore start
 -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
 set("n", lsp_leader .. "e", vim.diagnostic.open_float, opts)
 set("n", "[e", vim.diagnostic.goto_prev, opts)
 set("n", "]e", vim.diagnostic.goto_next, opts)
 set("n", lsp_leader .. "l", vim.diagnostic.setloclist, opts)
+-- stylua: ignore end
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts#neovim-08
 local lsp_formatting = function(bufnr)
@@ -26,6 +28,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local bufopts = { silent = true, buffer = bufnr }
+-- stylua: ignore start
 	set("n", lsp_leader .. "D", vim.lsp.buf.declaration, bufopts)
 	set("n", lsp_leader .. "d", vim.lsp.buf.definition, bufopts)
 	set("n", lsp_leader .. "h", vim.lsp.buf.hover, bufopts)
@@ -33,16 +36,13 @@ local on_attach = function(client, bufnr)
 	set("n", lsp_leader .. "p", vim.lsp.buf.signature_help, bufopts)
 	set("n", lsp_leader .. "wa", vim.lsp.buf.add_workspace_folder, bufopts)
 	set("n", lsp_leader .. "wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	set("n", lsp_leader .. "wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
+	set("n", lsp_leader .. "wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 	set("n", lsp_leader .. "t", vim.lsp.buf.type_definition, bufopts)
 	set("n", lsp_leader .. "R", vim.lsp.buf.rename, bufopts)
 	set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
 	set("n", lsp_leader .. "r", vim.lsp.buf.references, bufopts)
-	set("n", lsp_leader .. "f", function()
-		lsp_formatting(bufnr)
-	end, bufopts)
+	set("n", lsp_leader .. "f", function() lsp_formatting(bufnr) end, bufopts)
+	-- stylua: ignore end
 
 	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
 	if client.server_capabilities.documentHighlightProvider then
