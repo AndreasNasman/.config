@@ -1,5 +1,5 @@
 require("nasse.options")
-require("nasse.keymaps")
+require("nasse.keymap")
 require("nasse.packer")
 require("nasse.completion")
 require("nasse.user-commands")

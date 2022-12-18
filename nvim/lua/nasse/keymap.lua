@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 local set = vim.keymap.set
-local silent = { silent = true }
+local opts = { silent = true }
 
 local function fullscreen_window()
 	vim.cmd("resize | vertical resize")
@@ -14,14 +14,14 @@ set(
 	"n",
 	"<Leader>e",
 	vim.cmd.Explore,
-	vim.tbl_deep_extend("force", silent, { desc = "Explore directory of current file" })
+	vim.tbl_deep_extend("force", opts, { desc = "Explore directory of current file" })
 )
 set("n", "<Leader>l", function()
 	vim.cmd.set("spell!")
-end, silent, { desc = "Toggle spell checking" })
+end, opts, { desc = "Toggle spell checking" })
 set("n", "<Leader>oc", function()
 	vim.cmd.Explore("$XDG_CONFIG_HOME")
-end, vim.tbl_deep_extend("force", silent, { desc = "Open .config directory" }))
+end, vim.tbl_deep_extend("force", opts, { desc = "Open .config directory" }))
 set("n", "<Leader>rc", function()
 	return require("nasse.custom.reload-config").reloadConfig()
 end, { desc = "Reload config" })
