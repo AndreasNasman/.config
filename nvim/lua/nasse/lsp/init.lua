@@ -17,7 +17,7 @@ require("lspconfig.ui.windows").default_options.border = "single"
 local config = {
 	-- Add additional capabilities supported by nvim-cmp
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	on_attach = require("nasse.lsp.mappings").on_attach,
+	on_attach = require("nasse.lsp.keymap").on_attach,
 }
 
 -- `:help mason-lspconfig.setup_handlers()`

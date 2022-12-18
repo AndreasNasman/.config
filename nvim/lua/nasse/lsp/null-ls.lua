@@ -1,5 +1,5 @@
 local null_ls = require("null-ls")
-local on_attach = require("nasse.lsp.mappings").on_attach
+local on_attach = require("nasse.lsp.keymap").on_attach
 
 local code_actions = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
