@@ -17,7 +17,6 @@ vim.cmd.colorscheme("tokyonight")
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/#vim-opt
 local opt = vim.opt
 
-opt.clipboard = "unnamedplus"
 -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
 opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = true
