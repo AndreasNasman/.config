@@ -24,7 +24,8 @@ set("n", "<Leader>l", function() vim.cmd.set("spell!") end, opts, { desc = "Togg
 set("n", "<Leader>oc", function() vim.cmd.Explore("$XDG_CONFIG_HOME") end, vim.tbl_deep_extend("force", opts, { desc = "Open .config directory" }))
 set("n", "<Leader>s", vim.cmd.write, { desc = "Save current buffer" })
 
-set("v", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
+-- Black hole register utilities.
+set("", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
 set("v", "<Leader>p", '"_c<C-r>+<ESC>', { desc = "Paste to black hole register" })
 
 -- stylua: ignore end
