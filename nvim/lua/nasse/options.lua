@@ -25,6 +25,6 @@ opt.termguicolors = true
 opt.undofile = true
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
 -- `250` seems like a common low functioning value for `updatetime`.
--- Lowering it causes problems when running e.g. `ReloadConfig`.
+-- Lowering it might cause problems when running certain commands.
 opt.updatetime = 250
 opt.wrap = false
