@@ -1,14 +1,13 @@
 local lsp_leader = "\\"
 
--- https://github.com/neovim/nvim-lspconfig#suggested-configuration
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local set = vim.keymap.set
 local opts = { silent = true }
-vim.keymap.set("n", lsp_leader .. "e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", lsp_leader .. "l", vim.diagnostic.setloclist, opts)
+
+-- https://github.com/neovim/nvim-lspconfig#suggested-configuration
+set("n", lsp_leader .. "e", vim.diagnostic.open_float, opts)
+set("n", "[e", vim.diagnostic.goto_prev, opts)
+set("n", "]e", vim.diagnostic.goto_next, opts)
+set("n", lsp_leader .. "l", vim.diagnostic.setloclist, opts)
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts#neovim-08
 local lsp_formatting = function(bufnr)
@@ -23,30 +22,25 @@ end
 
 local lsp_formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { silent = true, buffer = bufnr }
-	vim.keymap.set("n", lsp_leader .. "D", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", lsp_leader .. "d", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", lsp_leader .. "h", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", lsp_leader .. "i", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", lsp_leader .. "p", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", lsp_leader .. "wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	vim.keymap.set("n", lsp_leader .. "wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	vim.keymap.set("n", lsp_leader .. "wl", function()
+	set("n", lsp_leader .. "D", vim.lsp.buf.declaration, bufopts)
+	set("n", lsp_leader .. "d", vim.lsp.buf.definition, bufopts)
+	set("n", lsp_leader .. "h", vim.lsp.buf.hover, bufopts)
+	set("n", lsp_leader .. "i", vim.lsp.buf.implementation, bufopts)
+	set("n", lsp_leader .. "p", vim.lsp.buf.signature_help, bufopts)
+	set("n", lsp_leader .. "wa", vim.lsp.buf.add_workspace_folder, bufopts)
+	set("n", lsp_leader .. "wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+	set("n", lsp_leader .. "wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
-	vim.keymap.set("n", lsp_leader .. "t", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", lsp_leader .. "R", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", lsp_leader .. "r", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", lsp_leader .. "f", function()
+	set("n", lsp_leader .. "t", vim.lsp.buf.type_definition, bufopts)
+	set("n", lsp_leader .. "R", vim.lsp.buf.rename, bufopts)
+	set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
+	set("n", lsp_leader .. "r", vim.lsp.buf.references, bufopts)
+	set("n", lsp_leader .. "f", function()
 		lsp_formatting(bufnr)
 	end, bufopts)
 
