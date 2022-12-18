@@ -7,6 +7,17 @@ local function fullscreen_window()
 	vim.cmd("resize | vertical resize")
 end
 
+-- stylua: ignore start
+
+-- Overrides that keep the cursor in the middle of the screen.
+set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half a screen and with the cursor in the middle of the screen" })
+set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half a screen and with the cursor in the middle of the screen" })
+set("n", "G", "Gzz", { desc = "Go to the last line with the cursor in the middle of the screen" })
+set("n", "n", "nzz", { desc = "Repeat the latest search with the cursor in the middle of the screen" })
+
+-- stylua: ignore end
+set("n", "N", "Nzz", { desc = "Repeat the latest search in the opposite direction with the cursor in the middle of the screen" })
+
 set("n", "<Leader>/", "/\\v", { desc = "Search using very magic" })
 set("n", "<Leader><C-w><C-f>", fullscreen_window, { desc = "Fullscreen window" })
 set("n", "<Leader><C-w>f", fullscreen_window, { desc = "Fullscreen window" })
@@ -23,5 +34,6 @@ set("n", "<Leader>oc", function()
 	vim.cmd.Explore("$XDG_CONFIG_HOME")
 end, vim.tbl_deep_extend("force", opts, { desc = "Open .config directory" }))
 set("n", "<Leader>s", vim.cmd.write, { desc = "Save current buffer" })
+
 set("v", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
 set("v", "<Leader>p", '"_c<C-r>+<ESC>', { desc = "Paste to black hole register" })
