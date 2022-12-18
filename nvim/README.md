@@ -9,3 +9,4 @@
 - [ThePrimeagen](https://www.youtube.com/@ThePrimeagen)
   - [0 to LSP : Neovim RC From Scratch](https://youtu.be/w7i4amO_zaE)
   - [ThePrimeagen/init.lua](https://github.com/ThePrimeagen/init.lua)
+  - [VonHeikemen/lsp-zero.nvim: A starting point to setup some lsp related features in neovim.](https://github.com/VonHeikemen/lsp-zero.nvim)
