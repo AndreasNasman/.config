@@ -29,6 +29,7 @@ require("packer").startup({
 			"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 
 			-- LSP
+			"j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress
 			{
 				"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 				requires = { "nvim-lua/plenary.nvim" },
