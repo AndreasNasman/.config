@@ -6,7 +6,7 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup({
 	-- https://github.com/williamboman/mason-lspconfig.nvim#default-configuration
-	ensure_installed = { "sumneko_lua", "tsserver" },
+	ensure_installed = { "pyright", "sumneko_lua", "tsserver" },
 })
 
 local lspconfig = require("lspconfig")
