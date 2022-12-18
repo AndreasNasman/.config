@@ -28,6 +28,9 @@ require("packer").startup({
 			-- Dependencies
 			"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 
+			-- History
+			"mbbill/undotree", -- The undo history visualizer for VIM
+
 			-- LSP
 			"j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress
 			{
