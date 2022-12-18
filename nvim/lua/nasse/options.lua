@@ -1,6 +1,15 @@
--- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/#vim-opt
-vim.cmd([[colorscheme tokyonight-night]])
+require("tokyonight").setup({
+	style = "moon",
+	styles = {
+		floats = "transparent",
+		sidebars = "transparent",
+	},
+	transparent = true,
+})
 
+vim.cmd.colorscheme("tokyonight")
+
+-- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/#vim-opt
 local opt = vim.opt
 
 opt.clipboard = "unnamedplus"
