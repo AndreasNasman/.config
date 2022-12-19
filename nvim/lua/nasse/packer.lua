@@ -62,6 +62,7 @@ require("packer").startup({
 			"tpope/vim-commentary", -- commentary.vim: comment stuff out
 			"tpope/vim-fugitive", -- fugitive.vim: A Git wrapper so awesome, it should be illegal
 			"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
+			"tpope/vim-rhubarb", -- rhubarb.vim: GitHub extension for fugitive.vim
 			"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
 			"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
 
