@@ -28,6 +28,9 @@ require("packer").startup({
 			-- Dependencies
 			"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 
+			-- Git
+			"lewis6991/gitsigns.nvim", -- Git integration for buffers
+
 			-- History
 			"mbbill/undotree", -- The undo history visualizer for VIM
 
