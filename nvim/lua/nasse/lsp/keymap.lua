@@ -5,9 +5,9 @@ local opts = { silent = true }
 
 -- stylua: ignore start
 -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
-set("n", lsp_leader .. "e", vim.diagnostic.open_float, opts)
-set("n", "[e", vim.diagnostic.goto_prev, opts)
-set("n", "]e", vim.diagnostic.goto_next, opts)
+set("n", lsp_leader .. "v", vim.diagnostic.open_float, opts)
+set("n", "[v", vim.diagnostic.goto_prev, opts)
+set("n", "]v", vim.diagnostic.goto_next, opts)
 set("n", lsp_leader .. "l", vim.diagnostic.setloclist, opts)
 -- stylua: ignore end
 
