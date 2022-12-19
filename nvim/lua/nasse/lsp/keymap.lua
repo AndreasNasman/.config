@@ -22,6 +22,7 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+local builtin = require("telescope.builtin")
 local lsp_formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local on_attach = function(client, bufnr)
@@ -30,17 +31,17 @@ local on_attach = function(client, bufnr)
 	local bufopts = { silent = true, buffer = bufnr }
 -- stylua: ignore start
 	set("n", lsp_leader .. "D", vim.lsp.buf.declaration, bufopts)
-	set("n", lsp_leader .. "d", vim.lsp.buf.definition, bufopts)
+	set("n", lsp_leader .. "d", builtin.lsp_definitions, bufopts)
 	set("n", lsp_leader .. "h", vim.lsp.buf.hover, bufopts)
-	set("n", lsp_leader .. "i", vim.lsp.buf.implementation, bufopts)
+	set("n", lsp_leader .. "i", builtin.lsp_implementations, bufopts)
 	set("n", lsp_leader .. "p", vim.lsp.buf.signature_help, bufopts)
 	set("n", lsp_leader .. "wa", vim.lsp.buf.add_workspace_folder, bufopts)
 	set("n", lsp_leader .. "wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 	set("n", lsp_leader .. "wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-	set("n", lsp_leader .. "t", vim.lsp.buf.type_definition, bufopts)
+	set("n", lsp_leader .. "t", builtin.lsp_type_definitions, bufopts)
 	set("n", lsp_leader .. "R", vim.lsp.buf.rename, bufopts)
 	set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
-	set("n", lsp_leader .. "r", vim.lsp.buf.references, bufopts)
+	set("n", lsp_leader .. "r", builtin.lsp_references, bufopts)
 	set("n", lsp_leader .. "f", function() lsp_formatting(bufnr) end, bufopts)
 	-- stylua: ignore end
 
