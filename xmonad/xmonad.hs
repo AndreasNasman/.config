@@ -77,7 +77,7 @@ myConfig = def
     , ("M-S-b"  , spawn (xmobarToggleCommand)                )
     , ("M-S-f"  , spawn "firefox"                            )
     , ("M-S-q"  , spawn ""                                   )  -- Unbind default quit keybinding.
-    , ("M-p"    , spawn "dmenu_run -fn 'Droid Sans Mono-11'" )
+    , ("M-p"    , spawn "launcher_t6" )
     ]
 
 myLayout = smartBorders

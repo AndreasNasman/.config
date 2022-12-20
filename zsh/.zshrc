@@ -44,7 +44,8 @@ alias vim='nvim'
 
 # Path
 CONFIG_BIN=$XDG_CONFIG_HOME/bin
-export PATH=$CONFIG_BIN:$PATH
+ROFI_LAUNCHERS=$XDG_CONFIG_HOME/rofi/scripts
+export PATH=$CONFIG_BIN:$ROFI_LAUNCHERS:$PATH
 
 # Neovim
 
