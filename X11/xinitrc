@@ -42,6 +42,9 @@ numlockx &
 # https://wiki.archlinux.org/title/Xorg/Keyboard_configuration#Using_xset
 xset r rate 200 30
 
+# Load the first detected monitor profile.
+autorandr --change
+
 # Load picom compositor in the background.
 picom --daemon
 
