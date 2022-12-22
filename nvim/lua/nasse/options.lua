@@ -24,7 +24,7 @@ opt.expandtab = true
 opt.ignorecase = true
 opt.list = true
 opt.listchars:append("space:⋅")
-opt.magic = false
+-- opt.magic = false
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
