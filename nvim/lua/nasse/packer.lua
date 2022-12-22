@@ -17,6 +17,9 @@ require("packer").startup({
 				requires = "nvim-treesitter/nvim-treesitter",
 			},
 
+			-- Comments
+			"tpope/vim-commentary", -- commentary.vim: comment stuff out
+
 			-- Completion
 			"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
 			"hrsh7th/cmp-cmdline", -- nvim-cmp source for vim's cmdline
@@ -30,6 +33,8 @@ require("packer").startup({
 
 			-- Git
 			"lewis6991/gitsigns.nvim", -- Git integration for buffers
+			"tpope/vim-fugitive", -- fugitive.vim: A Git wrapper so awesome, it should be illegal
+			"tpope/vim-rhubarb", -- rhubarb.vim: GitHub extension for fugitive.vim
 
 			-- History
 			"mbbill/undotree", -- The undo history visualizer for VIM
@@ -61,14 +66,6 @@ require("packer").startup({
 			"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
 			"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 
-			-- Tim Pope
-			"tpope/vim-commentary", -- commentary.vim: comment stuff out
-			"tpope/vim-fugitive", -- fugitive.vim: A Git wrapper so awesome, it should be illegal
-			"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
-			"tpope/vim-rhubarb", -- rhubarb.vim: GitHub extension for fugitive.vim
-			"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
-			"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
-
 			-- Treesitter
 			{
 				"nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
@@ -81,6 +78,9 @@ require("packer").startup({
 			"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
 			"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
 			"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
+			"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
+			"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
+			"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
 
 			-- Utility
 			"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
