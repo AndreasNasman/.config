@@ -20,6 +20,11 @@ touch $XAUTHORITY
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 alias startx="ssh-agent startx $XINITRC"
 
+# Rofi
+# Environment are the only kind of variables that work with `calc`.
+# https://github.com/davatorium/rofi/issues/1258
+export ROFI_SCALE=3
+
 # Zsh
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l9

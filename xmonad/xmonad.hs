@@ -76,8 +76,9 @@ myConfig = def
     , ("M-C-s"  , unGrab *> spawn "scrot --select"           )
     , ("M-S-b"  , spawn (xmobarToggleCommand)                )
     , ("M-S-f"  , spawn "firefox"                            )
-    , ("M-S-q"  , spawn ""                                   )  -- Unbind default quit keybinding.
-    , ("M-p"    , spawn "launcher_t6" )
+    , ("M-S-q"  , spawn "xmonad --restart"                   )
+    , ("M-p"    , spawn "launcher_t1"                        )
+    , ("M-q"    , spawn "powermenu_t1"                       )
     ]
 
 myLayout = smartBorders
