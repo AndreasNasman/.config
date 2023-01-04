@@ -7,9 +7,6 @@ api.iunmap(":");
 /* Order: left-right hand, inside-out, home-bottom-top-row. */
 api.Hints.setCharacters("fdsajklghvcxzmbnuioprewqty");
 
-/* Align hints to the left for better overlap. */
-settings.hintAlign = "left";
-
 settings.theme = `
 :root {
   --dracula-background: #282a36;
