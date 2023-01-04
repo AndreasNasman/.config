@@ -75,7 +75,7 @@ myConfig = def
     [ ("M-C-S-q", (io exitSuccess)                           )
     , ("M-C-s"  , unGrab *> spawn "scrot --select"           )
     , ("M-S-b"  , spawn (xmobarToggleCommand)                )
-    , ("M-S-f"  , spawn "firefox"                            )
+    , ("M-S-f"  , spawn "google-chrome-stable"               )
     , ("M-S-q"  , spawn "xmonad --restart"                   )
     , ("M-p"    , spawn "launcher_t1"                        )
     , ("M-q"    , spawn "powermenu_t1"                       )
