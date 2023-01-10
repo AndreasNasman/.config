@@ -1,5 +1,6 @@
-local set = vim.keymap.set
 local builtin = require("telescope.builtin")
+
+local set = vim.keymap.set
 
 -- stylua: ignore start
 set("n", "<Leader>fb", builtin.buffers, { desc = "Lists open buffers in current neovim instance, opens selected buffer on `<cr>`" })
@@ -10,6 +11,12 @@ set("n", "<Leader>fm", builtin.man_pages, { desc = "Lists manpage entries, opens
 set("n", "<Leader>fo", builtin.oldfiles, { desc = "Lists previously open files, opens on `<cr>`" })
 set("n", "<Leader>fs", builtin.git_status, { desc = "Lists git status for current directory" })
 -- stylua: ignore end
+
+-- https://github.com/nvim-telescope/telescope.nvim/issues/2041
+local pickers = {}
+for b, _ in pairs(builtin) do
+	pickers[b] = { fname_width = 101 }
+end
 
 require("telescope").setup({
 	defaults = {
@@ -27,4 +34,5 @@ require("telescope").setup({
 			},
 		},
 	},
+	pickers = pickers,
 })
