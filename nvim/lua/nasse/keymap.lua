@@ -27,7 +27,8 @@ set("n", "<Leader>s", vim.cmd.write, { desc = "Save current buffer" })
 -- Register utilities.
 set("", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
 set("", "<Leader>y", '"+y', { desc = "Copy to the plus register" })
+set("n", "<Leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, opt, { desc = 'Copy value from " to the + register' })
 set("n", "<Leader>Y", '"+Y', { desc = "Copy trailing line to the plus register" })
-set("v", "<Leader>p", '"_c<C-r>+<ESC>', { desc = "Paste to black hole register" })
+set("v", "<Leader>p", '"_c<C-r>"<ESC>', { desc = "Paste to black hole register" })
 
 -- stylua: ignore end
