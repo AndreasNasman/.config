@@ -16,6 +16,7 @@ set("n", "G", "Gzz", { desc = "Go to the last line with the cursor in the middle
 set("n", "n", "nzz", { desc = "Repeat the latest search with the cursor in the middle of the screen" })
 set("n", "N", "Nzz", { desc = "Repeat the latest search in the opposite direction with the cursor in the middle of the screen" })
 
+-- Essentials.
 set("n", "<Leader>/", "/\\v", { desc = "Search using very magic" })
 set("n", "<Leader><C-w><C-f>", fullscreen_window, { desc = "Fullscreen window" })
 set("n", "<Leader><C-w>f", fullscreen_window, { desc = "Fullscreen window" })
@@ -23,6 +24,8 @@ set("n", "<Leader>e", vim.cmd.Explore, vim.tbl_deep_extend("force", opts, { desc
 set("n", "<Leader>l", function() vim.cmd.set("spell!") end, opts, { desc = "Toggle spell checking" })
 set("n", "<Leader>oc", function() vim.cmd.Explore("$XDG_CONFIG_HOME") end, vim.tbl_deep_extend("force", opts, { desc = "Open .config directory" }))
 set("n", "<Leader>s", vim.cmd.write, { desc = "Save current buffer" })
+-- Doesn't seem possible to write with with `vim.cmd.normal`.
+set("v", ".", ':normal .<CR>', { desc = "Repeat the dot command over visual selection" })
 
 -- Register utilities.
 set("", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
