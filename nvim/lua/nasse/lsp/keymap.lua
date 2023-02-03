@@ -24,6 +24,7 @@ end
 
 local builtin = require("telescope.builtin")
 local lsp_formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local gitsigns = require("gitsigns")
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -43,6 +44,8 @@ local on_attach = function(client, bufnr)
 	set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
 	set("n", lsp_leader .. "r", builtin.lsp_references, bufopts)
 	set("n", lsp_leader .. "f", function() lsp_formatting(bufnr) end, bufopts)
+	set("n", lsp_leader .. "<Down>", gitsigns.next_hunk, bufopts)
+	set("n", lsp_leader .. "<Up>", gitsigns.prev_hunk, bufopts)
 	-- stylua: ignore end
 
 	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
