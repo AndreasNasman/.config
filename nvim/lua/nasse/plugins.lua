@@ -50,7 +50,14 @@ require("lazy").setup({
 	"mbbill/undotree", -- The undo history visualizer for VIM
 
 	-- LSP
-	"j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress
+	{
+		"j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress
+		opts = {
+			window = {
+				blend = 0,
+			},
+		},
+	},
 	{
 		"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 		dependencies = { "nvim-lua/plenary.nvim" },
