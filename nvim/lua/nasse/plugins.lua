@@ -42,7 +42,10 @@ require("lazy").setup({
 	"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 
 	-- Git
-	"lewis6991/gitsigns.nvim", -- Git integration for buffers
+	{
+		"lewis6991/gitsigns.nvim", -- Git integration for buffers
+		config = true,
+	},
 	"tpope/vim-fugitive", -- fugitive.vim: A Git wrapper so awesome, it should be illegal
 	"tpope/vim-rhubarb", -- rhubarb.vim: GitHub extension for fugitive.vim
 
