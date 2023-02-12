@@ -44,8 +44,9 @@ local on_attach = function(client, bufnr)
 	set("n", lsp_leader .. "c", vim.lsp.buf.code_action, bufopts)
 	set("n", lsp_leader .. "r", builtin.lsp_references, bufopts)
 	set("n", lsp_leader .. "f", function() lsp_formatting(bufnr) end, bufopts)
-	set("n", lsp_leader .. "<Down>", gitsigns.next_hunk, bufopts)
-	set("n", lsp_leader .. "<Up>", gitsigns.prev_hunk, bufopts)
+
+	set("n", "<Leader>j", gitsigns.next_hunk, bufopts)
+	set("n", "<Leader>k", gitsigns.prev_hunk, bufopts)
 	-- stylua: ignore end
 
 	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#highlight-symbol-under-cursor
