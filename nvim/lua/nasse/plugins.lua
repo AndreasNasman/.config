@@ -66,7 +66,10 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"neovim/nvim-lspconfig", -- Quickstart configs for Nvim LSP
-	"RubixDev/mason-update-all", -- Easily update all Mason packages with one command
+	{
+		"RubixDev/mason-update-all", -- Easily update all Mason packages with one command
+		config = true,
+	},
 	"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
 	"williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 	{
