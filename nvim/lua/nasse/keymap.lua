@@ -34,4 +34,7 @@ set("n", "<Leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, opt
 set("n", "<Leader>Y", '"+Y', { desc = "Copy trailing line to the plus register" })
 set("v", "<Leader>p", '"_c<C-r>"<ESC>', { desc = "Paste to black hole register" })
 
+-- Plugins.
+set("n", "<Leader>u", vim.cmd.UndotreeToggle)
+
 -- stylua: ignore end
