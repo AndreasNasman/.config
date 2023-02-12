@@ -6,7 +6,7 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup({
 	-- https://github.com/williamboman/mason-lspconfig.nvim#default-configuration
-	ensure_installed = { "cssls", "grammarly", "html", "pyright", "sumneko_lua", "tsserver" },
+	ensure_installed = { "cssls", "grammarly", "lua_ls", "html", "pyright", "tsserver" },
 })
 
 local lspconfig = require("lspconfig")
@@ -26,15 +26,15 @@ require("mason-lspconfig").setup_handlers({
 		lspconfig[server_name].setup(config)
 	end,
 
-	["sumneko_lua"] = function()
-		lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", config, {
+	["lua_ls"] = function()
+		lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", config, {
 			settings = {
 				Lua = {
 					diagnostics = {
 						globals = { "vim" },
 					},
 					runtime = {
-						version = _VERSION, -- Downgrade the Lua version of `sumneko_lua` (currently 5.4) to Neovim's (currently 5.1). This fixes e.g. deprecation warnings.
+						version = _VERSION, -- Downgrade the Lua version of `lua_ls` (currently 5.4) to Neovim's (currently 5.1). This fixes e.g. deprecation warnings.
 					},
 				},
 			},
