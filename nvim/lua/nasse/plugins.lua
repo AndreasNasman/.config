@@ -69,7 +69,12 @@ require("lazy").setup({
 	"RubixDev/mason-update-all", -- Easily update all Mason packages with one command
 	"williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.
 	"williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
-	"WhoIsSethDaniel/mason-tool-installer.nvim", -- Install and upgrade third party tools automatically
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim", -- Install and upgrade third party tools automatically
+		opts = {
+			ensure_installed = { "eslint_d", "luacheck", "prettierd", "stylua" },
+		},
+	},
 
 	-- Snippets
 	"L3MON4D3/LuaSnip", -- Snippet Engine for Neovim written in Lua.
