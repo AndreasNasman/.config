@@ -99,7 +99,13 @@ require("lazy").setup({
 	-- UI & DX
 	"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 	"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
-	"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
+	{
+		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
+		opts = {
+			show_current_context = true,
+			show_current_context_start = true,
+		},
+	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 	"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
 	"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
