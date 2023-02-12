@@ -101,6 +101,24 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
 		build = ":TSUpdate",
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
+		opts = {
+			auto_install = true,
+			highlight = {
+				enable = true,
+			},
+			indent = {
+				enable = true,
+			},
+
+			-- https://github.com/p00f/nvim-ts-rainbow/#installation-and-setup
+			rainbow = {
+				enable = true,
+				extended_mode = false,
+			},
+		},
 	},
 	"p00f/nvim-ts-rainbow", -- Rainbow parentheses for neovim using tree-sitter. Use https://sr.ht/~p00f/nvim-ts-rainbow instead
 
