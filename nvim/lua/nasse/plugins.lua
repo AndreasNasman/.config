@@ -23,8 +23,8 @@ require("lazy").setup({
 	-- Annotation
 	{
 		"danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
-		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true,
+		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 
 	-- Comments
@@ -146,9 +146,9 @@ require("lazy").setup({
 	-- Miscellaneous
 	{
 		"glacambre/firenvim", -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
+		cond = not not vim.g.started_by_firenvim,
 		build = function()
 			vim.fn["firenvim#install"](0)
 		end,
-		cond = not not vim.g.started_by_firenvim,
 	},
 })
