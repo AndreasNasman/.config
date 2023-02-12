@@ -3,6 +3,8 @@
 [core]
 	autocrlf = false
 	editor = nvim -c 'set spell'
+[credential]
+	helper = /usr/bin/pass-git-helper
 [init]
 	defaultBranch = main
 [push]
