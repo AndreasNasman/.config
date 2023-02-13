@@ -123,7 +123,26 @@ require("lazy").setup({
 	"p00f/nvim-ts-rainbow", -- Rainbow parentheses for neovim using tree-sitter. Use https://sr.ht/~p00f/nvim-ts-rainbow instead
 
 	-- UI & DX
-	"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+	{
+		"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+		-- https://github.com/folke/lazy.nvim#-colorschemes
+		config = function(_, opts)
+			--- `setup` should be run before loading the color scheme.
+			--- https://github.com/folke/tokyonight.nvim/issues/190#issuecomment-1237641162
+			require("tokyonight").setup(opts)
+			vim.cmd.colorscheme("tokyonight")
+		end,
+		lazy = false, -- Load this during startup since it's the main color scheme.
+		opts = {
+			style = "moon",
+			styles = {
+				floats = "transparent",
+				sidebars = "transparent",
+			},
+			transparent = true,
+		},
+		priority = 1000, -- Load this before all the other start plugins.
+	},
 	"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
 	{
 		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
@@ -144,11 +163,11 @@ require("lazy").setup({
 	"windwp/nvim-autopairs", -- autopairs for neovim written by lua
 
 	-- Miscellaneous
-	{
-		"glacambre/firenvim", -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
-		cond = not not vim.g.started_by_firenvim,
-		build = function()
-			vim.fn["firenvim#install"](0)
-		end,
-	},
+	-- {
+	-- 	"glacambre/firenvim", -- Embed Neovim in Chrome, Firefox, Thunderbird and many other pieces of software.
+	-- 	cond = not not vim.g.started_by_firenvim,
+	-- 	build = function()
+	-- 		vim.fn["firenvim#install"](0)
+	-- 	end,
+	-- },
 })
