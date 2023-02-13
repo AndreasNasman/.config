@@ -1,19 +1,3 @@
--- `setup` should be run before loading the color scheme.
--- https://github.com/folke/tokyonight.nvim/issues/190#issuecomment-1237641162
-require("tokyonight").setup({
-	style = "moon",
-	styles = {
-		floats = "transparent",
-		sidebars = "transparent",
-	},
-	transparent = true,
-})
-
--- Color schemes should be loaded early to avoid color and plugin integration problems.
--- The configuration should therefore be placed outside the `after` directory.
--- https://github.com/folke/tokyonight.nvim/issues/260#issuecomment-1310773275
-vim.cmd.colorscheme("tokyonight")
-
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/#vim-opt
 local opt = vim.opt
 
