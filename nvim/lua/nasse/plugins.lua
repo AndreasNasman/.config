@@ -88,6 +88,34 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local builtin = require("telescope.builtin")
+
+			-- https://github.com/nvim-telescope/telescope.nvim/issues/2041
+			local pickers = {}
+			for b, _ in pairs(builtin) do
+				pickers[b] = { fname_width = 101 }
+			end
+
+			require("telescope").setup({
+				defaults = {
+					-- https://github.com/nvim-telescope/telescope.nvim#layout-display
+					layout_config = {
+						vertical = { height = 0.95, width = 0.95 },
+					},
+					layout_strategy = "vertical",
+
+					-- `help telescope.defaults.history`
+					mappings = {
+						i = {
+							["<C-Down>"] = require("telescope.actions").cycle_history_next,
+							["<C-Up>"] = require("telescope.actions").cycle_history_prev,
+						},
+					},
+				},
+				pickers = pickers,
+			})
+		end,
 	},
 
 	-- Text objects
