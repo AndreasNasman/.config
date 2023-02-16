@@ -155,7 +155,19 @@ require("lazy").setup({
 	"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
 	"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
 	"tommcdo/vim-exchange", -- Easy text exchange operator for Vim
-	"windwp/nvim-autopairs", -- autopairs for neovim written by lua
+	{
+		"windwp/nvim-autopairs", -- autopairs for neovim written by lua
+		config = function(_, opts)
+			-- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp = require("cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			require("nvim-autopairs").setup(opts)
+		end,
+		opts = {
+			check_ts = true,
+		},
+	},
 
 	-- Miscellaneous
 	-- {
