@@ -26,8 +26,10 @@ baloofilerc
 bluedevilglobalrc
 discoverrc
 dolphinrc
+emaildefaults
 gtkrc
 gtkrc-2.0
+gwenviewrc
 kactivitymanagerd-statsrc
 kactivitymanagerdrc
 katemetainfos
@@ -51,6 +53,7 @@ kwalletrc
 kwinrc
 kwinrulesrc
 kxkbrc
+mimeapps.list
 plasma-localerc
 plasma-org.kde.plasma.desktop-appletsrc
 plasma.emojierrc
@@ -58,6 +61,7 @@ plasmanotifyrc
 plasmashellrc
 powerdevilrc
 powermanagementprofilesrc
+spectaclerc
 systemmonitorrc
 systemsettingsrc
 trashrc
