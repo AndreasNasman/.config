@@ -16,6 +16,7 @@ session/
 xsettingsd/
 
 # Files
+.zcompdump*
 PlasmaDiscoverUpdates
 QtProject.conf
 Trolltech.conf
