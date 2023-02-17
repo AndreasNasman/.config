@@ -42,6 +42,10 @@ plugins=(git vi-mode)
 
 # User configuration
 
+# Enable hidden files completion.
+# https://unix.stackexchange.com/a/366137
+setopt globdots
+
 ## Use Neovim as a manpager.
 ## `:h :Man`
 export MANPAGER='nvim +Man!'
