@@ -5,6 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Configure Zsh history file.
+HISTFILE_DIR=$XDG_STATE_HOME/zsh
+if [[ ! -d $HISTFILE_DIR ]]; then
+  mkdir $HISTFILE_DIR
+fi
+HISTFILE=$HISTFILE_DIR/history
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+
 # If you come from bash you might have to change your $PATH.
 CAMBRI_BIN=$HOME/Cambri/bin
 export PATH=$CAMBRI_BIN:$PATH
