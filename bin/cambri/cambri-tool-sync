@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+cd $HOME/Cambri/cambri2/devops/local-run
+./db-run-migrations.sh && ./regen-api-types.sh
