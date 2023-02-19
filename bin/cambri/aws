@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+export AWS_PROFILE=${AWS_PROFILE:-dev}
+docker run \
+  --rm \
+  -it \
+  -v ${HOME}/.aws/:/root/.aws/:rw \
+  -v $(pwd)/:$(pwd)/:rw \
+  --env AWS_PROFILE \
+  --env LC_ALL=en_US.UTF-8 \
+  -w $(pwd) \
+  amazon/aws-cli \
+  $@
