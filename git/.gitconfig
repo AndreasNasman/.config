@@ -5,6 +5,7 @@
 	editor = nvim -c 'set spell'
 [credential]
 	helper = /usr/bin/pass-git-helper
+  useHttpPath = true
 [init]
 	defaultBranch = main
 [push]
