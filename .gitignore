@@ -60,6 +60,8 @@ plasma-org.kde.plasma.desktop-appletsrc
 plasma.emojierrc
 plasmanotifyrc
 plasmashellrc
+plasmawindowed-appletsrc
+plasmawindowedrc
 powerdevilrc
 powermanagementprofilesrc
 spectaclerc
