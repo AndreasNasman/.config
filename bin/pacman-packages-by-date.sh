@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 # Inspiration:
 # https://www.reddit.com/r/archlinux/comments/65ocd3/comment/dgc08w6
