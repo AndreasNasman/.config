@@ -15,8 +15,9 @@ HISTSIZE=1000000000
 SAVEHIST=1000000000
 
 # If you come from bash you might have to change your $PATH.
+CONFIG_BIN=$XDG_CONFIG_HOME/bin
 CAMBRI_BIN=$HOME/Cambri/bin
-export PATH=$CAMBRI_BIN:$PATH
+export PATH=$CONFIG_BIN:$CAMBRI_BIN:$PATH
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
