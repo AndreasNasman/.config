@@ -61,6 +61,10 @@ export MANWIDTH=999
 export EDITOR=nvim
 export VISUAL=nvim
 
+## Installation path to the `cambri2` repo.
+## https://gitlab.com/cambri/maxdiff-pilot/cambri2
+export CAMBRI_TOOL=$HOME/Cambri/cambri2
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
