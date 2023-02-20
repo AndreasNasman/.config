@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+cd $HOME/Cambri/cambri2/scripts/aws
+./aws-login-and-update-credentials.sh
