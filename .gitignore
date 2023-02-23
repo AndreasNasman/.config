@@ -5,6 +5,7 @@ autostart/
 dconf/
 fontconfig/
 google-chrome/
+grammarly-languageserver/
 gtk-3.0/
 gtk-4.0/
 htop/
@@ -44,6 +45,7 @@ kcminputrc
 kconf_updaterc
 kded5rc
 kdeglobals
+kfontinstuirc
 kglobalshortcutsrc
 khotkeysrc
 kmixrc
