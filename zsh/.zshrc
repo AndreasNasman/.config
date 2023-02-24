@@ -43,6 +43,10 @@ plugins=(
   vi-mode
   zsh-autosuggestions
   zsh-nvm
+
+  # fzf should be loaded last to avoid keybinding problems.
+  # https://github.com/jeffreytse/zsh-vi-mode/issues/24
+  fzf
 )
 
 
