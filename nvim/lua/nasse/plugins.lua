@@ -75,9 +75,14 @@ require("lazy").setup({
 
 	-- Telescope
 	{
+		"nvim-telescope/telescope-fzf-native.nvim", -- 💤 A modern plugin manager for Neovim
+		build = "make",
+	},
+	{
 		"nvim-telescope/telescope.nvim", -- Find, Filter, Preview, Pick. All lua, all the time.
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function(_, opts)
+			require("telescope").load_extension("fzf")
 			require("telescope").setup(vim.tbl_deep_extend("force", opts, {
 				defaults = {
 					-- `help telescope.defaults.history`
