@@ -45,6 +45,7 @@ set("n", "<Leader>fg", builtin.git_status, { desc = "Lists git status for curren
 set("n", "<Leader>fh", builtin.help_tags, { desc = "Lists available help tags and opens a new window with the relevant help info on `<cr>`" })
 set("n", "<Leader>fm", builtin.man_pages, { desc = "Lists manpage entries, opens them in a help window on `<cr>`" })
 set("n", "<Leader>fo", builtin.oldfiles, { desc = "Lists previously open files, opens on `<cr>`" })
+set("n", "<Leader>fr", builtin.resume, { desc = "Opens the previous picker in the identical state (incl. multi selections)" })
 set("n", "<Leader>fs", builtin.live_grep, { desc = "Search for a string and get results live as you type, respects .gitignore" })
 
 -- stylua: ignore end
