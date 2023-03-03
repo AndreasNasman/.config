@@ -28,10 +28,9 @@ set("n", "n", "nzz", { desc = "Repeat the latest search with the cursor in the m
 set("n", "N", "Nzz", { desc = "Repeat the latest search in the opposite direction with the cursor in the middle of the screen" })
 
 -- Register utilities.
+set("", "<Leader><Leader>", '"+', { desc = "Prompt the plus register" })
 set("", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
-set("", "<Leader>y", '"+y', { desc = "Copy to the plus register" })
 set("n", "<Leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, opt, { desc = 'Copy value from " to the + register' })
-set("n", "<Leader>Y", '"+Y', { desc = "Copy trailing line to the plus register" })
 set("v", "<Leader>p", '"_c<C-r>"<ESC>', { desc = "Paste to black hole register" })
 
 -- Plugins.
