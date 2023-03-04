@@ -4,8 +4,10 @@
 	autocrlf = false
 	editor = nvim -c 'set spell'
 [credential]
-	helper = /usr/bin/pass-git-helper
-  useHttpPath = true
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+	useHttpPath = true
+[gpg]
+	program = /mnt/c/Program Files (x86)/gnupg/bin/gpg.exe
 [init]
 	defaultBranch = main
 [push]
