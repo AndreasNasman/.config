@@ -1,2 +1,5 @@
 # Directories
 nvm/
+
+# Files
+.zcompdump*
