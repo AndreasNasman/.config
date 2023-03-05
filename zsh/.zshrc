@@ -38,6 +38,10 @@ zstyle ':omz:update' frequency 7
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$XDG_CONFIG_HOME/zsh/custom
 
+# Specify a custom install directory for `nvm`.
+# https://github.com/lukechilds/zsh-nvm#custom-directory
+export NVM_DIR=$XDG_CONFIG_HOME/.nvm
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
