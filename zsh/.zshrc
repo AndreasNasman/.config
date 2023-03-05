@@ -46,6 +46,7 @@ ZSH_CUSTOM=$XDG_CONFIG_HOME/zsh/custom
 plugins=(
   git
   vi-mode
+  zsh-nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -78,10 +79,6 @@ alias v.="nvim ."
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-
-# nvm
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
