@@ -139,7 +139,7 @@ require("lazy").setup({
 
 	-- UI & DX
 	{
-		"dracula/vim", -- 🧛 Dark theme for Vim
+		"Mofiqul/dracula.nvim", -- Dracula colorscheme for neovim written in Lua
 		-- https://github.com/folke/lazy.nvim#-colorschemes
 		config = function()
 			vim.cmd.colorscheme("dracula")
