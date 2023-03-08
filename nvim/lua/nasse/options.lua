@@ -5,6 +5,7 @@ local opt = vim.opt
 opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = true
 opt.expandtab = true
+opt.guicursor:append("a:blinkon100")
 opt.ignorecase = true
 opt.list = true
 opt.listchars:append("space:⋅")
