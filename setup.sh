@@ -16,3 +16,8 @@ echo $FILES_TO_HOME \
 FILES_TO_HARDLINK=$(find . -type f -printf "%P\n")
 echo $FILES_TO_HARDLINK \
   | xargs -I {} ln -f $HOME/{} {}
+
+# Create XDG directories.
+mkdir -p $XDG_CACHE_HOME
+mkdir -p $XDG_DATA_HOME
+mkdir -p $XDG_STATE_HOME
