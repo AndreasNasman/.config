@@ -139,12 +139,18 @@ require("lazy").setup({
 
 	-- UI & DX
 	{
-		"Mofiqul/dracula.nvim", -- Dracula colorscheme for neovim written in Lua
+		"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 		-- https://github.com/folke/lazy.nvim#-colorschemes
-		config = function()
-			vim.cmd.colorscheme("dracula")
+		config = function(_, opts)
+			--- `setup` should be run before loading the color scheme.
+			--- https://github.com/folke/tokyonight.nvim/issues/190#issuecomment-1237641162
+			require("tokyonight").setup(opts)
+			vim.cmd.colorscheme("tokyonight")
 		end,
 		lazy = false, -- Load this during startup since it's the main color scheme.
+		opts = {
+			style = "moon",
+		},
 		priority = 1000, -- Load this before all the other start plugins.
 	},
 	"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
