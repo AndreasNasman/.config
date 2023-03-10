@@ -150,6 +150,11 @@ require("lazy").setup({
 		lazy = false, -- Load this during startup since it's the main color scheme.
 		opts = {
 			style = "night",
+			styles = {
+				floats = "transparent",
+				sidebars = "transparent",
+			},
+			transparent = true,
 		},
 		priority = 1000, -- Load this before all the other start plugins.
 	},
