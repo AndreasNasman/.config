@@ -149,7 +149,7 @@ require("lazy").setup({
 		end,
 		lazy = false, -- Load this during startup since it's the main color scheme.
 		opts = {
-			style = "moon",
+			style = "night",
 		},
 		priority = 1000, -- Load this before all the other start plugins.
 	},
