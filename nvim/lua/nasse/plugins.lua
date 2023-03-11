@@ -162,8 +162,8 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
 		opts = {
+			char = "",
 			show_current_context = true,
-			show_current_context_start = true,
 		},
 	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
