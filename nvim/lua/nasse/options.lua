@@ -7,7 +7,6 @@ opt.cursorline = true
 opt.expandtab = true
 opt.guicursor:append("a:blinkon100")
 opt.ignorecase = true
--- opt.magic = false
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
