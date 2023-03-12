@@ -99,8 +99,9 @@ require("lazy").setup({
 			defaults = {
 				-- https://github.com/nvim-telescope/telescope.nvim#layout-display
 				layout_config = {
-					horizontal = { height = 0.99, width = 0.99 },
+					vertical = { height = 0.99, width = 0.99 },
 				},
+				layout_strategy = "vertical",
 			},
 			pickers = {
 				lsp_references = {
