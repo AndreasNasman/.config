@@ -102,6 +102,11 @@ require("lazy").setup({
 					horizontal = { height = 0.99, width = 0.99 },
 				},
 			},
+			pickers = {
+				lsp_references = {
+					show_line = false,
+				},
+			},
 		},
 	},
 
