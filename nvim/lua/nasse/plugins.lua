@@ -12,6 +12,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- https://github.com/nvim-treesitter/nvim-treesitter#modules
+local exceeds_maximum_file_size = function(_, buf)
+	local max_filesize = 100 * 1024 -- 100 KB
+	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+	if ok and stats and stats.size > max_filesize then
+		return true
+	end
+end
+
 require("lazy").setup({
 	-- Annotation
 	{
@@ -104,6 +113,9 @@ require("lazy").setup({
 				layout_strategy = "vertical",
 			},
 			pickers = {
+				quickfix = {
+					show_line = false,
+				},
 				lsp_references = {
 					show_line = false,
 				},
@@ -128,20 +140,23 @@ require("lazy").setup({
 		opts = {
 			auto_install = true,
 			highlight = {
+				disable = exceeds_maximum_file_size,
 				enable = true,
 			},
 			indent = {
 				enable = true,
 			},
-
-			-- https://github.com/p00f/nvim-ts-rainbow/#installation-and-setup
+			-- https://gitlab.com/HiPhish/nvim-ts-rainbow2
 			rainbow = {
+				disable = exceeds_maximum_file_size,
 				enable = true,
-				extended_mode = false,
 			},
 		},
 	},
-	"p00f/nvim-ts-rainbow", -- Rainbow parentheses for neovim using tree-sitter. Use https://sr.ht/~p00f/nvim-ts-rainbow instead
+	{
+		"HiPhish/nvim-ts-rainbow2", -- Rainbow delimiters for Neovim through Tree-sitter
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
 
 	-- UI & DX
 	{
@@ -170,6 +185,7 @@ require("lazy").setup({
 		opts = {
 			char = "",
 			show_current_context = true,
+			show_current_context = false,
 		},
 	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
