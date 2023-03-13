@@ -195,14 +195,6 @@ require("lazy").setup({
 		priority = 1000, -- Load this before all the other start plugins.
 	},
 	"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
-	{
-		"lukas-reineke/indent-blankline.nvim", -- Indent guides for Neovim
-		opts = {
-			char = "",
-			show_current_context = true,
-			show_current_context = false,
-		},
-	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 	"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
 	"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
