@@ -15,8 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Helper functions for large files.
 
 -- https://github.com/nvim-treesitter/nvim-treesitter#modules
-local exceeds_maximum_file_size = function(_, buf)
-	local max_filesize = 100 * 1024 -- 100 KB
+local disable = function(_, buf)
+	local max_filesize = 1000 * 1024 -- 1 MB
 	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 	if ok and stats and stats.size > max_filesize then
 		return true
@@ -154,15 +154,16 @@ require("lazy").setup({
 		opts = {
 			auto_install = true,
 			highlight = {
-				disable = exceeds_maximum_file_size,
+				disable = disable,
 				enable = true,
 			},
 			indent = {
+				disable = disable,
 				enable = true,
 			},
 			-- https://gitlab.com/HiPhish/nvim-ts-rainbow2
 			rainbow = {
-				disable = exceeds_maximum_file_size,
+				disable = disable,
 				enable = true,
 			},
 		},
