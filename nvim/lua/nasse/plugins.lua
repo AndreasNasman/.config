@@ -12,6 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Helper functions for large files.
+
 -- https://github.com/nvim-treesitter/nvim-treesitter#modules
 local exceeds_maximum_file_size = function(_, buf)
 	local max_filesize = 100 * 1024 -- 100 KB
@@ -19,6 +21,17 @@ local exceeds_maximum_file_size = function(_, buf)
 	if ok and stats and stats.size > max_filesize then
 		return true
 	end
+end
+
+-- https://github.com/nvim-telescope/telescope.nvim/issues/857#issuecomment-846368690
+local buffer_previewer_maker = function(filepath, bufnr, opts)
+	opts = opts or {}
+	if opts.use_ft_detect == nil then
+		local ft = require("plenary.filetype").detect(filepath)
+		opts.use_ft_detect = false
+		require("telescope.previewers.utils").regex_highlighter(bufnr, ft)
+	end
+	require("telescope.previewers").buffer_previewer_maker(filepath, bufnr, opts)
 end
 
 require("lazy").setup({
@@ -106,6 +119,7 @@ require("lazy").setup({
 		end,
 		opts = {
 			defaults = {
+				buffer_previewer_maker = buffer_previewer_maker,
 				-- https://github.com/nvim-telescope/telescope.nvim#layout-display
 				layout_config = {
 					vertical = { height = 0.99, width = 0.99 },
