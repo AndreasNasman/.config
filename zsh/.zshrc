@@ -51,6 +51,10 @@ plugins=(
   git
   vi-mode
   zsh-nvm
+
+  # fzf should be loaded last to avoid keybinding problems.
+  # https://github.com/jeffreytse/zsh-vi-mode/issues/24
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
