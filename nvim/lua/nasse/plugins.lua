@@ -194,7 +194,6 @@ require("lazy").setup({
 		},
 		priority = 1000, -- Load this before all the other start plugins.
 	},
-	"folke/zen-mode.nvim", -- 🧘 Distraction-free coding for Neovim
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 	"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
 	"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
@@ -203,7 +202,6 @@ require("lazy").setup({
 	-- Utility
 	"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
 	"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
-	"tommcdo/vim-exchange", -- Easy text exchange operator for Vim
 	{
 		"windwp/nvim-autopairs", -- autopairs for neovim written by lua
 		config = function(_, opts)
