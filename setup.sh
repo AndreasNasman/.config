@@ -7,15 +7,15 @@ cd home
 echo '📁 Copying files in directories to their correct place in `$HOME`.'
 DIRECTORIES_TO_HOME=$(find . -mindepth 1 -type d)
 echo $DIRECTORIES_TO_HOME \
-  | xargs -I {} cp --recursive --no-target-directory {} $HOME/{}
+  | xargs -I '{}' cp --recursive --no-target-directory '{}' $HOME/'{}'
 echo '💾 Copying files to `$HOME`.'
 FILES_TO_HOME=$(find . -maxdepth 1 -type f -printf "%f\n")
 echo $FILES_TO_HOME \
-  | xargs -I {} rsync {} /home/nasse/{}
+  | xargs -I '{}' rsync '{}' /home/nasse/'{}'
 echo '🔗 Hardlink copied files.'
 FILES_TO_HARDLINK=$(find . -type f -printf "%P\n")
 echo $FILES_TO_HARDLINK \
-  | xargs -I {} ln -f $HOME/{} {}
+  | xargs -I '{}' ln -f $HOME/'{}' '{}'
 
 echo '📂 Creating XDG directories.'
 mkdir -p $XDG_CACHE_HOME
