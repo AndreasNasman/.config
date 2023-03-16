@@ -14,6 +14,13 @@ HISTFILE=$HISTFILE_DIR/history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
 
+# Open WSL tabs in the same directory.
+# https://learn.microsoft.com/en-us/windows/terminal/tutorials/new-tab-same-directory#zsh
+keep_current_path() {
+  printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+}
+precmd_functions+=(keep_current_path)
+
 # If you come from bash you might have to change your $PATH.
 CAMBRI_BIN=$XDG_CONFIG_HOME/bin/cambri
 export PATH=$CAMBRI_BIN:$PATH
