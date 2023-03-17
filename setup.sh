@@ -39,7 +39,7 @@ echo -e '\n📜 Installing Node v16.'
 /bin/zsh -i -c 'nvm install 16'
 
 echo -e '\n🪄 Opening Neovim for setup.'
-/bin/zsh -i -c 'nvim'
+nvim
 
 echo -e '\n🗑️ Removing preinstalled files.'
 rm --force $HOME/.bash_logout
