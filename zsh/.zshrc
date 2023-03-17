@@ -26,7 +26,7 @@ CAMBRI_BIN=$XDG_CONFIG_HOME/bin/cambri
 export PATH=$CAMBRI_BIN:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
+export ZSH="$XDG_CONFIG_HOME/zsh/ohmyzsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
