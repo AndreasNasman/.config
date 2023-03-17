@@ -33,7 +33,6 @@ git clone --quiet --depth 1 https://github.com/junegunn/fzf.git
 ./fzf/install --xdg --no-key-bindings --no-completion --no-update-rc
 
 echo -e '\n💻 Installing Oh My Zsh with existing config.'
-cd $HOME
 sh -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 echo -e '\n📜 Installing Node v16.'
