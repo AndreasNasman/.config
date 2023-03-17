@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo '📦 Setting up Oh My Zsh plugins through Git submodules.'
+echo '📦 Installing Oh My Zsh plugins through Git submodules.'
 git submodule init && git submodule update
 
 echo '📂 Creating XDG directories.'
@@ -17,7 +17,7 @@ echo '💾 Copying files to `$HOME`.'
 FILES_TO_HOME=$(find . -maxdepth 1 -type f -printf "%f\n")
 echo $FILES_TO_HOME \
   | xargs -I '{}' rsync '{}' /home/nasse/'{}'
-echo '🔗 Hardlink copied files.'
+echo '🔗 Hardlinking copied files.'
 FILES_TO_HARDLINK=$(find . -type f -printf "%P\n")
 echo $FILES_TO_HARDLINK \
   | xargs -I '{}' ln -f $HOME/'{}' '{}'
@@ -34,8 +34,18 @@ source init.sh
 cd $XDG_CONFIG_HOME/packages/make
 source init.sh
 
-echo '🗑️ Removing preinstalled files.'
+echo '\n🐚 Setting Zsh as the default shell.'
+chsh -s $(which zsh)
+
+echo '\n💻 Installing Oh My Zsh with existing config.'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mv $XDG_CONFIG_HOME/zsh/.zshrc.pre-oh-my-zsh $XDG_CONFIG_HOME/zsh/.zshrc
+
+echo '\n🗑️ Removing preinstalled files.'
 rm --force $HOME/.bash_logout
 rm --force $HOME/.bashrc
 rm --force $HOME/.motd_shown
 rm --force $HOME/.profile
+
+echo '\n🪄 Opening Neovim for setup.'
+nvim
