@@ -33,3 +33,9 @@ cd $XDG_CONFIG_HOME/packages/apt-manual
 source init.sh
 cd $XDG_CONFIG_HOME/packages/make
 source init.sh
+
+echo '🗑️ Removing preinstalled files.'
+rm --force $HOME/.bash_logout
+rm --force $HOME/.bashrc
+rm --force $HOME/.motd_shown
+rm --force $HOME/.profile
