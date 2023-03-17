@@ -1,0 +1,5 @@
+build-essential
+libreadline-dev
+neovim
+software-properties-common
+unzip
