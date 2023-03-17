@@ -1,5 +1,6 @@
 # Directories
 .nvm/
+fzf/
 
 # Files
 .zcompdump*

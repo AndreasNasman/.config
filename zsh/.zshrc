@@ -49,6 +49,9 @@ ZSH_CUSTOM=$XDG_CONFIG_HOME/zsh/custom
 # https://github.com/lukechilds/zsh-nvm#custom-directory
 export NVM_DIR=$XDG_CONFIG_HOME/.nvm
 
+# `fzf` path.
+export FZF_BASE=$XDG_CONFIG_HOME/fzf
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
