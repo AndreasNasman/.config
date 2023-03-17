@@ -74,7 +74,7 @@ setopt globdots
 
 # Use Neovim as a manpager.
 # `:h :Man`
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 export MANWIDTH=999
 
 # https://wiki.archlinux.org/title/environment_variables#Default_programs
