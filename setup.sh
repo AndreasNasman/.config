@@ -27,3 +27,5 @@ cd $XDG_CONFIG_HOME/packages/apt
 source init.sh
 cd $XDG_CONFIG_HOME/packages/apt-manual
 source init.sh
+cd $XDG_CONFIG_HOME/packages/make
+source init.sh
