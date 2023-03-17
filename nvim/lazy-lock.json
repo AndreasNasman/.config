@@ -9,7 +9,7 @@
   "fidget.nvim": { "branch": "main", "commit": "688b4fec4517650e29c3e63cfbb6e498b3112ba1" },
   "friendly-snippets": { "branch": "main", "commit": "2f5b8a41659a19bd602497a35da8d81f1e88f6d9" },
   "gitsigns.nvim": { "branch": "main", "commit": "b1f9cf7c5c5639c006c937fc1819e09f358210fc" },
-  "lazy.nvim": { "branch": "main", "commit": "b3eca0c3fb4ef5e547f70c571b8cd27688db83bb" },
+  "lazy.nvim": { "branch": "main", "commit": "e2102c3a3a66ee89a2afaf779e439490eada75e3" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "d1a76a59371813d16b5ef0deab209b85db5d19cd" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "6ca38efeb0406dea8da6c97f61d6f6ef30ab0576" },
   "mason.nvim": { "branch": "main", "commit": "080cccf82b874df2898f73dcdb09b285a0824334" },
