@@ -3,7 +3,7 @@
 echo '📦 Setting up Oh My Zsh plugins through Git submodules.'
 git submodule init && git submodule update
 
-cd home
+cd $XDG_CONFIG_HOME/home
 echo '📁 Copying files in directories to their correct place in `$HOME`.'
 DIRECTORIES_TO_HOME=$(find . -mindepth 1 -type d)
 echo $DIRECTORIES_TO_HOME \
@@ -21,3 +21,9 @@ echo '📂 Creating XDG directories.'
 mkdir -p $XDG_CACHE_HOME
 mkdir -p $XDG_DATA_HOME
 mkdir -p $XDG_STATE_HOME
+
+echo '📦 Setting up packages.'
+cd $XDG_CONFIG_HOME/packages/apt
+source init.sh
+cd $XDG_CONFIG_HOME/packages/apt-manual
+source init.sh
