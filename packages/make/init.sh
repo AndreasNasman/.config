@@ -1,5 +1,5 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-echo '\n🎣 Installing manually fetched packages with `make`.'
-CURRENT_FILE_NAME=$(basename $0)
-find . -mindepth 1 -executable -not -name $CURRENT_FILE_NAME -exec '{}' \;
+echo -e '\n🎣 Installing manually fetched packages with `make`.'
+SOURCE=${BASH_SOURCE[0]}
+find . -mindepth 1 -executable -not -name $SOURCE -exec '{}' \;
