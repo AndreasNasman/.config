@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix#1ubuntudebian-user
 

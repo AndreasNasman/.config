@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # https://lindevs.com/install-fd-command-for-finding-files-on-ubuntu
 echo -e '\n🎁 Installing `fd`.'
