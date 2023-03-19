@@ -1,7 +1,5 @@
 # Directories
 .nvm/
-fzf/
-zsh/ohmyzsh/
 
 # Files
 .zcompdump*
