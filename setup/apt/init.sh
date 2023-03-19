@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
 echo -e '\n🌊 Adding unstable Neovim repository.'
@@ -7,7 +7,7 @@ echo -e '\n📈 Updating package information.'
 sudo apt update
 
 echo -e '\n🎁 Installing packages.'
-SOURCE=${BASH_SOURCE[0]}
-PACKAGES=$(find . -mindepth 1 -type f -not -name $SOURCE -exec cat '{}' \;)
+SOURCE=$(basename $0)
+PACKAGES=$(find . -type f -not -name $SOURCE -exec cat '{}' \;)
 echo $PACKAGES \
   | xargs sudo apt --yes install
