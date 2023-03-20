@@ -1,3 +1,6 @@
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
 [submodule "zsh/custom/plugins/zsh-autosuggestions"]
 	path = zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
@@ -10,6 +13,3 @@
 [submodule "zsh/ohmyzsh"]
 	path = zsh/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf.git
