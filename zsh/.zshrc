@@ -26,7 +26,7 @@ CAMBRI_BIN=$XDG_CONFIG_HOME/bin/cambri
 export PATH=$CAMBRI_BIN:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$XDG_CONFIG_HOME/zsh/ohmyzsh"
+export ZSH="$ZDOTDIR/ohmyzsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,7 +86,7 @@ export VISUAL=nvim
 
 # Installation path to the `cambri2` repo: https://gitlab.com/cambri/maxdiff-pilot/cambri2.
 # Needed for scripts in `$CAMBRI_BIN`.
-export CAMBRI_TOOL=$HOME/Cambri/cambri2
+export CAMBRI_TOOL=$HOME/cambri2
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
