@@ -7,4 +7,4 @@ then
 fi
 
 cd $CAMBRI_TOOL/devops/local-run
-./import-test-to-local.sh $1 'Test data VC' \'$2\' --surveys-include-mode 'INCLUDE_RESULTS' --include-non-preview-surveys
+./import-test-to-local.sh $1 'Test data VC' $2 --surveys-include-mode 'INCLUDE_RESULTS' --include-non-preview-surveys
