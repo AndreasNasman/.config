@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+SETUP_DIRECTORY=$(dirname $(realpath $0))
+cd $SETUP_DIRECTORY
+
+echo -e '\n📰 Updating and upgrading installed packages.'
+sudo hwclock -s
+sudo apt update --yes
+sudo apt upgrade --yes
+
 REPO_PATH=$(git rev-parse --show-toplevel)
 
 echo -e '\n📂 Creating XDG directories.'
@@ -16,10 +24,6 @@ find . -type f -exec ln -f $HOME/'{}' '{}' \;
 
 echo -e '\n📦 Installing Oh My Zsh plugins through Git submodules.'
 git submodule init && git submodule update
-
-echo -e '\n🔭 Installing `fzf`.'
-cd $REPO_PATH
-./fzf/install --xdg --no-key-bindings --no-completion --no-update-rc
 
 echo -e '\n🗑️ Removing preinstalled files.'
 rm --force $HOME/.bash_logout
