@@ -185,7 +185,7 @@ require("lazy").setup({
 		end,
 		lazy = false, -- Load this during startup since it's the main color scheme.
 		opts = {
-			style = "night",
+			style = "moon",
 			styles = {
 				floats = "transparent",
 				sidebars = "transparent",
