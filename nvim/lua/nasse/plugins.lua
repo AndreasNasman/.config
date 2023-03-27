@@ -54,6 +54,18 @@ require("lazy").setup({
 	-- Dependencies
 	"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 	"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+	{
+		"zbirenbaum/copilot.lua", -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+		-- https://github.com/zbirenbaum/copilot-cmp#install
+		opts = {
+			panel = {
+				enabled = false,
+			},
+			suggestion = {
+				enabled = false,
+			},
+		},
+	},
 
 	-- Git
 	{
@@ -196,6 +208,11 @@ require("lazy").setup({
 
 	-- Utility & DX
 	"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
+	{
+		"zbirenbaum/copilot-cmp", -- Lua plugin to turn github copilot into a cmp source
+		config = true,
+		dependencies = "copilot.lua",
+	},
 	"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
 	"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
 	"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
