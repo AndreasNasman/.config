@@ -35,14 +35,12 @@ local buffer_previewer_maker = function(filepath, bufnr, opts)
 end
 
 require("lazy").setup({
-	-- Annotation
+	-- Commenting
 	{
 		"danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
 		config = true,
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
-
-	-- Comments
 	"tpope/vim-commentary", -- commentary.vim: comment stuff out
 
 	-- Completion
@@ -54,6 +52,7 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
 
 	-- Dependencies
+	"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 	"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
 
 	-- Git
@@ -142,7 +141,6 @@ require("lazy").setup({
 		"kana/vim-textobj-entire", -- Vim plugin: Text objects for entire buffer
 		dependencies = { "kana/vim-textobj-user" },
 	},
-	"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
 
 	-- Treesitter
 	{
@@ -173,7 +171,7 @@ require("lazy").setup({
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 
-	-- UI & DX
+	-- UI
 	{
 		"folke/tokyonight.nvim", -- 🏙️ A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 		-- https://github.com/folke/lazy.nvim#-colorschemes
@@ -195,13 +193,13 @@ require("lazy").setup({
 		priority = 1000, -- Load this before all the other start plugins.
 	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
+
+	-- Utility & DX
+	"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
+	"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
 	"tpope/vim-repeat", -- repeat.vim: enable repeating supported plugin maps with "."
 	"tpope/vim-surround", -- surround.vim: quoting/parenthesizing made simple
 	"tpope/vim-unimpaired", -- unimpaired.vim: Pairs of handy bracket mappings
-
-	-- Utility
-	"arthurxavierx/vim-caser", -- Easily change word casing with motions, text objects or visual mode.
-	"romainl/vim-cool", -- A very simple plugin that makes hlsearch more useful.
 	{
 		"windwp/nvim-autopairs", -- autopairs for neovim written by lua
 		config = function(_, opts)
