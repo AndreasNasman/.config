@@ -1,5 +1,6 @@
 # Directories
 .nvm/
+grammarly-languageserver/
 
 # Files
 .zcompdump*
