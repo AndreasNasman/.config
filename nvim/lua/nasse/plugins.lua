@@ -215,4 +215,8 @@ require("lazy").setup({
 			check_ts = true,
 		},
 	},
+}, {
+	ui = {
+		border = "rounded",
+	},
 })

@@ -1,7 +1,7 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim#setup
 require("mason").setup({
 	ui = {
-		border = "single",
+		border = "rounded",
 	},
 })
 require("mason-lspconfig").setup({
@@ -12,7 +12,7 @@ require("mason-lspconfig").setup({
 local lspconfig = require("lspconfig")
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
-require("lspconfig.ui.windows").default_options.border = "single"
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local config = {
 	-- Add additional capabilities supported by nvim-cmp
