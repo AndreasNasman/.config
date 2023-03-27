@@ -51,22 +51,6 @@ require("lazy").setup({
 	"hrsh7th/cmp-path", -- nvim-cmp source for path
 	"hrsh7th/nvim-cmp", -- A completion plugin for neovim coded in Lua.
 
-	-- Dependencies
-	"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
-	"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
-	{
-		"zbirenbaum/copilot.lua", -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
-		-- https://github.com/zbirenbaum/copilot-cmp#install
-		opts = {
-			panel = {
-				enabled = false,
-			},
-			suggestion = {
-				enabled = false,
-			},
-		},
-	},
-
 	-- Git
 	{
 		"lewis6991/gitsigns.nvim", -- Git integration for buffers
@@ -228,6 +212,22 @@ require("lazy").setup({
 		end,
 		opts = {
 			check_ts = true,
+		},
+	},
+
+	-- Dependencies
+	"kana/vim-textobj-user", -- Vim plugin: Create your own text objects
+	"nvim-lua/plenary.nvim", -- plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice.
+	{
+		"zbirenbaum/copilot.lua", -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+		-- https://github.com/zbirenbaum/copilot-cmp#install
+		opts = {
+			panel = {
+				enabled = false,
+			},
+			suggestion = {
+				enabled = false,
+			},
 		},
 	},
 }, {
