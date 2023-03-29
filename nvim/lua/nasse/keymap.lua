@@ -13,8 +13,7 @@ end
 set("n", "<Leader>/", "/\\v", { desc = "Search using very magic" })
 set("n", "<Leader><C-w><C-f>", fullscreen_window, { desc = "Fullscreen window" })
 set("n", "<Leader><C-w>f", fullscreen_window, { desc = "Fullscreen window" })
--- Doesn't seem possible to write with with `vim.cmd.normal`.
-set("n", "<Leader>c", ':!echo % | xclip -sel clip<CR><CR>', { desc = "Copy current file path to xclip" })
+set("n", "<Leader>c", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end, opt, { desc = 'Copy current file path to the selection register "+' })
 set("n", "<Leader>e", vim.cmd.Explore, vim.tbl_deep_extend("force", opts, { desc = "Explore directory of current file" }))
 set("n", "<Leader>l", function() vim.cmd.set("spell!") end, { desc = "Toggle spell checking" })
 set("n", "<Leader>oc", function() vim.cmd.Explore("$XDG_CONFIG_HOME") end, vim.tbl_deep_extend("force", opts, { desc = "Open .config directory" }))
@@ -30,10 +29,10 @@ set("n", "n", "nzz", { desc = "Repeat the latest search with the cursor in the m
 set("n", "N", "Nzz", { desc = "Repeat the latest search in the opposite direction with the cursor in the middle of the screen" })
 
 -- Register utilities.
-set("", "<Leader><Leader>", '"+', { desc = "Prompt the plus register" })
-set("", "<Leader>d", '"_d', { desc = "Delete to black hole register" })
-set("n", "<Leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, opt, { desc = 'Copy value from " to the + register' })
-set("v", "<Leader>p", '"_c<C-r>"<ESC>', { desc = "Paste to black hole register" })
+set("", "<Leader><Leader>", '"+', { desc = 'Prompt the selection register "+' })
+set("", "<Leader>d", '"_d', { desc = 'Delete to the black hole register "_' })
+set("n", "<Leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, opt, { desc = 'Copy value from the unnamed register "" to the selection register "+' })
+set("v", "<Leader>p", '"_c<C-r>"<ESC>', { desc = 'Paste to the black hole register "_' })
 
 -- Plugins.
 set("n", "<Leader>g", vim.cmd.Git)
