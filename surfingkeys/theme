@@ -24,7 +24,7 @@ settings.theme = `
 .sk_theme {
   background-color: var(--dracula-background);
   color: var(--dracula-foreground);
-  font-family: "FiraCode Nerd Font";
+  font-family: "Cascadia Code";
 }
 
 .sk_theme input {
