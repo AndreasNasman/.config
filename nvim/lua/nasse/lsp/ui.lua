@@ -5,7 +5,6 @@ vim.diagnostic.config({
 		source = "always",
 	},
 	severity_sort = true,
-	underline = false,
 })
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#borders
