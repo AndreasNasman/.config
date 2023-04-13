@@ -188,6 +188,11 @@ require("lazy").setup({
 		},
 		priority = 1000, -- Load this before all the other start plugins.
 	},
+	{
+		"nvim-lualine/lualine.nvim",
+		config = true,
+		dependencies = "nvim-tree/nvim-web-devicons",
+	},
 	"nvim-tree/nvim-web-devicons", -- lua `fork` of vim-web-devicons for neovim
 
 	-- Utility & DX
