@@ -26,3 +26,19 @@ local opt = vim.opt
 opt.guicursor:append("a:blinkon100")
 
 reset_to_default(opt, "clipboard")
+
+local api = vim.api
+
+-- Case-insensitive versions of common commands.
+api.nvim_create_user_command("Q", "quit", {})
+
+api.nvim_create_user_command("QA", "qall", {})
+api.nvim_create_user_command("Qa", "qall", {})
+
+api.nvim_create_user_command("W", "write", {})
+
+api.nvim_create_user_command("WA", "wall", {})
+api.nvim_create_user_command("Wa", "wall", {})
+
+api.nvim_create_user_command("WQ", "wq", {})
+api.nvim_create_user_command("Wq", "wq", {})
