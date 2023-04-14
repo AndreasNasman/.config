@@ -15,3 +15,12 @@ vim.g.clipboard = {
     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
   },
 }
+
+-- https://www.reddit.com/r/neovim/comments/10ra30e/comment/j6vi70r/
+local function reset_to_default(accessor, option)
+  accessor[option] = vim.api.nvim_get_option_info2(option, {}).default
+end
+
+local opt = vim.opt
+
+reset_to_default(opt, "clipboard")
