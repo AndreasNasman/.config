@@ -1,7 +1,2 @@
-require("nasse.plugins")
-require("nasse.options")
-require("nasse.keymap")
-require("nasse.completion")
-require("nasse.user-commands")
-require("nasse.autocommands")
-require("nasse.lsp")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
