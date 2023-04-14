@@ -23,4 +23,6 @@ end
 
 local opt = vim.opt
 
+opt.guicursor:append("a:blinkon100")
+
 reset_to_default(opt, "clipboard")
