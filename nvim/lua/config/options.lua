@@ -24,6 +24,7 @@ end
 local opt = vim.opt
 
 reset_to_default(opt, "clipboard") -- Separate Neovim and system clipboards.
+opt.fillchars = { "eob: " } -- Hide ~ at end of buffer.
 opt.guicursor:append("a:blinkon100") -- Blink cursor to match terminal settings.
 opt.pumblend = 0 -- Disable popup menu transparency.
 
