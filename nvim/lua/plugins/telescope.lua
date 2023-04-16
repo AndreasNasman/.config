@@ -22,7 +22,10 @@ return {
       defaults = {
         buffer_previewer_maker = buffer_previewer_maker,
         layout_config = {
-          vertical = { height = 0.99, width = 0.99 },
+          vertical = {
+            height = 0.99,
+            width = 0.99,
+          },
         },
         layout_strategy = "vertical",
       },
