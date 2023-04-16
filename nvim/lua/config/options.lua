@@ -23,9 +23,8 @@ end
 
 local opt = vim.opt
 
-opt.guicursor:append("a:blinkon100")
-
-reset_to_default(opt, "clipboard")
+reset_to_default(opt, "clipboard") -- Separate Neovim and system clipboards.
+opt.guicursor:append("a:blinkon100") -- Blink cursor to match terminal settings.
 
 local api = vim.api
 
