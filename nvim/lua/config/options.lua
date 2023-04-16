@@ -43,3 +43,11 @@ api.nvim_create_user_command("Wa", "wall", {})
 
 api.nvim_create_user_command("WQ", "wq", {})
 api.nvim_create_user_command("Wq", "wq", {})
+
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#borders
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "rounded"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
