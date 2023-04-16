@@ -1,5 +1,5 @@
 {
-  "LazyVim": { "branch": "main", "commit": "7ce1b1519a45f48aa4b5f35b7b7a886b42fe56d8" },
+  "LazyVim": { "branch": "main", "commit": "36aa64bc0b3d24045e6f83adc9a13f95ed52269d" },
   "LuaSnip": { "branch": "master", "commit": "a6355b12a3b7da0aef71f02560e17ff480182b97" },
   "SchemaStore.nvim": { "branch": "main", "commit": "a592fbe98959d13014b022ec1b1418498309019c" },
   "alpha-nvim": { "branch": "main", "commit": "dafa11a6218c2296df044e00f88d9187222ba6b0" },
@@ -16,7 +16,7 @@
   "friendly-snippets": { "branch": "main", "commit": "b1b78a6433268fc172adb5a843e165035e83861e" },
   "gitsigns.nvim": { "branch": "main", "commit": "372d5cb485f2062ac74abc5b33054abac21d8b58" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
-  "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
+  "lazy.nvim": { "branch": "main", "commit": "86c1a767f041edf62a068c9fe2ea912058521477" },
   "leap.nvim": { "branch": "main", "commit": "98a72ad93c629c49bd7127d342960cc1b159b620" },
   "lualine.nvim": { "branch": "master", "commit": "84ffb80e452d95e2c46fa29a98ea11a240f7843e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "6c8f7afd6162fa27719f9da9792e4314da41c501" },
