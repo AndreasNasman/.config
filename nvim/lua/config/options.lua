@@ -25,6 +25,7 @@ local opt = vim.opt
 
 reset_to_default(opt, "clipboard") -- Separate Neovim and system clipboards.
 opt.guicursor:append("a:blinkon100") -- Blink cursor to match terminal settings.
+opt.pumblend = 0 -- Disable popup menu transparency.
 
 local api = vim.api
 
