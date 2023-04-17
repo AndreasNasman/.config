@@ -9,6 +9,12 @@ local buffer_previewer_maker = function(filepath, bufnr, opts)
   require("telescope.previewers").buffer_previewer_maker(filepath, bufnr, opts)
 end
 
+-- https://github.com/nvim-telescope/telescope.nvim/issues/2041
+local picker_config = {}
+for builtin, _ in pairs(require("telescope.builtin")) do
+  picker_config[builtin] = { show_line = false }
+end
+
 return {
   "telescope.nvim",
   dependencies = {
@@ -29,6 +35,7 @@ return {
         },
         layout_strategy = "vertical",
       },
+      pickers = picker_config,
     },
   },
 }
