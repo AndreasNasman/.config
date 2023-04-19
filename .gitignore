@@ -3,7 +3,7 @@
 github-copilot/
 grammarly-languageserver/
 htop/
-lazygit/
 
 # Files
 .zcompdump*
+lazygit/state.yml
