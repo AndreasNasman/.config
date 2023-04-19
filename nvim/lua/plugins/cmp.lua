@@ -2,6 +2,10 @@ return {
   "hrsh7th/nvim-cmp",
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
+    opts.completion = {
+      completeopt = "menu,menuone,noselect",
+    }
+
     -- https://www.lazyvim.org/configuration/examples
     local has_words_before = function()
       unpack = unpack or table.unpack
