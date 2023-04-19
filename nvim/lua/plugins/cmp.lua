@@ -18,6 +18,10 @@ return {
 
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      ["<C-l>"] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      }),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
