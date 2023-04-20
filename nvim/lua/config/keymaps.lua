@@ -3,6 +3,13 @@
 -- Add any additional keymaps here
 
 local set = vim.keymap.set
+local unmap = vim.cmd.unmap
+
+unmap("<C-h>")
+unmap("<C-l>")
+unmap("<S-h>")
+unmap("<S-l>")
+unmap("gw")
 
 -- stylua: ignore start
 set("", "<leader>d", '"_d', { desc = 'Delete ("_)' })
