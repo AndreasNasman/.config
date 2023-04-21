@@ -14,7 +14,7 @@ unmap("gw")
 -- stylua: ignore start
 set("", "<leader>d", '"_d', { desc = 'Delete ("_)' })
 set("", "<leader>y", '"+y', { desc = 'Copy (y) ("+)' })
-set("", "<leader>Y", '"+Y', { desc = 'Copy (Y) ("+)' })
+set("", "<leader>Y", '"+y$', { desc = 'Copy (Y) ("+)' })
 set("n", "<C-j>", "<cmd>Gitsigns next_hunk<cr>", { desc = "Jump to next hunk" })
 set("n", "<C-k>", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Jump to previous hunk" })
 set("n", "<leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, { desc = '"" => "+' })
