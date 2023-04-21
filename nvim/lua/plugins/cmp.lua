@@ -6,7 +6,7 @@ return {
       completeopt = "menu,menuone,noselect",
     }
 
-    -- https://www.lazyvim.org/configuration/examples
+    -- https://www.lazyvim.org/configuration/recipes#supertab
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -17,16 +17,11 @@ return {
     local cmp = require("cmp")
 
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      ["<C-l>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      }),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
+        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+        -- they way you will only jump inside the snippet region
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif has_words_before() then
@@ -44,6 +39,14 @@ return {
           fallback()
         end
       end, { "i", "s" }),
+    })
+
+    opts.mapping = vim.tbl_extend("force", opts.mapping, {
+      ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      ["<C-l>"] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      }),
     })
 
     opts.window = {
