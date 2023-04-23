@@ -24,6 +24,16 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+if Util.has("bufferline.nvim") then
+  map("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+  map("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+  map("n", "<S-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer <-" })
+  map("n", "<S-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer ->" })
+else
+  map("n", "<C-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+  map("n", "<C-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+end
+
 -- stylua: ignore start
 map("", "<leader>d", '"_d', { desc = 'Delete ("_)' })
 map("", "<leader>y", '"+y', { desc = 'Copy (y) ("+)' })
