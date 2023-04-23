@@ -29,6 +29,8 @@ if Util.has("bufferline.nvim") then
   map("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
   map("n", "<S-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer <-" })
   map("n", "<S-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer ->" })
+  map("n", "<leader>bb", "<cmd>BufferLinePick<cr>", { desc = "Focus buffer" })
+  map("n", "<leader>bo", "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", { desc = "Close other buffers" })
 else
   map("n", "<C-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
   map("n", "<C-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
