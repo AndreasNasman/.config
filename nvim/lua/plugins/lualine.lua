@@ -10,10 +10,11 @@ return {
         {
           "branch",
           -- https://github.com/nvim-lualine/lualine.nvim#component-options
+          ---@param str string
           fmt = function(str)
             if os.getenv("PWD") == os.getenv("CAMBRI_TOOL") then
-              -- Only display `CT-1234` branch name part when in the `cambri2` repo.
-              return str:sub(6, 12)
+              -- Only display e.g. `CT-1234` branch name part when in the `cambri2` repo.
+              return str:match("%u+-%d+")
             else
               return str
             end
