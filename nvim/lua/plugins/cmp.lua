@@ -42,9 +42,9 @@ return {
   "hrsh7th/nvim-cmp",
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
-    opts.completion = {
+    opts.completion = vim.tbl_extend("force", opts.completion or {}, {
       completeopt = "menu,menuone,noselect",
-    }
+    })
 
     -- https://www.lazyvim.org/configuration/recipes#supertab
     local has_words_before = function()
@@ -56,7 +56,7 @@ return {
     local luasnip = require("luasnip")
     local cmp = require("cmp")
 
-    opts.mapping = vim.tbl_extend("force", opts.mapping, {
+    opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -113,7 +113,7 @@ return {
       should_open_current_source = true
     end)
 
-    opts.mapping = vim.tbl_extend("force", opts.mapping, {
+    opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
       ["<C-Space>"] = cmp.mapping(function()
         if should_open_current_source then
           -- No index adjustment is needed when the current source should be
@@ -143,9 +143,9 @@ return {
       }),
     })
 
-    opts.window = {
+    opts.window = vim.tbl_extend("force", opts.window or {}, {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
-    }
+    })
   end,
 }
