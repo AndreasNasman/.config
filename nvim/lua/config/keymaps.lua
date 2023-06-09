@@ -46,4 +46,4 @@ map("n", "<leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, { d
 map("n", "<leader>pa", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end, { desc = 'Copy file path (absolute) ("+)' })
 map("n", "<leader>pr", function() vim.fn.setreg("+", vim.fn.expand("%:~:.")) end, { desc = 'Copy file path (relative) ("+)' })
 map("v", ".", ":normal .<cr>", { desc = "Repeat last change" })
-map("v", "<leader>p", '"_c<C-r>"<ESC>', { desc = 'Paste ("_)' })
+map("v", "<leader>p", '"_c<C-r>"<esc>', { desc = 'Paste ("_)' })
