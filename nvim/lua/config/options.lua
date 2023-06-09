@@ -30,16 +30,22 @@ api.nvim_create_user_command("Wa", "wall", {})
 api.nvim_create_user_command("WQ", "wq", {})
 api.nvim_create_user_command("Wq", "wq", {})
 
--- `:help clipboard-wsl`
+-- The approach mentioned in `:help clipboard-wsl` does not work with unicode characters.
+-- This implementation using `wl-clipboard` works as expected.
+-- https://stackoverflow.com/a/76388417
 vim.g.clipboard = {
-  cache_enabled = 0,
+  cache_enabled = true,
   copy = {
-    ["*"] = "clip.exe",
-    ["+"] = "clip.exe",
+    ["+"] = "wl-copy --foreground --type text/plain",
+    ["*"] = "wl-copy --foreground --primary --type text/plain",
   },
-  name = "WslClipboard",
+  name = "wl-clipboard (wsl)",
   paste = {
-    ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["+"] = function()
+      return vim.fn.systemlist('wl-paste --no-newline|sed -e "s/\r$//"', { "" }, 1) -- '1' keeps empty lines
+    end,
+    ["*"] = function()
+      return vim.fn.systemlist('wl-paste --primary --no-newline|sed -e "s/\r$//"', { "" }, 1)
+    end,
   },
 }
