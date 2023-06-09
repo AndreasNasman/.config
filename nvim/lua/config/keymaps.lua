@@ -39,9 +39,9 @@ else
 end
 
 -- stylua: ignore start
-map("", "<leader>d", '"_d', { desc = 'Delete ("_)' })
-map("", "<leader>y", '"+y', { desc = 'Copy (y) ("+)' })
+map("", "<leader>D", '"_d', { desc = 'Delete ("_)' })
 map("", "<leader>Y", '"+y$', { desc = 'Copy (Y) ("+)' })
+map("", "<leader>y", '"+y', { desc = 'Copy (y) ("+)' })
 map("n", "<C-j>", "<cmd>Gitsigns next_hunk<cr>", { desc = "Jump to next hunk" })
 map("n", "<C-k>", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Jump to previous hunk" })
 map("n", "<leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, { desc = '"" => "+' })
