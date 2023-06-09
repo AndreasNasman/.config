@@ -85,7 +85,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # https://github.com/microsoft/WSL/issues/8892#issuecomment-1540161907
-export BROWSER=$HOME/msedge.exe
+export BROWSER=$HOME/chrome.exe
 
 # Installation path to the `cambri2` repo: https://gitlab.com/cambri/maxdiff-pilot/cambri2.
 # Needed for scripts in `$CAMBRI_BIN`.
