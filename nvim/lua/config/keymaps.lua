@@ -2,13 +2,15 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local unmap = vim.cmd.unmap
+local del = vim.keymap.del
 
-unmap("<C-h>")
-unmap("<C-l>")
-unmap("<S-h>")
-unmap("<S-l>")
-unmap("gw")
+del("n", "<S-h>")
+del("n", "<S-l>")
+del({ "n", "t" }, "<C-h>")
+del({ "n", "t" }, "<C-j>")
+del({ "n", "t" }, "<C-k>")
+del({ "n", "t" }, "<C-l>")
+del({ "n", "x" }, "gw")
 
 -- https://www.lazyvim.org/configuration/general#keymaps
 local Util = require("lazyvim.util")
