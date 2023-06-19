@@ -4,7 +4,8 @@
 
 local del = vim.keymap.del
 
-del({ "n", "x" }, "gw")
+-- https://github.com/LazyVim/LazyVim/discussions/534#discussioncomment-5668101
+del("x", "gw")
 
 -- https://www.lazyvim.org/configuration/general#keymaps
 local Util = require("lazyvim.util")
