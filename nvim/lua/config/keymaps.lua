@@ -4,12 +4,6 @@
 
 local del = vim.keymap.del
 
-del("n", "<S-h>")
-del("n", "<S-l>")
-del({ "n", "t" }, "<C-h>")
-del({ "n", "t" }, "<C-j>")
-del({ "n", "t" }, "<C-k>")
-del({ "n", "t" }, "<C-l>")
 del({ "n", "x" }, "gw")
 
 -- https://www.lazyvim.org/configuration/general#keymaps
