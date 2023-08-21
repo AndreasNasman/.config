@@ -5,18 +5,24 @@ import { readFileSync } from "fs";
 
 const args = process.argv.slice(2);
 
-if (args.includes("--all")) {
-  playAllChallenges();
-} else if (
-  args.length == 1 &&
-  args.some((element) => /^--id=\w+$/.test(element))
-) {
-  playChallengeById();
-} else if (args.length == 0 || args.includes("--last")) {
-  playLastChallenge();
-} else {
-  throw new Error("❌ Unknown flag.");
-}
+(async function main() {
+  console.log("🏌️  Golfing started. Fore!");
+
+  if (args.includes("--all")) {
+    await playAllChallenges();
+  } else if (
+    args.length == 1 &&
+    args.some((element) => /^--id=\w+$/.test(element))
+  ) {
+    await playChallengeById();
+  } else if (args.length == 0 || args.includes("--last")) {
+    await playLastChallenge();
+  } else {
+    throw new Error("❌ Unknown flag.");
+  }
+
+  console.log("⛳️ Nice golfing!");
+})();
 
 /* FUNCTIONS */
 
@@ -39,15 +45,15 @@ async function loadChallenge(challenge, repeat = false) {
   else if (scoreLine.toLowerCase().includes("success")) {
     const [currentScore] = scoreLine.match(/(?<=: )\d+/);
     if (currentScore == lowestScore)
-      console.log("💪 Good job! On to the next challenge! 🧑‍💻");
+      console.log("💪 Good job, you matched the best score!");
     else if (currentScore > lowestScore) {
       console.log(
-        `🧩 The challenge can still be optimized to a score of ${lowestScore}, try again! 🤔`
+        `🧩 The challenge can still be optimized to a score of ${lowestScore}, try again!`
       );
       return loadChallenge(challenge, true);
     } else if (currentScore < lowestScore) {
       console.log(
-        "🤯 Wow! A new solution found! Update the challenges file! 🤩"
+        "🤯🤯🤯 Wow! A new solution found! Update the challenges file!"
       );
       process.exit();
     } else throw new Error("Unknown scoring.");
@@ -68,10 +74,12 @@ async function playAllChallenges() {
       (challenge) => challenge.revised
     );
 
-  for (const challenge of relevantChallenges) {
+  for (const [index, challenge] of relevantChallenges.entries()) {
     const { id } = challenge;
     const { lowestScore, name } = await getChallengeInfo(id);
     await loadChallenge({ id, lowestScore, name });
+    if (index !== relevantChallenges.length - 1)
+      console.log("🧑‍💻 On to the next challenge!");
   }
 }
 
