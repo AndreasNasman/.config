@@ -3,6 +3,8 @@
 [core]
 	autocrlf = false
 	editor = nvim -c 'set spell'
+[credential]
+	helper = osxkeychain
 [init]
 	defaultBranch = main
 [push]
