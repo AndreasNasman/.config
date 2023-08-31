@@ -1,3 +1,2 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
+eval "$(brew shellenv)"
