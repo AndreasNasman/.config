@@ -1,6 +1,7 @@
 format = """
-[](#9A348E)\
+[░▒▓](#a3aed2)\
 $os\
+[](bg:#9A348E fg:#a3aed2)\
 $username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
@@ -36,14 +37,16 @@ $time\
 show_always = true
 style_user = "bg:#9A348E"
 style_root = "bg:#9A348E"
-format = '[$user ]($style)'
+format = '[ $user ]($style)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#9A348E"
-disabled = true # Disabled by default
+symbols = { Macos = "" }
+style = "bg:#a3aed2 fg:#090c0c"
+format = '[ $symbol ]($style)'
+disabled = false # Disabled by default
 
 [directory]
 style = "bg:#DA627D"
