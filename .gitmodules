@@ -1,0 +1,6 @@
+[submodule "fish/themes/fish"]
+	path = fish/themes/fish
+	url = https://github.com/dracula/fish.git
+[submodule "kitty/kitty"]
+	path = kitty/kitty
+	url = https://github.com/dracula/kitty.git
