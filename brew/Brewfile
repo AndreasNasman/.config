@@ -10,6 +10,7 @@ brew "neovim", args: ["HEAD"]
 brew "node"
 brew "pinentry-mac"
 brew "ripgrep"
+brew "starship"
 brew "jesseduffield/lazygit/lazygit"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
