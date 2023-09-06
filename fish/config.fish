@@ -1,3 +1,4 @@
+# https://trello.com/c/hi1zvqeZ
 fish_config theme choose "fish/themes/Dracula Official"
 starship init fish | source
 
@@ -10,3 +11,12 @@ set -U fish_greeting
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set EDITOR nvim
 set VISUAL nvim
+
+# https://fishshell.com/docs/current/interactive.html#autosuggestions
+# https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
+function fish_user_key_bindings
+    for mode in insert default visual
+        bind -M $mode \cf forward-char
+        bind -M $mode \ef forward-word
+    end
+end
