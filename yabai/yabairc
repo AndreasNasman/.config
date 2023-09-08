@@ -17,7 +17,7 @@ yabai -m config \
 	auto_balance off \
 	bottom_padding 12 \
 	debug_output off \
-	focus_follows_mouse autofocus \
+	focus_follows_mouse off \
 	insert_feedback_color 0xffd75f5f \
 	layout bsp \
 	left_padding 12 \
