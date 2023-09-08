@@ -9,18 +9,7 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:orange bg:cyan)\
-$c\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
 $nodejs\
-$nim\
-$rust\
-$scala\
 [](fg:cyan bg:purple)\
 $docker_context\
 [](fg:purple bg:comment)\
@@ -44,30 +33,20 @@ purple = '#bd93f9'
 red = '#ff5555'
 yellow = '#f1fa8c'
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+[os]
+disabled = false
+format = '[ $symbol ]($style)'
+style = "bg:foreground fg:background"
+symbols = { Macos = "" }
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
 [username]
+format = '[ $user ]($style)'
 show_always = true
 style_user = "bg:pink"
-style_root = "bg:pink"
-format = '[ $user ]($style)'
-disabled = false
-
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-symbols = { Macos = "" }
-style = "bg:foreground fg:background"
-format = '[ $symbol ]($style)'
-disabled = false                      # Disabled by default
 
 [directory]
-style = "bg:red"
 format = "[ $path ]($style)"
-truncation_length = 3
+style = "bg:red"
 truncation_symbol = "…/"
 
 # Here is how you can shorten some long paths by text replacement
@@ -83,81 +62,27 @@ truncation_symbol = "…/"
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important 󰈙 " = " 󰈙 "
 
-[c]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:purple"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
-symbol = ""
-style = "bg:orange"
 format = '[ $symbol $branch ]($style)'
+style = "bg:orange"
+symbol = ""
 
 [git_status]
-style = "bg:orange"
 format = '[$all_status$ahead_behind ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[gradle]
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:orange"
 
 [nodejs]
+format = '[ $symbol ($version) ]($style)'
+style = "bg:cyan"
 symbol = ""
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
 
-[nim]
-symbol = "󰆥 "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
-style = "bg:cyan"
-format = '[ $symbol ($version) ]($style)'
+[docker_context]
+format = '[ $symbol $context ]($style) $path'
+style = "bg:purple"
+symbol = " "
 
 [time]
 disabled = false
-time_format = "%R"             # Hour:Minute Format
-style = "bg:comment"
 format = '[ ♥ $time ]($style)'
+style = "bg:comment"
+time_format = "%R"
