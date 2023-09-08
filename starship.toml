@@ -83,6 +83,6 @@ symbol = " "
 
 [time]
 disabled = false
-format = '[ ♥ $time ]($style)'
+format = '[ 󰥔 $time ]($style)'
 style = "bg:comment"
 time_format = "%R"
