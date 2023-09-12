@@ -1,6 +1,6 @@
 # https://trello.com/c/hi1zvqeZ
 fish_config theme choose "fish/themes/Dracula Official"
-starship init fish | source
+oh-my-posh init fish --config (brew --prefix oh-my-posh)/themes/dracula.omp.json | source
 
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval "$(brew shellenv)"
