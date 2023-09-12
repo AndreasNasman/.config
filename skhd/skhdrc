@@ -17,17 +17,14 @@ lalt + ctrl - k : yabai -m window --resize top:0:-20
 lalt + ctrl - l : yabai -m window --resize right:20:0
 lalt - 0 : yabai -m space --balance
 
-# Window fullscreen zoom toggle.
-lalt - w : yabai -m window --toggle zoom-fullscreen
+# Window fullscreen zoom toggle and floating window fullscreen size.
+lalt - w : yabai -m window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
 
 # Window split type toggle.
 lalt - s : yabai -m window --toggle split
 
 # Window padding and gap toggle.
 lalt - g: echo padding gap | xargs -n1 yabai -m space --toggle
-
-# Floating window fullscreen size.
-lalt - f : yabai -m window --grid 1:1:0:0:1:1
 
 # Floating window topmost toggle.
 lalt - t : yabai -m window --toggle topmost
