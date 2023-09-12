@@ -13,9 +13,4 @@ yabai -m config \
     top_padding $spacing \
     window_gap $spacing
 
-yabai -m rule --add app='.*' manage=off
-yabai -m rule --add app='^Finder$' manage=on
-yabai -m rule --add app='^GarageBand$' manage=on
-yabai -m rule --add app='^Google Chrome$' manage=on
-yabai -m rule --add app='^MuseScore 4$' manage=on
-yabai -m rule --add app='^kitty$' manage=on
+yabai -m rule --add app!='^(Finder|GarageBand|Google Chrome|MuseScore 4|kitty)$' manage=off
