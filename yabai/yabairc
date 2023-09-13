@@ -9,6 +9,7 @@ yabai -m config \
     bottom_padding $spacing \
     layout bsp \
     left_padding $spacing \
+    mouse_follows_focus on \
     right_padding $spacing \
     top_padding $spacing \
     window_gap $spacing
