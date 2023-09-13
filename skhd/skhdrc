@@ -31,7 +31,7 @@ lalt - t : yabai -m window --toggle topmost
 
 # Desktop creation and destruction.
 lalt - c : yabai -m space --create
-lalt - d : yabai -m space --destroy last
+lalt - d : yabai -m space --destroy next
 
 # Desktop focus.
 lalt - 1 : yabai -m space --focus 1
