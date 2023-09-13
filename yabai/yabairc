@@ -12,6 +12,7 @@ yabai -m config \
     mouse_follows_focus on \
     right_padding $spacing \
     top_padding $spacing \
-    window_gap $spacing
+    window_gap $spacing \
+    window_origin_display focused
 
 yabai -m rule --add app!='^(GarageBand|Google Chrome|MuseScore 4|kitty)$' manage=off
