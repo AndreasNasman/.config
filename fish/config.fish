@@ -1,3 +1,6 @@
+# https://fishshell.com/docs/current/tutorial.html#path
+fish_add_path (path resolve (status dirname)/../bin)
+
 # https://trello.com/c/hi1zvqeZ
 fish_config theme choose "fish/themes/Dracula Official"
 oh-my-posh init fish --config (path resolve (status dirname)/../oh-my-posh/dracula.omp.json) | source
