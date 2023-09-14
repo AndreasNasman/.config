@@ -5,6 +5,9 @@ fish_add_path (path resolve (status dirname)/../bin)
 fish_config theme choose "fish/themes/Dracula Official"
 oh-my-posh init fish --config (path resolve (status dirname)/../oh-my-posh/dracula.omp.json) | source
 
+# https://fishshell.com/docs/current/interactive.html#command-line-editor
+fish_vi_key_bindings
+
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval "$(brew shellenv)"
 
@@ -14,9 +17,6 @@ set -U fish_greeting
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set EDITOR nvim
 set VISUAL nvim
-
-# https://fishshell.com/docs/current/interactive.html#command-line-editor
-fish_vi_key_bindings
 
 # https://fishshell.com/docs/current/interactive.html#autosuggestions
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
