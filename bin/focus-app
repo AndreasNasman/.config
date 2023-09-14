@@ -1,0 +1,20 @@
+#!/usr/bin/env fish
+
+# This script focuses the first app window and cycles through windows
+# (backward) on consecutive runs. It also opens an app window if none is
+# opened yet.
+#
+# We have to cycle through the windows backward since a window is moved first
+# in the list of windows in yabai when it receives focus. When app windows are
+# cycled through with multiple displays, the order of windows changes a bit
+# more, but the list can still be traversed backward to focus all apps in
+# succession.
+
+set app $argv[1]
+set window_id (yabai -m query --windows | jq --arg app $app 'map(select(.app == $app)) | if .[0]."has-focus" == true then .[-1].id else .[0].id end')
+
+if [ $window_id != null ]
+    yabai -m window --focus $window_id
+else
+    open -a $app
+end
