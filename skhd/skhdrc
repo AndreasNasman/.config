@@ -4,6 +4,14 @@ lalt - j : yabai -m window --focus south
 lalt - k : yabai -m window --focus north
 lalt - l : yabai -m window --focus east
 
+# App focus.
+rcmd - b : focus-app 'Google Chrome'
+rcmd - f : focus-app Finder
+rcmd - g : focus-app 'GarageBand'
+rcmd - m : focus-app 'MuseScore 4'
+rcmd - p : focus-app 'System Preferences'
+rcmd - t : focus-app kitty
+
 # Window movement.
 lalt + shift - h : yabai -m window --warp west
 lalt + shift - j : yabai -m window --warp south
