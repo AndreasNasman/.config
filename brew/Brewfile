@@ -9,7 +9,7 @@ brew "fnm"
 brew "git"
 brew "gnupg"
 brew "jq"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "pinentry-mac"
 brew "ripgrep"
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
