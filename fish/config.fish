@@ -1,22 +1,25 @@
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+set XDG_CONFIG_HOME (path resolve (status dirname)/../)
+
+# https://fishshell.com/docs/current/interactive.html#shared-bindings
+set EDITOR nvim
+set VISUAL nvim
+
+# https://fishshell.com/docs/current/cmds/fish_greeting.html#example
+set -U fish_greeting
+
 # https://fishshell.com/docs/current/tutorial.html#path
-fish_add_path (path resolve (status dirname)/../bin)
+fish_add_path $XDG_CONFIG_HOME/../bin
 
 # https://trello.com/c/hi1zvqeZ
 fish_config theme choose "fish/themes/Dracula Official"
-oh-my-posh init fish --config (path resolve (status dirname)/../oh-my-posh/dracula.omp.json) | source
+oh-my-posh init fish --config $XDG_CONFIG_HOME/oh-my-posh/dracula.omp.json | source
 
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings
 
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval "$(brew shellenv)"
-
-# https://fishshell.com/docs/current/cmds/fish_greeting.html#example
-set -U fish_greeting
-
-# https://fishshell.com/docs/current/interactive.html#shared-bindings
-set EDITOR nvim
-set VISUAL nvim
 
 # https://fishshell.com/docs/current/interactive.html#autosuggestions
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
