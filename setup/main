@@ -1,4 +1,0 @@
-#!/usr/bin/env fish
-
-# https://trello.com/c/w2IAJlwI
-cp $XDG_CONFIG_HOME/home/ $HOME
