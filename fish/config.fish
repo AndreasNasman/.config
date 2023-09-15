@@ -1,13 +1,13 @@
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set XDG_CONFIG_HOME (path resolve (status dirname)/../)
+set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
 set --global --export GNUPGHOME $XDG_CONFIG_HOME/gnupg
 
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
-set EDITOR nvim
-set VISUAL nvim
+set --global --export EDITOR nvim
+set --global --export VISUAL nvim
 
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
-set -U fish_greeting
+set --universal fish_greeting
 
 # https://fishshell.com/docs/current/tutorial.html#path
 fish_add_path $XDG_CONFIG_HOME/../bin
