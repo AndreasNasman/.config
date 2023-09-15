@@ -1,3 +1,4 @@
 #!/usr/bin/env fish
 
+# https://trello.com/c/w2IAJlwI
 cp (path resolve (status dirname)/../home/) $HOME
