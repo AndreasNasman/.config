@@ -1,5 +1,6 @@
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set XDG_CONFIG_HOME (path resolve (status dirname)/../)
+set --global --export GNUPGHOME $XDG_CONFIG_HOME/gnupg
 
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set EDITOR nvim
