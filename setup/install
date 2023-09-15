@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+# https://docs.brew.sh/Manpage#bundle-subcommand
 cd $(dirname $0)
 brew bundle install --file $(pwd)/../brew/Brewfile
