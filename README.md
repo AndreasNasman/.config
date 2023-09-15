@@ -2,17 +2,19 @@
 
 ## Install
 
-To install Homebrew packages, run the following script:
+The scripts in this repository rely on [fish](https://fishshell.com/). However, since macOS does not include `fish` by default, a separate Bash script installs dependencies – thereamong `fish` – as Homebrew packages.
+
+To install packages (dependencies), run the following script:
 
 ```sh
 setup/install
 ```
 
-Some Homebrew packages, like `fish`, is needed for other scripts to work.
-
 ## Main
 
-After installing Homebrew packages, run the main script to complete the setup:
+The main setup script copies over files that must be in `$HOME`.
+
+To invoke the main setup, run the following script:
 
 ```sh
 setup/main
