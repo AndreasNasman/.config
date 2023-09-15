@@ -10,16 +10,6 @@ To install packages (dependencies), run the following script:
 setup/install
 ```
 
-## Main
-
-The main setup script copies over files that must be in `$HOME`.
-
-To invoke the main setup, run the following script:
-
-```sh
-setup/main
-```
-
 ## Manual
 
 After running the main script, do these manual setup steps to complete the setup:
