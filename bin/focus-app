@@ -10,8 +10,8 @@
 # more, but the list can still be traversed backward to focus all apps in
 # succession.
 
-set app $argv[1]
-set window_id (yabai -m query --windows | jq --arg app $app 'map(select(.app == $app)) | if .[0]."has-focus" == true then .[-1].id else .[0].id end')
+set --local app $argv[1]
+set --local window_id (yabai -m query --windows | jq --arg app $app 'map(select(.app == $app)) | if .[0]."has-focus" == true then .[-1].id else .[0].id end')
 
 if [ $window_id != null ]
     yabai -m window --focus $window_id
