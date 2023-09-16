@@ -17,14 +17,14 @@ set --universal fish_greeting
 fish_add_path $XDG_CONFIG_HOME/../bin
 
 # https://trello.com/c/hi1zvqeZ
-fish_config theme choose "fish/themes/Dracula Official"
+fish_config theme choose 'fish/themes/Dracula Official'
 oh-my-posh init fish --config $XDG_CONFIG_HOME/oh-my-posh/dracula.omp.json | source
 
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings
 
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
-eval "$(brew shellenv)"
+eval (brew shellenv)
 
 # https://fishshell.com/docs/current/interactive.html#autosuggestions
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
