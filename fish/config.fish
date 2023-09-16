@@ -6,6 +6,10 @@ set --global --export GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set --global --export EDITOR nvim
 set --global --export VISUAL nvim
 
+# https://neovim.io/doc/user/filetype.html#ft-man-plugin
+set --global --export MANPAGER 'nvim +Man!'
+set --global --export MANWIDTH 999
+
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
 set --universal fish_greeting
 
