@@ -10,12 +10,6 @@ To install packages (dependencies), run the following script:
 setup/install
 ```
 
-## Manual
-
-After running the main script, do these manual setup steps to complete the setup:
-
-- Setup GPG and add `user.signingkey` to `$HOME/.gitconfig` to avoid committing the private key.
-
 ## Update
 
 To update relevant files when the setup changes, run the following script:
@@ -23,3 +17,9 @@ To update relevant files when the setup changes, run the following script:
 ```sh
 ./update.sh
 ```
+
+## Manual
+
+Some parts of the setup are not feasible to automate in a script. The following list serves as a reminder on what to setup manually:
+
+- GPG for Git commit signing.
