@@ -13,6 +13,13 @@ set --global --export MANWIDTH 999
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
 set --universal fish_greeting
 
+# https://fishshell.com/docs/current/cmds/alias.html
+alias rm="rm -i"
+alias v.="nvim ."
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+
 # https://fishshell.com/docs/current/tutorial.html#path
 fish_add_path $XDG_CONFIG_HOME/../bin
 
