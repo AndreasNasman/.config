@@ -44,3 +44,4 @@ Temporary Items
 
 gnupg/*
 !gnupg/gpg-agent.conf
+lazygit/
