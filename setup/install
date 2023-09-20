@@ -16,4 +16,4 @@ fi
 
 # https://docs.brew.sh/Manpage#bundle-subcommand
 echo '📦 Installing Homebrew packages.'
-brew bundle install --file $(pwd)/../brew/Brewfile
+brew bundle check --file $(pwd)/../brew/Brewfile || brew bundle install --file $(pwd)/../brew/Brewfile
