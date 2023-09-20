@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p $HOME/.cache/
+
 # https://stackoverflow.com/a/59916
 cd $(dirname $0)
 
