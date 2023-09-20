@@ -6,6 +6,16 @@ Make sure you have the Command Line Tools (CLT) installed, which are needed for 
 xcode-select --install
 ```
 
+# Cloning
+
+This repository contains submodules. You can initialize them when cloning by running:
+
+```sh
+git clone --recurse-submodules https://github.com/AndreasNasman/.config.git
+```
+
+Alternatively, you can clone the repository normally and initialize the submodules by running the install-script described below.
+
 # Setup
 
 ## Install
