@@ -30,6 +30,15 @@ if ! grep --quiet fish $SHELLS_PATH; then
 	login $(whoami)
 fi
 
+# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)#configure-scripting-addition
+echo '📺 Updating and (re)starting yabai and skhd services.'
+YABAI_PATH=/private/etc/sudoers.d/yabai
+sudo rm -f $YABAI_PATH && sudo echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee -a $YABAI_PATH >/dev/null
+# Set same permissions as `visudo` would.
+sudo chmod ug=r,o= $YABAI_PATH
+yabai --restart-service &>/dev/null || yabai --install-service &>/dev/null
+skhd --restart-service &>/dev/null || skhd --install-service &>/dev/null
+
 if [ $TERM != 'xterm-kitty' ]; then
 	echo '🐈 Opening kitty terminal.'
 	open -a kitty
