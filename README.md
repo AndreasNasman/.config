@@ -1,10 +1,14 @@
 # Prerequisites
 
-Make sure you have the Command Line Tools (CLT) installed, which are needed for cloning this repository with Git and for Homebrew.
+Make sure you have the _Command Line Tools (CLT)_ installed, which are needed for cloning this repository with Git and for Homebrew.
 
 ```sh
 xcode-select --install
 ```
+
+Disable _System Integrity Protection_ to access all yabai features.
+
+https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
 
 # Cloning
 
