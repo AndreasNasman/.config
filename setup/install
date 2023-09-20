@@ -18,9 +18,6 @@ fi
 echo '📦 Installing Homebrew packages.'
 brew bundle check --file $(pwd)/../brew/Brewfile || brew bundle install --file $(pwd)/../brew/Brewfile
 
-echo '📈 Running `brew doctor`.'
-brew doctor
-
 if ! grep --quiet fish /etc/shells; then
 	# https://fishshell.com/docs/current/#default-shell
 	echo '🐠 Setting fish as the default shell.'
