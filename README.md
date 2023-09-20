@@ -22,14 +22,20 @@ Alternatively, you can clone the repository normally and initialize the submodul
 
 # Setup
 
-## Install
-
-The scripts in this repository rely on [fish](https://fishshell.com/). However, since macOS does not include `fish` by default, a separate Bash script installs dependencies – thereamong `fish` – as Homebrew packages.
-
-To install packages (dependencies), run the following script:
+To initialize the setup, run the following script:
 
 ```sh
-setup/install
+setup/init
+```
+
+The script installs Homebrew packages (dependencies) and initializes as many programs as possible from the repository. The script is written in Bash since [fish](https://fishshell) is not installed by default on macOS.
+
+## Check
+
+To check that the setup is running correctly, run the following script:
+
+```sh
+setup/check
 ```
 
 ## Update
@@ -37,7 +43,7 @@ setup/install
 To update relevant files when the setup changes, run the following script:
 
 ```sh
-./update.sh
+setup/update
 ```
 
 ## Manual
