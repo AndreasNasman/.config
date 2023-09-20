@@ -3,10 +3,16 @@
 [core]
 	autocrlf = false
 	editor = nvim -c 'set spell'
+[diff]
+	colorMoved = zebra
 [credential]
 	helper = osxkeychain
+[fetch]
+	prune = true
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
 [push]
 	default = current
 [user]
