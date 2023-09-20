@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
-# https://docs.brew.sh/Manpage#bundle-subcommand
+# https://stackoverflow.com/a/677212
+if ! command -v brew &>/dev/null; then
+	# https://brew.sh/#install
+	echo '🍺 Installing Homebrew.'
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# https://stackoverflow.com/a/59916
 cd $(dirname $0)
+
+# https://docs.brew.sh/Manpage#bundle-subcommand
+echo '📦 Installing Homebrew packages.'
 brew bundle install --file $(pwd)/../brew/Brewfile
