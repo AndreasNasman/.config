@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+echo '📈 Running `brew doctor`.'
+brew doctor
