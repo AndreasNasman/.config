@@ -1,3 +1,11 @@
+# Prerequisites
+
+Make sure you have the Command Line Tools (CLT) installed, which are needed for cloning this repository with Git and for Homebrew.
+
+```sh
+xcode-select --install
+```
+
 # Setup
 
 ## Install
