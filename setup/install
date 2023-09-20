@@ -18,12 +18,14 @@ fi
 
 # https://docs.brew.sh/Manpage#bundle-subcommand
 echo '📦 Installing Homebrew packages.'
-brew bundle check --file $(pwd)/../brew/Brewfile || brew bundle install --file $(pwd)/../brew/Brewfile
+BREWFILE_PATH=$(pwd)/../brew/Brewfile
+brew bundle check --file $BREWFILE_PATH || brew bundle install --file $BREWFILE_PATH
 
-if ! grep --quiet fish /etc/shells; then
+SHELLS_PATH=/etc/shells
+if ! grep --quiet fish $SHELLS_PATH; then
 	# https://fishshell.com/docs/current/#default-shell
 	echo '🐠 Setting fish as the default shell.'
-	echo $(which fish) | sudo tee -a /etc/shells
+	echo $(which fish) | sudo tee -a $SHELLS_PATH
 	chsh -s $(which fish)
 	login $(whoami)
 fi
