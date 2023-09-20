@@ -38,6 +38,16 @@ To check that the setup is running correctly, run the following script:
 setup/check
 ```
 
+## Template
+
+To replace config files with their base templates (example files), run the following script:
+
+```sh
+setup/template
+```
+
+This script is handy to check if the config example files contain new information.
+
 ## Update
 
 To update relevant files when the setup changes, run the following script:
