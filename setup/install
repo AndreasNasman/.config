@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
+# https://stackoverflow.com/a/59916
+cd $(dirname $0)
+
+# https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
+git submodule init
+git submodule update
+
 # https://stackoverflow.com/a/677212
 if ! command -v brew &>/dev/null; then
 	# https://brew.sh/#install
 	echo '🍺 Installing Homebrew.'
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-
-# https://stackoverflow.com/a/59916
-cd $(dirname $0)
 
 # https://docs.brew.sh/Manpage#bundle-subcommand
 echo '📦 Installing Homebrew packages.'
