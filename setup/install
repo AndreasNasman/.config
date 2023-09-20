@@ -25,3 +25,8 @@ if ! grep --quiet fish /etc/shells; then
 	chsh -s $(which fish)
 	login $(whoami)
 fi
+
+if [ $TERM != 'xterm-kitty' ]; then
+	echo '🐈 Opening kitty terminal.'
+	open -a kitty
+fi
