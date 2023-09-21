@@ -24,6 +24,9 @@ echo '📦 Installing Homebrew packages.'
 BREWFILE_PATH=$(pwd)/../brew/Brewfile
 brew bundle check --file $BREWFILE_PATH || brew bundle install --file $BREWFILE_PATH
 
+echo '📈 Running `brew doctor`.'
+brew doctor
+
 SHELLS_PATH=/etc/shells
 if ! grep --quiet fish $SHELLS_PATH; then
 	# https://fishshell.com/docs/current/#default-shell
