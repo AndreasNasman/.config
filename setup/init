@@ -5,6 +5,9 @@ mkdir -p $HOME/.cache/
 # https://stackoverflow.com/a/59916
 cd $(dirname $0)
 
+# https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85
+chmod u=rwx,go= $(pwd)/../gnupg/
+
 # https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
 git submodule init
 git submodule update
