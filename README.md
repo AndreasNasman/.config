@@ -28,7 +28,7 @@ To initialize the setup, run the following script:
 setup/init
 ```
 
-The script installs Homebrew packages (dependencies) and initializes as many programs as possible from the repository. The script is written in Bash since [fish](https://fishshell) is not installed by default on macOS.
+This script installs Homebrew packages (dependencies) and initializes as many programs as possible from the repository. It uses Bash since macOS does not include [fish](https://fishshell) out of the box.
 
 ## Template
 
@@ -52,11 +52,11 @@ setup/update
 
 Some parts of the setup are not feasible to automate in a script. The following section serves as a reminder of what to set up manually.
 
-# Git commit signing with GPG
+# GPG keys
 
-GPG(GnuPG) must be set up correctly for Git commit signing to work.
+For Git commit signing to work, you must set up GPG with some keys.
 
-Copy `private-key.asc` through a safe method. The key can be exported from another system with the following commands:
+Copy `private-key.asc` through a safe method, e.g., from a password manager. If needed, export the key from another system with the following commands:
 
 ```sh
 # Copy the desired key ID.
@@ -70,6 +70,6 @@ Import `private-key.asc` on the current system with the following command:
 gpg --import private-key.asc
 ```
 
-**NB: The public key will be imported along with the private key, no need to import it separately.**
+**NB: Importing a private key also includes its public counterpart.**
 
 https://dotmethod.me/posts/pass-password-manager-share-gpg-key/
