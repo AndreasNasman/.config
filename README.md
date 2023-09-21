@@ -18,7 +18,7 @@ This repository contains submodules. You can initialize them when cloning by run
 git clone --recurse-submodules https://github.com/AndreasNasman/.config.git
 ```
 
-Alternatively, you can clone the repository normally and initialize the submodules by running the install-script described below.
+Alternatively, you can clone the repository normally and initialize the submodules by running the `setup/init` script described below.
 
 # Setup
 
@@ -48,8 +48,28 @@ To update relevant files when the setup changes, run the following script:
 setup/update
 ```
 
-## Manual
+# Manual setup
 
-Some parts of the setup are not feasible to automate in a script. The following list serves as a reminder on what to setup manually:
+Some parts of the setup are not feasible to automate in a script. The following section serves as a reminder of what to set up manually.
 
-- GPG for Git commit signing.
+# Git commit signing with GPG
+
+GPG(GnuPG) must be set up correctly for Git commit signing to work.
+
+Copy `private-key.asc` through a safe method. The key can be exported from another system with the following commands:
+
+```sh
+# Copy the desired key ID.
+gpg --list-keys
+gpg --export-secret-key --armor $KEY_ID > private-key.asc
+```
+
+Import `private-key.asc` on the current system with the following command:
+
+```sh
+gpg --import private-key.asc
+```
+
+**NB: The public key will be imported along with the private key, no need to import it separately.**
+
+https://dotmethod.me/posts/pass-password-manager-share-gpg-key/
