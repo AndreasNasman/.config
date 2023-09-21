@@ -30,14 +30,6 @@ setup/init
 
 The script installs Homebrew packages (dependencies) and initializes as many programs as possible from the repository. The script is written in Bash since [fish](https://fishshell) is not installed by default on macOS.
 
-## Check
-
-To check that the setup is running correctly, run the following script:
-
-```sh
-setup/check
-```
-
 ## Template
 
 To replace config files with their base templates (example files), run the following script:
