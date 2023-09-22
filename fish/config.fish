@@ -21,7 +21,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # https://fishshell.com/docs/current/tutorial.html#path
-fish_add_path $XDG_CONFIG_HOME/../bin
+fish_add_path $XDG_CONFIG_HOME/bin
 
 # https://trello.com/c/hi1zvqeZ
 fish_config theme choose 'fish/themes/Dracula Official'
