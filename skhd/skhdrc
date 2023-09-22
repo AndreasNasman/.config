@@ -1,75 +1,75 @@
 # Window focus.
-lalt - h : yabai --message window --focus west
-lalt - j : yabai --message window --focus south
-lalt - k : yabai --message window --focus north
-lalt - l : yabai --message window --focus east
+lalt - h: yabai --message window --focus west
+lalt - j: yabai --message window --focus south
+lalt - k: yabai --message window --focus north
+lalt - l: yabai --message window --focus east
 
 # App focus.
-rcmd - b : focus-app 'Google Chrome'
-rcmd - d : focus-app 'DeepL'
-rcmd - e : focus-app 'Visual Studio Code'
-rcmd - f : focus-app 'Finder'
-rcmd - g : focus-app 'GarageBand'
-rcmd - m : focus-app 'MuseScore 4'
-rcmd - p : focus-app 'System Preferences'
-rcmd - t : focus-app 'Warp'
+rcmd - b: focus-app 'Google Chrome'
+rcmd - d: focus-app 'DeepL'
+rcmd - e: focus-app 'Visual Studio Code'
+rcmd - f: focus-app 'Finder'
+rcmd - g: focus-app 'GarageBand'
+rcmd - m: focus-app 'MuseScore 4'
+rcmd - p: focus-app 'System Preferences'
+rcmd - t: focus-app 'Warp'
 
 # Window movement.
-lalt + shift - h : yabai --message window --warp west
-lalt + shift - j : yabai --message window --warp south
-lalt + shift - k : yabai --message window --warp north
-lalt + shift - l : yabai --message window --warp east
+lalt + shift - h: yabai --message window --warp west
+lalt + shift - j: yabai --message window --warp south
+lalt + shift - k: yabai --message window --warp north
+lalt + shift - l: yabai --message window --warp east
 
 # Window size.
-lalt + ctrl - h : yabai --message window --resize left:-20:0
-lalt + ctrl - j : yabai --message window --resize bottom:0:20
-lalt + ctrl - k : yabai --message window --resize top:0:-20
-lalt + ctrl - l : yabai --message window --resize right:20:0
-lalt - 0 : yabai --message space --balance
+lalt + ctrl - h: yabai --message window --resize left:-20:0
+lalt + ctrl - j: yabai --message window --resize bottom:0:20
+lalt + ctrl - k: yabai --message window --resize top:0:-20
+lalt + ctrl - l: yabai --message window --resize right:20:0
+lalt - 0: yabai --message space --balance
 
 # Window fullscreen zoom toggle and floating window fullscreen size.
-lalt - w : yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
+lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
 
 # Window split type toggle.
-lalt - s : yabai --message window --toggle split
+lalt - s: yabai --message window --toggle split
 
 # Window padding and gap toggle.
 lalt - g: echo padding gap | xargs -n1 yabai --message space --toggle
 
 # Floating window topmost toggle.
-lalt - t : yabai --message window --toggle topmost
+lalt - t: yabai --message window --toggle topmost
 
 # Desktop creation and destruction.
-lalt - c : yabai --message space --create
-lalt - d : yabai --message space --destroy next
+lalt - c: yabai --message space --create
+lalt - d: yabai --message space --destroy next
 
 # Desktop focus.
-lalt - 1 : yabai --message space --focus 1
-lalt - 2 : yabai --message space --focus 2
-lalt - 3 : yabai --message space --focus 3
-lalt - 4 : yabai --message space --focus 4
-lalt - 5 : yabai --message space --focus 5
-lalt - 6 : yabai --message space --focus 6
-lalt - 7 : yabai --message space --focus 7
-lalt - 8 : yabai --message space --focus 8
-lalt - 9 : yabai --message space --focus 9
-lalt - tab : yabai --message space --focus recent
+lalt - 1: yabai --message space --focus 1
+lalt - 2: yabai --message space --focus 2
+lalt - 3: yabai --message space --focus 3
+lalt - 4: yabai --message space --focus 4
+lalt - 5: yabai --message space --focus 5
+lalt - 6: yabai --message space --focus 6
+lalt - 7: yabai --message space --focus 7
+lalt - 8: yabai --message space --focus 8
+lalt - 9: yabai --message space --focus 9
+lalt - tab: yabai --message space --focus recent
 
 # Window movement between desktops.
-lalt + shift - 1 : yabai --message window --space 1; yabai --message space --focus 1
-lalt + shift - 2 : yabai --message window --space 2; yabai --message space --focus 2
-lalt + shift - 3 : yabai --message window --space 3; yabai --message space --focus 3
-lalt + shift - 4 : yabai --message window --space 4; yabai --message space --focus 4
-lalt + shift - 5 : yabai --message window --space 5; yabai --message space --focus 5
-lalt + shift - 6 : yabai --message window --space 6; yabai --message space --focus 6
-lalt + shift - 7 : yabai --message window --space 7; yabai --message space --focus 7
-lalt + shift - 8 : yabai --message window --space 8; yabai --message space --focus 8
-lalt + shift - 9 : yabai --message window --space 9; yabai --message space --focus 9
+lalt + shift - 1: yabai --message window --space 1; yabai --message space --focus 1
+lalt + shift - 2: yabai --message window --space 2; yabai --message space --focus 2
+lalt + shift - 3: yabai --message window --space 3; yabai --message space --focus 3
+lalt + shift - 4: yabai --message window --space 4; yabai --message space --focus 4
+lalt + shift - 5: yabai --message window --space 5; yabai --message space --focus 5
+lalt + shift - 6: yabai --message window --space 6; yabai --message space --focus 6
+lalt + shift - 7: yabai --message window --space 7; yabai --message space --focus 7
+lalt + shift - 8: yabai --message window --space 8; yabai --message space --focus 8
+lalt + shift - 9: yabai --message window --space 9; yabai --message space --focus 9
 
 # Monitor focus.
-rcmd - 1 : yabai --message display --focus 1
-rcmd - 2 : yabai --message display --focus 2
+rcmd - 1: yabai --message display --focus 1
+rcmd - 2: yabai --message display --focus 2
 
 # Window movement between monitors.
-rcmd + shift - 1 : yabai --message window --display 1; yabai --message display --focus 1
-rcmd + shift - 2 : yabai --message window --display 2; yabai --message display --focus 2
+rcmd + shift - 1: yabai --message window --display 1; yabai --message display --focus 1
+rcmd + shift - 2: yabai --message window --display 2; yabai --message display --focus 2
