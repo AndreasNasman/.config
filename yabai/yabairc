@@ -15,4 +15,4 @@ yabai -m config \
     window_gap $spacing \
     window_origin_display focused
 
-yabai -m rule --add app!='^(GarageBand|Google Chrome|MuseScore 4|kitty|Warp)$' manage=off
+yabai -m rule --add app!='^(Code|GarageBand|Google Chrome|MuseScore 4|kitty|Warp)$' manage=off
