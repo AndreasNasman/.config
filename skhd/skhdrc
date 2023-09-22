@@ -6,11 +6,12 @@ lalt - l : yabai -m window --focus east
 
 # App focus.
 rcmd - b : focus-app 'Google Chrome'
+rcmd - e : focus-app 'Visual Studio Code'
 rcmd - f : focus-app Finder
 rcmd - g : focus-app 'GarageBand'
 rcmd - m : focus-app 'MuseScore 4'
 rcmd - p : focus-app 'System Preferences'
-rcmd - t : focus-app kitty
+rcmd - t : focus-app Warp
 
 # Window movement.
 lalt + shift - h : yabai -m window --warp west
