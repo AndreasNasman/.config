@@ -36,6 +36,12 @@ if ! grep --quiet fish $SHELLS_PATH; then
 	login $(whoami)
 fi
 
+if ! command -v vimgolf &>/dev/null; then
+	echo '⛳️ Installing VimGolf.'
+	gem install vimgolf
+	vimgolf setup
+fi
+
 # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)#configure-scripting-addition
 echo '📺 Updating and (re)starting yabai and skhd services.'
 YABAI_PATH=/private/etc/sudoers.d/yabai
