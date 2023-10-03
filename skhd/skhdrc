@@ -73,3 +73,6 @@ rcmd - 2: yabai --message display --focus 2
 # Window movement between monitors.
 rcmd + shift - 1: yabai --message window --display 1; yabai --message display --focus 1
 rcmd + shift - 2: yabai --message window --display 2; yabai --message display --focus 2
+
+# Restart yabai and skhd.
+lalt + rcmd - r: yabai --restart-service && skhd --restart-service
