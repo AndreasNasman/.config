@@ -30,9 +30,6 @@ oh-my-posh init fish --config $XDG_CONFIG_HOME/oh-my-posh/dracula.omp.json | sou
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings
 
-# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
-eval (brew shellenv)
-
 # https://fishshell.com/docs/current/interactive.html#autosuggestions
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
 function fish_user_key_bindings
@@ -41,3 +38,13 @@ function fish_user_key_bindings
         bind -M $mode \ef forward-word
     end
 end
+
+# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
+eval (brew shellenv)
+
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+source /usr/local/opt/asdf/libexec/asdf.fish
+
+# https://github.com/asdf-vm/asdf-ruby#install
+# https://github.com/rbenv/ruby-build/wiki#macos
+set --global --export RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3)"
