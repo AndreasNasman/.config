@@ -10,6 +10,8 @@ end
 local opt = vim.opt
 
 reset_to_default(opt, "clipboard") -- Separate Neovim and system clipboards.
+-- Remove black padding from LSP completions.
+opt.pumblend = 0 -- Disable popup menu transparency.
 
 local api = vim.api
 
