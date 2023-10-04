@@ -12,7 +12,7 @@ rcmd - f: focus-app 'Finder'
 rcmd - g: focus-app 'GarageBand'
 rcmd - m: focus-app 'MuseScore 4'
 rcmd - p: focus-app 'System Preferences'
-rcmd - t: focus-app 'Warp'
+rcmd - t: focus-app 'kitty'
 
 # Window movement.
 lalt + shift - h: yabai --message window --warp west
