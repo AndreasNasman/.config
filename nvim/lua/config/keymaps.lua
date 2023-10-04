@@ -20,23 +20,16 @@ local function map(mode, lhs, rhs, opts)
 end
 
 if Util.has("bufferline.nvim") then
-  map("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" }) -- Override
-  map("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" }) -- Override
-  map("n", "<S-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer <-" }) -- Override
-  map("n", "<S-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer ->" }) -- Override
   map("n", "<leader>bb", "<cmd>BufferLinePick<cr>", { desc = "Focus buffer" })
   map("n", "<leader>bo", "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", { desc = "Close other buffers" })
-else
-  map("n", "<C-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" }) -- Override
-  map("n", "<C-l>", "<cmd>bnext<cr>", { desc = "Next buffer" }) -- Override
 end
 
 -- stylua: ignore start
 map("", "<leader>Y", '"+y$', { desc = 'Copy (Y) ("+)' })
 map("", "<leader>d", '"_d', { desc = 'Delete ("_)' })
 map("", "<leader>y", '"+y', { desc = 'Copy (y) ("+)' })
-map("n", "<C-j>", "<cmd>Gitsigns next_hunk<cr>", { desc = "Jump to next hunk" }) -- Override
-map("n", "<C-k>", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Jump to previous hunk" }) -- Override
+map("n", "<S-C-j>", "<cmd>Gitsigns next_hunk<cr>", { desc = "Jump to next hunk" }) -- Override
+map("n", "<S-C-k>", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Jump to previous hunk" }) -- Override
 map("n", "<leader>+", function() vim.fn.setreg("+", vim.fn.getreg('"')) end, { desc = '"" => "+' })
 map("n", "<leader>pa", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end, { desc = 'Copy file path (absolute) ("+)' })
 map("n", "<leader>pr", function() vim.fn.setreg("+", vim.fn.expand("%:~:.")) end, { desc = 'Copy file path (relative) ("+)' })
