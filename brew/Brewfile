@@ -16,7 +16,7 @@ brew "gawk"
 brew "git"
 brew "gnupg"
 brew "jq"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "pinentry-mac"
 brew "ripgrep"
 brew "tree"
