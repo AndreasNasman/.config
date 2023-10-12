@@ -15,4 +15,4 @@ yabai --message config \
     window_gap $spacing \
     window_origin_display focused
 
-yabai --message rule --add app!='^(Code|GarageBand|Google Chrome|MuseScore 4|kitty|Warp)$' manage=off
+yabai --message rule --add app!='^(Code|GarageBand|Google Chrome|MuseScore|kitty|Warp)$' manage=off
