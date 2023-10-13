@@ -37,7 +37,7 @@ lalt - s: yabai --message window --toggle split
 lalt - g: echo padding gap | xargs -n1 yabai --message space --toggle
 
 # Floating window topmost toggle.
-lalt - t: yabai --message window --toggle topmost
+lalt - t: yabai --message window --layer (if [ (yabai --message query --windows --window | jq --raw-output .layer) = 'below' ]; echo 'normal'; else; echo 'below'; end)
 
 # Desktop creation and destruction.
 lalt - c: yabai --message space --create
