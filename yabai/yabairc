@@ -12,7 +12,7 @@ yabai --message config \
     left_padding $spacing \
     mouse_follows_focus on \
     right_padding $spacing \
-    top_padding $spacing \
+    top_padding 0 \
     window_gap $spacing \
     window_origin_display focused
 
