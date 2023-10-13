@@ -51,6 +51,9 @@ sudo chmod ug=r,o= $YABAI_PATH
 yabai --restart-service &>/dev/null || yabai --install-service &>/dev/null
 skhd --restart-service &>/dev/null || skhd --install-service &>/dev/null
 
+echo '📶 (Re)starting SketchyBar service.'
+brew services restart sketchybar
+
 echo '===================================================='
 echo '💡 Remember to manually set up the following things:'
 echo '🔑 GPG keys'
