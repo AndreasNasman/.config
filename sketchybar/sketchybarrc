@@ -25,15 +25,15 @@ sketchybar --bar height=20        \
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --default icon.font="Hack Nerd Font:Bold:13.0"  \
-                     icon.color=0xffffffff                 \
-                     label.font="Hack Nerd Font:Bold:13.0" \
-                     label.color=0xffffffff                \
-                     padding_left=5                        \
-                     padding_right=5                       \
-                     label.padding_left=4                  \
-                     label.padding_right=4                 \
-                     icon.padding_left=4                   \
+sketchybar --default icon.font="Symbols Nerd Font Mono:Regular:11.0"  \
+                     icon.color=0xffffffff                            \
+                     label.font="JetBrains Mono:Regular:11.0"         \
+                     label.color=0xffffffff                           \
+                     padding_left=5                                   \
+                     padding_right=5                                  \
+                     label.padding_left=4                             \
+                     label.padding_right=4                            \
+                     icon.padding_left=4                              \
                      icon.padding_right=4
 
 ##### Adding Mission Control Space Indicators #####
