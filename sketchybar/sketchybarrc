@@ -1,9 +1,11 @@
+#!/usr/bin/env fish
+
 # This is a demo config to show some of the most important commands more easily.
 # This is meant to be changed and configured, as it is intentionally kept sparse.
 # For a more advanced configuration example see my dotfiles:
 # https://github.com/FelixKratz/dotfiles
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
+set PLUGIN_DIR $CONFIG_DIR/plugins
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar, these are only some of the
@@ -41,22 +43,20 @@ sketchybar --default icon.font="Symbols Nerd Font Mono:Regular:11.0"  \
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+set SPACE_ICONS (seq 1 10)
 
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  sketchybar --add space space.$sid left                                 \
-             --set space.$sid space=$sid                                 \
-                              icon=${SPACE_ICONS[i]}                     \
-                              background.color=0x44ffffff                \
-                              background.corner_radius=5                 \
-                              background.height=20                       \
-                              background.drawing=off                     \
-                              label.drawing=off                          \
-                              script="$PLUGIN_DIR/space.sh"              \
-                              click_script="yabai -m space --focus $sid"
-done
+for index in (seq (count $SPACE_ICONS))
+  sketchybar --add space space.$index left                                  \
+             --set space.$index space=$index                                \
+                              icon=$SPACE_ICONS[$index]                     \
+                              background.color=0x44ffffff                   \
+                              background.corner_radius=5                    \
+                              background.height=20                          \
+                              background.drawing=off                        \
+                              label.drawing=off                             \
+                              script="$PLUGIN_DIR/space.sh"                 \
+                              click_script="yabai -m space --focus $index"
+end
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar
