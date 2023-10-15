@@ -6,6 +6,8 @@
 # https://github.com/FelixKratz/dotfiles
 
 set PLUGIN_DIR $CONFIG_DIR/plugins
+set UTILS_DIR $CONFIG_DIR/utils
+
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar, these are only some of the
