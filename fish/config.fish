@@ -10,6 +10,9 @@ set --global --export VISUAL nvim
 set --global --export MANPAGER 'nvim +Man!'
 set --global --export MANWIDTH 999
 
+# https://trello.com/c/Zm0ToMQm
+set --global --export SKETCHY_BAR_HEIGHT 20
+
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
 set --universal fish_greeting
 
