@@ -1,5 +1,13 @@
 #!/usr/bin/env fish
 
+echo '🍺 Removing stale Homebrew lock files and outdated downloads.'
+brew cleanup
+echo '🍺 Removing unused Homebrew dependencies.'
+brew autoremove
+echo '🍺 Updating and upgrading Homebrew packages.'
+brew update
+brew upgrade
+echo '🍺 Updating Brewfile.'
 # https://trello.com/c/46kxNqE9
 cd $XDG_CONFIG_HOME/brew/
 brew bundle dump --force
