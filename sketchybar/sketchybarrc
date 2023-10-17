@@ -17,7 +17,7 @@ set PLUGIN_DIR $CONFIG_DIR/plugins
 sketchybar --bar blur_radius=30   \
                  padding_left=5   \
                  padding_right=5  \
-                 height=18
+                 height=$SKETCHY_BAR_HEIGHT
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
