@@ -39,9 +39,6 @@ if ! grep --quiet fish $SHELLS_PATH; then
 	login $(whoami)
 fi
 
-echo "🔕 Silencing 'Last login' terminal message."
-touch $HOME/.hushlogin
-
 # https://stackoverflow.com/a/677212
 if ! command -v vimgolf &>/dev/null; then
 	echo '⛳️ Installing VimGolf.'
