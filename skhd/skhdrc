@@ -33,8 +33,8 @@ lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
 # Window split type toggle.
 lalt - s: yabai --message window --toggle split
 
-# Window padding and gap toggle.
-lalt - g: echo padding gap | xargs -n1 yabai --message space --toggle
+# Window gap toggle.
+lalt - g: yabai --message space --toggle gap
 
 # Floating window topmost toggle.
 lalt - t: yabai --message window --layer (if [ (yabai --message query --windows --window | jq --raw-output .layer) = 'below' ]; echo 'normal'; else; echo 'below'; end)
