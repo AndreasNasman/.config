@@ -36,6 +36,9 @@ lalt - s: yabai --message window --toggle split
 # Window gap toggle.
 lalt - g: yabai --message space --toggle gap
 
+# SketchyBar toggle.
+lalt - b: if [ (yabai --message query --windows --window | jq --raw-output .frame.y) = '0.0000' ]; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
+
 # Floating window topmost toggle.
 lalt - t: yabai --message window --layer (if [ (yabai --message query --windows --window | jq --raw-output .layer) = 'below' ]; echo 'normal'; else; echo 'below'; end)
 
