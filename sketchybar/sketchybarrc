@@ -6,6 +6,7 @@
 # https://github.com/FelixKratz/dotfiles
 
 set PLUGIN_DIR $CONFIG_DIR/plugins
+set UTILS_DIR $CONFIG_DIR/utils
 
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar, these are only some of the
@@ -87,7 +88,7 @@ sketchybar --add item clock right                              \
            --subscribe volume volume_change                    \
                                                                \
            --add item battery right                            \
-           --set battery script="$PLUGIN_DIR/battery.sh"       \
+           --set battery script=$PLUGIN_DIR/battery            \
                          update_freq=120                       \
            --subscribe battery system_woke power_source_change
 
