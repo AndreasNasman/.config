@@ -26,10 +26,10 @@ sketchybar --bar blur_radius=30             \
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --default icon.font="Symbols Nerd Font Mono:Regular:11.0"  \
+sketchybar --default icon.font='Symbols Nerd Font Mono:Regular:11.0'  \
                      icon.padding_left=4                              \
                      icon.padding_right=4                             \
-                     label.font="JetBrains Mono:Regular:11.0"         \
+                     label.font='JetBrains Mono:Regular:11.0'         \
                      label.padding_left=4                             \
                      label.padding_right=4                            \
                      padding_left=5                                   \
@@ -49,7 +49,7 @@ for index in (seq (count $SPACE_ICONS))
                                 background.height=$SKETCHY_BAR_HEIGHT \
                                 icon=$SPACE_ICONS[$index]             \
                                 label.drawing=off                     \
-                                script="$PLUGIN_DIR/space"            \
+                                script=$PLUGIN_DIR/space              \
                                 space=$index
 end
 
