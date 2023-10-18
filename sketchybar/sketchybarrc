@@ -50,11 +50,9 @@ for index in (seq (count $SPACE_ICONS))
                               icon=$SPACE_ICONS[$index]                     \
                               background.color=0x44ffffff                   \
                               background.corner_radius=5                    \
-                              background.height=20                          \
-                              background.drawing=off                        \
+                              background.height=$SKETCHY_BAR_HEIGHT         \
                               label.drawing=off                             \
-                              script="$PLUGIN_DIR/space.sh"                 \
-                              click_script="yabai -m space --focus $index"
+                              script="$PLUGIN_DIR/space"                    
 end
 
 ##### Adding Left Items #####
