@@ -62,8 +62,8 @@ sketchybar --add item space_separator left                         \
                                  icon=                            \
                                                                    \
            --add item front_app left                               \
-           --set front_app       script="$PLUGIN_DIR/front_app.sh" \
-                                 icon.drawing=off                  \
+           --set front_app       icon.drawing=off                  \
+                                 script=$PLUGIN_DIR/front_app      \
            --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
