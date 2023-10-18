@@ -14,10 +14,10 @@ set PLUGIN_DIR $CONFIG_DIR/plugins
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar blur_radius=30   \
-                 padding_left=5   \
-                 padding_right=5  \
-                 height=$SKETCHY_BAR_HEIGHT
+sketchybar --bar blur_radius=30             \
+                 height=$SKETCHY_BAR_HEIGHT \
+                 padding_left=5             \
+                 padding_right=5            \
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
@@ -43,14 +43,14 @@ sketchybar --default icon.font="Symbols Nerd Font Mono:Regular:11.0"  \
 set SPACE_ICONS (seq 1 10)
 
 for index in (seq (count $SPACE_ICONS))
-  sketchybar --add space space.$index left                                  \
-             --set space.$index space=$index                                \
-                              icon=$SPACE_ICONS[$index]                     \
-                              background.color=0x44ffffff                   \
-                              background.corner_radius=5                    \
-                              background.height=$SKETCHY_BAR_HEIGHT         \
-                              label.drawing=off                             \
-                              script="$PLUGIN_DIR/space"                    
+  sketchybar --add space space.$index left                            \
+             --set space.$index background.color=0x44ffffff           \
+                                background.corner_radius=5            \
+                                background.height=$SKETCHY_BAR_HEIGHT \
+                                icon=$SPACE_ICONS[$index]             \
+                                label.drawing=off                     \
+                                script="$PLUGIN_DIR/space"            \
+                                space=$index
 end
 
 ##### Adding Left Items #####
