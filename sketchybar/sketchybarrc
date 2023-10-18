@@ -56,10 +56,10 @@ end
 # only the properties deviating from the current defaults need to be set
 
 sketchybar --add item space_separator left                         \
-           --set space_separator icon=                            \
+           --set space_separator label.drawing=off                 \
                                  padding_left=10                   \
                                  padding_right=10                  \
-                                 label.drawing=off                 \
+                                 icon=                            \
                                                                    \
            --add item front_app left                               \
            --set front_app       script="$PLUGIN_DIR/front_app.sh" \
@@ -78,9 +78,9 @@ sketchybar --add item space_separator left                         \
 # https://felixkratz.github.io/SketchyBar/config/events
 
 sketchybar --add item clock right                              \
-           --set clock   update_freq=10                        \
-                         icon=                                \
+           --set clock   icon=                                \
                          script=$PLUGIN_DIR/clock              \
+                         update_freq=10                        \
                                                                \
            --add item volume right                             \
            --set volume  script=$PLUGIN_DIR/volume             \
