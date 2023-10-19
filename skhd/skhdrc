@@ -28,7 +28,7 @@ lalt + ctrl - l: yabai --message window --resize right:20:0
 lalt - 0: yabai --message space --balance
 
 # Window fullscreen zoom toggle and floating window fullscreen size.
-lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
+lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1; sketchybar --trigger window_focus
 
 # Window split type toggle.
 lalt - s: yabai --message window --toggle split
@@ -47,15 +47,15 @@ lalt - c: yabai --message space --create
 lalt - d: yabai --message space --destroy next
 
 # Desktop focus.
-lalt - 1: yabai --message space --focus 1
-lalt - 2: yabai --message space --focus 2
-lalt - 3: yabai --message space --focus 3
-lalt - 4: yabai --message space --focus 4
-lalt - 5: yabai --message space --focus 5
-lalt - 6: yabai --message space --focus 6
-lalt - 7: yabai --message space --focus 7
-lalt - 8: yabai --message space --focus 8
-lalt - 9: yabai --message space --focus 9
+lalt - 1: yabai --message space --focus 1 && sketchybar --trigger windows_on_spaces
+lalt - 2: yabai --message space --focus 2 && sketchybar --trigger windows_on_spaces
+lalt - 3: yabai --message space --focus 3 && sketchybar --trigger windows_on_spaces
+lalt - 4: yabai --message space --focus 4 && sketchybar --trigger windows_on_spaces
+lalt - 5: yabai --message space --focus 5 && sketchybar --trigger windows_on_spaces
+lalt - 6: yabai --message space --focus 6 && sketchybar --trigger windows_on_spaces
+lalt - 7: yabai --message space --focus 7 && sketchybar --trigger windows_on_spaces
+lalt - 8: yabai --message space --focus 8 && sketchybar --trigger windows_on_spaces
+lalt - 9: yabai --message space --focus 9 && sketchybar --trigger windows_on_spaces
 lalt - tab: yabai --message space --focus recent
 
 # Window movement between desktops.
