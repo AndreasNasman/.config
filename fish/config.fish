@@ -1,3 +1,6 @@
+# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
+eval (/opt/homebrew/bin/brew shellenv)
+
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
 set --global --export GNUPGHOME $XDG_CONFIG_HOME/gnupg
@@ -12,6 +15,10 @@ set --global --export MANWIDTH 999
 
 # https://trello.com/c/Zm0ToMQm
 set --global --export SKETCHY_BAR_HEIGHT 20
+
+# https://github.com/asdf-vm/asdf-ruby#install
+# https://github.com/rbenv/ruby-build/wiki#macos
+set --global --export RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@3)
 
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
 set --universal fish_greeting
@@ -52,12 +59,5 @@ function fish_user_key_bindings
     end
 end
 
-# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
-eval (brew shellenv)
-
 # https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
-source /usr/local/opt/asdf/libexec/asdf.fish
-
-# https://github.com/asdf-vm/asdf-ruby#install
-# https://github.com/rbenv/ruby-build/wiki#macos
-set --global --export RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@3)
+source (brew --prefix asdf)/libexec/asdf.fish
