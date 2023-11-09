@@ -70,6 +70,14 @@ Import `private-key.asc` on the current system with the following command:
 gpg --import private-key.asc
 ```
 
+Modify the trust of the key with the following command:
+
+```sh
+gpg --edit-key $KEY_ID trust quit
+# Follow the prompt to set the trust level to `ultimate`.
+```
+
 **NB: Importing a private key also includes its public counterpart.**
 
-https://dotmethod.me/posts/pass-password-manager-share-gpg-key/
+https://dotmethod.me/posts/pass-password-manager-share-gpg-key/  
+https://unix.stackexchange.com/a/392355
