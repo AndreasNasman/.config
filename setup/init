@@ -73,10 +73,18 @@ skhd --restart-service &>/dev/null || skhd --install-service &>/dev/null
 echo '📶 (Re)starting SketchyBar service.'
 brew services restart sketchybar
 
-echo '===================================================='
-echo '💡 Remember to manually set up the following things:'
+echo '🍫 Autohiding the Dock and increasing the animation delay.'
+# https://macos-defaults.com/dock/autohide.html
+defaults write com.apple.dock "autohide" -bool "true"
+# https://macos-defaults.com/dock/autohide-delay.html#set-to-0
+defaults write com.apple.dock "autohide-delay" -float "999"
+killall Dock
+
+echo '=================================================================='
+echo '💡 Remember to manually set up and configure the following things:'
 echo '🔑 GPG keys'
-echo '===================================================='
+echo '🍎 macOS settings'
+echo '=================================================================='
 
 if [ $TERM != 'xterm-kitty' ]; then
 	echo '🐈 Opening kitty terminal.'
