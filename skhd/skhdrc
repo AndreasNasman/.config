@@ -5,7 +5,7 @@ lalt - k: yabai --message window --focus north
 lalt - l: yabai --message window --focus east
 
 # App focus.
-rcmd - b: focus-app 'GarageBand'
+rcmd - b: focus-app 'Bitwarden'
 rcmd - d: focus-app 'DeepL'
 rcmd - e: focus-app 'Visual Studio Code'
 rcmd - f: focus-app 'Finder'
@@ -13,6 +13,7 @@ rcmd - g: focus-app 'Google Chrome'
 rcmd - k: focus-app 'kitty'
 rcmd - m: focus-app 'MuseScore 4'
 rcmd - o: focus-app 'Microsoft Outlook'
+rcmd - r: focus-app 'GarageBand'
 rcmd - s: focus-app 'System Settings'
 rcmd - t: focus-app 'Microsoft Teams (work or school)'
 
