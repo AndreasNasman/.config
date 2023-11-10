@@ -42,6 +42,7 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,fish
 
+gh/
 gnupg/*
 !gnupg/gpg-agent.conf
 lazygit/
