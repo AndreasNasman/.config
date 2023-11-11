@@ -16,6 +16,7 @@ rcmd - o: focus-app 'Microsoft Outlook'
 rcmd - r: focus-app 'GarageBand'
 rcmd - s: focus-app 'System Settings'
 rcmd - t: focus-app 'Microsoft Teams (work or school)'
+rcmd - w: focus-app 'Warp'
 
 # Window movement.
 lalt + shift - h: yabai --message window --warp west
