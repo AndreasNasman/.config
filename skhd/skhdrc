@@ -43,13 +43,6 @@ lalt - g: yabai --message space --toggle gap
 # SketchyBar toggle.
 lalt - b: if [ (yabai --message query --windows --window | jq --raw-output .frame.y) = '0.0000' ]; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
 
-# Floating window topmost toggle.
-lalt - t: yabai --message window --layer (if [ (yabai --message query --windows --window | jq --raw-output .layer) = 'below' ]; echo 'normal'; else; echo 'below'; end)
-
-# Desktop creation and destruction.
-lalt - c: yabai --message space --create
-lalt - d: yabai --message space --destroy next
-
 # Desktop focus.
 # https://superuser.com/a/368036
 lalt - 1: switch-desktop 18
@@ -61,7 +54,6 @@ lalt - 6: switch-desktop 22
 lalt - 7: switch-desktop 26
 lalt - 8: switch-desktop 28
 lalt - 9: switch-desktop 25
-lalt - tab: yabai --message space --focus recent
 
 # Window movement between desktops.
 lalt + shift - 1: yabai --message window --space 1; switch-desktop 18
