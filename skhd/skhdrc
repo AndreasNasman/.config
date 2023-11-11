@@ -51,27 +51,28 @@ lalt - c: yabai --message space --create
 lalt - d: yabai --message space --destroy next
 
 # Desktop focus.
-lalt - 1: yabai --message space --focus 1
-lalt - 2: yabai --message space --focus 2
-lalt - 3: yabai --message space --focus 3
-lalt - 4: yabai --message space --focus 4
-lalt - 5: yabai --message space --focus 5
-lalt - 6: yabai --message space --focus 6
-lalt - 7: yabai --message space --focus 7
-lalt - 8: yabai --message space --focus 8
-lalt - 9: yabai --message space --focus 9
+# https://superuser.com/a/368036
+lalt - 1: switch-desktop 18
+lalt - 2: switch-desktop 19
+lalt - 3: switch-desktop 20
+lalt - 4: switch-desktop 21
+lalt - 5: switch-desktop 23
+lalt - 6: switch-desktop 22
+lalt - 7: switch-desktop 26
+lalt - 8: switch-desktop 28
+lalt - 9: switch-desktop 25
 lalt - tab: yabai --message space --focus recent
 
 # Window movement between desktops.
-lalt + shift - 1: yabai --message window --space 1; yabai --message space --focus 1
-lalt + shift - 2: yabai --message window --space 2; yabai --message space --focus 2
-lalt + shift - 3: yabai --message window --space 3; yabai --message space --focus 3
-lalt + shift - 4: yabai --message window --space 4; yabai --message space --focus 4
-lalt + shift - 5: yabai --message window --space 5; yabai --message space --focus 5
-lalt + shift - 6: yabai --message window --space 6; yabai --message space --focus 6
-lalt + shift - 7: yabai --message window --space 7; yabai --message space --focus 7
-lalt + shift - 8: yabai --message window --space 8; yabai --message space --focus 8
-lalt + shift - 9: yabai --message window --space 9; yabai --message space --focus 9
+lalt + shift - 1: yabai --message window --space 1; switch-desktop 18
+lalt + shift - 2: yabai --message window --space 2; switch-desktop 19
+lalt + shift - 3: yabai --message window --space 3; switch-desktop 20
+lalt + shift - 4: yabai --message window --space 4; switch-desktop 21
+lalt + shift - 5: yabai --message window --space 5; switch-desktop 23
+lalt + shift - 6: yabai --message window --space 6; switch-desktop 22
+lalt + shift - 7: yabai --message window --space 7; switch-desktop 26
+lalt + shift - 8: yabai --message window --space 8; switch-desktop 28
+lalt + shift - 9: yabai --message window --space 9; switch-desktop 25
 
 # Monitor focus.
 rcmd - 1: yabai --message display --focus 1
