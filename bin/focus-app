@@ -13,7 +13,7 @@
 set --local app $argv[1]
 set --local window_id (yabai -m query --windows | jq --arg app $app 'map(select(.app == $app)) | if .[0]."has-focus" == true then .[-1].id else .[0].id end')
 
-if [ $window_id != null ]
+if test $window_id != null
     yabai -m window --focus $window_id
 else
     open -a $app

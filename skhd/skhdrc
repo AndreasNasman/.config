@@ -41,7 +41,7 @@ lalt - s: yabai --message window --toggle split
 lalt - g: yabai --message space --toggle gap
 
 # SketchyBar toggle.
-lalt - b: if [ (yabai --message query --windows --window | jq --raw-output .frame.y) = '0.0000' ]; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
+lalt - b: if test (yabai --message query --windows --window | jq --raw-output '.frame.y') = '0.0000'; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
 
 # Desktop focus.
 # https://superuser.com/a/368036
