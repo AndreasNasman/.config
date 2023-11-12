@@ -3,7 +3,7 @@
 set PERCENTAGE (pmset -g batt | grep --extended-regexp --only-matching '\d+%' | cut -d % -f 1)
 set CHARGING (pmset -g batt | grep 'AC Power')
 
-if [ $CHARGING ]
+if test $CHARGING
     set ICON 
 else
     switch $PERCENTAGE
