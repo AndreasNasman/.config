@@ -5,7 +5,6 @@
 on run {desktopIndexAsKeyCode}
 	tell application "System Events"
 		# https://github.com/koekeishiya/skhd/issues/316
-		delay 0.1
 		key code desktopIndexAsKeyCode using control down
 	end tell
 end run
