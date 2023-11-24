@@ -18,6 +18,7 @@ rcmd - r: focus-app 'Microsoft Remote Desktop'
 rcmd - s: focus-app 'System Settings'
 rcmd - t: focus-app 'Microsoft Teams (work or school)'
 rcmd - w: focus-app 'Warp'
+rcmd - z: focus-app 'zoom.us'
 
 # Window movement.
 lalt + shift - h: yabai --message window --warp west
