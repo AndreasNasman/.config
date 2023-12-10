@@ -6,7 +6,7 @@ lalt - l: yabai --message window --focus east
 
 # App focus.
 rcmd - b: focus-app 'Bitwarden'
-rcmd - d: focus-app 'DeepL'
+rcmd - d: focus-app 'DBeaver'
 rcmd - e: focus-app 'Visual Studio Code'
 rcmd - f: focus-app 'Finder'
 rcmd - g: focus-app 'Google Chrome'
