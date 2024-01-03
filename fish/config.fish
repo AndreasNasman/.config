@@ -26,6 +26,7 @@ set --global --export LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_C
 set --universal fish_greeting
 
 # https://fishshell.com/docs/current/cmds/alias.html
+alias cal='cal -3'
 alias rm='rm -i'
 
 # Use `command` to avoid an infinite recursion loop.
