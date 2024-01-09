@@ -43,4 +43,8 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
   },
+  ui = {
+    -- Add a border for `:Lazy`.
+    border = "rounded",
+  },
 })
