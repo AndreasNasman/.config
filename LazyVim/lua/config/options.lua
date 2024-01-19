@@ -4,4 +4,8 @@
 
 local opt = vim.opt
 
-opt.pumblend = 0 -- Make completion and documentation menus transparent.
+-- Re-enable the cursor blinking after running a command.
+-- `1000` milliseconds is the system default that kitty is configured to use.
+opt.guicursor:append("a:blinkon1000")
+-- Make completion and documentation menus transparent.
+opt.pumblend = 0
