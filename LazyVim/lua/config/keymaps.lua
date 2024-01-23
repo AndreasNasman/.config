@@ -2,6 +2,18 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local del = vim.keymap.del
+
+-- Reset the behavior of `n` and `N`.
+-- https://www.lazyvim.org/configuration/general#keymaps
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+del({ "n" }, "N")
+del({ "n" }, "n")
+del({ "o" }, "N")
+del({ "o" }, "n")
+del({ "x" }, "N")
+del({ "x" }, "n")
+
 local set = vim.keymap.set
 
 -- stylua: ignore start
