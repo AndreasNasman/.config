@@ -21,6 +21,7 @@ brew "gh"
 brew "git"
 brew "gnupg"
 brew "jq"
+brew "luarocks"
 brew "neovim", args: ["HEAD"]
 brew "pinentry-mac"
 brew "ripgrep"
