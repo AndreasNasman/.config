@@ -5,8 +5,18 @@
 	<key>2FA_ENABLED</key>
 	<true/>
 	<key>EMAIL</key>
-	<string>andreas.z.nasman@gmail.com</string>
+	<string>andreas.nasman@abo.fi</string>
 	<key>bw_keyword</key>
 	<string>bi</string>
+	<key>bwauth_keyword</key>
+	<string>biauth</string>
+	<key>bwauto_keyword</key>
+	<string>biauto</string>
+	<key>bwautolock_keyword</key>
+	<string>biautolock</string>
+	<key>bwconf_keyword</key>
+	<string>biconfig</string>
+	<key>bwf_keyword</key>
+	<string>bif</string>
 </dict>
 </plist>
