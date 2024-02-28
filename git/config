@@ -3,10 +3,10 @@
 [core]
 	autocrlf = false
 	editor = nvim -c 'set spell'
-[diff]
-	colorMoved = zebra
 [credential]
 	helper = osxkeychain
+[diff]
+	colorMoved = zebra
 [fetch]
 	prune = true
 [init]
@@ -19,5 +19,6 @@
 	email = andreas.z.nasman@gmail.com
 	name = Andreas Näsman
 	signingkey = 9B1EC91AD3D6E48D
+# Override should be at the bottom.
 [includeIf "gitdir:~/Projects/xmlrpc/"]
 	path = ~/Projects/xmlrpc/config
