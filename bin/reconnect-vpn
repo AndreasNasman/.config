@@ -1,0 +1,18 @@
+#!/usr/bin/env fish
+
+set --local vpn_name $argv[1]
+
+networksetup -disconnectpppoeservice $vpn_name
+
+set --local max_reconnect_attemps 10
+set --local reconnect_attempt 1
+while test $reconnect_attempt -le $max_reconnect_attemps
+    set --local vpn_status (networksetup -showpppoestatus $vpn_name)
+    if test $vpn_status = disconnected
+        networksetup -connectpppoeservice $vpn_name
+        break
+    end
+
+    sleep 0.1
+    set --local reconnect_attempt (math $reconnect_attempt + 1)
+end
