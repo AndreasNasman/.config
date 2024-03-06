@@ -13,6 +13,8 @@ rcmd - t: focus-app 'Microsoft Teams (work or school)'
 rcmd - w: focus-app 'Warp'
 rcmd - z: focus-app 'zoom.us'
 
+# Reconnect to a VPN.
+rcmd - v: reconnect-vpn 'ICT VPN 1'
 
 # Restart yabai, skhd, and SketchyBar.
 lalt + rcmd - r: yabai --restart-service && skhd --restart-service && brew services restart sketchybar
