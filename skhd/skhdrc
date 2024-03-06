@@ -1,9 +1,3 @@
-# Window focus.
-lalt - h: yabai --message window --focus west
-lalt - j: yabai --message window --focus south
-lalt - k: yabai --message window --focus north
-lalt - l: yabai --message window --focus east
-
 # App focus.
 rcmd - b: focus-app 'Bitwarden'
 rcmd - d: focus-app 'DBeaver'
@@ -18,6 +12,16 @@ rcmd - s: focus-app 'System Settings'
 rcmd - t: focus-app 'Microsoft Teams (work or school)'
 rcmd - w: focus-app 'Warp'
 rcmd - z: focus-app 'zoom.us'
+
+
+# Restart yabai, skhd, and SketchyBar.
+lalt + rcmd - r: yabai --restart-service && skhd --restart-service && brew services restart sketchybar
+
+# Window focus.
+lalt - h: yabai --message window --focus west
+lalt - j: yabai --message window --focus south
+lalt - k: yabai --message window --focus north
+lalt - l: yabai --message window --focus east
 
 # Window movement.
 lalt + shift - h: yabai --message window --warp west
@@ -62,6 +66,3 @@ rcmd - 2: yabai --message display --focus 2
 # Window movement between monitors.
 rcmd + shift - 1: yabai --message window --display 1; yabai --message display --focus 1
 rcmd + shift - 2: yabai --message window --display 2; yabai --message display --focus 2
-
-# Restart yabai, skhd, and SketchyBar.
-lalt + rcmd - r: yabai --restart-service && skhd --restart-service && brew services restart sketchybar
