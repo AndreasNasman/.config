@@ -22,5 +22,7 @@
 	name = Andreas Näsman
 	signingkey = 9B1EC91AD3D6E48D
 # Override should be at the bottom.
+[includeIf "gitdir:~/Projects/todos/"]
+	path = ~/Projects/git-config-åa
 [includeIf "gitdir:~/Projects/xmlrpc/"]
-	path = ~/Projects/xmlrpc/config
+	path = ~/Projects/git-config-åa
