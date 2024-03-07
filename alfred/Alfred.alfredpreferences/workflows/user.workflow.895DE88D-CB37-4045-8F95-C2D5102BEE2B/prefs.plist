@@ -7,16 +7,16 @@
 	<key>EMAIL</key>
 	<string>andreas.nasman@abo.fi</string>
 	<key>bw_keyword</key>
-	<string>bi</string>
+	<string>bw</string>
 	<key>bwauth_keyword</key>
-	<string>biauth</string>
+	<string>bwauth</string>
 	<key>bwauto_keyword</key>
-	<string>biauto</string>
+	<string>bwauto</string>
 	<key>bwautolock_keyword</key>
-	<string>biautolock</string>
+	<string>bwautolock</string>
 	<key>bwconf_keyword</key>
-	<string>biconfig</string>
+	<string>bwconfig</string>
 	<key>bwf_keyword</key>
-	<string>bif</string>
+	<string>bwf</string>
 </dict>
 </plist>
