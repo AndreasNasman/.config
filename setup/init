@@ -34,12 +34,16 @@ echo '📈 Running `brew doctor`.'
 brew doctor
 
 echo '📦 Installing asdf plugins.'
+# Deno
+asdf plugin add deno
+asdf install deno latest
+asdf global deno latest
 # Node.js
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add nodejs
 asdf install nodejs latest
 asdf global nodejs latest
 # Ruby
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf plugin add ruby
 asdf install ruby latest
 asdf global ruby latest
 echo '🍺 Adding asdf plugins to `$PATH` during setup.'
