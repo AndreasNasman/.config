@@ -1,5 +1,7 @@
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval (/opt/homebrew/bin/brew shellenv)
+# https://fishshell.com/docs/current/cmds/fish_add_path.html#example
+fish_add_path /opt/homebrew/bin
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
