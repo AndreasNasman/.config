@@ -45,4 +45,5 @@ Temporary Items
 gh/
 gnupg/*
 !gnupg/gpg-agent.conf
+karabiner/
 lazygit/state.yml
