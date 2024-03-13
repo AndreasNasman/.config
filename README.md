@@ -1,6 +1,7 @@
 # Prerequisites
 
-Make sure you have the _Command Line Tools (CLT)_ installed, which are needed for cloning this repository with Git and for Homebrew.
+Make sure you have the _Command Line Tools (CLT)_ installed, which are needed
+for cloning this repository with Git and for Homebrew.
 
 ```sh
 xcode-select --install
@@ -8,7 +9,7 @@ xcode-select --install
 
 Disable _System Integrity Protection_ to access all yabai features.
 
-https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+<https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection>
 
 # Cloning
 
@@ -28,11 +29,14 @@ To initialize the setup, run the following script:
 setup/init
 ```
 
-This script installs Homebrew packages (dependencies) and initializes as many programs as possible from the repository. It uses Bash since macOS does not include [fish](https://fishshell) out of the box.
+This script installs Homebrew packages (dependencies) and initializes as many
+programs as possible from the repository. It uses Bash since macOS does not
+include [fish](https://fishshell) out of the box.
 
 ## Template
 
-To replace config files with their base templates (example files), run the following script:
+To replace config files with their base templates (example files), run the
+following script:
 
 ```sh
 setup/template
@@ -50,13 +54,15 @@ setup/update
 
 # Manual setup
 
-Some parts of the setup are not feasible to automate in a script. The following section serves as a reminder of what to set up manually.
+Some parts of the setup are not feasible to automate in a script. The following
+section serves as a reminder of what to set up manually.
 
 # GPG keys
 
 For Git commit signing to work, you must set up GPG with some keys.
 
-Copy `private-key.asc` through a safe method, e.g., from a password manager. If needed, export the key from another system with the following commands:
+Copy `private-key.asc` through a safe method, e.g., from a password manager. If
+needed, export the key from another system with the following commands:
 
 ```sh
 # Copy the desired key ID.
@@ -79,5 +85,5 @@ gpg --edit-key $KEY_ID trust quit
 
 **NB: Importing a private key also includes its public counterpart.**
 
-https://dotmethod.me/posts/pass-password-manager-share-gpg-key/  
-https://unix.stackexchange.com/a/392355
+<https://dotmethod.me/posts/pass-password-manager-share-gpg-key/>  
+<https://unix.stackexchange.com/a/392355>
