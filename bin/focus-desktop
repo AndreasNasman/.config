@@ -11,7 +11,7 @@ if test (echo $SPACE | jq '."is-visible"') = true -a (echo $SPACE | jq '."has-fo
     yabai --message display --focus $DISPLAY_INDEX
 else
     # https://superuser.com/a/368036
-    set DESKTOP_INDEX_KEY_CODES 18 19 20 21 23 22 26 28 25
+    set DESKTOP_INDEX_KEY_CODES 18 19 20 21 23 22 26 28 25 29
     set KEY_CODE $DESKTOP_INDEX_KEY_CODES[$DESKTOP_INDEX]
     # https://stackoverflow.com/a/23923108
     osascript -e 'tell application "System Events" to key code "'$KEY_CODE'" using control down'
