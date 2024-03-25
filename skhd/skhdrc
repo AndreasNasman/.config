@@ -36,7 +36,9 @@ lalt + ctrl - h: yabai --message window --resize left:-20:0
 lalt + ctrl - j: yabai --message window --resize bottom:0:20
 lalt + ctrl - k: yabai --message window --resize top:0:-20
 lalt + ctrl - l: yabai --message window --resize right:20:0
-lalt - 0: yabai --message space --balance
+# Mapped as `lalt - +`.
+# https://github.com/koekeishiya/skhd/issues/1
+lalt - 0x18: yabai --message space --balance
 
 # Window fullscreen zoom toggle and floating window fullscreen size.
 lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
@@ -63,6 +65,7 @@ lalt - 6: focus-desktop 6
 lalt - 7: focus-desktop 7
 lalt - 8: focus-desktop 8
 lalt - 9: focus-desktop 9
+lalt - 0: focus-desktop 10
 
 # Window movement between desktops.
 lalt + shift - 1: yabai --message window --space 1; focus-desktop 1
