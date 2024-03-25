@@ -53,6 +53,17 @@ lalt - g: yabai --message space --toggle gap
 # SketchyBar toggle.
 lalt - b: if test (yabai --message query --windows --window | jq --raw-output '.frame.y') = '0.0000'; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
 
+# Desktop focus.
+lalt - 1: focus-desktop 1
+lalt - 2: focus-desktop 2
+lalt - 3: focus-desktop 3
+lalt - 4: focus-desktop 4
+lalt - 5: focus-desktop 5
+lalt - 6: focus-desktop 6
+lalt - 7: focus-desktop 7
+lalt - 8: focus-desktop 8
+lalt - 9: focus-desktop 9
+
 # Window movement between desktops.
 lalt + shift - 1: yabai --message window --space 1; focus-desktop 1
 lalt + shift - 2: yabai --message window --space 2; focus-desktop 2
