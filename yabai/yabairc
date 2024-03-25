@@ -11,4 +11,5 @@ yabai --message config \
     window_gap 5 \
     window_origin_display focused
 
-yabai --message rule --add app!='^(Code|GarageBand|Google Chrome|Microsoft Excel|Microsoft PowerPoint|Microsoft Outlook|Microsoft Teams.*|Microsoft Word|MuseScore|kitty|Warp)$' manage=off layer=below
+yabai --message rule --add app!='^(Code|Google Chrome|kitty)$' manage=off
+yabai --message rule --apply
