@@ -7,5 +7,7 @@ yabai --message config \
     window_gap 5 \
     window_origin_display focused
 
-yabai --message rule --add app!='^(Code|Google Chrome|kitty)$' manage=off
+yabai --message rule --add app='^(Finder|Microsoft Excel|System Settings)$' manage=off
+yabai --message rule --add app='^DBeaver Community$' title!="^DBeaver [[:digit:]]+" manage=off
+yabai --message rule --add app='^Microsoft Outlook$' title!="^(Calendar|Inbox)" manage=off
 yabai --message rule --apply
