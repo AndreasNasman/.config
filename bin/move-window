@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+set --local desktop_index $argv[1]
+# We must query the window ID before moving it.
+set --local window_id (yabai --message query --windows --window | jq --raw-output '.id')
+# We must first focus the desired space to avoid tearing problems when moving a
+# window to a hidden space on another display.
+switch-desktop $desktop_index
+# We use `window_id` since another window is potentially focused.
+yabai --message window $window_id --space $desktop_index
+yabai --message window $window_id --focus
