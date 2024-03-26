@@ -68,15 +68,16 @@ lalt - 9: focus-desktop 9
 lalt - 0: focus-desktop 10
 
 # Window movement between desktops.
-lalt + shift - 1: yabai --message window --space 1; focus-desktop 1
-lalt + shift - 2: yabai --message window --space 2; focus-desktop 2
-lalt + shift - 3: yabai --message window --space 3; focus-desktop 3
-lalt + shift - 4: yabai --message window --space 4; focus-desktop 4
-lalt + shift - 5: yabai --message window --space 5; focus-desktop 5
-lalt + shift - 6: yabai --message window --space 6; focus-desktop 6
-lalt + shift - 7: yabai --message window --space 7; focus-desktop 7
-lalt + shift - 8: yabai --message window --space 8; focus-desktop 8
-lalt + shift - 9: yabai --message window --space 9; focus-desktop 9
+lalt + shift - 1: move-window 1
+lalt + shift - 2: move-window 2
+lalt + shift - 3: move-window 3
+lalt + shift - 4: move-window 4
+lalt + shift - 5: move-window 5
+lalt + shift - 6: move-window 6
+lalt + shift - 7: move-window 7
+lalt + shift - 8: move-window 8
+lalt + shift - 9: move-window 9
+lalt + shift - 0: move-window 10
 
 # Monitor focus.
 rcmd - 1: yabai --message display --focus 1

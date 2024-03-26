@@ -1,10 +1,9 @@
-#!/usr/bin/osascript
+#!/usr/bin/env fish
 
-# https://stackoverflow.com/q/43444636
-# https://stackoverflow.com/a/16977401
-on run {desktopIndexAsKeyCode}
-	tell application "System Events"
-		# https://github.com/koekeishiya/skhd/issues/316
-		key code desktopIndexAsKeyCode using control down
-	end tell
-end run
+set --local desktop_index $argv[1]
+
+# https://superuser.com/a/368036
+set --local desktop_index_key_codes 18 19 20 21 23 22 26 28 25 29
+set --local key_code $desktop_index_key_codes[$desktop_index]
+# https://stackoverflow.com/a/23923108
+osascript -e 'tell application "System Events" to key code "'$key_code'" using control down'
