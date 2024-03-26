@@ -1,5 +1,8 @@
 #!/usr/bin/env fish
 
+# This script reconnects to the VPN given as an argument. If it fails after a
+# certain amount of tries, it aborts.
+
 set --local vpn_name $argv[1]
 
 networksetup -disconnectpppoeservice $vpn_name
