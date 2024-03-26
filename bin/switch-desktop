@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
+# This script changes space focus using the built-in macOS `Switch to Desktop`
+# commands. It is an alternative approach to disabling "System Integrity
+# Protection," which yabai requires to enable its functionality.
+
 set --local desktop_index $argv[1]
 
 # https://superuser.com/a/368036
