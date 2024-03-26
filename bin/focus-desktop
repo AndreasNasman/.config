@@ -1,18 +1,14 @@
 #!/usr/bin/env fish
 
-set DESKTOP_INDEX $argv[1]
-set SPACE (yabai --message query --spaces | jq --argjson index $DESKTOP_INDEX '.[] | select(.index == $index)')
+set --local desktop_index $argv[1]
+set --local space (yabai --message query --spaces | jq --argjson index $desktop_index '.[] | select(.index == $index)')
 
 # The macOS `Switch to Desktop` commands do not switch focus if the desktop is
 # already visible on a display. To workaround this issue, we use `yabai` to
 # focus the display instead, effectively moving focus to the wanted desktop.
-if test (echo $SPACE | jq '."is-visible"') = true -a (echo $SPACE | jq '."has-focus"') = false
-    set DISPLAY_INDEX (echo $SPACE | jq '.display')
-    yabai --message display --focus $DISPLAY_INDEX
+if test (echo $space | jq '."is-visible"') = true -a (echo $space | jq '."has-focus"') = false
+    set --local display_index (echo $space | jq '.display')
+    yabai --message display --focus $display_index
 else
-    # https://superuser.com/a/368036
-    set DESKTOP_INDEX_KEY_CODES 18 19 20 21 23 22 26 28 25 29
-    set KEY_CODE $DESKTOP_INDEX_KEY_CODES[$DESKTOP_INDEX]
-    # https://stackoverflow.com/a/23923108
-    osascript -e 'tell application "System Events" to key code "'$KEY_CODE'" using control down'
+    switch-desktop $desktop_index
 end
