@@ -13,10 +13,10 @@ rcmd - t: focus-app 'Microsoft Teams (work or school)'
 rcmd - w: focus-app 'Warp'
 rcmd - z: focus-app 'zoom.us'
 
-# Reconnect to a VPN.
+# VPN reconnect.
 rcmd - v: reconnect-vpn 'ICT VPN 1'
 
-# Restart yabai, skhd, and SketchyBar.
+# yabai, skhd, and SketchyBar restart.
 lalt + rcmd - r: yabai --restart-service && skhd --restart-service && brew services restart sketchybar
 
 # Window focus.
@@ -31,7 +31,7 @@ lalt + shift - j: yabai --message window --warp south
 lalt + shift - k: yabai --message window --warp north
 lalt + shift - l: yabai --message window --warp east
 
-# Window size.
+# Window sizing and reset.
 lalt + ctrl - h: yabai --message window --resize left:-20:0
 lalt + ctrl - j: yabai --message window --resize bottom:0:20
 lalt + ctrl - k: yabai --message window --resize top:0:-20
@@ -40,34 +40,34 @@ lalt + ctrl - l: yabai --message window --resize right:20:0
 # https://github.com/koekeishiya/skhd/issues/1
 lalt - 0x18: yabai --message space --balance
 
-# Window fullscreen zoom toggle and floating window fullscreen size.
+# Window fullscreen managed toggle and floating setter.
 lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
 
-# Window split type toggle.
+# Window vertical and horizontal splitting toggle.
 lalt - s: yabai --message window --toggle split
 
 # Window float toggle.
 lalt - t: yabai --message window --toggle float
 
-# Window gap toggle.
+# Gap toggle.
 lalt - g: yabai --message space --toggle gap
 
 # SketchyBar toggle.
 lalt - b: if test (yabai --message query --windows --window | jq --raw-output '.frame.y') = '0.0000'; yabai --message config external_bar all:$SKETCHY_BAR_HEIGHT:0; sketchybar --bar hidden=off; else; yabai --message config external_bar all:0:0; sketchybar --bar hidden=on; end
 
-# Desktop focus.
-lalt - 1: focus-desktop 1
-lalt - 2: focus-desktop 2
-lalt - 3: focus-desktop 3
-lalt - 4: focus-desktop 4
-lalt - 5: focus-desktop 5
-lalt - 6: focus-desktop 6
-lalt - 7: focus-desktop 7
-lalt - 8: focus-desktop 8
-lalt - 9: focus-desktop 9
-lalt - 0: focus-desktop 10
+# Space focus.
+lalt - 1: focus-space 1
+lalt - 2: focus-space 2
+lalt - 3: focus-space 3
+lalt - 4: focus-space 4
+lalt - 5: focus-space 5
+lalt - 6: focus-space 6
+lalt - 7: focus-space 7
+lalt - 8: focus-space 8
+lalt - 9: focus-space 9
+lalt - 0: focus-space 10
 
-# Window movement between desktops.
+# Window movement between spaces.
 lalt + shift - 1: move-window 1
 lalt + shift - 2: move-window 2
 lalt + shift - 3: move-window 3
@@ -79,10 +79,10 @@ lalt + shift - 8: move-window 8
 lalt + shift - 9: move-window 9
 lalt + shift - 0: move-window 10
 
-# Monitor focus.
+# Display focus.
 rcmd - 1: yabai --message display --focus 1
 rcmd - 2: yabai --message display --focus 2
 
-# Window movement between monitors.
+# Window movement between displays.
 rcmd + shift - 1: yabai --message window --display 1; yabai --message display --focus 1
 rcmd + shift - 2: yabai --message window --display 2; yabai --message display --focus 2
