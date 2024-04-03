@@ -298,16 +298,6 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": [
-                                {
-                                    "apple_vendor_top_case_key_code": "keyboard_fn"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "right_control"
                             },
                             "to": [
