@@ -31,17 +31,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "osascript -e 'set the clipboard to \"€\"'"
-                                    },
-                                    {
-                                        "hold_down_milliseconds": 150,
-                                        "key_code": "vk_none"
-                                    },
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
+                                        "shell_command": "osascript -e 'set the clipboard to \"€\" \n tell application \"System Events\" \n keystroke \"v\" using command down \n end tell'"
                                     }
                                 ],
                                 "type": "basic"
