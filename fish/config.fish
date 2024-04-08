@@ -2,6 +2,8 @@
 eval (/opt/homebrew/bin/brew shellenv)
 # https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
 fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
+# To use Homebrew's version, `curl` must be explicitly added to `$PATH`.
+fish_add_path /opt/homebrew/opt/curl/bin
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
