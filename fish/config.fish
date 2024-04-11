@@ -38,6 +38,8 @@ alias rm='rm -i'
 alias nvim='set --erase NVIM_APPNAME; command nvim'
 
 # Use `command` to invoke `nvim` directly.
+alias kv.='set --global --export NVIM_APPNAME kickstart.nvim; command nvim .'
+alias kv='set --global --export NVIM_APPNAME kickstart.nvim; command nvim'
 alias lv.='set --global --export NVIM_APPNAME LazyVim; command nvim .'
 alias lv='set --global --export NVIM_APPNAME LazyVim; command nvim'
 
