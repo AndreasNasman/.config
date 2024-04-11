@@ -10,4 +10,5 @@ yabai --message config \
 yabai --message rule --add app='^(Finder|Microsoft Excel|Microsoft Word|System Settings)$' manage=off
 yabai --message rule --add app='DBeaver' title!='^DBeaver [[:digit:]]+' manage=off
 yabai --message rule --add app='^Microsoft Outlook$' title!='^(Calendar|Inbox)' manage=off
+yabai --message rule --add app='^IntelliJ IDEA CE$' title!='( – )' manage=off
 yabai --message rule --apply
