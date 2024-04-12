@@ -17,6 +17,18 @@ require('lazy').setup({
     {
         'echasnovski/mini.nvim',
         config = function()
+            require('mini.ai').setup({
+                custom_textobjects = {
+                    g = function()
+                        local from = { col = 1, line = 1 }
+                        local to = {
+                            col = math.max(vim.fn.getline('$'):len(), 1),
+                            line = vim.fn.line('$'),
+                        }
+                        return { from = from, to = to }
+                    end,
+                },
+            })
             require('mini.comment').setup()
             require('mini.surround').setup()
         end,
