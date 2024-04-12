@@ -9,6 +9,7 @@ vim.opt.list = true
 vim.opt.listchars = { nbsp = '', tab = '󰌒 ', trail = '󱁐' }
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.showmode = false
 vim.opt.signcolumn = 'yes'
 vim.opt.smartcase = true
 vim.opt.splitbelow = true

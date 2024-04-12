@@ -12,6 +12,7 @@ require('lazy').setup({
             vim.cmd.colorscheme('catppuccin-mocha')
         end,
         name = 'catppuccin',
+        opts = { integrations = { mini = { enabled = true } } },
         priority = 1000,
     },
     {
@@ -30,6 +31,7 @@ require('lazy').setup({
                 },
             })
             require('mini.comment').setup()
+            require('mini.statusline').setup()
             require('mini.surround').setup()
         end,
     },
