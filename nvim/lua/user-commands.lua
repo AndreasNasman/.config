@@ -1,0 +1,8 @@
+vim.api.nvim_create_user_command('Q', 'quit', { desc = 'Case-insensitive :quit' })
+vim.api.nvim_create_user_command('QA', 'qall', { desc = 'Case-insensitive :qall' })
+vim.api.nvim_create_user_command('Qa', 'qall', { desc = 'Case-insensitive :qall' })
+vim.api.nvim_create_user_command('W', 'write', { desc = 'Case-insensitive :write' })
+vim.api.nvim_create_user_command('WA', 'wall', { desc = 'Case-insensitive :wall' })
+vim.api.nvim_create_user_command('WQ', 'wq', { desc = 'Case-insensitive :wq' })
+vim.api.nvim_create_user_command('Wa', 'wall', { desc = 'Case-insensitive :wall' })
+vim.api.nvim_create_user_command('Wq', 'wq', { desc = 'Case-insensitive :wq' })
