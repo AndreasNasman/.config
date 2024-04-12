@@ -59,6 +59,5 @@ require('lazy').setup({
         },
     },
 }, {
-    ui = { border = 'rounded' },
     install = { colorscheme = { 'catppuccin' } },
 })
