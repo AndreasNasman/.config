@@ -1,9 +1,9 @@
 {
-  "catppuccin": { "branch": "main", "commit": "02bdd749931a5d739063562e57531c118e081882" },
-  "gitsigns.nvim": { "branch": "main", "commit": "c097cb255096f333e14d341082a84f572b394fa2" },
-  "lazy.nvim": { "branch": "main", "commit": "bef521ac89c8d423f9d092e37b58e8af0c099309" },
-  "mini.nvim": { "branch": "main", "commit": "cc603f4fe763741969d809ef059bf5ed457ce0e4" },
-  "nvim-treesitter": { "branch": "master", "commit": "7e6b044be8187c4c28dffa90ad0dc623dbe243f3" }
+  "catppuccin": { "branch": "main", "commit": "08c6417bdc3b29e5f8c53e2cfe4067f288d49a54" },
+  "gitsigns.nvim": { "branch": "main", "commit": "d96ef3bbff0bdbc3916a220f5c74a04c4db033f2" },
+  "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
+  "mini.nvim": { "branch": "main", "commit": "dbdbfd3e814c7896679a151df92d889e0461b0b0" },
+  "nvim-treesitter": { "branch": "master", "commit": "ef267f0c285928ea3a0d3362a260a0728fd4a146" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "todo-comments.nvim": { "branch": "main", "commit": "a7e39ae9e74f2c8c6dc4eea6d40c3971ae84752d" }
 }
