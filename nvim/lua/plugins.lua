@@ -15,6 +15,13 @@ require('lazy').setup({
         priority = 1000,
     },
     {
+        'echasnovski/mini.nvim',
+        config = function()
+            require('mini.comment').setup()
+            require('mini.surround').setup()
+        end,
+    },
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         config = function(_, opts)
