@@ -16,6 +16,10 @@ require('lazy').setup({
         priority = 1000,
     },
     {
+        'lewis6991/gitsigns.nvim',
+        opts = {},
+    },
+    {
         'echasnovski/mini.nvim',
         config = function()
             require('mini.ai').setup({
