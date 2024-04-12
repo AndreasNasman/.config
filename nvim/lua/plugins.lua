@@ -40,6 +40,30 @@ require('lazy').setup({
         end,
     },
     {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = 'make',
+            },
+        },
+        config = function()
+            require('telescope').setup({
+                defaults = {
+                    layout_config = {
+                        height = 0.99,
+                        width = 0.99,
+                    },
+                },
+            })
+
+            require('telescope').load_extension('fzf')
+        end,
+    },
+
+    {
         'folke/todo-comments.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = {},
