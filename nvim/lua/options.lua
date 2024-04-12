@@ -10,7 +10,7 @@ vim.opt.listchars = { nbsp = '', tab = '󰌒 ', trail = '󱁐' }
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes:2'
 vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
