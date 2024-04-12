@@ -14,6 +14,25 @@ require('lazy').setup({
         name = 'catppuccin',
         priority = 1000,
     },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts)
+        end,
+        opts = {
+            auto_install = true,
+            ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
+            highlight = {
+                additional_vim_regex_highlighting = { 'ruby' },
+                enable = true,
+            },
+            indent = {
+                disable = { 'ruby' },
+                enable = true,
+            },
+        },
+    },
 }, {
     ui = { border = 'rounded' },
 })
