@@ -14,4 +14,6 @@ require('lazy').setup({
         name = 'catppuccin',
         priority = 1000,
     },
+}, {
+    ui = { border = 'rounded' },
 })
