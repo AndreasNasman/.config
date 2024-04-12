@@ -40,6 +40,11 @@ require('lazy').setup({
         end,
     },
     {
+        'folke/todo-comments.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = {},
+    },
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         config = function(_, opts)
