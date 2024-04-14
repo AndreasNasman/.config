@@ -15,26 +15,14 @@ require('lazy').setup({
         opts = { integrations = { mini = { enabled = true } } },
         priority = 1000,
     },
-    {
-        'lewis6991/gitsigns.nvim',
-        opts = {},
-    },
+    { 'lewis6991/gitsigns.nvim', opts = {} },
     {
         'neovim/nvim-lspconfig',
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-            {
-                'j-hui/fidget.nvim',
-                opts = {
-                    progress = {
-                        display = {
-                            done_icon = '󰄬',
-                        },
-                    },
-                },
-            },
+            { 'j-hui/fidget.nvim', opts = { progress = { display = { done_icon = '󰄬' } } } },
             { 'folke/neodev.nvim', opts = {} },
         },
         config = function()
@@ -108,10 +96,7 @@ require('lazy').setup({
         branch = '0.1.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                build = 'make',
-            },
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             'nvim-tree/nvim-web-devicons',
         },
         config = function()
@@ -127,11 +112,7 @@ require('lazy').setup({
             require('telescope').load_extension('fzf')
         end,
     },
-    {
-        'folke/todo-comments.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = {},
-    },
+    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
