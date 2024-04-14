@@ -25,7 +25,16 @@ require('lazy').setup({
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-            { 'j-hui/fidget.nvim', opts = {} },
+            {
+                'j-hui/fidget.nvim',
+                opts = {
+                    progress = {
+                        display = {
+                            done_icon = '󰄬',
+                        },
+                    },
+                },
+            },
             { 'folke/neodev.nvim', opts = {} },
         },
         config = function()
