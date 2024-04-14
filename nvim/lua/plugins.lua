@@ -31,10 +31,10 @@ require('lazy').setup({
     {
         'neovim/nvim-lspconfig',
         dependencies = {
+            { 'j-hui/fidget.nvim', opts = { progress = { display = { done_icon = '󰄬' } } } },
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-            { 'j-hui/fidget.nvim', opts = { progress = { display = { done_icon = '󰄬' } } } },
             { 'folke/neodev.nvim', opts = {} },
         },
         config = function()
@@ -87,12 +87,10 @@ require('lazy').setup({
             require('mini.ai').setup({
                 custom_textobjects = {
                     g = function()
-                        local from = { col = 1, line = 1 }
-                        local to = {
-                            col = math.max(vim.fn.getline('$'):len(), 1),
-                            line = vim.fn.line('$'),
+                        return {
+                            from = { col = 1, line = 1 },
+                            to = { col = math.max(vim.fn.getline('$'):len(), 1), line = vim.fn.line('$') },
                         }
-                        return { from = from, to = to }
                     end,
                 },
             })
@@ -113,12 +111,7 @@ require('lazy').setup({
         },
         config = function()
             require('telescope').setup({
-                defaults = {
-                    layout_config = {
-                        height = 0.99,
-                        width = 0.99,
-                    },
-                },
+                defaults = { layout_config = { height = 0.99, width = 0.99 } },
             })
 
             require('telescope').load_extension('fzf')
