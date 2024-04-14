@@ -107,14 +107,17 @@ require('lazy').setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            'nvim-telescope/telescope-ui-select.nvim',
             'nvim-tree/nvim-web-devicons',
         },
         config = function()
             require('telescope').setup({
                 defaults = { layout_config = { height = 0.99, width = 0.99 } },
+                extensions = { ['ui-select'] = { require('telescope.themes').get_dropdown() } },
             })
 
             require('telescope').load_extension('fzf')
+            require('telescope').load_extension('ui-select')
         end,
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
