@@ -12,7 +12,19 @@ require('lazy').setup({
             vim.cmd.colorscheme('catppuccin-mocha')
         end,
         name = 'catppuccin',
-        opts = { integrations = { mini = { enabled = true } } },
+        opts = {
+            integrations = {
+                mini = { enabled = true },
+                native_lsp = {
+                    underlines = {
+                        errors = { 'undercurl' },
+                        hints = { 'undercurl' },
+                        information = { 'undercurl' },
+                        warnings = { 'undercurl' },
+                    },
+                },
+            },
+        },
         priority = 1000,
     },
     { 'lewis6991/gitsigns.nvim', opts = {} },
