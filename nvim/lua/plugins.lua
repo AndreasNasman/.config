@@ -39,6 +39,7 @@ require('lazy').setup({
             require('mini.surround').setup()
         end,
     },
+    'tpope/vim-sleuth',
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
