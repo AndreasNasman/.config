@@ -38,6 +38,7 @@ require('lazy').setup({
             require('mini.statusline').setup()
             require('mini.surround').setup()
         end,
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     'tpope/vim-sleuth',
     {
@@ -49,6 +50,7 @@ require('lazy').setup({
                 'nvim-telescope/telescope-fzf-native.nvim',
                 build = 'make',
             },
+            'nvim-tree/nvim-web-devicons',
         },
         config = function()
             require('telescope').setup({
