@@ -27,6 +27,57 @@ require('lazy').setup({
         },
         priority = 1000,
     },
+    {
+        'hrsh7th/nvim-cmp',
+        event = 'InsertEnter',
+        dependencies = {
+            { 'L3MON4D3/LuaSnip', build = 'make install_jsregexp' },
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+        },
+        config = function()
+            local cmp = require('cmp')
+            local luasnip = require('luasnip')
+            luasnip.config.setup({})
+
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-n>'] = cmp.mapping.select_next_item(),
+                    ['<Tab>'] = cmp.mapping.select_next_item(),
+                    ['<C-p>'] = cmp.mapping.select_prev_item(),
+                    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+                    ['<CR>'] = cmp.mapping.confirm(),
+                    ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
+
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+
+                    ['<C-l>'] = cmp.mapping(function()
+                        if luasnip.expand_or_locally_jumpable() then
+                            luasnip.expand_or_jump()
+                        end
+                    end, { 'i', 's' }),
+                    ['<C-h>'] = cmp.mapping(function()
+                        if luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                        end
+                    end, { 'i', 's' }),
+                }),
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
+                sources = {
+                    { name = 'luasnip' },
+                    { name = 'nvim_lsp' },
+                    { name = 'path' },
+                },
+            })
+        end,
+    },
     { 'lewis6991/gitsigns.nvim', opts = {} },
     {
         'neovim/nvim-lspconfig',
@@ -57,6 +108,7 @@ require('lazy').setup({
             })
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
             local servers = {
                 lua_ls = {},
