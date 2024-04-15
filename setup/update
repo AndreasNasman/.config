@@ -3,7 +3,7 @@
 echo '🍺 Updating Homebrew packages.'
 brew update
 echo '🍺 Upgrading Homebrew packages.'
-brew upgrade --greedy
+brew upgrade --greedy --force
 echo '🍺 Removing stale Homebrew lock files and outdated downloads.'
 brew cleanup
 echo '🍺 Removing unused Homebrew dependencies.'
