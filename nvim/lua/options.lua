@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
