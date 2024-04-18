@@ -168,7 +168,6 @@ require('lazy').setup({
         end,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
-    'tpope/vim-sleuth',
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
@@ -189,6 +188,7 @@ require('lazy').setup({
         end,
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
+    { 'tpope/vim-sleuth', 'tpope/vim-abolish' },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
