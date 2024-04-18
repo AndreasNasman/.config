@@ -84,7 +84,10 @@ require('lazy').setup({
         event = { 'BufWritePre' },
         opts = {
             format_on_save = { lsp_fallback = true, timeout_ms = 500 },
-            formatters_by_ft = { lua = { 'stylua' } },
+            formatters_by_ft = {
+                lua = { 'stylua' },
+                python = { 'isort', 'black' },
+            },
         },
     },
     { 'lewis6991/gitsigns.nvim', opts = {} },
@@ -121,12 +124,16 @@ require('lazy').setup({
 
             local servers = {
                 lua_ls = {},
+                perlnavigator = {},
+                pyright = {},
             }
 
             require('mason').setup()
 
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
+                'black',
+                'isort',
                 'stylua',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
