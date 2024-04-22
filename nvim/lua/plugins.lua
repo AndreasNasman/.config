@@ -51,6 +51,8 @@ require('lazy').setup({
                     ['<CR>'] = cmp.mapping.confirm(),
                     ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
 
+                    ['<C-Space>'] = cmp.mapping.complete({}),
+
                     ['<C-f>'] = cmp.mapping.scroll_docs(4),
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 
