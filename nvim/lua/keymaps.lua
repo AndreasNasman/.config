@@ -8,6 +8,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Stop search highli
 vim.keymap.set('n', '<leader>+', function() vim.fn.setreg('+', vim.fn.getreg('"')) end, { desc = '"" => "+' })
 vim.keymap.set('n', '<leader>pa', function() vim.fn.setreg('+', vim.fn.expand('%:p')) end, { desc = 'Copy file path (absolute) ("+)' })
 vim.keymap.set('n', '<leader>pr', function() vim.fn.setreg('+', vim.fn.expand('%:~:.')) end, { desc = 'Copy file path (relative) ("+)' })
+vim.keymap.set('n', '<leader>sB', function() require('telescope').extensions.file_browser.file_browser() end)
+vim.keymap.set('n', '<leader>sb', function() require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', select_buffer = true }) end)
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = 'Paste ("_)' })
