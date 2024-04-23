@@ -88,7 +88,7 @@ require('lazy').setup({
             format_on_save = { lsp_fallback = true, timeout_ms = 500 },
             formatters_by_ft = {
                 lua = { 'stylua' },
-                python = { 'isort', 'black' },
+                python = { 'ruff_fix', 'ruff_format' },
             },
         },
     },
@@ -125,17 +125,16 @@ require('lazy').setup({
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
             local servers = {
+                basedpyright = {},
                 lua_ls = {},
                 perlnavigator = {},
-                pyright = {},
             }
 
             require('mason').setup()
 
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
-                'black',
-                'isort',
+                'ruff',
                 'stylua',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
