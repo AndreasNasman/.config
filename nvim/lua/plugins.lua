@@ -187,6 +187,7 @@ require('lazy').setup({
                 },
                 extensions = {
                     file_browser = {
+                        create_from_prompt = false,
                         hijack_netrw = true,
                     },
                     ['ui-select'] = { require('telescope.themes').get_dropdown() },
