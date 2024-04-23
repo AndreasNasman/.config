@@ -186,6 +186,9 @@ require('lazy').setup({
                     layout_config = { height = 0.99, width = 0.99 },
                 },
                 extensions = {
+                    file_browser = {
+                        hijack_netrw = true,
+                    },
                     ['ui-select'] = { require('telescope.themes').get_dropdown() },
                 },
             })
