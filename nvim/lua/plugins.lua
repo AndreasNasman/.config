@@ -184,6 +184,12 @@ require('lazy').setup({
             telescope.setup({
                 defaults = {
                     layout_config = { height = 0.99, width = 0.99 },
+                    mappings = {
+                        n = {
+                            ['<C-n>'] = 'move_selection_next',
+                            ['<C-p>'] = 'move_selection_previous',
+                        },
+                    },
                 },
                 extensions = {
                     file_browser = {
