@@ -181,6 +181,21 @@ require('lazy').setup({
         },
         config = function()
             local telescope = require('telescope')
+
+            ---Set cwd to the current directory without navigating into it.
+            ---@param prompt_bufnr number
+            local function change_cwd_custom(prompt_bufnr)
+                local current_picker = action_state.get_current_picker(prompt_bufnr)
+                local cwd = current_picker.finder.path
+                vim.cmd('cd ' .. cwd)
+                fb_utils.redraw_border_title(current_picker)
+                fb_utils.notify('action.change_cwd', {
+                    level = 'INFO',
+                    msg = cwd,
+                    quiet = current_picker.finder.quiet,
+                })
+            end
+
             telescope.setup({
                 defaults = {
                     layout_config = { height = 0.99, width = 0.99 },
@@ -195,6 +210,13 @@ require('lazy').setup({
                     file_browser = {
                         create_from_prompt = false,
                         hijack_netrw = true,
+                        mappings = {
+                            ['i'] = {
+                                ['<C-t>'] = change_cwd_custom,
+                                    })
+                                end,
+                            },
+                        },
                     },
                     ['ui-select'] = { require('telescope.themes').get_dropdown() },
                 },
