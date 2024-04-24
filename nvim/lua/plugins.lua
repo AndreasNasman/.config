@@ -181,6 +181,91 @@ require('lazy').setup({
         },
         config = function()
             local telescope = require('telescope')
+            local action_state = require('telescope.actions.state')
+            local fb_git = require('telescope._extensions.file_browser.git')
+            local fb_utils = require('telescope._extensions.file_browser.utils')
+
+            local search_dirs = {}
+            local search_dirs_titles = {}
+
+            ---Set search directories for Telescope.
+            ---The search directories are absolute paths that we truncated to
+            ---start from the Git root, if applicable, or the cwd. If an
+            ---absolute path is outside both base paths, we display it as is.
+            ---@param prompt_bufnr number
+            local function set_search_dirs(prompt_bufnr)
+                search_dirs = {}
+                search_dirs_titles = {}
+
+                -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
+                local selections = fb_utils.get_selected_files(prompt_bufnr, false)
+                search_dirs = vim.tbl_map(function(path)
+                    return path:absolute()
+                end, selections)
+                if vim.tbl_isempty(search_dirs) then
+                    local current_finder = action_state.get_current_picker(prompt_bufnr).finder
+                    search_dirs = { current_finder.path }
+                end
+
+                local git_path = fb_git.find_root() or ''
+                local cwd_path = vim.uv.cwd() or ''
+                ---@type string
+                local git_dir = git_path:match('.*/(.*)$') or git_path
+                ---@type string
+                local cwd_dir = cwd_path:match('.*/(.*)$') or cwd_path
+
+                for _, search_dir in pairs(search_dirs) do
+                    if #git_path > 0 and search_dir:sub(1, #git_path) == git_path then
+                        table.insert(search_dirs_titles, (search_dir:gsub(git_path, git_dir)))
+                    elseif #cwd_path > 0 and search_dir:sub(1, #cwd_path) == cwd_path then
+                        table.insert(search_dirs_titles, (search_dir:gsub(cwd_path, cwd_dir)))
+                    else
+                        table.insert(search_dirs_titles, search_dir)
+                    end
+                end
+            end
+
+            local function find_files_selected_dirs()
+                if vim.tbl_isempty(search_dirs) then
+                    fb_utils.notify(
+                        'find_files_selected_dirs',
+                        { level = 'INFO', msg = 'No search directories selected!' }
+                    )
+                    return
+                end
+                require('telescope.builtin').find_files({
+                    prompt_title = 'Find Files (' .. table.concat(search_dirs_titles, ', ') .. ')',
+                    search_dirs = search_dirs,
+                })
+            end
+
+            local function live_grep_selected_dirs()
+                if vim.tbl_isempty(search_dirs) then
+                    fb_utils.notify(
+                        'live_grep_selected_dirs',
+                        { level = 'INFO', msg = 'No search directories selected!' }
+                    )
+                    return
+                end
+                require('telescope.builtin').live_grep({
+                    prompt_title = 'Live Grep (' .. table.concat(search_dirs_titles, ', ') .. ')',
+                    search_dirs = search_dirs,
+                })
+            end
+
+            ---Set and find files in selected directories.
+            ---@param prompt_bufnr number
+            local function find_files_in_selected_dirs(prompt_bufnr)
+                set_search_dirs(prompt_bufnr)
+                find_files_selected_dirs()
+            end
+
+            ---Set and live grep in selected directories.
+            ---@param prompt_bufnr number
+            local function live_grep_in_selected_dirs(prompt_bufnr)
+                set_search_dirs(prompt_bufnr)
+                live_grep_selected_dirs()
+            end
 
             ---Set cwd to the current directory without navigating into it.
             ---@param prompt_bufnr number
@@ -189,11 +274,7 @@ require('lazy').setup({
                 local cwd = current_picker.finder.path
                 vim.cmd('cd ' .. cwd)
                 fb_utils.redraw_border_title(current_picker)
-                fb_utils.notify('action.change_cwd', {
-                    level = 'INFO',
-                    msg = cwd,
-                    quiet = current_picker.finder.quiet,
-                })
+                fb_utils.notify('change_cwd_custom', { level = 'INFO', msg = cwd })
             end
 
             telescope.setup({
@@ -211,11 +292,11 @@ require('lazy').setup({
                         create_from_prompt = false,
                         hijack_netrw = true,
                         mappings = {
-                            ['i'] = {
-                                ['<C-t>'] = change_cwd_custom,
-                                    })
-                                end,
+                            ['n'] = {
+                                ['<leader>sdf'] = find_files_in_selected_dirs,
+                                ['<leader>sdg'] = live_grep_in_selected_dirs,
                             },
+                            ['i'] = { ['<C-t>'] = change_cwd_custom },
                         },
                     },
                     ['ui-select'] = { require('telescope.themes').get_dropdown() },
@@ -225,6 +306,14 @@ require('lazy').setup({
             telescope.load_extension('file_browser')
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
+
+            local builtin = require('telescope.builtin')
+            --stylua: ignore start
+            vim.keymap.set('n', '<leader>sdf', find_files_selected_dirs, { desc = '[S]earch selected [D]irectories by [F]ind' })
+            vim.keymap.set('n', '<leader>sdg', live_grep_selected_dirs, { desc = '[S]earch selected [D]irectories by [G]rep' })
+            vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+            --stylua: ignore end
         end,
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
