@@ -190,6 +190,7 @@ require('lazy').setup({
             local actions = require('telescope.actions')
             local builtin = require('telescope.builtin')
             local actions_state = require('telescope.actions.state')
+            local file_browser = require('telescope').extensions.file_browser
             local fb_git = require('telescope._extensions.file_browser.git')
             local fb_utils = require('telescope._extensions.file_browser.utils')
 
@@ -377,6 +378,8 @@ require('lazy').setup({
             end
 
             --stylua: ignore start
+            vim.keymap.set('n', '<leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser' })
+            vim.keymap.set('n', '<leader>sB', function() run_with_git_cwd(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
             vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })

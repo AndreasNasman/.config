@@ -4,12 +4,7 @@ end
 local function copy_relative_file_path()
     vim.fn.setreg('+', vim.fn.expand('%:~:.'))
 end
-local function open_telescope_file_browser()
-    require('telescope').extensions.file_browser.file_browser()
-end
-local function open_telescope_file_browser_cwd()
-    require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', select_buffer = true })
-end
+
 local function sync_to_system_clipboard()
     vim.fn.setreg('+', vim.fn.getreg('"'))
 end
@@ -23,8 +18,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Stop search highli
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = '"" => "+' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = 'Copy file path (absolute) ("+)' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = 'Copy file path (relative) ("+)' })
-vim.keymap.set('n', '<leader>sB', open_telescope_file_browser, { desc = 'Open Telescope file browser' })
-vim.keymap.set('n', '<leader>sb', open_telescope_file_browser_cwd, { desc = 'Open Telescope file browser in cwd' })
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = 'Paste ("_)' })
