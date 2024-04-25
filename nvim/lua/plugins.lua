@@ -299,6 +299,7 @@ require('lazy').setup({
                             },
                             ['i'] = { ['<C-t>'] = change_cwd_custom },
                         },
+                        prompt_path = true,
                     },
                     ['ui-select'] = { require('telescope.themes').get_dropdown() },
                 },
