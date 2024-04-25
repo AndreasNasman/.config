@@ -325,13 +325,13 @@ require('lazy').setup({
                             ['<C-n>'] = actions.move_selection_next,
                             ['<C-p>'] = actions.move_selection_previous,
 
+                            ['<Down>'] = actions.cycle_history_next,
+                            ['<Up>'] = actions.cycle_history_prev,
+
                             ['<leader>h'] = toggle_hidden,
                             ['<leader>i'] = toggle_gitignore,
                             ['<leader>c'] = notify_cwd,
                             ['<leader>o'] = notify_opts,
-
-                            ['<Down>'] = actions.cycle_history_next,
-                            ['<Up>'] = actions.cycle_history_prev,
                         },
                     },
                 },
