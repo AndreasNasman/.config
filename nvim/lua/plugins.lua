@@ -187,6 +187,7 @@ require('lazy').setup({
         },
         config = function()
             local telescope = require('telescope')
+            local actions = require('telescope.actions')
             local builtin = require('telescope.builtin')
             local actions_state = require('telescope.actions.state')
             local fb_git = require('telescope._extensions.file_browser.git')
@@ -283,8 +284,11 @@ require('lazy').setup({
                     layout_config = { height = 0.99, width = 0.99 },
                     mappings = {
                         n = {
-                            ['<C-n>'] = 'move_selection_next',
-                            ['<C-p>'] = 'move_selection_previous',
+                            ['<C-n>'] = actions.move_selection_next,
+                            ['<C-p>'] = actions.move_selection_previous,
+
+                            ['j'] = actions.cycle_history_next,
+                            ['k'] = actions.cycle_history_prev,
                         },
                     },
                 },
