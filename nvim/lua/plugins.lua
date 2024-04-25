@@ -190,8 +190,8 @@ require('lazy').setup({
             local actions = require('telescope.actions')
             local builtin = require('telescope.builtin')
             local actions_state = require('telescope.actions.state')
-            local fb_git = telescope.extensions.file_browser.git
-            local fb_utils = telescope.extensions.file_browser.utils
+            local fb_git = require('telescope._extensions.file_browser.git')
+            local fb_utils = require('telescope._extensions.file_browser.utils')
 
             local opts = {
                 additional_args = {},
@@ -199,22 +199,6 @@ require('lazy').setup({
                 no_ignore = false,
                 search_dirs = {},
             }
-
-            ---Set search directories.
-            -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
-            ---@param prompt_bufnr number
-            local function set_search_dirs(prompt_bufnr)
-                opts.search_dirs = {}
-
-                local selections = fb_utils.get_selected_files(prompt_bufnr, false)
-                opts.search_dirs = vim.tbl_map(function(path)
-                    return path:absolute()
-                end, selections)
-                if vim.tbl_isempty(opts.search_dirs) then
-                    local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
-                    opts.search_dirs = { current_finder.path }
-                end
-            end
 
             ---Notify opts.
             ---When toggling options, a timeout is needed.
@@ -226,11 +210,6 @@ require('lazy').setup({
                 end, timeout)
             end
 
-            ---Notify the cwd.
-            local function notify_cwd()
-                vim.notify('cwd: ' .. vim.uv.cwd())
-            end
-
             ---Run builtin with directories to search.
             ---@param command function
             local function run_with_search_dirs(command)
@@ -240,6 +219,20 @@ require('lazy').setup({
                 end
                 command({ search_dirs = opts.search_dirs })
                 notify_opts()
+            end
+
+            ---Set search directories.
+            -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
+            ---@param prompt_bufnr number
+            local function set_search_dirs(prompt_bufnr)
+                local selections = fb_utils.get_selected_files(prompt_bufnr, false)
+                opts.search_dirs = vim.tbl_map(function(path)
+                    return path:absolute()
+                end, selections)
+                if vim.tbl_isempty(opts.search_dirs) then
+                    local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
+                    opts.search_dirs = { current_finder.path }
+                end
             end
 
             ---Set and find files in selected directories.
@@ -254,6 +247,11 @@ require('lazy').setup({
             local function live_grep_selected_dirs(prompt_bufnr)
                 set_search_dirs(prompt_bufnr)
                 run_with_search_dirs(builtin.live_grep)
+            end
+
+            ---Notify the cwd.
+            local function notify_cwd()
+                vim.notify('cwd: ' .. vim.uv.cwd())
             end
 
             ---Set the cwd to the current directory without navigating into it.
@@ -359,6 +357,14 @@ require('lazy').setup({
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
+            ---Run builtin.
+            ---@param command function
+            ---@param opts_override? table
+            local function run(command, opts_override)
+                opts_override = vim.tbl_extend('force', { search_dirs = {} }, opts_override or {})
+                command(vim.tbl_extend('force', opts, opts_override))
+            end
+
             ---Run builtin with Git root as the cwd.
             ---@param command function
             local function run_with_git_cwd(command)
@@ -367,15 +373,15 @@ require('lazy').setup({
                     vim.notify('Not in a Git project.')
                     return
                 end
-                command({ cwd = git_path })
+                run(command, { cwd = git_path })
             end
 
             --stylua: ignore start
             vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
-            vim.keymap.set('n', '<leader>sf', function() builtin.find_files(vim.tbl_extend('keep', opts, {})) end, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sg', function() builtin.live_grep(vim.tbl_extend('keep', opts, {})) end, { desc = '[S]earch by [G]rep' })
+            vim.keymap.set('n', '<leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch by [G]rep' })
             vim.keymap.set('n', '<leader>sG', function() run_with_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
