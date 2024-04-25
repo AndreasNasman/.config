@@ -190,8 +190,8 @@ require('lazy').setup({
             local actions = require('telescope.actions')
             local builtin = require('telescope.builtin')
             local actions_state = require('telescope.actions.state')
-            local fb_git = require('telescope._extensions.file_browser.git')
-            local fb_utils = require('telescope._extensions.file_browser.utils')
+            local fb_git = telescope.extensions.file_browser.git
+            local fb_utils = telescope.extensions.file_browser.utils
 
             local opts = {
                 additional_args = {},
@@ -200,7 +200,7 @@ require('lazy').setup({
                 search_dirs = {},
             }
 
-            ---Set search directories for Telescope.
+            ---Set search directories.
             -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
@@ -231,7 +231,7 @@ require('lazy').setup({
                 vim.notify('cwd: ' .. vim.uv.cwd())
             end
 
-            ---Run Telescope builtin with directories to search.
+            ---Run builtin with directories to search.
             ---@param command function
             local function run_with_search_dirs(command)
                 if vim.tbl_isempty(opts.search_dirs) then
@@ -266,13 +266,23 @@ require('lazy').setup({
                 notify_cwd()
             end
 
-            ---Toggle option for the current Telescope picker.
+            ---Re-open the current picker.
             ---This function is a workaround function since Telescope currently
             ---does not allow modifying the open picker.
             ---https://github.com/nvim-telescope/telescope.nvim/issues/2016
             ---@param prompt_bufnr number
+            local function reopen_picker(prompt_bufnr, command)
+                local current_picker = actions_state.get_current_picker(prompt_bufnr)
+                local _opts = { default_text = current_picker:_get_prompt() }
+                actions.close(prompt_bufnr)
+                command(vim.tbl_extend('force', opts, _opts))
+                notify_opts(100)
+            end
+
+            ---Toggle option.
             ---@param option string
-            local function toggle_option(prompt_bufnr, option)
+            ---@param prompt_bufnr number
+            local function toggle_option(option, prompt_bufnr)
                 opts[option] = not opts[option]
                 local additional_args_length_before = #opts.additional_args
                 opts.additional_args = vim.tbl_filter(function(element)
@@ -283,32 +293,31 @@ require('lazy').setup({
                 end
 
                 local current_picker = actions_state.get_current_picker(prompt_bufnr)
-                local _opts = { default_text = current_picker:_get_prompt() }
-                actions.close(prompt_bufnr)
-
                 local prompt_title = current_picker.prompt_title
-                if prompt_title == 'Find Files' then
-                    builtin.find_files(vim.tbl_extend('force', opts, _opts))
+                if prompt_title == 'File Browser' then
+                    local finder = current_picker.finder
+                    finder[option] = opts[option]
+                    current_picker:refresh(finder, { reset_prompt = true, multi = current_picker._multi })
+                    notify_opts()
+                elseif prompt_title == 'Find Files' then
+                    reopen_picker(prompt_bufnr, builtin.find_files)
                 elseif prompt_title == 'Live Grep' then
-                    builtin.live_grep(vim.tbl_extend('force', opts, _opts))
+                    reopen_picker(prompt_bufnr, builtin.live_grep)
                 else
-                    vim.notify('Unable to options for the current picker!', vim.log.levels.ERROR)
-                    return
+                    vim.notify('Unable to show the toggled option in the current picker.', vim.log.levels.WARN)
                 end
-
-                notify_opts(100)
             end
 
             ---Toggle .gitignore files.
             ---@param prompt_bufnr number
             local function toggle_gitignore(prompt_bufnr)
-                toggle_option(prompt_bufnr, 'no_ignore')
+                toggle_option('no_ignore', prompt_bufnr)
             end
 
             ---Toggle hidden files.
             ---@param prompt_bufnr number
             local function toggle_hidden(prompt_bufnr)
-                toggle_option(prompt_bufnr, 'hidden')
+                toggle_option('hidden', prompt_bufnr)
             end
 
             telescope.setup({
@@ -350,7 +359,7 @@ require('lazy').setup({
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            ---Run Telescope builtin with Git root as the cwd.
+            ---Run builtin with Git root as the cwd.
             ---@param command function
             local function run_with_git_cwd(command)
                 local git_path = fb_git.find_root()
