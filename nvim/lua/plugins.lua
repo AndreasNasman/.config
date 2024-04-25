@@ -194,12 +194,28 @@ require('lazy').setup({
             local fb_git = require('telescope._extensions.file_browser.git')
             local fb_utils = require('telescope._extensions.file_browser.utils')
 
-            local opts = {
+            -- Setting strings to `false` seems to fall back to the default
+            -- value in Telescope or the plugin.
+            local opts_default = {
+                cwd = false,
+                path = false,
+                search_dirs = {},
+                select_buffer = false,
+            }
+            local opts = vim.tbl_extend('error', opts_default, {
                 additional_args = {},
                 hidden = false,
                 no_ignore = false,
-                search_dirs = {},
-            }
+            })
+
+            ---Run builtin.
+            ---@param command function
+            ---@param opts_override? table
+            local function run(command, opts_override)
+                opts_override = vim.tbl_extend('force', opts_default, opts_override or {})
+                opts = vim.tbl_extend('force', opts, opts_override)
+                command(opts)
+            end
 
             ---Notify opts.
             ---When toggling options, a timeout is needed.
@@ -218,7 +234,7 @@ require('lazy').setup({
                     vim.notify('No search directories selected.')
                     return
                 end
-                command({ search_dirs = opts.search_dirs })
+                run(command, { search_dirs = opts.search_dirs })
                 notify_opts()
             end
 
@@ -358,14 +374,6 @@ require('lazy').setup({
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            ---Run builtin.
-            ---@param command function
-            ---@param opts_override? table
-            local function run(command, opts_override)
-                opts_override = vim.tbl_extend('force', { search_dirs = {} }, opts_override or {})
-                command(vim.tbl_extend('force', opts, opts_override))
-            end
-
             ---Run builtin with Git root as the cwd.
             ---@param command function
             local function run_with_git_cwd(command)
@@ -382,6 +390,7 @@ require('lazy').setup({
             vim.keymap.set('n', '<leader>sB', function() run_with_git_cwd(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
+            vim.keymap.set('n', '<leader>se', function() run(file_browser.file_browser, { path = '%:p:h', select_buffer = true }) end, { desc = '[S]earch [E]xplored file' })
             vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch by [G]rep' })
