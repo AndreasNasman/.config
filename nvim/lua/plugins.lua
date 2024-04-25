@@ -193,8 +193,11 @@ require('lazy').setup({
             local fb_git = require('telescope._extensions.file_browser.git')
             local fb_utils = require('telescope._extensions.file_browser.utils')
 
-            local search_dirs = {}
-            local search_dirs_titles = {}
+            local opts = {
+                hidden = false,
+                search_dirs = {},
+                search_dirs_titles = {},
+            }
 
             ---Set search directories for Telescope.
             ---The search directories are absolute paths that we truncated to
@@ -202,17 +205,17 @@ require('lazy').setup({
             ---absolute path is outside both base paths, we display it as is.
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
-                search_dirs = {}
-                search_dirs_titles = {}
+                opts.search_dirs = {}
+                opts.search_dirs_titles = {}
 
                 -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
                 local selections = fb_utils.get_selected_files(prompt_bufnr, false)
-                search_dirs = vim.tbl_map(function(path)
+                opts.search_dirs = vim.tbl_map(function(path)
                     return path:absolute()
                 end, selections)
-                if vim.tbl_isempty(search_dirs) then
+                if vim.tbl_isempty(opts.search_dirs) then
                     local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
-                    search_dirs = { current_finder.path }
+                    opts.search_dirs = { current_finder.path }
                 end
 
                 local git_path = fb_git.find_root() or ''
@@ -222,25 +225,41 @@ require('lazy').setup({
                 ---@type string
                 local cwd_dir = cwd_path:match('.*/(.*)$') or cwd_path
 
-                for _, search_dir in pairs(search_dirs) do
+                for _, search_dir in pairs(opts.search_dirs) do
                     if #git_path > 0 and search_dir:sub(1, #git_path) == git_path then
-                        table.insert(search_dirs_titles, (search_dir:gsub(git_path, git_dir)))
+                        table.insert(opts.search_dirs_titles, (search_dir:gsub(git_path, git_dir)))
                     elseif #cwd_path > 0 and search_dir:sub(1, #cwd_path) == cwd_path then
-                        table.insert(search_dirs_titles, (search_dir:gsub(cwd_path, cwd_dir)))
+                        table.insert(opts.search_dirs_titles, (search_dir:gsub(cwd_path, cwd_dir)))
                     else
-                        table.insert(search_dirs_titles, search_dir)
+                        table.insert(opts.search_dirs_titles, search_dir)
                     end
                 end
+            end
+
+            ---Notify opts.
+            ---When toggling options, a timeout is needed.
+            ---@param timeout? number
+            local function notify_opts(timeout)
+                timeout = timeout or 0
+                vim.defer_fn(function()
+                    vim.notify(vim.inspect(opts))
+                end, timeout)
+            end
+
+            ---Notify the cwd.
+            local function notify_cwd()
+                vim.notify('cwd: ' .. vim.uv.cwd())
             end
 
             ---Run Telescope builtin with directories to search.
             ---@param command function
             local function run_with_search_dirs(command)
-                if vim.tbl_isempty(search_dirs) then
-                    vim.notify('No search directories selected!')
+                if vim.tbl_isempty(opts.search_dirs) then
+                    vim.notify('No search directories selected.')
                     return
                 end
-                command({ search_dirs = search_dirs })
+                command({ search_dirs = opts.search_dirs })
+                notify_opts()
             end
 
             ---Set and find files in selected directories.
@@ -264,12 +283,29 @@ require('lazy').setup({
                 local cwd = current_picker.finder.path
                 vim.cmd.cd(cwd)
                 fb_utils.redraw_border_title(current_picker)
-                vim.notify('Changing the cwd: ' .. cwd)
+                notify_cwd()
             end
 
-            ---Notify the cwd.
-            local function noitfy_cwd()
-                vim.notify(vim.uv.cwd())
+            ---Toggle hidden files.
+            ---Inspiration: https://github.com/nvim-telescope/telescope.nvim/issues/2016
+            ---@param prompt_bufnr number
+            local function toggle_hidden(prompt_bufnr)
+                opts.hidden = not opts.hidden
+                local current_picker = actions_state.get_current_picker(prompt_bufnr)
+                local _opts = { default_text = current_picker:_get_prompt() }
+                actions.close(prompt_bufnr)
+
+                local prompt_title = current_picker.prompt_title
+                if prompt_title == 'Find Files' then
+                    builtin.find_files(vim.tbl_extend('force', opts, _opts))
+                elseif prompt_title == 'Live Grep' then
+                    builtin.live_grep(vim.tbl_extend('force', opts, _opts))
+                else
+                    vim.notify('Unable to toggle hidden files for the current picker!', vim.log.levels.ERROR)
+                    return
+                end
+
+                notify_opts(100)
             end
 
             telescope.setup({
@@ -280,7 +316,9 @@ require('lazy').setup({
                             ['<C-n>'] = actions.move_selection_next,
                             ['<C-p>'] = actions.move_selection_previous,
 
-                            ['<leader>c'] = noitfy_cwd,
+                            ['<leader>c'] = notify_cwd,
+                            ['<leader>h'] = toggle_hidden,
+                            ['<leader>o'] = notify_opts,
 
                             ['j'] = actions.cycle_history_next,
                             ['k'] = actions.cycle_history_prev,
@@ -313,7 +351,7 @@ require('lazy').setup({
             local function run_with_git_cwd(command)
                 local git_path = fb_git.find_root()
                 if not git_path then
-                    vim.notify('No Git path found!')
+                    vim.notify('Not in a Git project.')
                     return
                 end
                 command({ cwd = git_path })
@@ -321,9 +359,9 @@ require('lazy').setup({
             --stylua: ignore start
             vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
-            vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<leader>sf', function() builtin.find_files(vim.tbl_extend('keep', opts, {})) end, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+            vim.keymap.set('n', '<leader>sg', function() builtin.live_grep(vim.tbl_extend('keep', opts, {})) end, { desc = '[S]earch by [G]rep' })
             vim.keymap.set('n', '<leader>sG', function() run_with_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
