@@ -354,6 +354,7 @@ return {
 
                             ['<leader>h'] = toggle_hidden,
                             ['<leader>i'] = toggle_gitignore,
+
                             ['<leader>c'] = notify_cwd,
                             ['<leader>o'] = notify_opts,
                         },
