@@ -196,17 +196,12 @@ require('lazy').setup({
             local opts = {
                 hidden = false,
                 search_dirs = {},
-                search_dirs_titles = {},
             }
 
             ---Set search directories for Telescope.
-            ---The search directories are absolute paths that we truncated to
-            ---start from the Git root, if applicable, or the the cwd. If an
-            ---absolute path is outside both base paths, we display it as is.
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
                 opts.search_dirs = {}
-                opts.search_dirs_titles = {}
 
                 -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
                 local selections = fb_utils.get_selected_files(prompt_bufnr, false)
@@ -216,23 +211,6 @@ require('lazy').setup({
                 if vim.tbl_isempty(opts.search_dirs) then
                     local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
                     opts.search_dirs = { current_finder.path }
-                end
-
-                local git_path = fb_git.find_root() or ''
-                local cwd_path = vim.uv.cwd() or ''
-                ---@type string
-                local git_dir = git_path:match('.*/(.*)$') or git_path
-                ---@type string
-                local cwd_dir = cwd_path:match('.*/(.*)$') or cwd_path
-
-                for _, search_dir in pairs(opts.search_dirs) do
-                    if #git_path > 0 and search_dir:sub(1, #git_path) == git_path then
-                        table.insert(opts.search_dirs_titles, (search_dir:gsub(git_path, git_dir)))
-                    elseif #cwd_path > 0 and search_dir:sub(1, #cwd_path) == cwd_path then
-                        table.insert(opts.search_dirs_titles, (search_dir:gsub(cwd_path, cwd_dir)))
-                    else
-                        table.insert(opts.search_dirs_titles, search_dir)
-                    end
                 end
             end
 
@@ -356,6 +334,7 @@ require('lazy').setup({
                 end
                 command({ cwd = git_path })
             end
+
             --stylua: ignore start
             vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
