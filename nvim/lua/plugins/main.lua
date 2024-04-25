@@ -189,6 +189,4 @@ return {
             },
         },
     },
-}, {
-    install = { colorscheme = { 'catppuccin' } },
 }
