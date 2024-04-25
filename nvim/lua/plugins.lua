@@ -187,7 +187,8 @@ require('lazy').setup({
         },
         config = function()
             local telescope = require('telescope')
-            local action_state = require('telescope.actions.state')
+            local builtin = require('telescope.builtin')
+            local actions_state = require('telescope.actions.state')
             local fb_git = require('telescope._extensions.file_browser.git')
             local fb_utils = require('telescope._extensions.file_browser.utils')
 
@@ -209,7 +210,7 @@ require('lazy').setup({
                     return path:absolute()
                 end, selections)
                 if vim.tbl_isempty(search_dirs) then
-                    local current_finder = action_state.get_current_picker(prompt_bufnr).finder
+                    local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
                     search_dirs = { current_finder.path }
                 end
 
@@ -270,7 +271,7 @@ require('lazy').setup({
             ---Set cwd to the current directory without navigating into it.
             ---@param prompt_bufnr number
             local function change_cwd_custom(prompt_bufnr)
-                local current_picker = action_state.get_current_picker(prompt_bufnr)
+                local current_picker = actions_state.get_current_picker(prompt_bufnr)
                 local cwd = current_picker.finder.path
                 vim.cmd('cd ' .. cwd)
                 fb_utils.redraw_border_title(current_picker)
@@ -307,12 +308,23 @@ require('lazy').setup({
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            local builtin = require('telescope.builtin')
+            ---Run Telescope builtin with Git root as cwd.
+            ---@param command function
+            local function run_git_cwd(command)
+                local git_path = fb_git.find_root()
+                if not git_path then
+                    vim.notify('No Git path found!')
+                    return
+                end
+                command({ cwd = git_path })
+            end
             --stylua: ignore start
             vim.keymap.set('n', '<leader>sdf', find_files_selected_dirs, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>sdg', live_grep_selected_dirs, { desc = '[S]earch selected [D]irectories by [G]rep' })
             vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<leader>sF', function() run_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as cwd' })
             vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+            vim.keymap.set('n', '<leader>sG', function() run_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
             vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [Old] files' })
