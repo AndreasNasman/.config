@@ -232,7 +232,6 @@ return {
             vim.keymap.set('n', '<leader>ssf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
             vim.keymap.set('n', '<leader>ssg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
             vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
-            vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
             --stylua: ignore end
         end,
     },
