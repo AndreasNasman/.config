@@ -201,11 +201,11 @@ require('lazy').setup({
             }
 
             ---Set search directories for Telescope.
+            -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
                 opts.search_dirs = {}
 
-                -- https://github.com/nvim-telescope/telescope-file-browser.nvim/wiki/Configuration-Recipes#live_grep-only-within-current-path-or-multi-selected-files
                 local selections = fb_utils.get_selected_files(prompt_bufnr, false)
                 opts.search_dirs = vim.tbl_map(function(path)
                     return path:absolute()
@@ -266,12 +266,22 @@ require('lazy').setup({
                 notify_cwd()
             end
 
-            ---Reopen the current Telescope picker.
+            ---Toggle option for the current Telescope picker.
             ---This function is a workaround function since Telescope currently
             ---does not allow modifying the open picker.
             ---https://github.com/nvim-telescope/telescope.nvim/issues/2016
             ---@param prompt_bufnr number
-            local function reopen_picker(prompt_bufnr)
+            ---@param option string
+            local function toggle_option(prompt_bufnr, option)
+                opts[option] = not opts[option]
+                local additional_args_length_before = #opts.additional_args
+                opts.additional_args = vim.tbl_filter(function(element)
+                    return element ~= '--' .. option
+                end, opts.additional_args)
+                if additional_args_length_before == #opts.additional_args then
+                    table.insert(opts.additional_args, '--' .. option)
+                end
+
                 local current_picker = actions_state.get_current_picker(prompt_bufnr)
                 local _opts = { default_text = current_picker:_get_prompt() }
                 actions.close(prompt_bufnr)
@@ -292,29 +302,13 @@ require('lazy').setup({
             ---Toggle .gitignore files.
             ---@param prompt_bufnr number
             local function toggle_gitignore(prompt_bufnr)
-                opts.no_ignore = not opts.no_ignore
-                local additional_args_length_before = #opts.additional_args
-                opts.additional_args = vim.tbl_filter(function(element)
-                    return element ~= '--no-ignore'
-                end, opts.additional_args)
-                if additional_args_length_before == #opts.additional_args then
-                    table.insert(opts.additional_args, '--no-ignore')
-                end
-                reopen_picker(prompt_bufnr)
+                toggle_option(prompt_bufnr, 'no_ignore')
             end
 
             ---Toggle hidden files.
             ---@param prompt_bufnr number
             local function toggle_hidden(prompt_bufnr)
-                opts.hidden = not opts.hidden
-                local additional_args_length_before = #opts.additional_args
-                opts.additional_args = vim.tbl_filter(function(element)
-                    return element ~= '--hidden'
-                end, opts.additional_args)
-                if additional_args_length_before == #opts.additional_args then
-                    table.insert(opts.additional_args, '--hidden')
-                end
-                reopen_picker(prompt_bufnr)
+                toggle_option(prompt_bufnr, 'hidden')
             end
 
             telescope.setup({
