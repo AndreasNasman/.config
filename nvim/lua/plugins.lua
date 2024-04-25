@@ -198,6 +198,7 @@ require('lazy').setup({
             -- value in Telescope or the plugin.
             local opts_default = {
                 cwd = false,
+                grep_open_files = false,
                 path = false,
                 search_dirs = {},
                 select_buffer = false,
@@ -371,8 +372,8 @@ require('lazy').setup({
                         hijack_netrw = true,
                         mappings = {
                             ['n'] = {
-                                ['<leader>sdf'] = find_files_selected_dirs,
-                                ['<leader>sdg'] = live_grep_selected_dirs,
+                                ['<leader>ssf'] = find_files_selected_dirs,
+                                ['<leader>ssg'] = live_grep_selected_dirs,
                             },
                             ['i'] = { ['<C-t>'] = change_cwd_custom },
                         },
@@ -387,10 +388,10 @@ require('lazy').setup({
             telescope.load_extension('ui-select')
 
             --stylua: ignore start
+            vim.keymap.set('n', '<leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end, { desc = '[S]earch [/] in open files' })
             vim.keymap.set('n', '<leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser' })
             vim.keymap.set('n', '<leader>sB', function() run_with_git_cwd(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
-            vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
+            vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
             vim.keymap.set('n', '<leader>se', function() run(file_browser.file_browser, { path = '%:p:h', select_buffer = true }) end, { desc = '[S]earch [E]xplored file' })
             vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
@@ -398,8 +399,14 @@ require('lazy').setup({
             vim.keymap.set('n', '<leader>sG', function() run_with_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-            vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [Old] files' })
-            vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+            vim.keymap.set('n', '<leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
+            vim.keymap.set('n', '<leader>so', builtin.buffers, { desc = '[S]earch [O]pen files' })
+            vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent files' })
+            vim.keymap.set('n', '<leader>sR', builtin.resume, { desc = '[S]earch [R]esume' })
+            vim.keymap.set('n', '<leader>ssf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
+            vim.keymap.set('n', '<leader>ssg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
+            vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
+            vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
             --stylua: ignore end
         end,
     },
