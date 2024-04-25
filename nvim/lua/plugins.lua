@@ -227,14 +227,16 @@ require('lazy').setup({
                 end, timeout)
             end
 
+            local search_dirs = {}
+
             ---Run builtin with directories to search.
             ---@param command function
             local function run_with_search_dirs(command)
-                if vim.tbl_isempty(opts.search_dirs) then
+                if vim.tbl_isempty(search_dirs) then
                     vim.notify('No search directories selected.')
                     return
                 end
-                run(command, { search_dirs = opts.search_dirs })
+                run(command, { search_dirs = search_dirs })
                 notify_opts()
             end
 
@@ -243,12 +245,12 @@ require('lazy').setup({
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
                 local selections = fb_utils.get_selected_files(prompt_bufnr, false)
-                opts.search_dirs = vim.tbl_map(function(path)
+                search_dirs = vim.tbl_map(function(path)
                     return path:absolute()
                 end, selections)
-                if vim.tbl_isempty(opts.search_dirs) then
+                if vim.tbl_isempty(search_dirs) then
                     local current_finder = actions_state.get_current_picker(prompt_bufnr).finder
-                    opts.search_dirs = { current_finder.path }
+                    search_dirs = { current_finder.path }
                 end
             end
 
