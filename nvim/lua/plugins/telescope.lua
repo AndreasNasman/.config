@@ -194,6 +194,7 @@ return {
                 extensions = {
                     file_browser = {
                         create_from_prompt = false,
+                        hide_parent_dir = true,
                         hijack_netrw = true,
                         mappings = {
                             ['n'] = {
