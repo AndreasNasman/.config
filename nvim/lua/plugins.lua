@@ -330,8 +330,8 @@ require('lazy').setup({
                             ['<leader>c'] = notify_cwd,
                             ['<leader>o'] = notify_opts,
 
-                            ['j'] = actions.cycle_history_next,
-                            ['k'] = actions.cycle_history_prev,
+                            ['<Down>'] = actions.cycle_history_next,
+                            ['<Up>'] = actions.cycle_history_prev,
                         },
                     },
                 },
