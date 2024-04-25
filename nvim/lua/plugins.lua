@@ -170,6 +170,12 @@ require('lazy').setup({
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
+        'rcarriga/nvim-notify',
+        init = function()
+            vim.notify = require('notify')
+        end,
+    },
+    {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = {
@@ -227,10 +233,7 @@ require('lazy').setup({
 
             local function find_files_selected_dirs()
                 if vim.tbl_isempty(search_dirs) then
-                    fb_utils.notify(
-                        'find_files_selected_dirs',
-                        { level = 'INFO', msg = 'No search directories selected!' }
-                    )
+                    vim.notify('No search directories selected!')
                     return
                 end
                 require('telescope.builtin').find_files({
@@ -241,10 +244,7 @@ require('lazy').setup({
 
             local function live_grep_selected_dirs()
                 if vim.tbl_isempty(search_dirs) then
-                    fb_utils.notify(
-                        'live_grep_selected_dirs',
-                        { level = 'INFO', msg = 'No search directories selected!' }
-                    )
+                    vim.notify('No search directories selected!')
                     return
                 end
                 require('telescope.builtin').live_grep({
@@ -274,7 +274,7 @@ require('lazy').setup({
                 local cwd = current_picker.finder.path
                 vim.cmd('cd ' .. cwd)
                 fb_utils.redraw_border_title(current_picker)
-                fb_utils.notify('change_cwd_custom', { level = 'INFO', msg = cwd })
+                vim.notify('Changing cwd: ' .. cwd)
             end
 
             telescope.setup({
