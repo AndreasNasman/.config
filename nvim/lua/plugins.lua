@@ -198,7 +198,7 @@ require('lazy').setup({
 
             ---Set search directories for Telescope.
             ---The search directories are absolute paths that we truncated to
-            ---start from the Git root, if applicable, or the cwd. If an
+            ---start from the Git root, if applicable, or the the cwd. If an
             ---absolute path is outside both base paths, we display it as is.
             ---@param prompt_bufnr number
             local function set_search_dirs(prompt_bufnr)
@@ -233,50 +233,43 @@ require('lazy').setup({
                 end
             end
 
-            local function find_files_selected_dirs()
+            ---Run Telescope builtin with directories to search.
+            ---@param command function
+            local function run_with_search_dirs(command)
                 if vim.tbl_isempty(search_dirs) then
                     vim.notify('No search directories selected!')
                     return
                 end
-                require('telescope.builtin').find_files({
-                    prompt_title = 'Find Files (' .. table.concat(search_dirs_titles, ', ') .. ')',
-                    search_dirs = search_dirs,
-                })
-            end
-
-            local function live_grep_selected_dirs()
-                if vim.tbl_isempty(search_dirs) then
-                    vim.notify('No search directories selected!')
-                    return
-                end
-                require('telescope.builtin').live_grep({
-                    prompt_title = 'Live Grep (' .. table.concat(search_dirs_titles, ', ') .. ')',
-                    search_dirs = search_dirs,
-                })
+                command({ search_dirs = search_dirs })
             end
 
             ---Set and find files in selected directories.
             ---@param prompt_bufnr number
-            local function find_files_in_selected_dirs(prompt_bufnr)
+            local function find_files_selected_dirs(prompt_bufnr)
                 set_search_dirs(prompt_bufnr)
-                find_files_selected_dirs()
+                run_with_search_dirs(builtin.find_files)
             end
 
             ---Set and live grep in selected directories.
             ---@param prompt_bufnr number
-            local function live_grep_in_selected_dirs(prompt_bufnr)
+            local function live_grep_selected_dirs(prompt_bufnr)
                 set_search_dirs(prompt_bufnr)
-                live_grep_selected_dirs()
+                run_with_search_dirs(builtin.live_grep)
             end
 
-            ---Set cwd to the current directory without navigating into it.
+            ---Set the cwd to the current directory without navigating into it.
             ---@param prompt_bufnr number
             local function change_cwd_custom(prompt_bufnr)
                 local current_picker = actions_state.get_current_picker(prompt_bufnr)
                 local cwd = current_picker.finder.path
-                vim.cmd('cd ' .. cwd)
+                vim.cmd.cd(cwd)
                 fb_utils.redraw_border_title(current_picker)
-                vim.notify('Changing cwd: ' .. cwd)
+                vim.notify('Changing the cwd: ' .. cwd)
+            end
+
+            ---Notify the cwd.
+            local function noitfy_cwd()
+                vim.notify(vim.uv.cwd())
             end
 
             telescope.setup({
@@ -286,6 +279,8 @@ require('lazy').setup({
                         n = {
                             ['<C-n>'] = actions.move_selection_next,
                             ['<C-p>'] = actions.move_selection_previous,
+
+                            ['<leader>c'] = noitfy_cwd,
 
                             ['j'] = actions.cycle_history_next,
                             ['k'] = actions.cycle_history_prev,
@@ -298,8 +293,8 @@ require('lazy').setup({
                         hijack_netrw = true,
                         mappings = {
                             ['n'] = {
-                                ['<leader>sdf'] = find_files_in_selected_dirs,
-                                ['<leader>sdg'] = live_grep_in_selected_dirs,
+                                ['<leader>sdf'] = find_files_selected_dirs,
+                                ['<leader>sdg'] = live_grep_selected_dirs,
                             },
                             ['i'] = { ['<C-t>'] = change_cwd_custom },
                         },
@@ -313,9 +308,9 @@ require('lazy').setup({
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            ---Run Telescope builtin with Git root as cwd.
+            ---Run Telescope builtin with Git root as the cwd.
             ---@param command function
-            local function run_git_cwd(command)
+            local function run_with_git_cwd(command)
                 local git_path = fb_git.find_root()
                 if not git_path then
                     vim.notify('No Git path found!')
@@ -324,12 +319,12 @@ require('lazy').setup({
                 command({ cwd = git_path })
             end
             --stylua: ignore start
-            vim.keymap.set('n', '<leader>sdf', find_files_selected_dirs, { desc = '[S]earch selected [D]irectories by [F]ind' })
-            vim.keymap.set('n', '<leader>sdg', live_grep_selected_dirs, { desc = '[S]earch selected [D]irectories by [G]rep' })
+            vim.keymap.set('n', '<leader>sdf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch selected [D]irectories by [F]ind' })
+            vim.keymap.set('n', '<leader>sdg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch selected [D]irectories by [G]rep' })
             vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-            vim.keymap.set('n', '<leader>sF', function() run_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as cwd' })
+            vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-            vim.keymap.set('n', '<leader>sG', function() run_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as cwd' })
+            vim.keymap.set('n', '<leader>sG', function() run_with_git_cwd(builtin.live_grep) end, { desc = '[[S]earch by [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
             vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch [Old] files' })
