@@ -217,14 +217,24 @@ require('lazy').setup({
                 command(opts)
             end
 
+            ---Run builtin with Git root as the cwd.
+            ---@param command function
+            local function run_with_git_cwd(command)
+                local git_path = fb_git.find_root()
+                if not git_path then
+                    vim.notify('Not in a Git project.')
+                    return
+                end
+                run(command, { cwd = git_path })
+            end
+
             ---Notify opts.
-            ---When toggling options, a timeout is needed.
-            ---@param timeout? number
-            local function notify_opts(timeout)
-                timeout = timeout or 0
+            local function notify_opts()
+                -- Adding `defer_fn` makes the notification appear asynchronous
+                -- after, e.g., a picker has re-opened.
                 vim.defer_fn(function()
                     vim.notify(vim.inspect(opts))
-                end, timeout)
+                end, 0)
             end
 
             local search_dirs = {}
@@ -293,7 +303,7 @@ require('lazy').setup({
                 local _opts = { default_text = current_picker:_get_prompt() }
                 actions.close(prompt_bufnr)
                 command(vim.tbl_extend('force', opts, _opts))
-                notify_opts(100)
+                notify_opts()
             end
 
             ---Toggle option.
@@ -375,17 +385,6 @@ require('lazy').setup({
             telescope.load_extension('file_browser')
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
-
-            ---Run builtin with Git root as the cwd.
-            ---@param command function
-            local function run_with_git_cwd(command)
-                local git_path = fb_git.find_root()
-                if not git_path then
-                    vim.notify('Not in a Git project.')
-                    return
-                end
-                run(command, { cwd = git_path })
-            end
 
             --stylua: ignore start
             vim.keymap.set('n', '<leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch Telescope file [B]rowser' })
