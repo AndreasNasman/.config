@@ -167,8 +167,8 @@ return {
             vim.notify = require('notify')
         end,
     },
-    { 'tpope/vim-sleuth', 'tpope/vim-abolish' },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'VimEnter', opts = {} },
+    { 'tpope/vim-abolish', 'tpope/vim-sleuth' },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
