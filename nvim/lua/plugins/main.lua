@@ -7,7 +7,12 @@ return {
         name = 'catppuccin',
         opts = {
             integrations = {
-                mini = { enabled = true },
+                fidget = true,
+                -- TODO: Enable when installing harpoon.
+                harpoon = false,
+                mason = true,
+                -- TODO: Should be enabled by default.
+                mini = true,
                 native_lsp = {
                     underlines = {
                         errors = { 'undercurl' },
@@ -16,6 +21,7 @@ return {
                         warnings = { 'undercurl' },
                     },
                 },
+                notify = true,
             },
         },
         priority = 1000,
