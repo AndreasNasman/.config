@@ -1,29 +1,11 @@
 return {
     {
-        'catppuccin/nvim',
+        'folke/tokyonight.nvim',
         init = function()
-            vim.cmd.colorscheme('catppuccin-mocha')
+            vim.cmd.colorscheme('tokyonight')
         end,
-        name = 'catppuccin',
-        opts = {
-            integrations = {
-                fidget = true,
-                -- TODO: Enable when installing harpoon.
-                harpoon = false,
-                mason = true,
-                -- TODO: Should be enabled by default.
-                mini = true,
-                native_lsp = {
-                    underlines = {
-                        errors = { 'undercurl' },
-                        hints = { 'undercurl' },
-                        information = { 'undercurl' },
-                        warnings = { 'undercurl' },
-                    },
-                },
-                notify = true,
-            },
-        },
+        lazy = false,
+        opts = { style = 'night' },
         priority = 1000,
     },
     {
@@ -106,16 +88,7 @@ return {
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            {
-                'j-hui/fidget.nvim',
-                opts = {
-                    notification = {
-                        window = {
-                            winblend = 0,
-                        },
-                    },
-                },
-            },
+            { 'j-hui/fidget.nvim', opts = {} },
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
