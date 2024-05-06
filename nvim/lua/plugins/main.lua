@@ -106,7 +106,16 @@ return {
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            { 'j-hui/fidget.nvim', opts = { progress = { display = { done_icon = '󰄬' } } } },
+            {
+                'j-hui/fidget.nvim',
+                opts = {
+                    notification = {
+                        window = {
+                            winblend = 0,
+                        },
+                    },
+                },
+            },
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
