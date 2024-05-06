@@ -76,6 +76,16 @@ return {
         'stevearc/conform.nvim',
         cmd = { 'ConformInfo' },
         event = { 'BufWritePre' },
+        keys = {
+            {
+                '<leader>lf',
+                function()
+                    require('conform').format({ async = true, lsp_fallback = true })
+                end,
+                desc = '[L]sp [F]ormat',
+                mode = '',
+            },
+        },
         opts = {
             format_on_save = { lsp_fallback = true, timeout_ms = 500 },
             formatters_by_ft = {
