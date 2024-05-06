@@ -79,6 +79,7 @@ return {
         opts = {
             format_on_save = { lsp_fallback = true, timeout_ms = 500 },
             formatters_by_ft = {
+                html = { 'prettierd' },
                 lua = { 'stylua' },
                 python = { 'ruff_fix', 'ruff_format' },
             },
@@ -128,6 +129,7 @@ return {
             vim.list_extend(ensure_installed, {
                 'ruff',
                 'stylua',
+                'prettierd',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
