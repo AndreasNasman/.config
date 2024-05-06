@@ -179,7 +179,7 @@ return {
             vim.notify = require('notify')
         end,
     },
-    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'VimEnter', opts = {} },
+    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
     { 'tpope/vim-abolish', 'tpope/vim-sleuth' },
     {
         'nvim-treesitter/nvim-treesitter',
