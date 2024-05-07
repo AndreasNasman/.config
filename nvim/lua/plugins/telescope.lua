@@ -2,13 +2,6 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-file-browser.nvim',
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-            'nvim-telescope/telescope-ui-select.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
         config = function()
             local telescope = require('telescope')
             local actions = require('telescope.actions')
@@ -234,5 +227,12 @@ return {
             vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
             --stylua: ignore end
         end,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-file-browser.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            'nvim-telescope/telescope-ui-select.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
     },
 }
