@@ -174,6 +174,11 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
+        'NeogitOrg/neogit',
+        dependencies = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' },
+        opts = { kind = 'split' },
+    },
+    {
         'rcarriga/nvim-notify',
         init = function()
             vim.notify = require('notify')

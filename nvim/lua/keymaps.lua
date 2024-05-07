@@ -16,6 +16,7 @@ vim.keymap.set('', '<leader>y', '"+y', { desc = 'Copy (y) ("+)' })
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Stop search highlighting' })
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = '"" => "+' })
+vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = 'Copy file path (absolute) ("+)' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = 'Copy file path (relative) ("+)' })
 
