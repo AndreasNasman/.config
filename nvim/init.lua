@@ -16,4 +16,26 @@ if not vim.uv.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins', { install = { colorscheme = { 'tokyonight' } } })
+require('lazy').setup('plugins', {
+    install = { colorscheme = { 'tokyonight' } },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                'editorconfig',
+                'gzip',
+                'man',
+                -- 'matchit',
+                -- 'matchparen',
+                'netrwPlugin',
+                'osc52',
+                'rplugin',
+                'shada',
+                'spellfile',
+                'tarPlugin',
+                'tohtml',
+                'tutor',
+                'zipPlugin',
+            },
+        },
+    },
+})
