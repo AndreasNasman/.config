@@ -54,7 +54,6 @@ return {
             })
         end,
         dependencies = {
-            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
             {
@@ -69,6 +68,7 @@ return {
                     },
                 },
             },
+            'saadparwaiz1/cmp_luasnip',
         },
         event = 'InsertEnter',
     },
@@ -153,11 +153,11 @@ return {
             })
         end,
         dependencies = {
-            { 'j-hui/fidget.nvim', opts = {} },
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
             { 'folke/neodev.nvim', opts = {} },
+            { 'j-hui/fidget.nvim', opts = {} },
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'williamboman/mason.nvim',
         },
     },
     {
