@@ -1,12 +1,52 @@
 return {
     {
-        'folke/tokyonight.nvim',
-        init = function()
-            vim.cmd.colorscheme('tokyonight')
+        'stevearc/conform.nvim',
+        cmd = { 'ConformInfo' },
+        event = { 'BufWritePre' },
+        keys = {
+            {
+                '<leader>lf',
+                function()
+                    require('conform').format({ async = true, lsp_fallback = true })
+                end,
+                desc = '[L]sp [F]ormat',
+                mode = '',
+            },
+        },
+        opts = {
+            format_on_save = { lsp_fallback = true, timeout_ms = 500 },
+            formatters_by_ft = {
+                html = { 'prettierd' },
+                htmldjango = { 'djlint' },
+                lua = { 'stylua' },
+                python = { 'ruff_fix', 'ruff_format' },
+            },
+        },
+    },
+    { 'lewis6991/gitsigns.nvim', opts = {} },
+    {
+        'echasnovski/mini.nvim',
+        config = function()
+            require('mini.ai').setup({
+                custom_textobjects = {
+                    g = function()
+                        return {
+                            from = { col = 1, line = 1 },
+                            to = { col = math.max(vim.fn.getline('$'):len(), 1), line = vim.fn.line('$') },
+                        }
+                    end,
+                },
+            })
+            require('mini.comment').setup()
+            require('mini.statusline').setup()
+            require('mini.surround').setup()
         end,
-        lazy = false,
-        opts = { style = 'night' },
-        priority = 1000,
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
+        'NeogitOrg/neogit',
+        dependencies = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' },
+        opts = { kind = 'split' },
     },
     {
         'hrsh7th/nvim-cmp',
@@ -73,30 +113,6 @@ return {
         event = 'InsertEnter',
     },
     {
-        'stevearc/conform.nvim',
-        cmd = { 'ConformInfo' },
-        event = { 'BufWritePre' },
-        keys = {
-            {
-                '<leader>lf',
-                function()
-                    require('conform').format({ async = true, lsp_fallback = true })
-                end,
-                desc = '[L]sp [F]ormat',
-                mode = '',
-            },
-        },
-        opts = {
-            format_on_save = { lsp_fallback = true, timeout_ms = 500 },
-            formatters_by_ft = {
-                html = { 'prettierd' },
-                lua = { 'stylua' },
-                python = { 'ruff_fix', 'ruff_format' },
-            },
-        },
-    },
-    { 'lewis6991/gitsigns.nvim', opts = {} },
-    {
         'neovim/nvim-lspconfig',
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -161,37 +177,11 @@ return {
         },
     },
     {
-        'echasnovski/mini.nvim',
-        config = function()
-            require('mini.ai').setup({
-                custom_textobjects = {
-                    g = function()
-                        return {
-                            from = { col = 1, line = 1 },
-                            to = { col = math.max(vim.fn.getline('$'):len(), 1), line = vim.fn.line('$') },
-                        }
-                    end,
-                },
-            })
-            require('mini.comment').setup()
-            require('mini.statusline').setup()
-            require('mini.surround').setup()
-        end,
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-    },
-    {
-        'NeogitOrg/neogit',
-        dependencies = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' },
-        opts = { kind = 'split' },
-    },
-    {
         'rcarriga/nvim-notify',
         init = function()
             vim.notify = require('notify')
         end,
     },
-    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
-    { 'tpope/vim-abolish', 'tpope/vim-sleuth' },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -211,4 +201,15 @@ return {
             },
         },
     },
+    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
+    {
+        'folke/tokyonight.nvim',
+        init = function()
+            vim.cmd.colorscheme('tokyonight')
+        end,
+        lazy = false,
+        opts = { style = 'night' },
+        priority = 1000,
+    },
+    { 'tpope/vim-abolish', 'tpope/vim-sleuth' },
 }
