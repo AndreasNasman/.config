@@ -29,10 +29,10 @@ return {
             },
         },
         config = function()
-            local cmp = require('cmp')
             local luasnip = require('luasnip')
             luasnip.config.setup({})
 
+            local cmp = require('cmp')
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
                     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -137,9 +137,9 @@ return {
 
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
+                'prettierd',
                 'ruff',
                 'stylua',
-                'prettierd',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
