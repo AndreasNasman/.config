@@ -38,12 +38,14 @@ return {
             ---Run builtin with Git root as the cwd.
             ---@param command function
             local function run_with_git_cwd(command)
-                local git_path = fb_git.find_root()
-                if not git_path then
-                    vim.notify('Not in a Git project.')
-                    return
+                return function()
+                    local git_path = fb_git.find_root()
+                    if not git_path then
+                        vim.notify('Not in a Git project.')
+                        return
+                    end
+                    run(command, { cwd = git_path })
                 end
-                run(command, { cwd = git_path })
             end
 
             ---Notify opts.
@@ -209,13 +211,13 @@ return {
             --stylua: ignore start
             vim.keymap.set('n', '<leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end, { desc = '[S]earch [/] in open files' })
             vim.keymap.set('n', '<leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch using Telescope File [B]rowser' })
-            vim.keymap.set('n', '<leader>sB', function() run_with_git_cwd(file_browser.file_browser) end, { desc = '[S]earch using Telescope File [B]rowser with Git root as the cwd' })
+            vim.keymap.set('n', '<leader>sB', run_with_git_cwd(file_browser.file_browser), { desc = '[S]earch using Telescope File [B]rowser with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sc', function() run(file_browser.file_browser, { path = '%:p:h', select_buffer = true }) end, { desc = '[S]earch using Telescope File Browser with the [C]urrent file' })
             vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
             vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
-            vim.keymap.set('n', '<leader>sF', function() run_with_git_cwd(builtin.find_files) end, { desc = '[S]earch [F]iles with Git root as the cwd' })
+            vim.keymap.set('n', '<leader>sF', run_with_git_cwd(builtin.find_files), { desc = '[S]earch [F]iles with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch using [G]rep' })
-            vim.keymap.set('n', '<leader>sG', function() run_with_git_cwd(builtin.live_grep) end, { desc = '[[S]earch using [G]rep with Git root as the cwd' })
+            vim.keymap.set('n', '<leader>sG', run_with_git_cwd(builtin.live_grep), { desc = '[[S]earch using [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp pages' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
             vim.keymap.set('n', '<leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
