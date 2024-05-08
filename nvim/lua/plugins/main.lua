@@ -1,5 +1,5 @@
 return {
-    { 'lewis6991/gitsigns.nvim', opts = {} },
+    { 'lewis6991/gitsigns.nvim', event = 'UIEnter', opts = {} },
     {
         'echasnovski/mini.nvim',
         config = function()
@@ -18,6 +18,7 @@ return {
             require('mini.surround').setup()
         end,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        event = 'UIEnter',
     },
     {
         'NeogitOrg/neogit',
@@ -37,6 +38,7 @@ return {
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
         end,
+        lazy = false,
         opts = {
             auto_install = true,
             ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
@@ -50,7 +52,7 @@ return {
             },
         },
     },
-    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
+    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
     {
         'folke/tokyonight.nvim',
         init = function()
@@ -60,5 +62,8 @@ return {
         opts = { style = 'night' },
         priority = 1000,
     },
-    { 'tpope/vim-abolish', 'tpope/vim-sleuth' },
+    {
+        { 'tpope/vim-abolish', event = 'UIEnter' },
+        { 'tpope/vim-sleuth', event = 'UIEnter' },
+    },
 }
