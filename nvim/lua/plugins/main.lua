@@ -62,6 +62,7 @@ return {
         opts = { style = 'night' },
         priority = 1000,
     },
+    { 'mbbill/undotree', event = 'UIEnter' },
     {
         { 'tpope/vim-abolish', event = 'UIEnter' },
         { 'tpope/vim-sleuth', event = 'UIEnter' },
