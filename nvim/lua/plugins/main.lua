@@ -177,6 +177,7 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'williamboman/mason.nvim',
         },
+        ft = { 'fish', 'html', 'lua', 'perl', 'python' },
     },
     {
         'rcarriga/nvim-notify',
