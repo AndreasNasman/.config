@@ -1,6 +1,17 @@
+local function add_move_with_count_to_jumplist(direction)
+    return function()
+        if vim.v.count == 0 then
+            return direction
+        end
+
+        return 'm`' .. vim.v.count .. direction
+    end
+end
+
 local function copy_absolute_file_path()
     vim.fn.setreg('+', vim.fn.expand('%:p'))
 end
+
 local function copy_relative_file_path()
     vim.fn.setreg('+', vim.fn.expand('%:~:.'))
 end
@@ -21,6 +32,8 @@ vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]b
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
+vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
+vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { expr = true })
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat [.] the last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
