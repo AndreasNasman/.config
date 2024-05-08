@@ -30,6 +30,7 @@ vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clip
 vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]bsolute copy' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
+vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
 vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
