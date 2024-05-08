@@ -54,7 +54,6 @@ fish_add_path $XDG_CONFIG_HOME/bin
 
 # https://trello.com/c/hi1zvqeZ
 fish_config theme choose 'fish/themes/Catppuccin Mocha'
-oh-my-posh init fish --config (brew --prefix oh-my-posh)/themes/catppuccin_mocha.omp.json | source
 
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings
