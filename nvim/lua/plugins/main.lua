@@ -16,6 +16,7 @@ return {
         opts = {
             format_on_save = { lsp_fallback = true, timeout_ms = 500 },
             formatters_by_ft = {
+                fish = { 'fish_indent' },
                 html = { 'prettierd' },
                 htmldjango = { 'djlint' },
                 lua = { 'stylua' },
