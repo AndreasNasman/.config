@@ -19,6 +19,8 @@ vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = '"" => "+' }
 vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = 'Copy file path (absolute) ("+)' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = 'Copy file path (relative) ("+)' })
+vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
+vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = 'Paste ("_)' })
