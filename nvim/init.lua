@@ -23,7 +23,7 @@ require('lazy').setup('plugins', {
             disabled_plugins = {
                 'editorconfig',
                 'gzip',
-                'man',
+                -- 'man',
                 -- 'matchit',
                 -- 'matchparen',
                 'netrwPlugin',
