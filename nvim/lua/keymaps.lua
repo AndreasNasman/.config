@@ -20,6 +20,18 @@ local function sync_to_system_clipboard()
     vim.fn.setreg('+', vim.fn.getreg('"'))
 end
 
+local colorcolumn_active = false
+local function toggle_colorcolumn()
+    if colorcolumn_active then
+        vim.opt.colorcolumn = ''
+        colorcolumn_active = false
+    else
+        vim.opt.colorcolumn = '80'
+        colorcolumn_active = true
+    end
+end
+
+--stylua: ignore start
 vim.keymap.set('', '<leader>D', '"_d$', { desc = '[D]elete to the black hole register' })
 vim.keymap.set('', '<leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set('', '<leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
@@ -33,8 +45,10 @@ vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]e
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
-vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
-vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { expr = true })
+vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move down [j] with a count and add to the jumplist.', expr = true })
+vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist.', expr = true })
+vim.keymap.set('n', 'tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat [.] the last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
+--stylua: ignore end
