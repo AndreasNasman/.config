@@ -16,6 +16,9 @@ set --global --export VISUAL nvim
 # https://neovim.io/doc/user/filetype.html#ft-man-plugin
 set --global --export MANPAGER 'nvim +Man!'
 set --global --export MANWIDTH 999
+# To make `Telescope man_pages` work without warnings, we remove
+# `/usr/share/man` from `$MANPATH`.
+set --global --export MANPATH (string replace :/usr/share/man: ':' (manpath))
 
 # https://trello.com/c/Zm0ToMQm
 set --global --export SKETCHY_BAR_HEIGHT 20
