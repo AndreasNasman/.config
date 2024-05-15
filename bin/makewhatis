@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+# This script creates `whatis` files to speed up man page lookups.
+# `Telescope man_pages` uses `apropos` on Mac, which can utilize the `whatis`
+# files to speed up the process.
+#
+# Whether we launch kitty and fish through Alfred or yabai, `manpath` still
+# contains duplicate or faulty entries, but the command still works fine.
+
+sudo /usr/libexec/makewhatis (manpath)
