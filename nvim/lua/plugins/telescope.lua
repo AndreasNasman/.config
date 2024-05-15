@@ -220,6 +220,7 @@ return {
             vim.keymap.set('n', '<leader>sG', run_with_git_cwd(builtin.live_grep), { desc = '[[S]earch using [G]rep with Git root as the cwd' })
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp pages' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+            vim.keymap.set('n', '<leader>sm', builtin.man_pages, { desc = '[S]earch [M]an pages' })
             vim.keymap.set('n', '<leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
             vim.keymap.set('n', '<leader>so', builtin.buffers, { desc = '[S]earch [O]pen files' })
             vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent files' })
