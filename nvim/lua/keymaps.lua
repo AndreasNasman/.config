@@ -42,12 +42,12 @@ vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clip
 vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]bsolute copy' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
+vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
 vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move down [j] with a count and add to the jumplist.', expr = true })
 vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist.', expr = true })
-vim.keymap.set('n', 'tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 
 vim.keymap.set('v', '.', ':normal .<cr>', { desc = 'Repeat [.] the last change' })
 vim.keymap.set('v', '<leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
