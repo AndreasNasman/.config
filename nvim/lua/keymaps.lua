@@ -46,6 +46,7 @@ vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]b
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
 vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
+vim.keymap.set('n', '<leader>wf', '<c-w>_<c-w>|', { desc = '[W]indow [F]ullscreen' })
 vim.keymap.set('n', '<s-tab>', '<cmd>tabprevious<CR>', { desc = 'Go to previous [T]ab' })
 vim.keymap.set('n', '<tab>', '<cmd>tabnext<CR>', { desc = 'Go to next [T]ab' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
