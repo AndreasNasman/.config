@@ -23,4 +23,4 @@
 	signingkey = 9B1EC91AD3D6E48D
 # Override should be at the bottom.
 [includeIf "gitdir:~/Projects/ICT/"]
-	path = ~/Projects/ICT/git-config
+	path = ~/Projects/ICT/.gitconfig
