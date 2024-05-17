@@ -11,8 +11,6 @@
 	prune = true
 [init]
 	defaultBranch = main
-[log]
-	showSignature = true
 [pull]
 	rebase = true
 [push]
