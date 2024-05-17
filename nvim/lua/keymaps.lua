@@ -31,6 +31,27 @@ local function toggle_colorcolumn()
     end
 end
 
+local function toggle_neogit()
+    local neogit_window = nil
+
+    for _, window in ipairs(vim.api.nvim_list_wins()) do
+        local buffer = vim.api.nvim_win_get_buf(window)
+        local filetype = vim.bo[buffer].filetype
+        if filetype == 'NeogitStatus' then
+            neogit_window = window
+            break
+        end
+    end
+
+    if not neogit_window then
+        vim.cmd('Neogit')
+    elseif vim.api.nvim_get_current_win() == neogit_window then
+        vim.api.nvim_win_close(neogit_window, false)
+    else
+        vim.api.nvim_set_current_win(neogit_window)
+    end
+end
+
 --stylua: ignore start
 vim.keymap.set('', '<leader>D', '"_d$', { desc = '[D]elete to the black hole register' })
 vim.keymap.set('', '<leader>d', '"_d', { desc = '[d]elete to the black hole register' })
@@ -41,7 +62,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = '[E]scape search hi
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clipboard [+] sync' })
 vim.keymap.set('n', '<leader><tab>c', '<cmd>tabclose<CR>', { desc = '[T]ab [C]lose' })
 vim.keymap.set('n', '<leader><tab>n', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew' })
-vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>', { desc = 'Open Neo[G]it' })
+vim.keymap.set('n', '<leader>g', toggle_neogit, { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]bsolute copy' })
 vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
 vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
