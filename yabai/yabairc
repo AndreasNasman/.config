@@ -7,7 +7,7 @@ yabai --message config \
     window_gap 5 \
     window_origin_display focused
 
-yabai --message rule --add app='^(Activity Monitor|Alfred Preferences|Finder|Microsoft Excel|Microsoft Word|System Settings)$' manage=off
+yabai --message rule --add app='^(Activity Monitor|Alfred Preferences|Bitwarden|Finder|Microsoft Defender|Microsoft Excel|Microsoft Word|System Settings)$' manage=off
 yabai --message rule --add app='^DBeaver' title!='^DBeaver [[:digit:]]+' manage=off
 yabai --message rule --add app='^IntelliJ IDEA CE$' title!='( – )' manage=off
 yabai --message rule --add app='^Microsoft Outlook$' title!='^(Calendar|Inbox)' manage=off
