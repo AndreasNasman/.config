@@ -34,6 +34,7 @@ set --universal fish_greeting
 
 # https://fishshell.com/docs/current/cmds/alias.html
 alias cal='cal -3'
+alias lg='lazygit'
 alias rm='rm -i'
 
 # Use `command` to avoid an infinite recursion loop.
