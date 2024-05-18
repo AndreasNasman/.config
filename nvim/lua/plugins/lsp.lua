@@ -19,6 +19,7 @@ return {
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
                 htmldjango = { 'djlint' },
+                markdown = { 'markdownlint' },
                 lua = { 'stylua' },
                 python = { 'ruff_fix', 'ruff_format' },
             },
@@ -89,6 +90,24 @@ return {
         event = 'InsertEnter',
     },
     {
+        'mfussenegger/nvim-lint',
+        event = { 'BufReadPre', 'BufNewFile' },
+        config = function()
+            local lint = require('lint')
+
+            lint.linters_by_ft = {
+                markdown = { 'markdownlint' },
+            }
+
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+                callback = function()
+                    lint.try_lint()
+                end,
+                group = vim.api.nvim_create_augroup('lint', { clear = true }),
+            })
+        end,
+    },
+    {
         'neovim/nvim-lspconfig',
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -122,6 +141,7 @@ return {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
                 lua_ls = {},
+                marksman = {},
                 perlnavigator = {},
                 pyright = {},
             }
@@ -131,6 +151,7 @@ return {
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
                 'djlint',
+                'markdownlint',
                 'prettierd',
                 'ruff',
                 'stylua',
@@ -154,6 +175,6 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'williamboman/mason.nvim',
         },
-        ft = { 'fish', 'html', 'lua', 'perl', 'python' },
+        ft = { 'fish', 'html', 'lua', 'markdown', 'perl', 'python' },
     },
 }
