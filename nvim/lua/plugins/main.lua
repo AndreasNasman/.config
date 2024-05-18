@@ -65,6 +65,6 @@ return {
     { 'mbbill/undotree', event = 'UIEnter' },
     {
         { 'tpope/vim-abolish', event = 'UIEnter' },
-        { 'tpope/vim-sleuth', event = 'UIEnter' },
+        { 'tpope/vim-sleuth', lazy = false },
     },
 }
