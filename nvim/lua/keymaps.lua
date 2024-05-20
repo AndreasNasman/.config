@@ -58,6 +58,10 @@ vim.keymap.set('', '<leader>d', '"_d', { desc = '[d]elete to the black hole regi
 vim.keymap.set('', '<leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set('', '<leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
 
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus window to the left [h]' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus window below [j]' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Focus window above [k]' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus window to the right [l]' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = '[E]scape search highlighting' })
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clipboard [+] sync' })
 vim.keymap.set('n', '<leader>g', toggle_neogit, { desc = 'Open Neo[G]it' })
