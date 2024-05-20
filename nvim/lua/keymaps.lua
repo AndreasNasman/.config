@@ -58,8 +58,6 @@ vim.keymap.set('', '<leader>d', '"_d', { desc = '[d]elete to the black hole regi
 vim.keymap.set('', '<leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set('', '<leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
 
-vim.keymap.set('n', '<D-h>', '<cmd>tabprevious<CR>', { desc = 'Go to previous tab' })
-vim.keymap.set('n', '<D-l>', '<cmd>tabnext<CR>', { desc = 'Go to next tab' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = '[E]scape search highlighting' })
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clipboard [+] sync' })
 vim.keymap.set('n', '<leader>g', toggle_neogit, { desc = 'Open Neo[G]it' })
@@ -68,6 +66,8 @@ vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]e
 vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '<leader>wf', '<c-w>_<c-w>|', { desc = '[W]indow [F]ullscreen' })
+vim.keymap.set('n', '<S-h>', '<cmd>tabprevious<CR>', { desc = 'Go to previous tab' })
+vim.keymap.set('n', '<S-l>', '<cmd>tabnext<CR>', { desc = 'Go to next tab' })
 vim.keymap.set('n', '<tab>c', '<cmd>tabclose<CR>', { desc = '[T]ab [C]lose' })
 vim.keymap.set('n', '<tab>n', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
