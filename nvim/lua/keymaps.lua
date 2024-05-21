@@ -74,6 +74,7 @@ vim.keymap.set('n', '<leader>wh', '<cmd>leftabove vsplit<CR>', { desc = '[W]indo
 vim.keymap.set('n', '<leader>wj', '<cmd>belowright split<CR>', { desc = '[W]indow split below [j]' })
 vim.keymap.set('n', '<leader>wk', '<cmd>aboveleft split<CR>', { desc = '[W]indow split above [k]' })
 vim.keymap.set('n', '<leader>wl', '<cmd>rightbelow vsplit<CR>', { desc = '[W]indow split to the right [l]' })
+vim.keymap.set('n', '<leader>wo', '<C-w>o', { desc = 'Keep the current [W]indow open [O]nly' })
 vim.keymap.set('n', '<S-h>', '<cmd>tabprevious<CR>', { desc = 'Go to previous tab' })
 vim.keymap.set('n', '<S-l>', '<cmd>tabnext<CR>', { desc = 'Go to next tab' })
 vim.keymap.set('n', '<tab>c', '<cmd>tabclose<CR>', { desc = '[T]ab [C]lose' })
