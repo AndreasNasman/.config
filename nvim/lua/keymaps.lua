@@ -8,12 +8,10 @@ local function add_move_with_count_to_jumplist(direction)
     end
 end
 
-local function copy_absolute_file_path()
-    vim.fn.setreg('+', vim.fn.expand('%:p'))
-end
-
-local function copy_relative_file_path()
-    vim.fn.setreg('+', vim.fn.expand('%:~:.'))
+local function copy_file_path(pattern)
+    local file_path = vim.fn.expand(pattern)
+    vim.fn.setreg('"', file_path)
+    vim.fn.setreg('+', file_path)
 end
 
 local function sync_to_system_clipboard()
@@ -65,8 +63,9 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus window to the right [l]' 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = '[E]scape search highlighting' })
 vim.keymap.set('n', '<leader>+', sync_to_system_clipboard, { desc = 'System clipboard [+] sync' })
 vim.keymap.set('n', '<leader>g', toggle_neogit, { desc = 'Open Neo[G]it' })
-vim.keymap.set('n', '<leader>pa', copy_absolute_file_path, { desc = '[P]ath [A]bsolute copy' })
-vim.keymap.set('n', '<leader>pr', copy_relative_file_path, { desc = '[P]ath [R]elative copy' })
+vim.keymap.set('n', '<leader>pa', function() copy_file_path('%:p') end, { desc = '[P]ath [A]bsolute copy' })
+vim.keymap.set('n', '<leader>pf', function() copy_file_path('%:t') end, { desc = '[P]ath [F]ile name copy' })
+vim.keymap.set('n', '<leader>pr', function() copy_file_path('%:~:.') end, { desc = '[P]ath [R]elative copy' })
 vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '<leader>wf', '<C-w>_<C-w>|', { desc = '[W]indow [F]ullscreen' })
