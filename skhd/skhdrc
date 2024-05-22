@@ -11,7 +11,7 @@ rcmd - o: focus-app 'Microsoft Outlook'
 rcmd - r: focus-app 'Microsoft Remote Desktop'
 rcmd - s: focus-app 'System Settings'
 rcmd - t: focus-app 'Microsoft Teams (work or school)'
-rcmd - v: focus-app 'Visual Studio Code'
+rcmd - e: focus-app 'Visual Studio Code' # 'e' as in 'editor'.
 rcmd - w: focus-app 'Warp'
 rcmd - z: focus-app 'zoom.us'
 
