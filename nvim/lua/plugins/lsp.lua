@@ -33,6 +33,11 @@ return {
 
             local cmp = require('cmp')
             cmp.setup({
+                formatting = vim.tbl_deep_extend(
+                    'force',
+                    require('cmp.config').get().formatting,
+                    { format = require('lspkind').cmp_format() }
+                ),
                 mapping = cmp.mapping.preset.insert({
                     ['<C-n>'] = cmp.mapping.select_next_item(),
                     ['<Tab>'] = cmp.mapping.select_next_item(),
@@ -71,6 +76,7 @@ return {
             })
         end,
         dependencies = {
+            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
             {
@@ -85,7 +91,7 @@ return {
                     },
                 },
             },
-            'saadparwaiz1/cmp_luasnip',
+            'onsails/lspkind.nvim',
         },
         event = 'InsertEnter',
     },
