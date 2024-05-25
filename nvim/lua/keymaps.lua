@@ -68,6 +68,7 @@ vim.keymap.set('n', '<leader>pf', function() copy_file_path('%:t') end, { desc =
 vim.keymap.set('n', '<leader>pr', function() copy_file_path('%:~:.') end, { desc = '[P]ath [R]elative copy' })
 vim.keymap.set('n', '<leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
+vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Make all [W]indows equal [=] size' })
 vim.keymap.set('n', '<leader>wf', '<C-w>_<C-w>|', { desc = '[W]indow [F]ullscreen' })
 vim.keymap.set('n', '<leader>wh', '<cmd>leftabove vsplit<CR>', { desc = '[W]indow split to the left [h]' })
 vim.keymap.set('n', '<leader>wj', '<cmd>belowright split<CR>', { desc = '[W]indow split below [j]' })
