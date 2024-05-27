@@ -43,7 +43,8 @@ lalt + ctrl - l: yabai --message window --resize right:20:0
 lalt - 0x18: yabai --message space --balance
 
 # Window fullscreen managed toggle and floating setter.
-lalt - w: yabai --message window --toggle zoom-fullscreen --grid 1:1:0:0:1:1
+# yabai needs separate arguments, hence the `\n` parts with `echo -e`.
+lalt - w: yabai --message window (if test (yabai --message query --windows --window | jq --raw-output '."is-floating"') = 'true'; echo -e '--grid\n1:1:0:0:1:1'; else; echo -e '--toggle\nzoom-fullscreen'; end)
 
 # Window vertical and horizontal splitting toggle.
 lalt - s: yabai --message window --toggle split
