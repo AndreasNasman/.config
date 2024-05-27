@@ -19,8 +19,10 @@ return {
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
                 htmldjango = { 'djlint' },
-                markdown = { 'markdownlint' },
+                javascript = { 'prettierd' },
+                json = { 'prettierd' },
                 lua = { 'stylua' },
+                markdown = { 'markdownlint' },
                 python = { 'ruff_fix', 'ruff_format' },
             },
         },
@@ -150,6 +152,7 @@ return {
                 marksman = {},
                 perlnavigator = {},
                 pyright = {},
+                tsserver = {},
             }
 
             require('mason').setup()
@@ -181,6 +184,6 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'williamboman/mason.nvim',
         },
-        ft = { 'fish', 'html', 'lua', 'markdown', 'perl', 'python' },
+        ft = { 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'perl', 'python' },
     },
 }
