@@ -1,6 +1,14 @@
 return {
     { 'lewis6991/gitsigns.nvim', event = 'UIEnter', opts = {} },
     {
+        'iamcco/markdown-preview.nvim',
+        build = function()
+            vim.fn['mkdp#util#install']()
+        end,
+        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+        ft = { 'markdown' },
+    },
+    {
         'echasnovski/mini.nvim',
         config = function()
             require('mini.ai').setup({
