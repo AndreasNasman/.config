@@ -30,7 +30,7 @@ return {
     {
         'NeogitOrg/neogit',
         cmd = 'Neogit',
-        dependencies = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' },
+        dependencies = { 'sindrets/diffview.nvim', 'nvim-lua/plenary.nvim' },
         opts = { kind = 'split' },
     },
     {

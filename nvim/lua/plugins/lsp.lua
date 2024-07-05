@@ -82,6 +82,7 @@ return {
             'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
+            'onsails/lspkind.nvim',
             {
                 'L3MON4D3/LuaSnip',
                 build = 'make install_jsregexp',
@@ -94,7 +95,6 @@ return {
                     },
                 },
             },
-            'onsails/lspkind.nvim',
         },
         event = 'InsertEnter',
     },
@@ -179,16 +179,16 @@ return {
             })
         end,
         dependencies = {
+            { 'j-hui/fidget.nvim', opts = {} },
             {
                 'folke/lazydev.nvim',
                 dependencies = { 'Bilal2453/luvit-meta' },
                 ft = 'lua',
                 opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
             },
-            { 'j-hui/fidget.nvim', opts = {} },
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
-            'williamboman/mason-lspconfig.nvim',
             'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
         },
         ft = { 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'perl', 'python' },
     },
