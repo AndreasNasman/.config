@@ -1,8 +1,8 @@
 return {
     {
         'stevearc/conform.nvim',
-        cmd = { 'ConformInfo' },
-        event = { 'BufWritePre' },
+        cmd = 'ConformInfo',
+        event = 'BufWritePre',
         keys = {
             {
                 '<leader>lf',
