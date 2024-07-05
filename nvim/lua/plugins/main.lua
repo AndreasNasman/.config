@@ -59,6 +59,12 @@ return {
             },
         },
     },
+    {
+        'stevearc/oil.nvim',
+        cmd = 'Oil',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
     {
         'folke/tokyonight.nvim',
