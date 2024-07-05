@@ -74,6 +74,7 @@ return {
                     { name = 'luasnip' },
                     { name = 'nvim_lsp' },
                     { name = 'path' },
+                    { name = 'lazydev', group_index = 0 },
                 },
             })
         end,
@@ -178,7 +179,12 @@ return {
             })
         end,
         dependencies = {
-            { 'folke/neodev.nvim', opts = {} },
+            {
+                'folke/lazydev.nvim',
+                dependencies = { 'Bilal2453/luvit-meta' },
+                ft = 'lua',
+                opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
+            },
             { 'j-hui/fidget.nvim', opts = {} },
             'WhoIsSethDaniel/mason-tool-installer.nvim',
             'williamboman/mason-lspconfig.nvim',
