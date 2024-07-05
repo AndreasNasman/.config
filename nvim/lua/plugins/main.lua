@@ -64,7 +64,8 @@ return {
         'folke/tokyonight.nvim',
         init = function()
             vim.cmd.colorscheme('tokyonight')
-            vim.cmd('highlight ColorColumn guibg=' .. require('tokyonight.colors').default.fg_gutter)
+            local colors = require('tokyonight.colors').setup()
+            vim.cmd('highlight ColorColumn guibg=' .. colors.fg_gutter)
         end,
         lazy = false,
         opts = { style = 'night' },
