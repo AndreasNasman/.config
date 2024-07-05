@@ -29,19 +29,6 @@ local function toggle_colorcolumn()
     end
 end
 
----@param plugin_name string
-local function toggle_plugin(plugin_name)
-    local plugin = require(plugin_name)
-
-    local buffer = vim.api.nvim_get_current_buf()
-    local filetype = vim.bo[buffer].filetype
-    if filetype == plugin_name:gsub('%.', '') then
-        plugin.close()
-    else
-        plugin.open()
-    end
-end
-
 local function toggle_neogit()
     local neogit_window = nil
 
@@ -60,6 +47,19 @@ local function toggle_neogit()
         vim.api.nvim_win_close(neogit_window, false)
     else
         vim.api.nvim_set_current_win(neogit_window)
+    end
+end
+
+---@param plugin_name string
+local function toggle_plugin(plugin_name)
+    local plugin = require(plugin_name)
+
+    local buffer = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[buffer].filetype
+    if filetype == plugin_name:gsub('%.', '') then
+        plugin.close()
+    else
+        plugin.open()
     end
 end
 
