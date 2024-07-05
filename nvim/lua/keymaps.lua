@@ -29,15 +29,16 @@ local function toggle_colorcolumn()
     end
 end
 
-local function toggle_oil()
-    local oil = require('oil')
+---@param plugin_name string
+local function toggle_plugin(plugin_name)
+    local plugin = require(plugin_name)
 
     local buffer = vim.api.nvim_get_current_buf()
     local filetype = vim.bo[buffer].filetype
-    if filetype == 'oil' then
-        oil.close()
+    if filetype == plugin_name:gsub('%.', '') then
+        plugin.close()
     else
-        oil.open()
+        plugin.open()
     end
 end
 
@@ -76,8 +77,9 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = '[E]scape search hi
 vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'System clipboard [+] sync' })
 vim.keymap.set('n', '<Leader><Tab>c', '<Cmd>tabclose<CR>', { desc = '[T]ab [C]lose' })
 vim.keymap.set('n', '<Leader><Tab>n', '<Cmd>tabnew<CR>', { desc = '[T]ab [N]ew' })
+vim.keymap.set('n', '<Leader>e', function () toggle_plugin('mini.files') end, { desc = 'Toggle MiniFiles' })
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
-vim.keymap.set('n', '<Leader>o', toggle_oil, { desc = 'Toggle [O]il' })
+vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
 vim.keymap.set('n', '<Leader>pa', function() copy_file_path('%:p') end, { desc = '[P]ath [A]bsolute copy' })
 vim.keymap.set('n', '<Leader>pf', function() copy_file_path('%:t') end, { desc = '[P]ath [F]ile name copy' })
 vim.keymap.set('n', '<Leader>pr', function() copy_file_path('%:~:.') end, { desc = '[P]ath [R]elative copy' })
