@@ -62,7 +62,6 @@ local function toggle_plugin(plugin_name)
 end
 
 --stylua: ignore start
-vim.keymap.set('', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set('', '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set('', '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
 
@@ -74,7 +73,7 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = '[E]scape search hi
 vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'Sync system clipboard [+]' })
 vim.keymap.set('n', '<Leader><Tab>c', '<Cmd>tabclose<CR>', { desc = '[T]ab, [C]lose' })
 vim.keymap.set('n', '<Leader><Tab>n', '<Cmd>tabnew<CR>', { desc = '[T]ab, [N]ew' })
-vim.keymap.set('n', '<Leader>D', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
+vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
 vim.keymap.set('n', '<Leader>f', function () toggle_plugin('mini.files') end, { desc = 'Toggle Mini[F]iles' })
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
 vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
@@ -97,5 +96,6 @@ vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move do
 vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist', expr = true })
 
 vim.keymap.set('v', '.', ':normal .<CR>', { desc = 'Repeat [.] the last change' })
+vim.keymap.set('v', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set('v', '<Leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
 --stylua: ignore end
