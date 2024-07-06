@@ -66,7 +66,6 @@ local function toggle_plugin(plugin_name)
 end
 
 --stylua: ignore start
-vim.keymap.set('', '<Leader>D', '"_d$', { desc = '[D]elete to the black hole register' })
 vim.keymap.set('', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set('', '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set('', '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
@@ -79,6 +78,7 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = '[E]scape search hi
 vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'Sync system clipboard [+]' })
 vim.keymap.set('n', '<Leader><Tab>c', '<Cmd>tabclose<CR>', { desc = '[T]ab, [C]lose' })
 vim.keymap.set('n', '<Leader><Tab>n', '<Cmd>tabnew<CR>', { desc = '[T]ab, [N]ew' })
+vim.keymap.set('n', '<Leader>D', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
 vim.keymap.set('n', '<Leader>f', function () toggle_plugin('mini.files') end, { desc = 'Toggle Mini[F]iles' })
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
 vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
