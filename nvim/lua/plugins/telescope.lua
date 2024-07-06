@@ -178,11 +178,11 @@ return {
                             ['<Down>'] = actions.cycle_history_next,
                             ['<Up>'] = actions.cycle_history_prev,
 
-                            ['<leader>h'] = toggle_hidden,
-                            ['<leader>i'] = toggle_gitignore,
+                            ['<Leader>h'] = toggle_hidden,
+                            ['<Leader>i'] = toggle_gitignore,
 
-                            ['<leader>c'] = notify_cwd,
-                            ['<leader>o'] = notify_opts,
+                            ['<Leader>c'] = notify_cwd,
+                            ['<Leader>o'] = notify_opts,
                         },
                     },
                 },
@@ -193,8 +193,8 @@ return {
                         hijack_netrw = true,
                         mappings = {
                             ['n'] = {
-                                ['<leader>ssf'] = find_files_selected_dirs,
-                                ['<leader>ssg'] = live_grep_selected_dirs,
+                                ['<Leader>ssf'] = find_files_selected_dirs,
+                                ['<Leader>ssg'] = live_grep_selected_dirs,
                             },
                             ['i'] = { ['<C-t>'] = change_cwd_custom },
                         },
@@ -209,25 +209,25 @@ return {
             telescope.load_extension('ui-select')
 
             --stylua: ignore start
-            vim.keymap.set('n', '<leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end, { desc = '[S]earch [/] in open files' })
-            vim.keymap.set('n', '<leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch using Telescope File [B]rowser' })
-            vim.keymap.set('n', '<leader>sB', run_with_git_cwd(file_browser.file_browser), { desc = '[S]earch using Telescope File [B]rowser with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sc', function() run(file_browser.file_browser, { path = '%:p:h', select_buffer = true }) end, { desc = '[S]earch using Telescope File Browser with the [C]urrent file' })
-            vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-            vim.keymap.set('n', '<leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
-            vim.keymap.set('n', '<leader>sF', run_with_git_cwd(builtin.find_files), { desc = '[S]earch [F]iles with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch using [G]rep' })
-            vim.keymap.set('n', '<leader>sG', run_with_git_cwd(builtin.live_grep), { desc = '[[S]earch using [G]rep with Git root as the cwd' })
-            vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp pages' })
-            vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-            vim.keymap.set('n', '<leader>sm', builtin.man_pages, { desc = '[S]earch [M]an pages' })
-            vim.keymap.set('n', '<leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
-            vim.keymap.set('n', '<leader>so', builtin.buffers, { desc = '[S]earch [O]pen files' })
-            vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent files' })
-            vim.keymap.set('n', '<leader>sR', builtin.resume, { desc = '[S]earch [R]esume' })
-            vim.keymap.set('n', '<leader>ssf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch [S]elected directories using [F]ind' })
-            vim.keymap.set('n', '<leader>ssg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch [S]elected directories using [G]rep' })
-            vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
+            vim.keymap.set('n', '<Leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end, { desc = '[S]earch [/] in open files' })
+            vim.keymap.set('n', '<Leader>sb', function() run(file_browser.file_browser) end, { desc = '[S]earch using Telescope File [B]rowser' })
+            vim.keymap.set('n', '<Leader>sB', run_with_git_cwd(file_browser.file_browser), { desc = '[S]earch using Telescope File [B]rowser with Git root as the cwd' })
+            vim.keymap.set('n', '<Leader>sc', function() run(file_browser.file_browser, { path = '%:p:h', select_buffer = true }) end, { desc = '[S]earch using Telescope File Browser with the [C]urrent file' })
+            vim.keymap.set('n', '<Leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+            vim.keymap.set('n', '<Leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<Leader>sF', run_with_git_cwd(builtin.find_files), { desc = '[S]earch [F]iles with Git root as the cwd' })
+            vim.keymap.set('n', '<Leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch using [G]rep' })
+            vim.keymap.set('n', '<Leader>sG', run_with_git_cwd(builtin.live_grep), { desc = '[[S]earch using [G]rep with Git root as the cwd' })
+            vim.keymap.set('n', '<Leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp pages' })
+            vim.keymap.set('n', '<Leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+            vim.keymap.set('n', '<Leader>sm', builtin.man_pages, { desc = '[S]earch [M]an pages' })
+            vim.keymap.set('n', '<Leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
+            vim.keymap.set('n', '<Leader>so', builtin.buffers, { desc = '[S]earch [O]pen files' })
+            vim.keymap.set('n', '<Leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent files' })
+            vim.keymap.set('n', '<Leader>sR', builtin.resume, { desc = '[S]earch [R]esume' })
+            vim.keymap.set('n', '<Leader>ssf', function() run_with_search_dirs(builtin.find_files) end, { desc = '[S]earch [S]elected directories using [F]ind' })
+            vim.keymap.set('n', '<Leader>ssg', function() run_with_search_dirs(builtin.live_grep) end, { desc = '[S]earch [S]elected directories using [G]rep' })
+            vim.keymap.set('n', '<Leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
             --stylua: ignore end
         end,
         dependencies = {
