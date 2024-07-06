@@ -79,7 +79,6 @@ return {
             vim.cmd('highlight ColorColumn guibg=' .. colors.fg_gutter)
         end,
         lazy = false,
-        opts = { style = 'night' },
         priority = 1000,
     },
     { 'mbbill/undotree', event = 'UIEnter' },
