@@ -77,6 +77,7 @@ return {
             vim.cmd.colorscheme('tokyonight')
             local colors = require('tokyonight.colors').setup()
             vim.cmd('highlight ColorColumn guibg=' .. colors.fg_gutter)
+            vim.cmd('highlight CustomFloatBorder guibg=NONE guifg=' .. colors.border_highlight)
         end,
         lazy = false,
         priority = 1000,
