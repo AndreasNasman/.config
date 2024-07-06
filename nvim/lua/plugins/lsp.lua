@@ -178,6 +178,7 @@ return {
                 },
             })
         end,
+        cmd = 'Mason',
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
             {
