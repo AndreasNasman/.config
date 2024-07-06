@@ -125,8 +125,19 @@ return {
                     local map = function(keys, func, desc)
                         vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                     end
-                    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                    map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+                   --stylua: ignore start
+                    map('<Leader>k', vim.lsp.buf.signature_help, 'LSP signature help ([K] displays hover information)')
+                    map('<Leader>la', vim.lsp.buf.code_action, '[L]SP code [A]ction')
+                    map('<Leader>ld', require('telescope.builtin').lsp_document_symbols, '[L]SP [D]ocument symbols')
+                    map('<Leader>lr', vim.lsp.buf.rename, '[L]SP [R]ename')
+                    map('<Leader>lt', require('telescope.builtin').lsp_type_definitions, '[L]SP [T]ype definitions')
+                    map('<Leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[L]SP dynamic [W]orkspace symbols')
+                    map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinitions')
+                    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                    map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+                    map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+                    --stylua: ignore end
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.server_capabilities.documentHighlightProvider then
