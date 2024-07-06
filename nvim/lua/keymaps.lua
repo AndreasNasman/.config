@@ -20,15 +20,11 @@ local function sync_to_system_clipboard()
     vim.fn.setreg('+', vim.fn.getreg('"'))
 end
 
-local colorcolumn_active = false
+local colorcolumn_values = { '', '120', '80' }
+local current_colorcolumn_index = 1
 local function toggle_colorcolumn()
-    if colorcolumn_active then
-        vim.opt.colorcolumn = ''
-        colorcolumn_active = false
-    else
-        vim.opt.colorcolumn = '80'
-        colorcolumn_active = true
-    end
+    current_colorcolumn_index = current_colorcolumn_index % #colorcolumn_values + 1
+    vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end
 
 local function toggle_neogit()
