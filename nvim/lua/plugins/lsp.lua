@@ -171,11 +171,24 @@ return {
             local servers = {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
-                lua_ls = {},
+                lua_ls = { settings = { Lua = { hint = { enable = true } } } },
                 marksman = {},
                 perlnavigator = {},
                 pyright = {},
-                tsserver = {},
+                tsserver = {
+                    init_options = {
+                        preferences = {
+                            includeInlayEnumMemberValueHints = true,
+                            includeInlayFunctionLikeReturnTypeHints = true,
+                            includeInlayFunctionParameterTypeHints = true,
+                            includeInlayParameterNameHints = 'all',
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                            includeInlayPropertyDeclarationTypeHints = true,
+                            includeInlayVariableTypeHints = true,
+                            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                        },
+                    },
+                },
             }
 
             require('mason').setup()

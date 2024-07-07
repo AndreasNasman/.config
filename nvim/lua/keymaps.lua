@@ -27,6 +27,10 @@ local function toggle_colorcolumn()
     vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end
 
+local function toggle_inlay_hints()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+end
+
 local function toggle_neogit()
     local neogit_window = nil
 
@@ -81,6 +85,7 @@ vim.keymap.set('n', '<Leader>pa', function() copy_file_path('%:p') end, { desc =
 vim.keymap.set('n', '<Leader>pf', function() copy_file_path('%:t') end, { desc = '[P]ath, [F]ile name copy' })
 vim.keymap.set('n', '<Leader>pr', function() copy_file_path('%:~:.') end, { desc = '[P]ath, [R]elative copy' })
 vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
+vim.keymap.set('n', '<Leader>th', toggle_inlay_hints, { desc = 'LSP, [T]oggle inlay [H]ints' })
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '<Leader>w', '<C-w>', { desc = 'Control [W]indows with the <Leader> key' })
 vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|', { desc = '[W]indows, [F]ullscreen' })
