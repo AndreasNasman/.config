@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.mlfs.corp.bw</string>
+
+    <key>LimitLoadToSessionType</key>
+    <array>
+      <string>Aqua</string>
+    </array>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/nasse/.config/alfred/Alfred.alfredpreferences/workflows/user.workflow.E0942772-23CD-4861-BC15-7575E31253D5/bwa-sync</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>1800</integer>
+  </dict>
+</plist>
