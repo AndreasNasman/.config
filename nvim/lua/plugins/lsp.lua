@@ -28,6 +28,12 @@ return {
         },
     },
     {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
+    },
+    { 'Bilal2453/luvit-meta', lazy = true },
+    {
         'hrsh7th/nvim-cmp',
         config = function()
             local luasnip = require('luasnip')
@@ -78,10 +84,10 @@ return {
                     end,
                 },
                 sources = {
+                    { name = 'lazydev', group_index = 0 },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'path' },
-                    { name = 'lazydev', group_index = 0 },
                 },
                 window = {
                     completion = get_custom_border(),
@@ -234,12 +240,6 @@ return {
         cmd = 'Mason',
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
-            {
-                'folke/lazydev.nvim',
-                dependencies = { 'Bilal2453/luvit-meta' },
-                ft = 'lua',
-                opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
-            },
             { 'williamboman/mason.nvim', config = true },
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
