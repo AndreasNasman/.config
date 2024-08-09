@@ -240,7 +240,7 @@ return {
                 ft = 'lua',
                 opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
             },
-            'williamboman/mason.nvim',
+            { 'williamboman/mason.nvim', config = true },
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
         },
