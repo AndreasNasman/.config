@@ -4,7 +4,6 @@ vim.g.maplocalleader = ' '
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
 vim.opt.guicursor:append('a:blinkon100')
-vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.inccommand = 'split'
 vim.opt.list = true
