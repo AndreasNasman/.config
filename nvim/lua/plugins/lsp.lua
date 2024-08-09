@@ -239,6 +239,7 @@ return {
         end,
         cmd = 'Mason',
         dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
             { 'j-hui/fidget.nvim', opts = {} },
             { 'williamboman/mason.nvim', config = true },
             'williamboman/mason-lspconfig.nvim',
