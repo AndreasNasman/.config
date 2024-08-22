@@ -139,13 +139,14 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('nasse-lsp-attach', { clear = true }),
                 callback = function(event)
-                    local map = function(keys, func, desc)
-                        vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
+                    local map = function(keys, func, desc, mode)
+                        mode = mode or 'n'
+                        vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
                     end
 
                    --stylua: ignore start
                     map('<Leader>k', vim.lsp.buf.signature_help, 'LSP, signature help ([K] displays hover information)')
-                    map('<Leader>la', vim.lsp.buf.code_action, '[L]SP, code [A]ction')
+                    map('<Leader>la', vim.lsp.buf.code_action, '[L]SP, code [A]ction', '')
                     map('<Leader>ld', require('telescope.builtin').lsp_document_symbols, '[L]SP, [D]ocument symbols')
                     map('<Leader>lr', vim.lsp.buf.rename, '[L]SP, [R]ename')
                     map('<Leader>lt', require('telescope.builtin').lsp_type_definitions, '[L]SP, [T]ype definitions')
