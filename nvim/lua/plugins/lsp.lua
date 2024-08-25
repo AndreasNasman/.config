@@ -198,9 +198,15 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+            local lspconfig = require('lspconfig')
+            local function is_deno_project()
+                return lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
+            end
+
             local servers = {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
+                denols = { root_dir = is_deno_project() },
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
                 marksman = {},
                 perlnavigator = {},
@@ -221,6 +227,12 @@ return {
                             includeInlayVariableTypeHintsWhenTypeMatchesName = true,
                         },
                     },
+                    root_dir = function(startpath)
+                        if is_deno_project()(startpath) then
+                            return nil
+                        end
+                    end,
+                    single_file_support = not is_deno_project()(vim.fn.getcwd()),
                 },
             }
 
