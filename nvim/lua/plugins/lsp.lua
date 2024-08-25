@@ -27,6 +27,7 @@ return {
                 lua = { 'stylua' },
                 markdown = { 'markdownlint' },
                 python = { 'ruff_fix', 'ruff_format' },
+                svelte = { 'prettierd', 'biome-check' },
                 typescript = { 'biome-check' },
             },
         },
@@ -204,6 +205,7 @@ return {
                 marksman = {},
                 perlnavigator = {},
                 pyright = {},
+                svelte = {},
                 tailwindcss = {},
                 tsserver = {
                     init_options = {
@@ -264,6 +266,7 @@ return {
             'markdown',
             'perl',
             'python',
+            'svelte',
             'typescript',
         },
     },
