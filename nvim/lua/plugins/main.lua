@@ -39,12 +39,6 @@ return {
         opts = { kind = 'split' },
     },
     {
-        'rcarriga/nvim-notify',
-        init = function()
-            vim.notify = require('notify')
-        end,
-    },
-    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         lazy = false,
