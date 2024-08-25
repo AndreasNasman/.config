@@ -47,10 +47,8 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
-        config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
-        end,
         lazy = false,
+        main = 'nvim-treesitter.configs',
         opts = {
             auto_install = true,
             ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
