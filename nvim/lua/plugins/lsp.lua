@@ -203,6 +203,7 @@ return {
                 marksman = {},
                 perlnavigator = {},
                 pyright = {},
+                tailwindcss = {},
                 tsserver = {
                     init_options = {
                         preferences = {
