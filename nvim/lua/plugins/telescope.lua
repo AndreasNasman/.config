@@ -84,6 +84,7 @@ return {
             telescope.setup({
                 defaults = {
                     layout_config = { height = 0.99, width = 0.99 },
+                    layout_strategy = 'vertical',
                     mappings = {
                         n = {
                             ['<C-n>'] = actions.move_selection_next,
