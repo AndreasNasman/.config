@@ -19,11 +19,12 @@ return {
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
                 htmldjango = { 'djlint' },
-                javascript = { 'prettierd' },
-                json = { 'prettierd' },
+                javascript = { 'biome-check' },
+                json = { 'biome-check' },
                 lua = { 'stylua' },
                 markdown = { 'markdownlint' },
                 python = { 'ruff_fix', 'ruff_format' },
+                typescript = { 'biome-check' },
             },
         },
     },
@@ -220,6 +221,7 @@ return {
 
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
+                'biome',
                 'djlint',
                 'markdownlint',
                 'prettierd',
@@ -246,6 +248,16 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
         },
-        ft = { 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'perl', 'python' },
+        ft = {
+            'fish',
+            'html',
+            'javascript',
+            'json',
+            'lua',
+            'markdown',
+            'perl',
+            'python',
+            'typescript',
+        },
     },
 }
