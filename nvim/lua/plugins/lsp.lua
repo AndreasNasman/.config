@@ -15,6 +15,7 @@ return {
         },
         opts = {
             format_on_save = { lsp_format = 'fallback' },
+            formatters = { ['biome-check'] = { append_args = { '--unsafe' } } },
             formatters_by_ft = {
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
