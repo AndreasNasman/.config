@@ -208,6 +208,7 @@ return {
                 svelte = {},
                 tailwindcss = {},
                 tsserver = {
+                    settings = { implicitProjectConfiguration = { target = 'ESNext' } },
                     init_options = {
                         preferences = {
                             includeInlayEnumMemberValueHints = true,
