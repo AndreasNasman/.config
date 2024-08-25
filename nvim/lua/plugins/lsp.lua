@@ -7,14 +7,14 @@ return {
             {
                 '<Leader>lf',
                 function()
-                    require('conform').format({ async = true, lsp_fallback = true })
+                    require('conform').format({ async = true, lsp_format = 'fallback' })
                 end,
                 desc = '[L]sp [F]ormat',
                 mode = '',
             },
         },
         opts = {
-            format_on_save = { lsp_fallback = true, timeout_ms = 500 },
+            format_on_save = { lsp_format = 'fallback' },
             formatters_by_ft = {
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
