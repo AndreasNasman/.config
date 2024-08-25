@@ -17,6 +17,7 @@ return {
             format_on_save = { lsp_format = 'fallback' },
             formatters = { ['biome-check'] = { append_args = { '--unsafe' } } },
             formatters_by_ft = {
+                css = { 'prettierd', 'biome-check' },
                 fish = { 'fish_indent' },
                 html = { 'prettierd' },
                 htmldjango = { 'djlint' },
@@ -223,6 +224,7 @@ return {
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
                 'biome',
+                'cssls',
                 'djlint',
                 'markdownlint',
                 'prettierd',
@@ -250,6 +252,7 @@ return {
             'WhoIsSethDaniel/mason-tool-installer.nvim',
         },
         ft = {
+            'css',
             'fish',
             'html',
             'javascript',
