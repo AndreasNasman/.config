@@ -62,8 +62,8 @@ local function toggle_plugin(plugin_name)
 end
 
 --stylua: ignore start
-vim.keymap.set('', '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
-vim.keymap.set('', '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
 
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus window to the left [h]' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus window below [j]' })
@@ -95,7 +95,7 @@ vim.keymap.set('n', ']q', '<Cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item'
 vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move down [j] with a count and add to the jumplist', expr = true })
 vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist', expr = true })
 
-vim.keymap.set('v', '.', ':normal .<CR>', { desc = 'Repeat [.] the last change' })
-vim.keymap.set('v', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
-vim.keymap.set('v', '<Leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
+vim.keymap.set('x', '.', ':normal .<CR>', { desc = 'Repeat [.] the last change' })
+vim.keymap.set('x', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
+vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
 --stylua: ignore end
