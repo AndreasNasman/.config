@@ -14,6 +14,7 @@ local function copy_file_path(pattern)
     local file_path = vim.fn.expand(pattern)
     vim.fn.setreg('"', file_path)
     vim.fn.setreg('+', file_path)
+    vim.notify('File path: ' .. file_path, vim.log.levels.INFO)
 end
 
 local function sync_to_system_clipboard()
