@@ -26,3 +26,6 @@ vim.opt.expandtab = false
 vim.opt.shiftwidth = tab_width_in_spaces
 vim.opt.softtabstop = tab_width_in_spaces
 vim.opt.tabstop = tab_width_in_spaces
+
+-- Diagnostics
+vim.diagnostic.config({ float = { source = true } })
