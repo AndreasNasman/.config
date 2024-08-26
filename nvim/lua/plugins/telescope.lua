@@ -23,7 +23,7 @@ return {
 
             ---Notify opts.
             local function notify_opts()
-                vim.notify(vim.inspect(opts, { newline = ' ', indent = '' }))
+                vim.notify(vim.inspect(opts, { newline = ' ', indent = '' }), vim.log.levels.INFO)
             end
 
             ---Re-open the current picker.
@@ -78,7 +78,7 @@ return {
 
             ---Notify the cwd.
             local function notify_cwd()
-                vim.notify('cwd: ' .. vim.uv.cwd())
+                vim.notify('cwd: ' .. vim.uv.cwd(), vim.log.levels.INFO)
             end
 
             telescope.setup({
