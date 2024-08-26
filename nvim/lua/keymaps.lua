@@ -50,7 +50,9 @@ local function toggle_neogit()
 end
 
 ---@param plugin_name string
-local function toggle_plugin(plugin_name)
+---@param args table|nil
+local function toggle_plugin(plugin_name, args)
+    args = args or {}
     local plugin = require(plugin_name)
 
     local buffer = vim.api.nvim_get_current_buf()
@@ -58,7 +60,7 @@ local function toggle_plugin(plugin_name)
     if filetype == plugin_name:gsub('%.', '') then
         plugin.close()
     else
-        plugin.open()
+        plugin.open(unpack(args))
     end
 end
 
@@ -75,7 +77,7 @@ vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'Sync system
 vim.keymap.set('n', '<Leader><Tab>c', '<Cmd>tabclose<CR>', { desc = '[T]ab, [C]lose' })
 vim.keymap.set('n', '<Leader><Tab>n', '<Cmd>tabnew<CR>', { desc = '[T]ab, [N]ew' })
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
-vim.keymap.set('n', '<Leader>f', function () toggle_plugin('mini.files') end, { desc = 'Toggle Mini[F]iles' })
+vim.keymap.set('n', '<Leader>f', function() toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) }) end, { desc = 'Toggle Mini[F]iles' })
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
 vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
 vim.keymap.set('n', '<Leader>pa', function() copy_file_path('%:p') end, { desc = '[P]ath, [A]bsolute copy' })
