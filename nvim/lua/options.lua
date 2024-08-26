@@ -18,3 +18,11 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.undofile = true
 vim.opt.updatetime = 250
+
+-- Tabs & Spaces
+-- http://vimcasts.org/episodes/tabs-and-spaces/
+local tab_width_in_spaces = 2
+vim.opt.expandtab = false
+vim.opt.shiftwidth = tab_width_in_spaces
+vim.opt.softtabstop = tab_width_in_spaces
+vim.opt.tabstop = tab_width_in_spaces
