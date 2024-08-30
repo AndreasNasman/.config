@@ -1,4 +1,26 @@
 return {
+    {
+        'catppuccin/nvim',
+        init = function()
+            vim.cmd.colorscheme('catppuccin-mocha')
+        end,
+        lazy = false,
+        name = 'catppuccin',
+        opts = {
+            integrations = {
+                mason = true,
+                native_lsp = {
+                    underlines = {
+                        errors = { 'undercurl' },
+                        hints = { 'undercurl' },
+                        information = { 'undercurl' },
+                        warnings = { 'undercurl' },
+                    },
+                },
+            },
+        },
+        priority = 1000,
+    },
     { 'lewis6991/gitsigns.nvim', event = 'UIEnter', opts = {} },
     {
         'iamcco/markdown-preview.nvim',
@@ -63,17 +85,6 @@ return {
         opts = {},
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
-    {
-        'folke/tokyonight.nvim',
-        init = function()
-            vim.cmd.colorscheme('tokyonight')
-            local colors = require('tokyonight.colors').setup()
-            vim.cmd('highlight ColorColumn guibg=' .. colors.fg_gutter)
-            vim.cmd('highlight CustomFloatBorder guibg=NONE guifg=' .. colors.border_highlight)
-        end,
-        lazy = false,
-        priority = 1000,
-    },
     { 'mbbill/undotree', event = 'UIEnter' },
     {
         { 'tpope/vim-abolish', event = 'UIEnter' },
