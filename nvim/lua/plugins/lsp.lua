@@ -207,6 +207,7 @@ return {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
                 denols = { root_dir = is_deno_project() },
+                jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
                 marksman = {},
                 perlnavigator = {},
