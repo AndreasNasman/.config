@@ -3,6 +3,9 @@ return {
         'catppuccin/nvim',
         init = function()
             vim.cmd.colorscheme('catppuccin-mocha')
+            -- Add borders to LSP hover & signature help floats.
+            local mocha = require('catppuccin.palettes').get_palette('mocha')
+            vim.api.nvim_set_hl(0, 'NormalFloat', { bg = mocha.base })
         end,
         lazy = false,
         name = 'catppuccin',
