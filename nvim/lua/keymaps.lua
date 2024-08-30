@@ -28,6 +28,17 @@ local function toggle_colorcolumn()
     vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end
 
+---@param command string
+local function toggle_command(command)
+    local buffer = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[buffer].filetype
+    if filetype == string.lower(command) then
+        vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
+    else
+        vim.cmd(command)
+    end
+end
+
 local function toggle_neogit()
     local neogit_window = nil
 
@@ -83,6 +94,8 @@ vim.keymap.set('n', '<Leader>fr', function() copy_file_path('%:~:.') end, { desc
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
 vim.keymap.set('n', '<Leader>mf', function() toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) }) end, { desc = 'Toggle Mini[F]iles' })
 vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
+vim.keymap.set('n', '<Leader>pl', function() toggle_command('Lazy') end, { desc = 'Toggle [P]lugin [L]azy' })
+vim.keymap.set('n', '<Leader>pm', function() toggle_command('Mason') end, { desc = 'Toggle [P]lugin [M]ason' })
 vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
 vim.keymap.set('n', '<Leader>w', '<C-w>', { desc = 'Control [W]indows with the <Leader> key' })
