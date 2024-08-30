@@ -45,13 +45,6 @@ return {
             luasnip.config.setup({})
 
             local cmp = require('cmp')
-
-            local function get_custom_border()
-                return cmp.config.window.bordered({
-                    winhighlight = cmp.config.window.bordered().winhighlight:gsub(':FloatBorder', ':CustomFloatBorder'),
-                })
-            end
-
             cmp.setup({
                 formatting = vim.tbl_deep_extend(
                     'force',
@@ -95,8 +88,8 @@ return {
                     { name = 'path' },
                 },
                 window = {
-                    completion = get_custom_border(),
-                    documentation = get_custom_border(),
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
                 },
             })
         end,
