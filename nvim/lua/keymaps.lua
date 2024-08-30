@@ -92,6 +92,7 @@ vim.keymap.set('n', '<Leader>fa', function() copy_file_path('%:p') end, { desc =
 vim.keymap.set('n', '<Leader>fn', function() copy_file_path('%:t') end, { desc = '[F]ile [N]ame copy' })
 vim.keymap.set('n', '<Leader>fr', function() copy_file_path('%:~:.') end, { desc = '[F]ile path, [R]elative copy' })
 vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
+vim.keymap.set('n', '<Leader>li', function() toggle_command('LspInfo') end, { desc = 'Toggle [L]sp[I]nfo' })
 vim.keymap.set('n', '<Leader>mf', function() toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) }) end, { desc = 'Toggle Mini[F]iles' })
 vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
 vim.keymap.set('n', '<Leader>pl', function() toggle_command('Lazy') end, { desc = 'Toggle [P]lugin [L]azy' })
