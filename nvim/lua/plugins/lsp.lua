@@ -225,6 +225,8 @@ return {
                         if is_deno_project()(startpath) then
                             return nil
                         end
+
+                        return lspconfig.util.root_pattern('package.json', 'tsconfig.json')(startpath)
                     end,
                     single_file_support = not is_deno_project()(vim.fn.getcwd()),
                 },
