@@ -208,7 +208,6 @@ return {
                 svelte = {},
                 tailwindcss = {},
                 tsserver = {
-                    settings = { implicitProjectConfiguration = { target = 'ESNext' } },
                     init_options = {
                         preferences = {
                             includeInlayEnumMemberValueHints = true,
@@ -228,6 +227,7 @@ return {
 
                         return lspconfig.util.root_pattern('package.json', 'tsconfig.json')(startpath)
                     end,
+                    settings = { implicitProjectConfiguration = { target = 'ESNext' } },
                     single_file_support = not is_deno_project()(vim.fn.getcwd()),
                 },
             }
