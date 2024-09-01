@@ -76,6 +76,7 @@ local function toggle_plugin(plugin_name, args)
 end
 
 --stylua: ignore start
+vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
 
@@ -83,11 +84,11 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus window to the left [h]' }
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus window below [j]' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Focus window above [k]' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus window to the right [l]' })
+vim.keymap.set('n', '<D-d>', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
 vim.keymap.set('n', '<D-h>', '<Cmd>tabprevious<CR>', { desc = 'Go to the previous [h] tab' })
 vim.keymap.set('n', '<D-l>', '<Cmd>tabnext<CR>', { desc = 'Go to the next [l] tab' })
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = '[E]scape search highlighting' })
 vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'Sync system clipboard [+]' })
-vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
 vim.keymap.set('n', '<Leader>fa', function() copy_file_path('%:p') end, { desc = '[F]ile path, [A]bsolute copy' })
 vim.keymap.set('n', '<Leader>fn', function() copy_file_path('%:t') end, { desc = '[F]ile [N]ame copy' })
 vim.keymap.set('n', '<Leader>fr', function() copy_file_path('%:~:.') end, { desc = '[F]ile path, [R]elative copy' })
@@ -113,6 +114,5 @@ vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move do
 vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist', expr = true })
 
 vim.keymap.set('x', '.', ':normal .<CR>', { desc = 'Repeat [.] the last change' })
-vim.keymap.set('x', '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
 vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
 --stylua: ignore end
