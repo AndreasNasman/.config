@@ -38,4 +38,8 @@ require('lazy').setup('plugins', {
             },
         },
     },
+    ui = {
+        backdrop = 100,
+        border = 'rounded',
+    },
 })

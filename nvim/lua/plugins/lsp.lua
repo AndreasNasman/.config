@@ -238,7 +238,12 @@ return {
                 },
             }
 
-            require('mason').setup()
+            require('mason').setup({
+                ui = {
+                    border = 'rounded',
+                    height = 0.8,
+                },
+            })
 
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
