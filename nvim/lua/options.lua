@@ -1,5 +1,5 @@
 -- Borders
--- LSP hover & signature help
+-- Targets all LSP handlers, like hover and signature help.
 local handlers = vim.lsp.handlers
 for name, handler in pairs(handlers) do
     if type(handler) == 'function' then
