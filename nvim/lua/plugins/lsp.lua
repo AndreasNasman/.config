@@ -149,7 +149,7 @@ return {
                     end
 
                    --stylua: ignore start
-                    map('<Leader>k', vim.lsp.buf.signature_help, 'LSP, signature help ([K] displays hover information)')
+                    map('<D-k>', vim.lsp.buf.signature_help, 'LSP, signature help ([K] displays hover information)', { 'n', 'x', 'i' })
                     map('<Leader>la', vim.lsp.buf.code_action, '[L]SP, code [A]ction', { 'n', 'x' })
                     map('<Leader>ld', require('telescope.builtin').lsp_document_symbols, '[L]SP, [D]ocument symbols')
                     map('<Leader>lr', vim.lsp.buf.rename, '[L]SP, [R]ename')
