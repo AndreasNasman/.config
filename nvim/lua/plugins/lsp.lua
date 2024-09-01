@@ -151,7 +151,7 @@ return {
                 },
             },
         },
-        event = 'InsertEnter',
+        event = 'UIEnter',
     },
     {
         'mfussenegger/nvim-lint',
