@@ -63,6 +63,15 @@ vim.keymap.set('n', '<D-[>', '<Cmd>tabprevious<CR>')
 vim.keymap.set('n', '<D-]>', '<Cmd>tabnext<CR>')
 
 -- [[ Toggles ]]
+local colorcolumn_values = { '', '120', '80' }
+local current_colorcolumn_index = 1
+local function toggle_colorcolumn()
+    current_colorcolumn_index = current_colorcolumn_index % #colorcolumn_values + 1
+    vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
+end
+
+vim.keymap.set('n', '<Leader>c', toggle_colorcolumn)
+
 ---@param target string
 ---@param args table|nil
 local function toggle(target, args)
@@ -108,14 +117,7 @@ vim.keymap.set('n', '<Leader>o', function()
 end)
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
-local colorcolumn_values = { '', '120', '80' }
-local current_colorcolumn_index = 1
-local function toggle_colorcolumn()
-    current_colorcolumn_index = current_colorcolumn_index % #colorcolumn_values + 1
-    vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
-end
 
-vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
 -- [[ Utilities ]]
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
 vim.keymap.set('x', '.', ':normal .<CR>') -- Repeat the last dot command in Visual mode.
