@@ -6,6 +6,7 @@ return {
             local mocha = require('catppuccin.palettes').get_palette('mocha')
             vim.api.nvim_set_hl(0, 'NormalFloat', {})
             vim.api.nvim_set_hl(0, 'FloatBorder', { fg = mocha.rosewater })
+            vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { bg = mocha.surface1, fg = mocha.peach })
         end,
         lazy = false,
         name = 'catppuccin',
