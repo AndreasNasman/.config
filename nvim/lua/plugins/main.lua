@@ -52,7 +52,20 @@ return {
                 },
             })
             require('mini.statusline').setup()
-            require('mini.surround').setup()
+            require('mini.surround').setup({
+                mappings = {
+                    add = '<D-s>a',
+                    delete = '<D-s>d',
+                    find = '',
+                    find_left = '',
+                    highlight = '',
+                    replace = '<D-s>r',
+                    update_n_lines = '',
+
+                    suffix_last = '',
+                    suffix_next = '',
+                },
+            })
         end,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = 'UIEnter',
