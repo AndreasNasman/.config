@@ -63,6 +63,51 @@ vim.keymap.set('n', '<D-[>', '<Cmd>tabprevious<CR>')
 vim.keymap.set('n', '<D-]>', '<Cmd>tabnext<CR>')
 
 -- [[ Toggles ]]
+---@param target string
+---@param args table|nil
+local function toggle(target, args)
+    args = args or {}
+    local is_plugin, plugin = pcall(require, target)
+
+    local buffer = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[buffer].filetype
+
+    if string.find(string.lower(filetype), string.lower(target:gsub('%.', ''))) then
+        if is_plugin then
+            plugin.close()
+        else
+            vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
+        end
+    else
+        if is_plugin then
+            plugin.open(unpack(args))
+        else
+            vim.cmd(target)
+        end
+    end
+end
+
+vim.keymap.set('n', '<Leader>g', function()
+    toggle('Neogit')
+end)
+vim.keymap.set('n', '<Leader>li', function()
+    toggle('LspInfo')
+end)
+vim.keymap.set('n', '<Leader>mf', function()
+    toggle('mini.files', { vim.api.nvim_buf_get_name(0) })
+end)
+vim.keymap.set('n', '<Leader>pl', function()
+    toggle('Lazy')
+end)
+vim.keymap.set('n', '<Leader>pm', function()
+    toggle('Mason')
+end)
+
+vim.keymap.set('n', '<Leader>o', function()
+    toggle('oil')
+end)
+vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
+
 local colorcolumn_values = { '', '120', '80' }
 local current_colorcolumn_index = 1
 local function toggle_colorcolumn()
@@ -70,58 +115,7 @@ local function toggle_colorcolumn()
     vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end
 
----@param command string
-local function toggle_command(command)
-    local buffer = vim.api.nvim_get_current_buf()
-    local filetype = vim.bo[buffer].filetype
-    if string.find(string.lower(filetype), string.lower(command)) then
-        vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
-    else
-        vim.cmd(command)
-    end
-end
-
----@param plugin_name string
----@param args table|nil
-local function toggle_plugin(plugin_name, args)
-    args = args or {}
-    local plugin = require(plugin_name)
-
-    local buffer = vim.api.nvim_get_current_buf()
-    local filetype = vim.bo[buffer].filetype
-    if filetype == plugin_name:gsub('%.', '') then
-        plugin.close()
-    else
-        plugin.open(unpack(args))
-    end
-end
-
--- Commands
-vim.keymap.set('n', '<Leader>g', function()
-    toggle_command('Neogit')
-end)
-vim.keymap.set('n', '<Leader>li', function()
-    toggle_command('LspInfo')
-end)
-vim.keymap.set('n', '<Leader>pl', function()
-    toggle_command('Lazy')
-end)
-vim.keymap.set('n', '<Leader>pm', function()
-    toggle_command('Mason')
-end)
-
--- Options
 vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
-
--- Plugins
-vim.keymap.set('n', '<Leader>mf', function()
-    toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) })
-end)
-vim.keymap.set('n', '<Leader>o', function()
-    toggle_plugin('oil')
-end)
-vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
-
 -- [[ Utilities ]]
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
 vim.keymap.set('x', '.', ':normal .<CR>') -- Repeat the last dot command in Visual mode.
