@@ -74,31 +74,10 @@ end
 local function toggle_command(command)
     local buffer = vim.api.nvim_get_current_buf()
     local filetype = vim.bo[buffer].filetype
-    if filetype == string.lower(command) then
+    if string.find(string.lower(filetype), string.lower(command)) then
         vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
     else
         vim.cmd(command)
-    end
-end
-
-local function toggle_neogit()
-    local neogit_window = nil
-
-    for _, window in ipairs(vim.api.nvim_list_wins()) do
-        local buffer = vim.api.nvim_win_get_buf(window)
-        local filetype = vim.bo[buffer].filetype
-        if filetype == 'NeogitStatus' then
-            neogit_window = window
-            break
-        end
-    end
-
-    if not neogit_window then
-        vim.cmd('Neogit')
-    elseif vim.api.nvim_get_current_win() == neogit_window then
-        vim.api.nvim_win_close(neogit_window, false)
-    else
-        vim.api.nvim_set_current_win(neogit_window)
     end
 end
 
@@ -117,15 +96,12 @@ local function toggle_plugin(plugin_name, args)
     end
 end
 
-vim.keymap.set('n', '<Leader>g', toggle_neogit)
+-- Commands
+vim.keymap.set('n', '<Leader>g', function()
+    toggle_command('Neogit')
+end)
 vim.keymap.set('n', '<Leader>li', function()
     toggle_command('LspInfo')
-end)
-vim.keymap.set('n', '<Leader>mf', function()
-    toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) })
-end)
-vim.keymap.set('n', '<Leader>o', function()
-    toggle_plugin('oil')
 end)
 vim.keymap.set('n', '<Leader>pl', function()
     toggle_command('Lazy')
@@ -133,7 +109,17 @@ end)
 vim.keymap.set('n', '<Leader>pm', function()
     toggle_command('Mason')
 end)
+
+-- Options
 vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
+
+-- Plugins
+vim.keymap.set('n', '<Leader>mf', function()
+    toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) })
+end)
+vim.keymap.set('n', '<Leader>o', function()
+    toggle_plugin('oil')
+end)
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
 -- [[ Utilities ]]
