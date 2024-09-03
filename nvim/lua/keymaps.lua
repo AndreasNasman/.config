@@ -1,3 +1,40 @@
+-- [[ Clipboard ]]
+-- System
+local function sync_to_system_clipboard()
+    vim.fn.setreg('+', vim.fn.getreg('"'))
+end
+
+vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard)
+vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$')
+vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y')
+
+-- Black hole
+vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>')
+vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d')
+
+-- [[ Diagnostics ]]
+vim.keymap.set('n', '<D-d>', vim.diagnostic.open_float)
+
+-- [[ File path ]]
+---@param pattern string
+local function copy_file_path(pattern)
+    local file_path = vim.fn.expand(pattern)
+    vim.fn.setreg('"', file_path)
+    vim.fn.setreg('+', file_path)
+    vim.notify('File path copied to the clipboard: ' .. file_path, vim.log.levels.INFO)
+end
+
+vim.keymap.set('n', '<Leader>fa', function()
+    copy_file_path('%:p')
+end)
+vim.keymap.set('n', '<Leader>fn', function()
+    copy_file_path('%:t')
+end)
+vim.keymap.set('n', '<Leader>fr', function()
+    copy_file_path('%:~:.')
+end)
+
+-- [[ Jump list ]]
 ---@param direction string
 local function add_move_with_count_to_jumplist(direction)
     return function()
@@ -9,18 +46,23 @@ local function add_move_with_count_to_jumplist(direction)
     end
 end
 
----@param pattern string
-local function copy_file_path(pattern)
-    local file_path = vim.fn.expand(pattern)
-    vim.fn.setreg('"', file_path)
-    vim.fn.setreg('+', file_path)
-    vim.notify('File path copied to the clipboard: ' .. file_path, vim.log.levels.INFO)
-end
+vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
+vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { expr = true })
 
-local function sync_to_system_clipboard()
-    vim.fn.setreg('+', vim.fn.getreg('"'))
-end
+-- [[ Quickfix list ]]
+vim.keymap.set('n', '[q', '<Cmd>cprevious<CR>')
+vim.keymap.set('n', ']q', '<Cmd>cnext<CR>')
 
+-- [[ Tabs ]]
+-- Management
+vim.keymap.set('n', '<M-c>', '<Cmd>tabclose<CR>')
+vim.keymap.set('n', '<M-n>', '<Cmd>tabnew<CR>')
+
+-- Navigation
+vim.keymap.set('n', '<D-[>', '<Cmd>tabprevious<CR>')
+vim.keymap.set('n', '<D-]>', '<Cmd>tabnext<CR>')
+
+-- [[ Toggles ]]
 local colorcolumn_values = { '', '120', '80' }
 local current_colorcolumn_index = 1
 local function toggle_colorcolumn()
@@ -75,44 +117,45 @@ local function toggle_plugin(plugin_name, args)
     end
 end
 
---stylua: ignore start
-vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d', { desc = '[d]elete to the black hole register' })
-vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$', { desc = '[Y]ank to the system clipboard' })
-vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y', { desc = '[y]ank to the system clipboard' })
+vim.keymap.set('n', '<Leader>g', toggle_neogit)
+vim.keymap.set('n', '<Leader>li', function()
+    toggle_command('LspInfo')
+end)
+vim.keymap.set('n', '<Leader>mf', function()
+    toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) })
+end)
+vim.keymap.set('n', '<Leader>o', function()
+    toggle_plugin('oil')
+end)
+vim.keymap.set('n', '<Leader>pl', function()
+    toggle_command('Lazy')
+end)
+vim.keymap.set('n', '<Leader>pm', function()
+    toggle_command('Mason')
+end)
+vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
+vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus window to the left [h]' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus window below [j]' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Focus window above [k]' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus window to the right [l]' })
-vim.keymap.set('n', '<D-[>', '<Cmd>tabprevious<CR>', { desc = 'Go to the previous tab' })
-vim.keymap.set('n', '<D-]>', '<Cmd>tabnext<CR>', { desc = 'Go to the next tab' })
-vim.keymap.set('n', '<D-d>', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
-vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = '[E]scape search highlighting' })
-vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard, { desc = 'Sync system clipboard [+]' })
-vim.keymap.set('n', '<Leader>fa', function() copy_file_path('%:p') end, { desc = '[F]ile path, [A]bsolute copy' })
-vim.keymap.set('n', '<Leader>fn', function() copy_file_path('%:t') end, { desc = '[F]ile [N]ame copy' })
-vim.keymap.set('n', '<Leader>fr', function() copy_file_path('%:~:.') end, { desc = '[F]ile path, [R]elative copy' })
-vim.keymap.set('n', '<Leader>g', toggle_neogit, { desc = 'Toggle Neo[G]it' })
-vim.keymap.set('n', '<Leader>li', function() toggle_command('LspInfo') end, { desc = 'Toggle [L]sp[I]nfo' })
-vim.keymap.set('n', '<Leader>mf', function() toggle_plugin('mini.files', { vim.api.nvim_buf_get_name(0) }) end, { desc = 'Toggle Mini[F]iles' })
-vim.keymap.set('n', '<Leader>o', function () toggle_plugin('oil') end, { desc = 'Toggle [O]il' })
-vim.keymap.set('n', '<Leader>pl', function() toggle_command('Lazy') end, { desc = 'Toggle [P]lugin [L]azy' })
-vim.keymap.set('n', '<Leader>pm', function() toggle_command('Mason') end, { desc = 'Toggle [P]lugin [M]ason' })
-vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn, { desc = '[T]oggle [C]olorcolumn' })
-vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>', { desc = 'Toggle [U]ndotree' })
-vim.keymap.set('n', '<Leader>w', '<C-w>', { desc = 'Control [W]indows with the <Leader> key' })
-vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|', { desc = '[W]indows, [F]ullscreen' })
-vim.keymap.set('n', '<Leader>wh', '<Cmd>leftabove vsplit<CR>', { desc = '[W]indows, split to the left [h]' })
-vim.keymap.set('n', '<Leader>wj', '<Cmd>belowright split<CR>', { desc = '[W]indows, split below [j]' })
-vim.keymap.set('n', '<Leader>wk', '<Cmd>aboveleft split<CR>', { desc = '[W]indows, split above [k]' })
-vim.keymap.set('n', '<Leader>wl', '<Cmd>rightbelow vsplit<CR>', { desc = '[W]indows, split to the right [l]' })
-vim.keymap.set('n', '<M-c>', '<Cmd>tabclose<CR>', { desc = 'Tab, [C]lose' })
-vim.keymap.set('n', '<M-n>', '<Cmd>tabnew<CR>', { desc = 'Tab, [N]ew' })
-vim.keymap.set('n', '[q', '<Cmd>cprevious<CR>', { desc = 'Previous [Q]uickfix list item' })
-vim.keymap.set('n', ']q', '<Cmd>cnext<CR>', { desc = 'Next [Q]uickfix list item' })
-vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { desc = 'Move down [j] with a count and add to the jumplist', expr = true })
-vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { desc = 'Move up [k] with a count and add to the jumplist', expr = true })
+-- [[ Utilities ]]
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
+vim.keymap.set('x', '.', ':normal .<CR>') -- Repeat the last dot command in Visual mode.
 
-vim.keymap.set('x', '.', ':normal .<CR>', { desc = 'Repeat [.] the last change' })
-vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>', { desc = '[P]aste to the black hole register' })
---stylua: ignore end
+-- [[ Windows ]]
+-- Mapping
+vim.keymap.set('n', '<Leader>w', '<C-w>')
+
+-- Management
+vim.keymap.set('n', '<Leader>wh', '<Cmd>leftabove vsplit<CR>')
+vim.keymap.set('n', '<Leader>wj', '<Cmd>belowright split<CR>')
+vim.keymap.set('n', '<Leader>wk', '<Cmd>aboveleft split<CR>')
+vim.keymap.set('n', '<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
+
+-- Navigation
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+-- Full screen
+vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
+
