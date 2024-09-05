@@ -73,9 +73,9 @@ end
 vim.keymap.set('n', '<Leader>c', toggle_colorcolumn)
 
 ---@param target string
----@param args table|nil
-local function toggle(target, args)
-    args = args or {}
+---@param opts table|nil
+local function toggle(target, opts)
+    opts = opts or {}
     local is_plugin, plugin = pcall(require, target)
 
     local buffer = vim.api.nvim_get_current_buf()
@@ -89,7 +89,7 @@ local function toggle(target, args)
         end
     else
         if is_plugin then
-            plugin.open(unpack(args))
+            plugin.open(unpack(opts))
         else
             vim.cmd(target)
         end
