@@ -109,20 +109,18 @@ return {
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            --stylua: ignore start
-            vim.keymap.set('n', '<Leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end, { desc = '[S]earch [/] in open files' })
-            vim.keymap.set('n', '<Leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-            vim.keymap.set('n', '<Leader>sf', function() run(builtin.find_files) end, { desc = '[S]earch [F]iles' })
-            vim.keymap.set('n', '<Leader>sg', function() run(builtin.live_grep) end, { desc = '[S]earch using [G]rep' })
-            vim.keymap.set('n', '<Leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp pages' })
-            vim.keymap.set('n', '<Leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-            vim.keymap.set('n', '<Leader>sm', builtin.man_pages, { desc = '[S]earch [M]an pages' })
-            vim.keymap.set('n', '<Leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end, { desc = '[S]earch [N]eovim files' })
-            vim.keymap.set('n', '<Leader>so', builtin.buffers, { desc = '[S]earch [O]pen files' })
-            vim.keymap.set('n', '<Leader>sr', builtin.oldfiles, { desc = '[S]earch [R]ecent files' })
-            vim.keymap.set('n', '<Leader>sR', builtin.resume, { desc = '[S]earch [R]esume' })
-            vim.keymap.set('n', '<Leader>st', builtin.builtin, { desc = '[S]earch [T]elescope builtins' })
-            --stylua: ignore end
+            vim.keymap.set('n', '<Leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end)
+            vim.keymap.set('n', '<Leader>sd', builtin.diagnostics)
+            vim.keymap.set('n', '<Leader>sf', function() run(builtin.find_files) end)
+            vim.keymap.set('n', '<Leader>sg', function() run(builtin.live_grep) end)
+            vim.keymap.set('n', '<Leader>sh', builtin.help_tags)
+            vim.keymap.set('n', '<Leader>sk', builtin.keymaps)
+            vim.keymap.set('n', '<Leader>sm', builtin.man_pages)
+            vim.keymap.set('n', '<Leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end)
+            vim.keymap.set('n', '<Leader>so', builtin.buffers)
+            vim.keymap.set('n', '<Leader>sr', builtin.oldfiles)
+            vim.keymap.set('n', '<Leader>sR', builtin.resume)
+            vim.keymap.set('n', '<Leader>st', builtin.builtin)
         end,
         dependencies = {
             'nvim-tree/nvim-web-devicons',
