@@ -73,15 +73,20 @@ end
 vim.keymap.set('n', '<Leader>c', toggle_colorcolumn)
 
 ---@param target string
----@param opts table|nil
-local function toggle(target, opts)
-    opts = opts or {}
+---@param args { is_open: function|nil, opts: table|nil } | nil
+local function toggle(target, args)
+    args = args or {}
+    local opts = args.opts or {}
+    local is_open = args.is_open
+        or function()
+            local buffer = vim.api.nvim_get_current_buf()
+            local filetype = vim.bo[buffer].filetype
+            return string.find(string.lower(filetype), string.lower(target:gsub('%.', '')))
+        end
+
     local is_plugin, plugin = pcall(require, target)
 
-    local buffer = vim.api.nvim_get_current_buf()
-    local filetype = vim.bo[buffer].filetype
-
-    if string.find(string.lower(filetype), string.lower(target:gsub('%.', ''))) then
+    if is_open() then
         if is_plugin then
             plugin.close()
         else
@@ -103,7 +108,7 @@ vim.keymap.set('n', '<Leader>li', function()
     toggle('LspInfo')
 end)
 vim.keymap.set('n', '<Leader>mf', function()
-    toggle('mini.files', { vim.api.nvim_buf_get_name(0) })
+    toggle('mini.files', { opts = { vim.api.nvim_buf_get_name(0) } })
 end)
 vim.keymap.set('n', '<Leader>pl', function()
     toggle('Lazy')
@@ -115,8 +120,17 @@ end)
 vim.keymap.set('n', '<Leader>o', function()
     toggle('oil')
 end)
-vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
+vim.keymap.set('n', '<Leader>q', function()
+    toggle('copen', {
+        is_open = function()
+            local buffer = vim.api.nvim_get_current_buf()
+            local buftype = vim.api.nvim_get_option_value('buftype', { buf = buffer })
+            return buftype == 'quickfix'
+        end,
+    })
+end)
 
+vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
 -- [[ Utilities ]]
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
@@ -140,4 +154,3 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Full screen
 vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
-
