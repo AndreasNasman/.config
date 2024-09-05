@@ -182,7 +182,6 @@ return {
                         vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
                     end
 
-                   --stylua: ignore start
                     map('<D-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
                     map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
                     map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
@@ -193,7 +192,6 @@ return {
                     map('gD', vim.lsp.buf.declaration)
                     map('gI', require('telescope.builtin').lsp_implementations)
                     map('gr', require('telescope.builtin').lsp_references)
-                    --stylua: ignore end
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
