@@ -14,19 +14,16 @@ return {
                 no_ignore = false,
             }
 
-            ---Run builtin.
             ---@param command function
             ---@param opts_override? table
             local function run(command, opts_override)
                 command(vim.tbl_extend('force', opts, opts_override or {}))
             end
 
-            ---Notify opts.
             local function notify_opts()
                 vim.notify(vim.inspect(opts, { newline = ' ', indent = '' }), vim.log.levels.INFO)
             end
 
-            ---Re-open the current picker.
             ---This function is a workaround function since Telescope currently
             ---does not allow modifying the open picker.
             ---https://github.com/nvim-telescope/telescope.nvim/issues/2016
@@ -40,7 +37,6 @@ return {
                 notify_opts()
             end
 
-            ---Toggle option.
             ---@param option string
             ---@param prompt_bufnr number
             local function toggle_option(option, prompt_bufnr)
@@ -64,19 +60,16 @@ return {
                 end
             end
 
-            ---Toggle .gitignore files.
             ---@param prompt_bufnr number
             local function toggle_gitignore(prompt_bufnr)
                 toggle_option('no_ignore', prompt_bufnr)
             end
 
-            ---Toggle hidden files.
             ---@param prompt_bufnr number
             local function toggle_hidden(prompt_bufnr)
                 toggle_option('hidden', prompt_bufnr)
             end
 
-            ---Notify the cwd.
             local function notify_cwd()
                 vim.notify('cwd: ' .. vim.uv.cwd(), vim.log.levels.INFO)
             end
@@ -109,18 +102,29 @@ return {
             telescope.load_extension('fzf')
             telescope.load_extension('ui-select')
 
-            vim.keymap.set('n', '<Leader>s/', function() run(builtin.live_grep, { grep_open_files = true }) end)
+            -- [[ Builtins ]]
             vim.keymap.set('n', '<Leader>sd', builtin.diagnostics)
-            vim.keymap.set('n', '<Leader>sf', function() run(builtin.find_files) end)
-            vim.keymap.set('n', '<Leader>sg', function() run(builtin.live_grep) end)
             vim.keymap.set('n', '<Leader>sh', builtin.help_tags)
             vim.keymap.set('n', '<Leader>sk', builtin.keymaps)
             vim.keymap.set('n', '<Leader>sm', builtin.man_pages)
-            vim.keymap.set('n', '<Leader>sn', function() run(builtin.find_files, { cwd = vim.fn.stdpath('config') }) end)
             vim.keymap.set('n', '<Leader>so', builtin.buffers)
             vim.keymap.set('n', '<Leader>sr', builtin.oldfiles)
             vim.keymap.set('n', '<Leader>sR', builtin.resume)
             vim.keymap.set('n', '<Leader>st', builtin.builtin)
+
+            -- With custom options.
+            vim.keymap.set('n', '<Leader>s/', function()
+                run(builtin.live_grep, { grep_open_files = true })
+            end)
+            vim.keymap.set('n', '<Leader>sf', function()
+                run(builtin.find_files)
+            end)
+            vim.keymap.set('n', '<Leader>sg', function()
+                run(builtin.live_grep)
+            end)
+            vim.keymap.set('n', '<Leader>sn', function()
+                run(builtin.find_files, { cwd = vim.fn.stdpath('config') })
+            end)
         end,
         dependencies = {
             'nvim-tree/nvim-web-devicons',
