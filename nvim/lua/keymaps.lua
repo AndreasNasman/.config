@@ -1,4 +1,8 @@
 -- [[ Clipboard ]]
+-- Black hole
+vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>')
+vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d')
+
 -- System
 local function sync_to_system_clipboard()
     vim.fn.setreg('+', vim.fn.getreg('"'))
@@ -7,10 +11,6 @@ end
 vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard)
 vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$')
 vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y')
-
--- Black hole
-vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>')
-vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d')
 
 -- [[ Diagnostics ]]
 vim.keymap.set('n', '<D-d>', vim.diagnostic.open_float)
