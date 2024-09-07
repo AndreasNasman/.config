@@ -34,6 +34,11 @@ vim.keymap.set('n', '<Leader>fr', function()
     copy_file_path('%:~:.')
 end)
 
+-- [[ Fixes ]]
+-- Make `<BS>` delete default snippet parameters (e.g., in the `function` snippet in JS/TS).
+-- https://github.com/L3MON4D3/LuaSnip/issues/622
+vim.keymap.set('s', '<BS>', '<C-o>s')
+
 -- [[ Jump list ]]
 ---@param direction string
 local function add_move_with_count_to_jumplist(direction)
