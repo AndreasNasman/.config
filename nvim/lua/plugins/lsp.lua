@@ -245,7 +245,7 @@ return {
                 pyright = {},
                 svelte = {},
                 tailwindcss = {},
-                tsserver = {
+                ts_ls = {
                     init_options = {
                         preferences = {
                             includeInlayEnumMemberValueHints = true,
