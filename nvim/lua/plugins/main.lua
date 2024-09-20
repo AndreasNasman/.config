@@ -93,6 +93,7 @@ return {
                 disable = { 'ruby' },
                 enable = true,
             },
+            matchup = { enable = true },
         },
     },
     {
@@ -103,8 +104,7 @@ return {
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
     { 'mbbill/undotree', event = 'UIEnter' },
-    {
-        { 'tpope/vim-abolish', event = 'UIEnter' },
-        { 'tpope/vim-sleuth', lazy = false },
-    },
+    { 'tpope/vim-abolish', event = 'UIEnter' },
+    { 'andymass/vim-matchup', lazy = false },
+    { 'tpope/vim-sleuth', lazy = false },
 }
