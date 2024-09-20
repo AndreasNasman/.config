@@ -60,12 +60,12 @@ vim.keymap.set('n', ']q', '<Cmd>cnext<CR>')
 
 -- [[ Tabs ]]
 -- Management
-vim.keymap.set('n', '<M-c>', '<Cmd>tabclose<CR>')
 vim.keymap.set('n', '<M-n>', '<Cmd>tabnew<CR>')
+vim.keymap.set('n', '<M-w>', '<Cmd>tabclose<CR>')
 
 -- Navigation
-vim.keymap.set('n', '<D-[>', '<Cmd>tabprevious<CR>')
-vim.keymap.set('n', '<D-]>', '<Cmd>tabnext<CR>')
+vim.keymap.set('n', '<M-[>', '<Cmd>tabprevious<CR>')
+vim.keymap.set('n', '<M-]>', '<Cmd>tabnext<CR>')
 
 -- [[ Toggles ]]
 local colorcolumn_values = { '', '120', '80' }
