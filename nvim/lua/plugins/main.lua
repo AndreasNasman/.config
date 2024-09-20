@@ -96,6 +96,7 @@ return {
             matchup = { enable = true },
         },
     },
+    { 'windwp/nvim-ts-autotag', event = 'UIEnter', opts = {} },
     {
         'stevearc/oil.nvim',
         cmd = 'Oil',
