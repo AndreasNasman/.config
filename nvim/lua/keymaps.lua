@@ -24,13 +24,13 @@ local function copy_file_path(pattern)
     vim.notify('File path copied to the clipboard: ' .. file_path, vim.log.levels.INFO)
 end
 
-vim.keymap.set('n', '<Leader>fa', function()
+vim.keymap.set('n', '<Leader>pa', function()
     copy_file_path('%:p')
 end)
-vim.keymap.set('n', '<Leader>fn', function()
+vim.keymap.set('n', '<Leader>pn', function()
     copy_file_path('%:t')
 end)
-vim.keymap.set('n', '<Leader>fr', function()
+vim.keymap.set('n', '<Leader>pr', function()
     copy_file_path('%:~:.')
 end)
 
@@ -60,8 +60,8 @@ vim.keymap.set('n', ']q', '<Cmd>cnext<CR>')
 
 -- [[ Tabs ]]
 -- Management
+vim.keymap.set('n', '<M-c>', '<Cmd>tabclose<CR>')
 vim.keymap.set('n', '<M-n>', '<Cmd>tabnew<CR>')
-vim.keymap.set('n', '<M-w>', '<Cmd>tabclose<CR>')
 
 -- Navigation
 vim.keymap.set('n', '<M-[>', '<Cmd>tabprevious<CR>')
@@ -106,22 +106,18 @@ local function toggle(target, args)
     end
 end
 
+vim.keymap.set('n', '<Leader>f', function()
+    toggle('mini.files', { opts = { vim.api.nvim_buf_get_name(0) } })
+end)
 vim.keymap.set('n', '<Leader>g', function()
     toggle('Neogit')
 end)
 vim.keymap.set('n', '<Leader>li', function()
     toggle('LspInfo')
 end)
-vim.keymap.set('n', '<Leader>mf', function()
-    toggle('mini.files', { opts = { vim.api.nvim_buf_get_name(0) } })
-end)
-vim.keymap.set('n', '<Leader>pl', function()
-    toggle('Lazy')
-end)
-vim.keymap.set('n', '<Leader>pm', function()
+vim.keymap.set('n', '<Leader>m', function()
     toggle('Mason')
 end)
-
 vim.keymap.set('n', '<Leader>o', function()
     toggle('oil')
 end)
@@ -133,6 +129,9 @@ vim.keymap.set('n', '<Leader>q', function()
             return buftype == 'quickfix'
         end,
     })
+end)
+vim.keymap.set('n', '<Leader>z', function()
+    toggle('Lazy')
 end)
 
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
