@@ -101,6 +101,7 @@ return {
         'stevearc/oil.nvim',
         cmd = 'Oil',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        event = 'UIEnter',
         opts = {},
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
