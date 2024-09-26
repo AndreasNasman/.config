@@ -75,7 +75,7 @@ local function toggle_colorcolumn()
     vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end
 
-vim.keymap.set('n', '<Leader>c', toggle_colorcolumn)
+vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
 
 ---@param target string
 ---@param args { is_open: function|nil, opts: table|nil } | nil
@@ -134,6 +134,7 @@ vim.keymap.set('n', '<Leader>z', function()
     toggle('Lazy')
 end)
 
+vim.keymap.set('n', '<Leader>tx', '<Cmd>TSContextToggle<CR>')
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
 -- [[ Utilities ]]
