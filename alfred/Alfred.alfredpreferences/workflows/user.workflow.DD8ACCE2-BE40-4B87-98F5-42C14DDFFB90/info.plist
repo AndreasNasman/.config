@@ -91,7 +91,7 @@
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
-				<string>[\s-()/]+</string>
+				<string>[^\d+]+</string>
 				<key>regexcaseinsensitive</key>
 				<false/>
 				<key>regexmultiline</key>
