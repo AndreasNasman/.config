@@ -80,6 +80,7 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+        dependencies = { 'nvim-treesitter/nvim-treesitter-context' },
         lazy = false,
         main = 'nvim-treesitter.configs',
         opts = {
