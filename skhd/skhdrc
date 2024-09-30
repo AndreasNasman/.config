@@ -17,7 +17,7 @@ rcmd - w: focus-app 'Warp'
 rcmd - z: focus-app 'zoom.us'
 
 # VPN reconnect.
-rcmd - v: reconnect-vpn 'ICT VPN 1'
+rcmd - v: reconnect-vpn 'ICT VPN'
 
 # yabai, skhd, and SketchyBar restart.
 lalt + rcmd - r: yabai --restart-service && skhd --restart-service && brew services restart sketchybar
