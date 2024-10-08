@@ -10,6 +10,11 @@ echo '📻 Adjusting correct directory permissions.'
 # https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85
 chmod u=rwx,go= $(realpath $(pwd)/../gnupg/)
 
+echo '🔗 Symlinking scripts.'
+for script in $(realpath $(pwd)/../bin/*); do
+	sudo ln -s $script /usr/local/bin/$(basename $script)
+done
+
 echo '📀 Initializing and fetching data for Git submodules.'
 # https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
 git submodule init
