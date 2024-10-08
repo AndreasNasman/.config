@@ -8,7 +8,7 @@ cd $(dirname $0)
 
 echo '📻 Adjusting correct directory permissions.'
 # https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85
-chmod u=rwx,go= $(pwd)/../gnupg/
+chmod u=rwx,go= $(realpath $(pwd)/../gnupg/)
 
 echo '📀 Initializing and fetching data for Git submodules.'
 # https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
@@ -26,7 +26,7 @@ if ! command -v brew &>/dev/null; then
 fi
 
 echo '📦 Installing Homebrew packages.'
-BREWFILE_PATH=$(pwd)/../brew/Brewfile
+BREWFILE_PATH=$(realpath $(pwd)/../brew/Brewfile)
 # https://docs.brew.sh/Manpage#bundle-subcommand
 brew bundle check --file $BREWFILE_PATH || brew bundle install --file $BREWFILE_PATH
 
