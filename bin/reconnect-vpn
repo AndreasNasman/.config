@@ -1,21 +1,23 @@
-#!/usr/bin/env fish
+#!/usr/bin/env zsh
 
 # This script reconnects to the VPN given as an argument. If it fails after a
 # certain amount of tries, it aborts.
 
-set --local vpn_name $argv[1]
+vpn_name=$1
 
 networksetup -disconnectpppoeservice $vpn_name
 
-set --local max_reconnect_attemps 10
-set --local reconnect_attempt 1
+max_reconnect_attemps=10
+reconnect_attempt=1
 while test $reconnect_attempt -le $max_reconnect_attemps
-    set --local vpn_status (networksetup -showpppoestatus $vpn_name)
-    if test $vpn_status = disconnected
+do
+    vpn_status=$(networksetup -showpppoestatus $vpn_name)
+    if test "$vpn_status" = "disconnected"; then
         networksetup -connectpppoeservice $vpn_name
         break
-    end
+    fi
 
     sleep 0.1
-    set --local reconnect_attempt (math $reconnect_attempt + 1)
-end
+    reconnect_attempt=$((reconnect_attempt + 1))
+done
+
