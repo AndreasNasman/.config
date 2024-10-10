@@ -132,6 +132,12 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
+alt-q = 'focus-monitor 1'
+alt-e = 'focus-monitor 2'
+
+alt-shift-q = ['move-node-to-monitor 1', 'focus-monitor 1']
+alt-shift-e = ['move-node-to-monitor 2', 'focus-monitor 2']
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
