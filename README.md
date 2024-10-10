@@ -7,10 +7,6 @@ for cloning this repository with Git and for Homebrew.
 xcode-select --install
 ```
 
-Disable _System Integrity Protection_ to access all yabai features.
-
-<https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection>
-
 # Cloning
 
 This repository contains submodules. You can initialize them when cloning by running:
