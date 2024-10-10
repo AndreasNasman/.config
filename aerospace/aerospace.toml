@@ -8,10 +8,15 @@ start-at-login = true
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
+[exec.env-vars]
+PATH = '/usr/local/bin:${PATH}'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 [mode.main.binding]
+
+alt-r = "exec-and-forget reconnect-vpn 'ICT VPN'"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
