@@ -1,20 +1,24 @@
-#!/usr/bin/env fish
+#!/usr/bin/env zsh
 
-# This script changes focus to the app given as an argument. It cycles backward
-# through the app's windows for consecutive runs and opens an app window if
-# none is found.
-#
-# We have to cycle through the windows backward since a window is moved first
-# in the list of windows when it receives focus in yabai. When cycling through
-# windows on multiple displays, the order of windows in the list could be more
-# logical, but the script can still traverse the list backward to focus all
-# apps in succession.
+app=$1
 
-set --local app $argv[1]
-set --local window_id (yabai -m query --windows | jq --arg app $app 'map(select(.app == $app)) | if .[0]."has-focus" == true then .[-1].id else .[0].id end')
-
-if test $window_id != null
-    yabai -m window --focus $window_id
-else
+windows=$(aerospace list-windows --format '%{window-id}|%{app-name}' --all | grep $app)
+if [ -z $windows ]; then
     open -a $app
-end
+    exit
+fi
+
+window_ids=($(echo $windows | cut -d '|' -f 1))
+focused_window_id=$(aerospace list-windows --format '%{window-id}|%{app-name}' --focused | cut -d '|' -f 1)
+# If `window_ids` is missing `focused_window_id`, `focused_index` will be set
+# to the length `window_ids`, plus 1.
+focused_index=${window_ids[(i)$focused_window_id]}
+
+if [ $focused_index -ge ${#window_ids} ]; then
+    next_window_id=${window_ids[1]}
+else
+    next_index=$(($focused_index + 1))
+    next_window_id=${window_ids[$next_index]}
+fi
+
+aerospace focus --window-id $next_window_id

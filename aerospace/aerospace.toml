@@ -9,7 +9,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
 [exec.env-vars]
-PATH = '/usr/local/bin:${PATH}'
+# The Aerospace executable is located in `/opt/homebrew/bin,` and my custom
+# script is symlinked to `/usr/local/bin.`
+PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -70,3 +72,25 @@ alt-e = 'focus-monitor 2'
 alt-shift-q = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-shift-e = ['move-node-to-monitor 2', 'focus-monitor 2']
 
+alt-backtick = 'mode app'
+
+[mode.app.binding]
+b = "exec-and-forget cycle-app-windows 'Bitwarden'"
+c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # 'c' as in 'container'.
+d = 'exec-and-forget cycle-app-windows DBeaver'
+f = 'exec-and-forget cycle-app-windows Finder'
+g = "exec-and-forget cycle-app-windows 'Google Chrome'"
+i = "exec-and-forget cycle-app-windows 'IntelliJ IDEA CE'"
+k = 'exec-and-forget cycle-app-windows kitty'
+m = "exec-and-forget cycle-app-windows 'MuseScore 4'"
+n = 'exec-and-forget cycle-app-windows Notion'
+o = "exec-and-forget cycle-app-windows 'Microsoft Outlook'"
+p = "exec-and-forget cycle-app-windows 'Parallels Desktop'"
+r = "exec-and-forget cycle-app-windows 'Microsoft Remote Desktop'"
+s = "exec-and-forget cycle-app-windows 'System Settings'"
+t = "exec-and-forget cycle-app-windows 'Microsoft Teams'"
+v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
+w = 'exec-and-forget cycle-app-windows Warp'
+z = 'exec-and-forget cycle-app-windows zoom.us'
+
+esc = 'mode main'
