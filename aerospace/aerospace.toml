@@ -1,5 +1,5 @@
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Mouse follows focus when focused monitor changes
 # Drop it from your config, if you don't like this behavior
