@@ -30,6 +30,7 @@ return {
                 markdown = { 'markdownlint' },
                 python = { 'ruff_fix', 'ruff_format' },
                 svelte = { 'prettierd', 'biome-check' },
+                toml = { 'taplo' },
                 typescript = { 'biome-check' },
             },
         },
@@ -247,6 +248,7 @@ return {
                 pyright = {},
                 svelte = {},
                 tailwindcss = {},
+                taplo = {},
                 ts_ls = {
                     init_options = {
                         preferences = {
@@ -323,6 +325,7 @@ return {
             'perl',
             'python',
             'svelte',
+            'toml',
             'typescript',
         },
     },
