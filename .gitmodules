@@ -7,6 +7,3 @@
 [submodule "lazygit/lazygit"]
 	path = lazygit/lazygit
 	url = https://github.com/catppuccin/lazygit.git
-[submodule "kickstart.nvim"]
-	path = kickstart.nvim
-	url = https://github.com/nvim-lua/kickstart.nvim.git
