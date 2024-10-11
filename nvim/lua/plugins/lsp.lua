@@ -238,6 +238,13 @@ return {
                 return lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
             end
 
+            require('mason').setup({
+                ui = {
+                    border = 'rounded',
+                    height = 0.8,
+                },
+            })
+
             local servers = {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
@@ -282,13 +289,6 @@ return {
                     single_file_support = not is_deno_project()(vim.fn.getcwd()),
                 },
             }
-
-            require('mason').setup({
-                ui = {
-                    border = 'rounded',
-                    height = 0.8,
-                },
-            })
 
             require('mason-tool-installer').setup({ ensure_installed = vim.tbl_keys(servers) })
 
