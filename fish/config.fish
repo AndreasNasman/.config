@@ -34,6 +34,7 @@ set --universal fish_greeting
 
 # https://fishshell.com/docs/current/cmds/alias.html
 alias cal='cal -3'
+alias cp='cp -i'
 alias lg='lazygit'
 alias rm='rm -i'
 
