@@ -242,12 +242,19 @@ return {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
                 beautysh = {},
+                biome = {},
+                cssls = {},
                 denols = { root_dir = is_deno_project() },
+                djlint = {},
                 jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
+                markdownlint = {},
                 marksman = {},
                 perlnavigator = {},
+                prettierd = {},
                 pyright = {},
+                ruff = {},
+                stylua = {},
                 svelte = {},
                 tailwindcss = {},
                 taplo = {},
@@ -283,17 +290,7 @@ return {
                 },
             })
 
-            local ensure_installed = vim.tbl_keys(servers or {})
-            vim.list_extend(ensure_installed, {
-                'biome',
-                'cssls',
-                'djlint',
-                'markdownlint',
-                'prettierd',
-                'ruff',
-                'stylua',
-            })
-            require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
+            require('mason-tool-installer').setup({ ensure_installed = vim.tbl_keys(servers) })
 
             require('mason-lspconfig').setup({
                 handlers = {
