@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+echo '📀 Updating Git submodules.'
+git submodule update --init --recursive --remote
 echo '🍺 Updating Homebrew packages.'
 brew update
 echo '🍺 Upgrading Homebrew packages.'
