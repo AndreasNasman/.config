@@ -29,17 +29,6 @@ This script installs Homebrew packages (dependencies) and initializes as many
 programs as possible from the repository. It uses Bash since macOS does not
 include [fish](https://fishshell) out of the box.
 
-## Template
-
-To replace config files with their base templates (example files), run the
-following script:
-
-```sh
-setup/template
-```
-
-This script is handy to check if the config example files contain new information.
-
 ## Update
 
 To update relevant files when the setup changes, run the following script:
