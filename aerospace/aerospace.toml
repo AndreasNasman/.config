@@ -65,7 +65,6 @@ alt-ctrl-cmd-2 = 'focus-monitor 2'
 alt-ctrl-cmd-q = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-e = ['move-node-to-monitor 2', 'focus-monitor 2']
 
-alt-ctrl-cmd-b = "exec-and-forget cycle-app-windows 'Bitwarden'"
 alt-ctrl-cmd-c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # 'c' as in 'container'.
 alt-ctrl-cmd-d = 'exec-and-forget cycle-app-windows DBeaver'
 alt-ctrl-cmd-f = 'exec-and-forget cycle-app-windows Finder'
