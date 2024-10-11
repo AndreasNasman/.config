@@ -32,6 +32,7 @@ return {
                 svelte = { 'prettierd', 'biome-check' },
                 toml = { 'taplo' },
                 typescript = { 'biome-check' },
+                zsh = { 'beautysh' },
             },
         },
     },
@@ -240,6 +241,7 @@ return {
             local servers = {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
+                beautysh = {},
                 denols = { root_dir = is_deno_project() },
                 jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
@@ -327,6 +329,7 @@ return {
             'svelte',
             'toml',
             'typescript',
+            'zsh',
         },
     },
 }
