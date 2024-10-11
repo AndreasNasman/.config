@@ -17,8 +17,7 @@ done
 
 echo '📀 Initializing and fetching data for Git submodules.'
 # https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
-git submodule init
-git submodule update
+git submodule update --init --recursive --remote
 
 # https://stackoverflow.com/a/677212
 if ! command -v brew &>/dev/null; then
