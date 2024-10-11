@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 396 on 2024-10-10 at 11:25 (EEST)-->
-<!--Last edited by Ukelele version 396 on 2024-10-11 at 10:37 (EEST)-->
+<!--Last edited by Ukelele version 396 on 2024-10-11 at 15:15 (EEST)-->
 <keyboard group="126" id="-14904" name="US-SV" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="Modifiers"/>
@@ -711,7 +711,7 @@
             <key code="32" output=""/>
             <key code="33" output=""/>
             <key code="34" output=""/>
-            <key code="35" output=""/>
+            <key code="35" output="p"/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output=""/>
             <key code="38" output=""/>
@@ -721,7 +721,7 @@
             <key code="42" output=""/>
             <key code="43" output=""/>
             <key code="44" output=""/>
-            <key code="45" output=""/>
+            <key code="45" output="n"/>
             <key code="46" output=""/>
             <key code="47" output=""/>
             <key code="48" output="&#x0009;"/>
