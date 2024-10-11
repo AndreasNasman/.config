@@ -4,7 +4,7 @@
 # man_pages` uses `apropos` on Mac, which can utilize the `whatis` files to
 # speed up the process.
 #
-# Whether we launch kitty and fish through Alfred or skhd, `manpath` still
+# Whether we launch kitty and fish through Alfred or Aerospace, `manpath` still
 # contains duplicate or faulty entries, but the command still works fine.
 
 sudo /usr/libexec/makewhatis $(manpath)
