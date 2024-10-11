@@ -12,7 +12,7 @@ chmod u=rwx,go= $(realpath $(pwd)/../gnupg/)
 
 echo '🔗 Symlinking scripts.'
 for script in $(realpath $(pwd)/../bin/*); do
-	sudo ln -s $script /usr/local/bin/$(basename $script)
+    sudo ln -s $script /usr/local/bin/$(basename $script)
 done
 
 echo '📀 Initializing and fetching data for Git submodules.'
@@ -22,12 +22,12 @@ git submodule update
 
 # https://stackoverflow.com/a/677212
 if ! command -v brew &>/dev/null; then
-	echo '🍺 Installing Homebrew.'
-	# https://brew.sh/#install
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo '🍺 Adding Homebrew to `$PATH` during setup.'
-	# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+    echo '🍺 Installing Homebrew.'
+    # https://brew.sh/#install
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo '🍺 Adding Homebrew to `$PATH` during setup.'
+    # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 echo '📦 Installing Homebrew packages.'
@@ -61,17 +61,17 @@ sudo curl https://raw.githubusercontent.com/alexmick/EurKEY-Mac/main/EurKEY.icns
 
 # https://stackoverflow.com/a/677212
 if ! command -v vimgolf &>/dev/null; then
-	echo '⛳️ Installing VimGolf.'
-	gem install vimgolf
-	vimgolf setup
+    echo '⛳️ Installing VimGolf.'
+    gem install vimgolf
+    vimgolf setup
 fi
 
 SHELLS_PATH=/etc/shells
 if ! grep --quiet fish $SHELLS_PATH; then
-	echo '🐠 Setting fish as the default shell.'
-	# https://fishshell.com/docs/current/#default-shell
-	echo $(which fish) | sudo tee -a $SHELLS_PATH
-	chsh -s $(which fish)
+    echo '🐠 Setting fish as the default shell.'
+    # https://fishshell.com/docs/current/#default-shell
+    echo $(which fish) | sudo tee -a $SHELLS_PATH
+    chsh -s $(which fish)
 fi
 
 echo '📶 (Re)starting SketchyBar service.'
@@ -91,6 +91,6 @@ echo '🍎 macOS settings'
 echo '=================================================================='
 
 if [ $TERM != 'xterm-kitty' ]; then
-	echo '🐈 Opening kitty terminal.'
-	open -a kitty
+    echo '🐈 Opening kitty terminal.'
+    open -a kitty
 fi
