@@ -88,7 +88,7 @@ alt-tab = 'workspace-back-and-forth'
 alt-backtick = 'mode service'
 
 [mode.service.binding]
-r = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
+v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 
 slash = ['layout tiles horizontal vertical', 'mode main']
 comma = ['layout accordion horizontal vertical', 'mode main']
