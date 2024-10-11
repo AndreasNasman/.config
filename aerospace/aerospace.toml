@@ -82,13 +82,13 @@ alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
 
 alt-tab = 'workspace-back-and-forth'
 
-alt-shift-semicolon = 'mode service'
+alt-backtick = 'mode service'
 
 [mode.service.binding]
-r = "exec-and-forget reconnect-vpn 'ICT VPN'"
+r = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 
-slash = 'layout tiles horizontal vertical'
-comma = 'layout accordion horizontal vertical'
+slash = ['layout tiles horizontal vertical', 'mode main']
+comma = ['layout accordion horizontal vertical', 'mode main']
 
 minus = 'resize smart -50'
 equal = 'resize smart +50'
