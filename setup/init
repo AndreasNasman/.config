@@ -55,10 +55,6 @@ echo '🍺 Adding asdf plugins to `$PATH` during setup.'
 # https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
 
-echo '🎹 Downloading EurKEY keyboard layout.'
-sudo curl https://raw.githubusercontent.com/alexmick/EurKEY-Mac/main/EurKEY.keylayout --remote-name --output-dir /Library/Keyboard\ Layouts/ --silent
-sudo curl https://raw.githubusercontent.com/alexmick/EurKEY-Mac/main/EurKEY.icns --remote-name --output-dir /Library/Keyboard\ Layouts/ --silent
-
 # https://stackoverflow.com/a/677212
 if ! command -v vimgolf &>/dev/null; then
     echo '⛳️ Installing VimGolf.'
