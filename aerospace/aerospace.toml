@@ -20,12 +20,6 @@ PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 # 'main' binding mode must be always presented
 [mode.main.binding]
 
-alt-r = "exec-and-forget reconnect-vpn 'ICT VPN'"
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left --boundaries-action stop'
 alt-j = 'focus down --boundaries-action stop'
@@ -37,12 +31,6 @@ alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-minus = 'resize smart -50'
-alt-equal = 'resize smart +50'
-alt-shift-minus = 'balance-sizes'
-alt-shift-equal = 'balance-sizes'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -92,7 +80,16 @@ alt-ctrl-cmd-v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
 alt-ctrl-cmd-w = 'exec-and-forget cycle-app-windows Warp'
 alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
 
-alt-backtick = 'mode app'
+alt-shift-semicolon = 'mode service'
 
+[mode.service.binding]
+r = "exec-and-forget reconnect-vpn 'ICT VPN'"
 
-esc = 'mode main'
+slash = 'layout tiles horizontal vertical'
+comma = 'layout accordion horizontal vertical'
+
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+0 = 'balance-sizes'
+
+esc = ['reload-config', 'mode main']
