@@ -1,8 +1,8 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 396 on 2024-10-10 at 11:25 (EEST)-->
-<!--Last edited by Ukelele version 396 on 2024-10-12 at 14:13 (EEST)-->
-<keyboard group="126" id="-17264" name="US-SV" maxout="1">
+<!--Last edited by Ukelele version 396 on 2024-10-12 at 17:44 (EEST)-->
+<keyboard group="126" id="-8526" name="US-SV" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="Modifiers"/>
         <layout first="18" last="18" mapSet="JIS" modifiers="Modifiers"/>
@@ -284,7 +284,7 @@
             <key code="32" output=""/>
             <key code="33" output=""/>
             <key code="34" output="i"/>
-            <key code="35" output=""/>
+            <key code="35" output="å"/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output=""/>
             <key code="38" output=""/>
@@ -580,7 +580,7 @@
             <key code="10" output=""/>
             <key code="11" output=""/>
             <key code="12" output=""/>
-            <key code="13" output="å"/>
+            <key code="13" output=""/>
             <key code="14" output=""/>
             <key code="15" output=""/>
             <key code="16" output=""/>
