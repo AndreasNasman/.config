@@ -72,7 +72,6 @@ alt-ctrl-cmd-r = "exec-and-forget cycle-app-windows 'Microsoft Remote Desktop'"
 alt-ctrl-cmd-s = "exec-and-forget cycle-app-windows 'System Settings'"
 alt-ctrl-cmd-t = "exec-and-forget cycle-app-windows 'Microsoft Teams'"
 alt-ctrl-cmd-v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
-alt-ctrl-cmd-w = 'exec-and-forget cycle-app-windows Warp'
 alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
 
 # Workspace switching.
