@@ -1,41 +1,31 @@
-# Start AeroSpace at login
-start-at-login = true
-
 accordion-padding = 20
-
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+start-at-login = true
 
 [exec.env-vars]
 # The Aerospace executable is located in `/opt/homebrew/bin,` and my custom
 # script is symlinked to `/usr/local/bin.`
 PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 
-# 'main' binding mode declaration
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# 'main' binding mode must be always presented
 [mode.main.binding]
 # https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 cmd-h = []
 cmd-alt-h = []
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#focus
+# Window focus.
 alt-h = 'focus left --boundaries-action stop'
 alt-j = 'focus down --boundaries-action stop'
 alt-k = 'focus up --boundaries-action stop'
 alt-l = 'focus right --boundaries-action stop'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
+# Window movement.
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+# Workspace focus.
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -47,7 +37,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+# Window movement between workspaces.
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -59,12 +49,15 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
+# Monitor focus.
 alt-ctrl-cmd-1 = 'focus-monitor 1'
 alt-ctrl-cmd-2 = 'focus-monitor 2'
 
+# Window movement between monitors.
 alt-ctrl-cmd-shift-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 
+# App focus cycling.
 alt-ctrl-cmd-c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # 'c' as in 'container'.
 alt-ctrl-cmd-d = 'exec-and-forget cycle-app-windows DBeaver'
 alt-ctrl-cmd-f = 'exec-and-forget cycle-app-windows Finder'
@@ -82,6 +75,7 @@ alt-ctrl-cmd-v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
 alt-ctrl-cmd-w = 'exec-and-forget cycle-app-windows Warp'
 alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
 
+# Workspace switching.
 alt-tab = 'workspace-back-and-forth'
 
 alt-backtick = 'mode service'
@@ -89,9 +83,11 @@ alt-backtick = 'mode service'
 [mode.service.binding]
 v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 
+# Layout switching.
 slash = ['layout tiles horizontal vertical', 'mode main']
 comma = ['layout accordion horizontal vertical', 'mode main']
 
+# Window resizing.
 minus = 'resize smart -50'
 equal = 'resize smart +50'
 0 = 'balance-sizes'
@@ -99,6 +95,7 @@ equal = 'resize smart +50'
 esc = ['reload-config', 'mode main']
 
 [workspace-to-monitor-force-assignment]
+# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 1 = 1
 2 = 1
 3 = 1
