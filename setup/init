@@ -32,7 +32,7 @@ fi
 echo '📦 Installing Homebrew packages.'
 BREWFILE_PATH=$(realpath $(pwd)/../brew/Brewfile)
 # https://docs.brew.sh/Manpage#bundle-subcommand
-brew bundle check --file $BREWFILE_PATH || brew bundle install --file $BREWFILE_PATH
+brew bundle check --file $BREWFILE_PATH || brew bundle install --file $BREWFILE_PATH --no-lock
 
 echo '📈 Running `brew doctor`.'
 brew doctor
