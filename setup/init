@@ -54,6 +54,10 @@ echo '🍺 Adding asdf plugins to `$PATH` during setup.'
 # https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
 
+echo '🎹 Adding US-SV keyboard layout.'
+sudo cp $(realpath $(pwd)/../ukulele/US-SV.keylayout) '/Library/Keyboard Layouts/'
+sudo cp $(realpath $(pwd)/../ukulele/US-SV.icns) '/Library/Keyboard Layouts/'
+
 # https://stackoverflow.com/a/677212
 if ! command -v vimgolf &>/dev/null; then
     echo '⛳️ Installing VimGolf.'
