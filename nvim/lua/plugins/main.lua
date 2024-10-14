@@ -27,6 +27,12 @@ return {
     },
     { 'lewis6991/gitsigns.nvim', event = 'UIEnter', opts = {} },
     {
+        'mikesmithgh/kitty-scrollback.nvim',
+        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+        event = { 'User KittyScrollbackLaunch' },
+        opts = {},
+    },
+    {
         'iamcco/markdown-preview.nvim',
         build = function()
             vim.fn['mkdp#util#install']()
