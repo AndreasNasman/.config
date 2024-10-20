@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+cd (dirname (status --current-filename))
+
 echo '📀 Updating Git submodules.'
 git submodule update --init --recursive --remote
 echo '🍺 Updating Homebrew packages.'
