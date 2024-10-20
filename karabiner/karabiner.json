@@ -80,6 +80,7 @@
                         "product_id": 6505,
                         "vendor_id": 12951
                     },
+                    "manipulate_caps_lock_led": false,
                     "simple_modifications": [
                         {
                             "from": { "key_code": "right_control" },
@@ -97,7 +98,6 @@
                         "product_id": 34304,
                         "vendor_id": 1452
                     },
-                    "ignore": true,
                     "manipulate_caps_lock_led": false
                 }
             ],
