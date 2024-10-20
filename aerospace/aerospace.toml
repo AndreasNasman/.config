@@ -58,6 +58,7 @@ alt-ctrl-cmd-shift-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 
 # App focus cycling.
+alt-enter = 'exec-and-forget cycle-app-windows kitty'
 alt-ctrl-cmd-enter = 'exec-and-forget cycle-app-windows kitty'
 
 alt-ctrl-cmd-c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # 'c' as in 'container'.
