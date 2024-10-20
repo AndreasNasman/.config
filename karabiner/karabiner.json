@@ -107,11 +107,15 @@
                 {
                     "from": { "key_code": "caps_lock" },
                     "to": [{ "key_code": "escape" }]
+                },
+                {
+                    "from": { "key_code": "non_us_backslash" },
+                    "to": [{ "key_code": "grave_accent_and_tilde" }]
                 }
             ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
-                "keyboard_type_v2": "iso"
+                "keyboard_type_v2": "ansi"
             }
         }
     ]
