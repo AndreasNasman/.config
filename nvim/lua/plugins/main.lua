@@ -87,15 +87,22 @@ return {
         build = './kitty/install-kittens.bash',
         config = function()
             local smart_splits = require('smart-splits')
-            vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)
-            vim.keymap.set('n', '<C-j>', smart_splits.move_cursor_down)
-            vim.keymap.set('n', '<C-k>', smart_splits.move_cursor_up)
-            vim.keymap.set('n', '<C-l>', smart_splits.move_cursor_right)
-
-            vim.keymap.set('n', '<C-S-h>', smart_splits.resize_left)
-            vim.keymap.set('n', '<C-S-j>', smart_splits.resize_down)
-            vim.keymap.set('n', '<C-S-k>', smart_splits.resize_up)
-            vim.keymap.set('n', '<C-S-l>', smart_splits.resize_right)
+            -- Navigation
+            vim.keymap.set('n', '<D-h>', smart_splits.move_cursor_left)
+            vim.keymap.set('n', '<D-j>', smart_splits.move_cursor_down)
+            vim.keymap.set('n', '<D-k>', smart_splits.move_cursor_up)
+            vim.keymap.set('n', '<D-l>', smart_splits.move_cursor_right)
+            -- Movement
+            vim.keymap.set('n', '<D-H>', '<C-w>H')
+            vim.keymap.set('n', '<D-J>', '<C-w>J')
+            vim.keymap.set('n', '<D-K>', '<C-w>K')
+            vim.keymap.set('n', '<D-L>', '<C-w>L')
+            -- Resizing
+            vim.keymap.set('n', '<C-D-h>', smart_splits.resize_left)
+            vim.keymap.set('n', '<C-D-j>', smart_splits.resize_down)
+            vim.keymap.set('n', '<C-D-k>', smart_splits.resize_up)
+            vim.keymap.set('n', '<C-D-l>', smart_splits.resize_right)
+            vim.keymap.set('n', '<C-D-=>', '<C-w>=')
         end,
         lazy = false,
     },
