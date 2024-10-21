@@ -166,11 +166,5 @@ vim.keymap.set('n', '<Leader>wj', '<Cmd>belowright split<CR>')
 vim.keymap.set('n', '<Leader>wk', '<Cmd>aboveleft split<CR>')
 vim.keymap.set('n', '<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
 
--- Navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
-
 -- Full screen
 vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
