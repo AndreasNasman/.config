@@ -1,3 +1,8 @@
+-- [[ Prerequisites ]]
+-- Separate <C-i> from <Tab>.
+-- https://www.reddit.com/r/neovim/comments/vguomm/comment/id5p016/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+vim.keymap.set('n', '<C-i>', '<C-i>')
+
 -- [[ Clipboard ]]
 -- Black hole
 vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>')
@@ -60,12 +65,22 @@ vim.keymap.set('n', ']q', '<Cmd>cnext<CR>')
 
 -- [[ Tabs ]]
 -- Management
-vim.keymap.set('n', '<M-c>', '<Cmd>tabclose<CR>')
-vim.keymap.set('n', '<M-n>', '<Cmd>tabnew<CR>')
+vim.keymap.set('n', '<Tab>n', '<Cmd>tabnew<CR>')
+vim.keymap.set('n', '<Tab>w', '<Cmd>tabclose<CR>')
 
 -- Navigation
-vim.keymap.set('n', '<M-[>', '<Cmd>tabprevious<CR>')
-vim.keymap.set('n', '<M-]>', '<Cmd>tabnext<CR>')
+vim.keymap.set('n', '<Tab>h', '<Cmd>tabprevious<CR>')
+vim.keymap.set('n', '<Tab>l', '<Cmd>tabnext<CR>')
+
+vim.keymap.set('n', '<Tab>1', '<Cmd>tabnext 1<CR>')
+vim.keymap.set('n', '<Tab>2', '<Cmd>tabnext 2<CR>')
+vim.keymap.set('n', '<Tab>3', '<Cmd>tabnext 3<CR>')
+vim.keymap.set('n', '<Tab>4', '<Cmd>tabnext 4<CR>')
+vim.keymap.set('n', '<Tab>5', '<Cmd>tabnext 5<CR>')
+vim.keymap.set('n', '<Tab>6', '<Cmd>tabnext 6<CR>')
+vim.keymap.set('n', '<Tab>7', '<Cmd>tabnext 7<CR>')
+vim.keymap.set('n', '<Tab>8', '<Cmd>tabnext 8<CR>')
+vim.keymap.set('n', '<Tab>9', '<Cmd>$tabnext<CR>')
 
 -- [[ Toggles ]]
 local colorcolumn_values = { '', '120', '80' }
