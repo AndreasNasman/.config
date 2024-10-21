@@ -186,7 +186,7 @@ return {
                         vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
                     end
 
-                    map('<D-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
+                    map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
                     map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
                     map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
                     map('<Leader>lr', vim.lsp.buf.rename)
