@@ -85,8 +85,9 @@ return {
     {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
-        config = function()
+        config = function(_, opts)
             local smart_splits = require('smart-splits')
+
             -- Navigation
             vim.keymap.set('n', '<D-h>', smart_splits.move_cursor_left)
             vim.keymap.set('n', '<D-j>', smart_splits.move_cursor_down)
@@ -103,7 +104,10 @@ return {
             vim.keymap.set('n', '<C-D-k>', smart_splits.resize_up)
             vim.keymap.set('n', '<C-D-l>', smart_splits.resize_right)
             vim.keymap.set('n', '<C-D-=>', '<C-w>=')
+
+            smart_splits.setup(opts)
         end,
+        opts = { at_edge = 'stop' },
         lazy = false,
     },
     {
