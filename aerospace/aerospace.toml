@@ -81,6 +81,7 @@ alt-tab = 'workspace-back-and-forth'
 alt-backtick = 'mode service'
 
 [mode.service.binding]
+r = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 
 # Layout switching.
