@@ -8,6 +8,19 @@ start-at-login = true
 # script is symlinked to `/usr/local/bin.`
 PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 
+[workspace-to-monitor-force-assignment]
+# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+1 = 1
+2 = 1
+3 = 1
+4 = 1
+5 = 1
+6 = 2
+7 = 2
+8 = 2
+9 = 2
+10 = 2
+
 [mode.main.binding]
 # https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 cmd-alt-h = []
@@ -94,16 +107,3 @@ equal = 'resize smart +50'
 0 = 'balance-sizes'
 
 esc = ['reload-config', 'mode main']
-
-[workspace-to-monitor-force-assignment]
-# https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-1 = 1
-2 = 1
-3 = 1
-4 = 1
-5 = 1
-6 = 2
-7 = 2
-8 = 2
-9 = 2
-10 = 2
