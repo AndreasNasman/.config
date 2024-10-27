@@ -25,6 +25,11 @@ vim.diagnostic.config({
     },
 })
 
+-- Folds
+vim.opt.foldenable = false
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldmethod = 'expr'
+
 -- History
 vim.opt.undofile = true
 
