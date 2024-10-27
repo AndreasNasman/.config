@@ -14,24 +14,20 @@ return {
         },
         opts = {
             format_on_save = { lsp_format = 'fallback' },
-            formatters = {
-                ['biome-check'] = { append_args = { '--unsafe' } },
-                prettierd = { append_args = { '--use-tabs' } },
-            },
             formatters_by_ft = {
-                css = { 'prettierd', 'biome-check' },
+                css = { 'deno_fmt' },
                 fish = { 'fish_indent' },
-                html = { 'prettierd' },
+                html = { 'deno_fmt' },
                 htmldjango = { 'djlint' },
-                javascript = { 'biome-check' },
-                json = { 'biome-check' },
-                jsonc = { 'biome-check' },
+                javascript = { 'deno_fmt' },
+                json = { 'deno_fmt' },
+                jsonc = { 'deno_fmt' },
                 lua = { 'stylua' },
-                markdown = { 'markdownlint' },
+                markdown = { 'deno_fmt' },
                 python = { 'ruff_fix', 'ruff_format' },
-                svelte = { 'prettierd', 'biome-check' },
+                svelte = { 'deno_fmt' },
                 toml = { 'taplo' },
-                typescript = { 'biome-check' },
+                typescript = { 'deno_fmt' },
                 zsh = { 'beautysh' },
             },
         },
@@ -233,11 +229,6 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            local lspconfig = require('lspconfig')
-            local function is_deno_project()
-                return lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
-            end
-
             require('mason').setup({
                 ui = {
                     border = 'rounded',
@@ -249,45 +240,20 @@ return {
                 ['jinja-lsp'] = {},
                 basedpyright = {},
                 beautysh = {},
-                biome = {},
                 cssls = {},
-                denols = { root_dir = is_deno_project() },
+                denols = {},
                 djlint = {},
                 jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
                 markdownlint = {},
                 marksman = {},
                 perlnavigator = {},
-                prettierd = {},
                 pyright = {},
                 ruff = {},
                 stylua = {},
                 svelte = {},
                 tailwindcss = {},
                 taplo = {},
-                ts_ls = {
-                    init_options = {
-                        preferences = {
-                            includeInlayEnumMemberValueHints = true,
-                            includeInlayFunctionLikeReturnTypeHints = true,
-                            includeInlayFunctionParameterTypeHints = true,
-                            includeInlayParameterNameHints = 'all',
-                            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                            includeInlayPropertyDeclarationTypeHints = true,
-                            includeInlayVariableTypeHints = true,
-                            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                        },
-                    },
-                    root_dir = function(startpath)
-                        if is_deno_project()(startpath) then
-                            return nil
-                        end
-
-                        return lspconfig.util.root_pattern('package.json', 'tsconfig.json')(startpath)
-                    end,
-                    settings = { implicitProjectConfiguration = { target = 'ESNext' } },
-                    single_file_support = not is_deno_project()(vim.fn.getcwd()),
-                },
             }
 
             require('mason-tool-installer').setup({ ensure_installed = vim.tbl_keys(servers) })
