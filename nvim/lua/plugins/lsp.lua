@@ -23,7 +23,7 @@ return {
                 json = { 'deno_fmt' },
                 jsonc = { 'deno_fmt' },
                 lua = { 'stylua' },
-                markdown = { 'deno_fmt' },
+                markdown = { 'markdownlint', 'deno_fmt' },
                 python = { 'ruff_fix', 'ruff_format' },
                 svelte = { 'deno_fmt' },
                 toml = { 'taplo' },
