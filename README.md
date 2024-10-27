@@ -84,7 +84,7 @@ gpg --edit-key $KEY_ID trust quit
 1. Paste
 
 ```plain
-https://raw.githubusercontent.com/AndreasNasman/.config/surfingkeys/theme.js
+https://raw.githubusercontent.com/AndreasNasman/.config/refs/heads/mac/surfingkeys/theme.js
 ```
 
 in the `Load settings from:` text field.
