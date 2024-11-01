@@ -1,9 +1,14 @@
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval (/opt/homebrew/bin/brew shellenv)
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+source (brew --prefix asdf)/libexec/asdf.fish
+
 # https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
 fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
 # To use Homebrew's version, `curl` must be explicitly added to `$PATH`.
 fish_add_path /opt/homebrew/opt/curl/bin
+# Prepend asdf to PATH last always with `--move`.
+fish_add_path --move $ASDF_DIR/bin $HOME/.asdf/shims
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
@@ -68,8 +73,3 @@ function fish_user_key_bindings
         bind -M $mode \ef forward-word
     end
 end
-
-# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
-source (brew --prefix asdf)/libexec/asdf.fish
-# https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
-fish_add_path $ASDF_DIR/bin $HOME/.asdf/shims
