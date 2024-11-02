@@ -48,38 +48,19 @@ section serves as a reminder of what to set up manually.
 
 ### GPG keys
 
-For Git commit signing to work, you must set up GPG with some keys.
+GPG keys should be device-specific. If you configure them with an expiration
+date, GitHub can show commits as "Verified" but expired. This approach
+eliminates the need to copy private keys between devices (which you shouldn't do
+anyway).
 
-Copy `private-key.asc` through a safe method, e.g., from a password manager. If
-needed, export the key from another system with the following commands:
+Follow these guides to set up GPG commit signing:
 
-```sh
-# Copy the desired key ID.
-gpg --list-keys
-gpg --export-secret-key --armor $KEY_ID > private-key.asc
-```
-
-Import `private-key.asc` on the current system with the following command:
-
-```sh
-gpg --import private-key.asc
-```
-
-Modify the trust of the key with the following command:
-
-```sh
-gpg --edit-key $KEY_ID trust quit
-# Follow the prompt to set the trust level to `ultimate`.
-```
-
-**NB: Importing a private key also includes its public counterpart.**
-
-<https://dotmethod.me/posts/pass-password-manager-share-gpg-key/>\
-<https://unix.stackexchange.com/a/392355>
+- <https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification>
+- <https://docs.gitlab.com/ee/user/project/repository/signed_commits/gpg.html>
 
 ### Surfingkeys
 
-1. Open Surfingkey settings.
+1. Open Surfingkeys settings.
 1. Tick the `Advanced mode` checkbox.
 1. Paste
 
