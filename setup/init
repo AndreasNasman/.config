@@ -86,6 +86,7 @@ killall Dock
 echo '=================================================================='
 echo '💡 Remember to manually set up and configure the following things:'
 echo '🔑 GPG keys'
+echo '🏄 Surfingkeys'
 echo '🍎 macOS settings'
 echo '=================================================================='
 
