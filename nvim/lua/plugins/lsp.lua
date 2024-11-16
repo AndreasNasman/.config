@@ -177,7 +177,7 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('nasse-lsp-attach', { clear = true }),
                 callback = function(event)
-                    local map = function(lhs, rhs, mode)
+                    local function map(lhs, rhs, mode)
                         mode = mode or 'n'
                         vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
                     end
