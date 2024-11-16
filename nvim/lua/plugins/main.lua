@@ -77,6 +77,11 @@ return {
         event = 'UIEnter',
     },
     {
+        'danymat/neogen',
+        config = true,
+        event = 'UIEnter',
+    },
+    {
         'NeogitOrg/neogit',
         cmd = 'Neogit',
         dependencies = { 'sindrets/diffview.nvim', 'nvim-lua/plenary.nvim' },
