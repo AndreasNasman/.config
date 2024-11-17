@@ -4,8 +4,11 @@ return {
         config = function()
             vim.cmd.colorscheme('catppuccin-mocha')
             local palette = require('catppuccin.palettes').get_palette('mocha')
+            local color_utils = require('catppuccin.utils.colors')
             vim.api.nvim_set_hl(0, 'NormalFloat', {})
             vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.rosewater })
+            vim.api.nvim_set_hl(0, 'GitSignsAddInline', { bg = color_utils.darken(palette.green, 0.36, palette.base) })
+            vim.api.nvim_set_hl(0, 'GitSignsDeleteInline', { bg = color_utils.darken(palette.red, 0.36, palette.base) })
         end,
         lazy = false,
         name = 'catppuccin',
@@ -24,7 +27,44 @@ return {
         },
         priority = 1000,
     },
-    { 'lewis6991/gitsigns.nvim', event = 'UIEnter', opts = {} },
+    {
+        'lewis6991/gitsigns.nvim',
+        lazy = false,
+        opts = {
+            attach_to_untracked = true,
+            current_line_blame = true,
+            on_attach = function(buffer)
+                local gitsigns = require('gitsigns')
+
+                local function map(lhs, rhs, mode)
+                    mode = mode or 'n'
+                    vim.keymap.set(mode, lhs, rhs, { buffer = buffer })
+                end
+
+                map(']c', function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ ']c', bang = true })
+                    else
+                        gitsigns.nav_hunk('next')
+                    end
+                end)
+                map('[c', function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ '[c', bang = true })
+                    else
+                        gitsigns.nav_hunk('prev')
+                    end
+                end)
+
+                map('<Leader>b', function()
+                    gitsigns.blame_line({ full = true })
+                end)
+                map('<Leader>h', function()
+                    gitsigns.preview_hunk()
+                end)
+            end,
+        },
+    },
     {
         'mikesmithgh/kitty-scrollback.nvim',
         cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
