@@ -96,13 +96,13 @@ vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
 ---@param args { is_open: function|nil, opts: table|nil } | nil
 local function toggle(target, args)
     args = args or {}
-    local opts = args.opts or {}
     local is_open = args.is_open
         or function()
             local buffer = vim.api.nvim_get_current_buf()
             local filetype = vim.bo[buffer].filetype
-            return string.find(string.lower(filetype), string.lower(target:gsub('%.', '')))
+            return filetype:lower():find(target:gsub('%.', ''):lower())
         end
+    local opts = args.opts or {}
 
     local is_plugin, plugin = pcall(require, target)
 
