@@ -3,9 +3,9 @@ return {
         'catppuccin/nvim',
         config = function()
             vim.cmd.colorscheme('catppuccin-mocha')
-            local mocha = require('catppuccin.palettes').get_palette('mocha')
+            local palette = require('catppuccin.palettes').get_palette('mocha')
             vim.api.nvim_set_hl(0, 'NormalFloat', {})
-            vim.api.nvim_set_hl(0, 'FloatBorder', { fg = mocha.rosewater })
+            vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.rosewater })
         end,
         lazy = false,
         name = 'catppuccin',
