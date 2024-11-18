@@ -1,7 +1,7 @@
 return {
     {
         'catppuccin/nvim',
-        config = function()
+        init = function()
             vim.cmd.colorscheme('catppuccin-mocha')
             local palette = require('catppuccin.palettes').get_palette('mocha')
             local color_utils = require('catppuccin.utils.colors')
