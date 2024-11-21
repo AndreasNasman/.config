@@ -21,11 +21,24 @@
 				<false/>
 			</dict>
 		</array>
-		<key>FEFDCD17-F244-4CFA-9A6C-118BC3B59AAB</key>
+		<key>F4665A67-9BA0-4090-8996-2C84DBB45E10</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>2DA99A47-19B1-4B8B-9B5D-A88B6A048703</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FEFDCD17-F244-4CFA-9A6C-118BC3B59AAB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F4665A67-9BA0-4090-8996-2C84DBB45E10</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -45,6 +58,25 @@
 	<string>Phone number formatting</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>2DA99A47-19B1-4B8B-9B5D-A88B6A048703</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -69,25 +101,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>2DA99A47-19B1-4B8B-9B5D-A88B6A048703</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -106,6 +119,27 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>^00(.*)</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string>+$1</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>F4665A67-9BA0-4090-8996-2C84DBB45E10</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -114,7 +148,7 @@
 		<key>2DA99A47-19B1-4B8B-9B5D-A88B6A048703</key>
 		<dict>
 			<key>xpos</key>
-			<real>310</real>
+			<real>430</real>
 			<key>ypos</key>
 			<real>75</real>
 		</dict>
@@ -125,10 +159,17 @@
 			<key>ypos</key>
 			<real>75</real>
 		</dict>
+		<key>F4665A67-9BA0-4090-8996-2C84DBB45E10</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
 		<key>FEFDCD17-F244-4CFA-9A6C-118BC3B59AAB</key>
 		<dict>
 			<key>xpos</key>
-			<real>220</real>
+			<real>230</real>
 			<key>ypos</key>
 			<real>105</real>
 		</dict>
