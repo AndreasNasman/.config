@@ -42,7 +42,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Phone number formatting.</string>
+	<string>Phone number formatting</string>
 	<key>objects</key>
 	<array>
 		<dict>
