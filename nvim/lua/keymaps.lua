@@ -103,9 +103,6 @@ local function toggle(command, filetype)
     end
 end
 
-vim.keymap.set('n', '<Leader>g', function()
-    toggle('Neogit')
-end)
 vim.keymap.set('n', '<Leader>li', function()
     toggle('LspInfo', 'checkhealth')
 end)
