@@ -83,15 +83,6 @@ vim.keymap.set('n', '<Tab>8', '<Cmd>tabnext 8<CR>')
 vim.keymap.set('n', '<Tab>9', '<Cmd>$tabnext<CR>')
 
 -- [[ Toggles ]]
-local colorcolumn_values = { '', '120', '80' }
-local current_colorcolumn_index = 1
-local function toggle_colorcolumn()
-    current_colorcolumn_index = current_colorcolumn_index % #colorcolumn_values + 1
-    vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
-end
-
-vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
-
 ---@param command string
 ---@param filetype string
 local function toggle(command, filetype)
