@@ -238,6 +238,8 @@ return {
                 cssls = {},
                 denols = {},
                 djlint = {},
+                emmet_language_server = {},
+                html = {},
                 jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
                 markdownlint = {},
