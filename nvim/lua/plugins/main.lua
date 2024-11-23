@@ -92,10 +92,6 @@ return {
                     end,
                 },
             })
-            require('mini.files').setup({
-                mappings = {
-                    go_in_plus = '<CR>',
-                },
             })
             require('mini.statusline').setup()
             require('mini.surround').setup({

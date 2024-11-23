@@ -121,9 +121,6 @@ local function toggle(target, args)
     end
 end
 
-vim.keymap.set('n', '<Leader>f', function()
-    toggle('mini.files', { opts = { vim.api.nvim_buf_get_name(0) } })
-end)
 vim.keymap.set('n', '<Leader>g', function()
     toggle('Neogit')
 end)
