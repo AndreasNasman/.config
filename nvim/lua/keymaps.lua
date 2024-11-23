@@ -92,32 +92,14 @@ end
 
 vim.keymap.set('n', '<Leader>tc', toggle_colorcolumn)
 
----@param target string
----@param args { is_open: function|nil, opts: table|nil } | nil
-local function toggle(target, args)
-    args = args or {}
-    local is_open = args.is_open
-        or function()
-            local buffer = vim.api.nvim_get_current_buf()
-            local filetype = vim.bo[buffer].filetype
-            return filetype:lower():find(target:gsub('%.', ''):lower())
-        end
-    local opts = args.opts or {}
-
-    local is_plugin, plugin = pcall(require, target)
-
-    if is_open() then
-        if is_plugin then
-            plugin.close()
-        else
-            vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
-        end
+---@param command string
+---@param filetype string
+local function toggle(command, filetype)
+    local is_open = vim.bo[vim.api.nvim_get_current_buf()].filetype == filetype
+    if is_open then
+        vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), {})
     else
-        if is_plugin then
-            plugin.open(unpack(opts))
-        else
-            vim.cmd(target)
-        end
+        vim.cmd(command)
     end
 end
 
@@ -125,25 +107,19 @@ vim.keymap.set('n', '<Leader>g', function()
     toggle('Neogit')
 end)
 vim.keymap.set('n', '<Leader>li', function()
-    toggle('LspInfo')
+    toggle('LspInfo', 'checkhealth')
 end)
 vim.keymap.set('n', '<Leader>m', function()
-    toggle('Mason')
+    toggle('Mason', 'mason')
 end)
 vim.keymap.set('n', '<Leader>o', function()
-    toggle('oil')
+    toggle('Oil --float', 'oil')
 end)
 vim.keymap.set('n', '<Leader>q', function()
-    toggle('copen', {
-        is_open = function()
-            local buffer = vim.api.nvim_get_current_buf()
-            local buftype = vim.api.nvim_get_option_value('buftype', { buf = buffer })
-            return buftype == 'quickfix'
-        end,
-    })
+    toggle('copen', 'qf')
 end)
 vim.keymap.set('n', '<Leader>z', function()
-    toggle('Lazy')
+    toggle('Lazy', 'lazy')
 end)
 
 vim.keymap.set('n', '<Leader>tx', '<Cmd>TSContextToggle<CR>')
