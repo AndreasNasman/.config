@@ -1,3 +1,4 @@
 os:
   edit: 'focus-neovim {{filename}}'
   editAtLine: 'focus-neovim {{filename}} {{line}}'
+promptToReturnFromSubprocess: false
