@@ -1,43 +1,10 @@
 return {
-    {
-        'stevearc/conform.nvim',
-        cmd = 'ConformInfo',
-        event = 'BufWritePre',
-        keys = {
-            {
-                '<Leader>lf',
-                function()
-                    require('conform').format({ async = true, lsp_format = 'fallback' })
-                end,
-                mode = 'n',
-            },
-        },
-        opts = {
-            format_on_save = { lsp_format = 'fallback' },
-            formatters_by_ft = {
-                css = { 'deno_fmt' },
-                fish = { 'fish_indent' },
-                html = { 'deno_fmt' },
-                htmldjango = { 'djlint' },
-                javascript = { 'deno_fmt' },
-                json = { 'deno_fmt' },
-                jsonc = { 'deno_fmt' },
-                lua = { 'stylua' },
-                markdown = { 'markdownlint', 'deno_fmt' },
-                python = { 'ruff_fix', 'ruff_format' },
-                svelte = { 'deno_fmt' },
-                toml = { 'taplo' },
-                typescript = { 'deno_fmt' },
-                zsh = { 'beautysh' },
-            },
-        },
-    },
+    { 'Bilal2453/luvit-meta', lazy = true },
     {
         'folke/lazydev.nvim',
         ft = 'lua',
         opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
     },
-    { 'Bilal2453/luvit-meta', lazy = true },
     {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -132,12 +99,10 @@ return {
             })
         end,
         dependencies = {
-            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
-            'onsails/lspkind.nvim',
             {
                 'L3MON4D3/LuaSnip',
                 build = 'make install_jsregexp',
@@ -150,6 +115,8 @@ return {
                     },
                 },
             },
+            'onsails/lspkind.nvim',
+            'saadparwaiz1/cmp_luasnip',
         },
         event = 'UIEnter',
     },
@@ -271,9 +238,9 @@ return {
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             { 'j-hui/fidget.nvim', opts = {} },
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            { 'williamboman/mason.nvim', config = true },
         },
         ft = {
             'css',
@@ -290,6 +257,39 @@ return {
             'toml',
             'typescript',
             'zsh',
+        },
+    },
+    {
+        'stevearc/conform.nvim',
+        cmd = 'ConformInfo',
+        event = 'BufWritePre',
+        keys = {
+            {
+                '<Leader>lf',
+                function()
+                    require('conform').format({ async = true, lsp_format = 'fallback' })
+                end,
+                mode = 'n',
+            },
+        },
+        opts = {
+            format_on_save = { lsp_format = 'fallback' },
+            formatters_by_ft = {
+                css = { 'deno_fmt' },
+                fish = { 'fish_indent' },
+                html = { 'deno_fmt' },
+                htmldjango = { 'djlint' },
+                javascript = { 'deno_fmt' },
+                json = { 'deno_fmt' },
+                jsonc = { 'deno_fmt' },
+                lua = { 'stylua' },
+                markdown = { 'markdownlint', 'deno_fmt' },
+                python = { 'ruff_fix', 'ruff_format' },
+                svelte = { 'deno_fmt' },
+                toml = { 'taplo' },
+                typescript = { 'deno_fmt' },
+                zsh = { 'beautysh' },
+            },
         },
     },
 }
