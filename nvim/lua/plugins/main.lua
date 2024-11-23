@@ -1,5 +1,11 @@
 return {
-    { 'andymass/vim-matchup', lazy = false },
+    {
+        'andymass/vim-matchup',
+        config = function()
+            vim.g.matchup_matchparen_offscreen = {}
+        end,
+        lazy = false,
+    },
     {
         'catppuccin/nvim',
         lazy = false,
