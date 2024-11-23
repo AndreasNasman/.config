@@ -159,9 +159,7 @@ return {
         config = function()
             local lint = require('lint')
 
-            lint.linters_by_ft = {
-                markdown = { 'markdownlint' },
-            }
+            lint.linters_by_ft = { markdown = { 'markdownlint' } }
 
             vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
                 callback = function()
@@ -231,12 +229,7 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            require('mason').setup({
-                ui = {
-                    border = 'rounded',
-                    height = 0.8,
-                },
-            })
+            require('mason').setup({ ui = { border = 'rounded', height = 0.8 } })
 
             local servers = {
                 ['jinja-lsp'] = {},
