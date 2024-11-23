@@ -169,7 +169,7 @@ return {
                         lint.try_lint()
                     end
                 end,
-                group = vim.api.nvim_create_augroup('lint', { clear = true }),
+                group = vim.api.nvim_create_augroup('nasse-lint', { clear = true }),
             })
         end,
     },
