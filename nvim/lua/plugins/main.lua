@@ -92,7 +92,6 @@ return {
                     end,
                 },
             })
-            })
             require('mini.statusline').setup()
             require('mini.surround').setup({
                 mappings = {
