@@ -103,6 +103,9 @@ local function toggle(command, filetype)
     end
 end
 
+vim.keymap.set('n', '<Leader>B', function()
+    toggle('Gitsigns blame', 'gitsigns-blame')
+end)
 vim.keymap.set('n', '<Leader>li', function()
     toggle('LspInfo', 'checkhealth')
 end)
