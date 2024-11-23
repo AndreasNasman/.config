@@ -121,8 +121,8 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for
 vim.keymap.set('x', '.', ':normal .<CR>') -- Repeat the last dot command in Visual mode.
 
 -- [[ Windows ]]
--- Mapping
-vim.keymap.set('n', '<Leader>w', '<C-w>')
+-- Full screen
+vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
 
 -- Management
 vim.keymap.set('n', '<Leader>wh', '<Cmd>leftabove vsplit<CR>')
@@ -130,5 +130,5 @@ vim.keymap.set('n', '<Leader>wj', '<Cmd>belowright split<CR>')
 vim.keymap.set('n', '<Leader>wk', '<Cmd>aboveleft split<CR>')
 vim.keymap.set('n', '<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
 
--- Full screen
-vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
+-- Mapping
+vim.keymap.set('n', '<Leader>w', '<C-w>')
