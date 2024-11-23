@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+# lazygit uses this script to focus Neovim in the active tab or spawns a new
+# instance if needed.
+filename=$1
+line=$2
+
+window_id=$(kitty @ ls -m 'state:parent_active and var:IS_NVIM=1' | jq '.[0].tabs[0].windows[0].id')
+
+if [ -z "$window_id" ]; then
+    nvim +$line -- $filename
+else
+    nvim --server /tmp/nvim-server.$window_id --remote-send ":e $filename|$line<CR>" 1> /dev/null
+    kitty @ focus-window --match id:$window_id
+fi

@@ -45,13 +45,7 @@ alias rm='rm -i'
 
 # Use `command` to avoid an infinite recursion loop.
 # https://fishshell.com/docs/2.0/index.html#syntax-function-wrappers
-alias nvim='set --erase NVIM_APPNAME; command nvim'
-
-# Use `command` to invoke `nvim` directly.
-alias kv.='set --global --export NVIM_APPNAME kickstart.nvim; command nvim .'
-alias kv='set --global --export NVIM_APPNAME kickstart.nvim; command nvim'
-alias lv.='set --global --export NVIM_APPNAME LazyVim; command nvim .'
-alias lv='set --global --export NVIM_APPNAME LazyVim; command nvim'
+alias nvim="set --erase NVIM_APPNAME; command nvim --listen /tmp/nvim-server.$KITTY_WINDOW_ID"
 
 # Use the `nvim` alias to benefit from its function.
 alias v.='nvim .'
