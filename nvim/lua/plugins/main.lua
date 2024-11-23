@@ -1,4 +1,5 @@
 return {
+    { 'andymass/vim-matchup', lazy = false },
     {
         'catppuccin/nvim',
         lazy = false,
@@ -26,6 +27,47 @@ return {
             },
         },
         priority = 1000,
+    },
+    { 'danymat/neogen', config = true, event = 'UIEnter' },
+    {
+        'echasnovski/mini.nvim',
+        config = function()
+            require('mini.ai').setup({
+                custom_textobjects = {
+                    g = function()
+                        return {
+                            from = { col = 1, line = 1 },
+                            to = { col = math.max(vim.fn.getline('$'):len(), 1), line = vim.fn.line('$') },
+                        }
+                    end,
+                },
+            })
+            require('mini.statusline').setup()
+            require('mini.surround').setup({
+                mappings = {
+                    add = '<D-s>a',
+                    delete = '<D-s>d',
+                    find = '',
+                    find_left = '',
+                    highlight = '',
+                    replace = '<D-s>r',
+                    suffix_last = '',
+                    suffix_next = '',
+                    update_n_lines = '',
+                },
+            })
+        end,
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        event = 'UIEnter',
+    },
+    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
+    {
+        'iamcco/markdown-preview.nvim',
+        build = function()
+            vim.fn['mkdp#util#install']()
+        end,
+        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+        ft = { 'markdown' },
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -65,52 +107,13 @@ return {
             end,
         },
     },
+    { 'mbbill/undotree', event = 'UIEnter' },
     {
         'mikesmithgh/kitty-scrollback.nvim',
         cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
         event = { 'User KittyScrollbackLaunch' },
         opts = {},
     },
-    {
-        'iamcco/markdown-preview.nvim',
-        build = function()
-            vim.fn['mkdp#util#install']()
-        end,
-        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        ft = { 'markdown' },
-    },
-    {
-        'echasnovski/mini.nvim',
-        config = function()
-            require('mini.ai').setup({
-                custom_textobjects = {
-                    g = function()
-                        return {
-                            from = { col = 1, line = 1 },
-                            to = { col = math.max(vim.fn.getline('$'):len(), 1), line = vim.fn.line('$') },
-                        }
-                    end,
-                },
-            })
-            require('mini.statusline').setup()
-            require('mini.surround').setup({
-                mappings = {
-                    add = '<D-s>a',
-                    delete = '<D-s>d',
-                    find = '',
-                    find_left = '',
-                    highlight = '',
-                    replace = '<D-s>r',
-                    suffix_last = '',
-                    suffix_next = '',
-                    update_n_lines = '',
-                },
-            })
-        end,
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        event = 'UIEnter',
-    },
-    { 'danymat/neogen', config = true, event = 'UIEnter' },
     {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
@@ -163,7 +166,6 @@ return {
             matchup = { enable = true },
         },
     },
-    { 'windwp/nvim-ts-autotag', event = 'UIEnter', opts = {} },
     {
         'stevearc/oil.nvim',
         cmd = 'Oil',
@@ -171,9 +173,7 @@ return {
         event = 'UIEnter',
         opts = {},
     },
-    { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
-    { 'mbbill/undotree', event = 'UIEnter' },
     { 'tpope/vim-abolish', event = 'UIEnter' },
-    { 'andymass/vim-matchup', lazy = false },
     { 'tpope/vim-sleuth', lazy = false },
+    { 'windwp/nvim-ts-autotag', event = 'UIEnter', opts = {} },
 }
