@@ -1,6 +1,7 @@
 return {
     {
         'catppuccin/nvim',
+        lazy = false,
         init = function()
             vim.cmd.colorscheme('catppuccin-mocha')
             local palette = require('catppuccin.palettes').get_palette('mocha')
@@ -10,7 +11,6 @@ return {
             vim.api.nvim_set_hl(0, 'GitSignsAddInline', { bg = color_utils.darken(palette.green, 0.36, palette.base) })
             vim.api.nvim_set_hl(0, 'GitSignsDeleteInline', { bg = color_utils.darken(palette.red, 0.36, palette.base) })
         end,
-        lazy = false,
         name = 'catppuccin',
         opts = {
             integrations = {
@@ -101,32 +101,22 @@ return {
                     find_left = '',
                     highlight = '',
                     replace = '<D-s>r',
-                    update_n_lines = '',
-
                     suffix_last = '',
                     suffix_next = '',
+                    update_n_lines = '',
                 },
             })
         end,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = 'UIEnter',
     },
-    {
-        'danymat/neogen',
-        config = true,
-        event = 'UIEnter',
-    },
+    { 'danymat/neogen', config = true, event = 'UIEnter' },
     {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
         config = function(_, opts)
             local smart_splits = require('smart-splits')
 
-            -- Navigation
-            vim.keymap.set('n', '<D-h>', smart_splits.move_cursor_left)
-            vim.keymap.set('n', '<D-j>', smart_splits.move_cursor_down)
-            vim.keymap.set('n', '<D-k>', smart_splits.move_cursor_up)
-            vim.keymap.set('n', '<D-l>', smart_splits.move_cursor_right)
             -- Movement
             vim.keymap.set('n', '<D-H>', function()
                 smart_splits.swap_buf_left({ move_cursor = true })
@@ -140,6 +130,13 @@ return {
             vim.keymap.set('n', '<D-L>', function()
                 smart_splits.swap_buf_right({ move_cursor = true })
             end)
+
+            -- Navigation
+            vim.keymap.set('n', '<D-h>', smart_splits.move_cursor_left)
+            vim.keymap.set('n', '<D-j>', smart_splits.move_cursor_down)
+            vim.keymap.set('n', '<D-k>', smart_splits.move_cursor_up)
+            vim.keymap.set('n', '<D-l>', smart_splits.move_cursor_right)
+
             -- Resizing
             vim.keymap.set('n', '<C-D-h>', smart_splits.resize_left)
             vim.keymap.set('n', '<C-D-j>', smart_splits.resize_down)
@@ -161,14 +158,8 @@ return {
         opts = {
             auto_install = true,
             ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
-            highlight = {
-                additional_vim_regex_highlighting = { 'ruby' },
-                enable = true,
-            },
-            indent = {
-                disable = { 'ruby' },
-                enable = true,
-            },
+            highlight = { additional_vim_regex_highlighting = { 'ruby' }, enable = true },
+            indent = { disable = { 'ruby' }, enable = true },
             matchup = { enable = true },
         },
     },
