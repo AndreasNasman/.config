@@ -64,38 +64,21 @@ return {
                     },
                 },
                 window = {
-                    completion = {
-                        border = 'rounded',
-                        winhighlight = 'Normal:None',
-                    },
-                    documentation = {
-                        border = 'rounded',
-                        winhighlight = 'Normal:None',
-                    },
+                    completion = { border = 'rounded', winhighlight = 'Normal:None' },
+                    documentation = { border = 'rounded', winhighlight = 'Normal:None' },
                 },
             })
 
             -- Completions for `/` search based on the current buffer.
-            cmp.setup.cmdline('/', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' },
-                },
-            })
+            cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } })
 
             -- Completions for command mode.
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' },
-                }, {
-                    {
-                        name = 'cmdline',
-                        option = {
-                            ignore_cmds = { 'Man', '!' },
-                        },
-                    },
-                }),
+                sources = cmp.config.sources(
+                    { { name = 'path' } },
+                    { { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } } }
+                ),
             })
         end,
         dependencies = {
