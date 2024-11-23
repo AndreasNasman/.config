@@ -118,12 +118,6 @@ return {
         event = 'UIEnter',
     },
     {
-        'NeogitOrg/neogit',
-        cmd = 'Neogit',
-        dependencies = { 'sindrets/diffview.nvim', 'nvim-lua/plenary.nvim' },
-        opts = { kind = 'split' },
-    },
-    {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
         config = function(_, opts)
