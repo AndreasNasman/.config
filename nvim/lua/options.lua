@@ -42,6 +42,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Plugin requisites
+vim.opt.ruler = false
 vim.opt.showmode = false
 vim.opt.signcolumn = 'yes'
 
