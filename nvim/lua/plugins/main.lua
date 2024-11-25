@@ -190,6 +190,15 @@ return {
             auto_install = true,
             ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
             highlight = { additional_vim_regex_highlighting = { 'ruby' }, enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    node_decremental = '<BS>',
+                    node_incremental = '<CR>',
+                    scope_incremental = false,
+                },
+            },
             indent = { disable = { 'ruby' }, enable = true },
             matchup = { enable = true },
         },
