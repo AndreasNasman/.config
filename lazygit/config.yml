@@ -1,3 +1,5 @@
+gui:
+  enlargedSideViewLocation: top
 os:
   edit: 'focus-neovim {{filename}}'
   editAtLine: 'focus-neovim {{filename}} {{line}}'
