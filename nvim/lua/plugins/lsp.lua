@@ -35,7 +35,7 @@ return {
                     ---@param rhs string|function
                     ---@param mode string|string[]|nil
                     local function buffer_map(lhs, rhs, mode)
-                        utils.map(lhs, rhs, mode, event.buf)
+                        utils.map(lhs, rhs, mode, { buffer = event.buf })
                     end
 
                     buffer_map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })

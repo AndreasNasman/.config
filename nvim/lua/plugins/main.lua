@@ -113,7 +113,7 @@ return {
                 ---@param lhs string
                 ---@param rhs string|function
                 local function buffer_map(lhs, rhs)
-                    utils.map(lhs, rhs, _, buffer)
+                    utils.map(lhs, rhs, _, { buffer = buffer })
                 end
 
                 buffer_map(']c', function()
