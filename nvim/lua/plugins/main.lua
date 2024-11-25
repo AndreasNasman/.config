@@ -10,8 +10,8 @@ return {
         'catppuccin/nvim',
         lazy = false,
         init = function()
-            vim.cmd.colorscheme('catppuccin-mocha')
-            local palette = require('catppuccin.palettes').get_palette('mocha')
+            vim.cmd.colorscheme('catppuccin')
+            local palette = require('catppuccin.palettes').get_palette()
             local color_utils = require('catppuccin.utils.colors')
             vim.api.nvim_set_hl(0, 'NormalFloat', {})
             vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.rosewater })
@@ -22,6 +22,7 @@ return {
         end,
         name = 'catppuccin',
         opts = {
+            flavour = 'mocha',
             integrations = {
                 mason = true,
                 native_lsp = {
