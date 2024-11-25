@@ -121,6 +121,7 @@ vim.keymap.set('n', '<Leader>z', function()
 end)
 
 -- Options
+---@param option string
 local function toggleOption(option)
     local new_value = not vim.opt[option]:get()
     utils.notify_toggle(option, new_value)
