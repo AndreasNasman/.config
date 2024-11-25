@@ -2,11 +2,10 @@ local M = {}
 
 ---@param lhs string
 ---@param rhs string|function
----@param mode string|string[]|nil
----@param buffer integer|boolean
+---@param mode? string|string[]|nil
+---@param buffer? integer|boolean
 function M.map(lhs, rhs, mode, buffer)
-    mode = mode or 'n'
-    vim.keymap.set(mode, lhs, rhs, { buffer = buffer })
+    vim.keymap.set(mode or 'n', lhs, rhs, buffer and { buffer = buffer } or {})
 end
 
 ---@param property string
