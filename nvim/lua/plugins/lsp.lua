@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 return {
     { 'Bilal2453/luvit-meta', lazy = true },
     {
@@ -73,10 +75,7 @@ return {
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
                         map('<Leader>th', function()
                             local new_value = not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
-                            vim.notify(
-                                string.format('Toggling inlay hints %s', new_value and 'on' or 'off'),
-                                vim.log.levels.INFO
-                            )
+                            utils.notify_toggle('inlay hints', new_value)
                             vim.lsp.inlay_hint.enable(new_value)
                         end)
                     end

@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 -- [[ Prerequisites ]]
 -- Separate <C-i> from <Tab>.
 -- https://www.reddit.com/r/neovim/comments/vguomm/comment/id5p016/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
@@ -121,7 +123,7 @@ end)
 -- Options
 local function toggleOption(option)
     local new_value = not vim.opt[option]:get()
-    vim.notify(string.format('Toggling option `%s` %s', option, new_value and 'on' or 'off'), vim.log.levels.INFO)
+    utils.notify_toggle(option, new_value)
     vim.opt[option] = new_value
 end
 
@@ -134,10 +136,7 @@ end)
 
 -- Other
 vim.keymap.set('n', '<Leader>tx', function()
-    vim.notify(
-        string.format('Toggling Treesitter context %s', not require('treesitter-context').enabled() and 'on' or 'off'),
-        vim.log.levels.INFO
-    )
+    utils.notify_toggle('Treesitter context', not require('treesitter-context').enabled())
     vim.cmd('TSContextToggle')
 end)
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
