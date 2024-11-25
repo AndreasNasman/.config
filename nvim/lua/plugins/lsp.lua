@@ -6,104 +6,6 @@ return {
         opts = { library = { { path = 'luvit-meta/library', words = { 'vim%.uv' } } } },
     },
     {
-        'hrsh7th/nvim-cmp',
-        config = function()
-            local luasnip = require('luasnip')
-            luasnip.config.setup({})
-
-            local cmp = require('cmp')
-            cmp.setup({
-                formatting = vim.tbl_deep_extend(
-                    'force',
-                    require('cmp.config').get().formatting,
-                    { format = require('lspkind').cmp_format() }
-                ),
-                mapping = cmp.mapping.preset.insert({
-                    ['<C-n>'] = cmp.mapping.select_next_item(),
-                    ['<Tab>'] = cmp.mapping.select_next_item(),
-                    ['<C-p>'] = cmp.mapping.select_prev_item(),
-                    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-
-                    ['<CR>'] = cmp.mapping.confirm(),
-                    ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
-
-                    ['<C-Space>'] = cmp.mapping.complete({}),
-
-                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-
-                    ['<C-l>'] = cmp.mapping(function()
-                        if luasnip.expand_or_locally_jumpable() then
-                            luasnip.expand_or_jump()
-                        end
-                    end, { 'i', 's' }),
-                    ['<C-h>'] = cmp.mapping(function()
-                        if luasnip.locally_jumpable(-1) then
-                            luasnip.jump(-1)
-                        end
-                    end, { 'i', 's' }),
-                }),
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                sources = {
-                    { name = 'lazydev', group_index = 0 },
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'path' },
-                    {
-                        name = 'buffer',
-                        -- Completion based on all open buffers.
-                        option = {
-                            get_bufnrs = function()
-                                return vim.api.nvim_list_bufs()
-                            end,
-                        },
-                    },
-                },
-                window = {
-                    completion = { border = 'rounded', winhighlight = 'Normal:None' },
-                    documentation = { border = 'rounded', winhighlight = 'Normal:None' },
-                },
-            })
-
-            -- Completions for `/` search based on the current buffer.
-            cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } })
-
-            -- Completions for command mode.
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources(
-                    { { name = 'path' } },
-                    { { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } } }
-                ),
-            })
-        end,
-        dependencies = {
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-cmdline',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-path',
-            {
-                'L3MON4D3/LuaSnip',
-                build = 'make install_jsregexp',
-                dependencies = {
-                    {
-                        'rafamadriz/friendly-snippets',
-                        config = function()
-                            require('luasnip.loaders.from_vscode').lazy_load()
-                        end,
-                    },
-                },
-            },
-            'onsails/lspkind.nvim',
-            'saadparwaiz1/cmp_luasnip',
-        },
-        event = 'UIEnter',
-    },
-    {
         'mfussenegger/nvim-lint',
         event = { 'BufReadPre', 'BufNewFile' },
         config = function()
@@ -181,9 +83,6 @@ return {
                 end,
             })
 
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
             require('mason').setup({ ui = { border = 'rounded', height = 0.8 } })
 
             local servers = {
@@ -207,14 +106,20 @@ return {
                 tailwindcss = {},
                 taplo = {},
             }
-
             require('mason-tool-installer').setup({ ensure_installed = vim.tbl_keys(servers) })
 
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
             require('mason-lspconfig').setup({
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
-                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+                        server.capabilities = vim.tbl_deep_extend(
+                            'force',
+                            {},
+                            capabilities,
+                            server.capabilities or {},
+                            require('blink.cmp').get_lsp_capabilities(server.capabilities)
+                        )
                         require('lspconfig')[server_name].setup(server)
                     end,
                 },
@@ -224,7 +129,6 @@ return {
         end,
         cmd = 'Mason',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
             { 'j-hui/fidget.nvim', opts = {} },
             'WhoIsSethDaniel/mason-tool-installer.nvim',
             'williamboman/mason-lspconfig.nvim',
@@ -246,6 +150,33 @@ return {
             'typescript',
             'zsh',
         },
+    },
+    {
+        'saghen/blink.cmp',
+        dependencies = 'rafamadriz/friendly-snippets',
+        lazy = false,
+        opts = {
+            keymap = {
+                preset = 'enter',
+                ['<C-h>'] = { 'snippet_backward', 'fallback' },
+                ['<C-l>'] = { 'snippet_forward', 'fallback' },
+                ['<S-Tab>'] = { 'select_prev', 'fallback' },
+                ['<Tab>'] = { 'select_next', 'fallback' },
+            },
+            windows = {
+                autocomplete = {
+                    border = 'rounded',
+                    selection = 'auto_insert',
+                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                },
+                documentation = {
+                    auto_show = true,
+                    border = 'rounded',
+                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                },
+            },
+        },
+        version = 'v0.*',
     },
     {
         'stevearc/conform.nvim',
