@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 return {
     {
         'andymass/vim-matchup',
@@ -108,19 +110,20 @@ return {
             on_attach = function(buffer)
                 local gitsigns = require('gitsigns')
 
-                local function map(lhs, rhs, mode)
-                    mode = mode or 'n'
-                    vim.keymap.set(mode, lhs, rhs, { buffer = buffer })
+                ---@param lhs string
+                ---@param rhs string|function
+                local function buffer_map(lhs, rhs)
+                    utils.map(lhs, rhs, nil, buffer)
                 end
 
-                map(']c', function()
+                buffer_map(']c', function()
                     if vim.wo.diff then
                         vim.cmd.normal({ ']c', bang = true })
                     else
                         gitsigns.nav_hunk('next')
                     end
                 end)
-                map('[c', function()
+                buffer_map('[c', function()
                     if vim.wo.diff then
                         vim.cmd.normal({ '[c', bang = true })
                     else
@@ -128,10 +131,10 @@ return {
                     end
                 end)
 
-                map('<Leader>b', function()
+                buffer_map('<Leader>b', function()
                     gitsigns.blame_line({ full = true })
                 end)
-                map('<Leader>h', function()
+                buffer_map('<Leader>h', function()
                     gitsigns.preview_hunk()
                 end)
             end,
