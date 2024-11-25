@@ -75,3 +75,13 @@ in the `Load settings from:` text field.
 I have based my Neovim configuration on
 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), hash
 [8d1ef97](https://github.com/nvim-lua/kickstart.nvim/commit/8d1ef972bc32faa86fee21a57f9033b41f612ebb).
+
+## Inspiration
+
+- <https://github.com/nvim-lua/kickstart.nvim>
+- <https://www.lazyvim.org/>
+- <https://www.youtube.com/@benfrainuk>
+- <https://www.youtube.com/@devopstoolbox>
+- <https://www.youtube.com/@dreamsofcode>
+- <https://www.youtube.com/@joseanmartinez>
+- <https://www.youtube.com/@vhyrro>
