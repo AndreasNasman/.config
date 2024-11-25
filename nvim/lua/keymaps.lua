@@ -62,8 +62,8 @@ local function add_move_with_count_to_jumplist(direction)
     end
 end
 
-vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
-vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { expr = true })
+utils.map('j', add_move_with_count_to_jumplist('j'), _, { expr = true })
+utils.map('k', add_move_with_count_to_jumplist('k'), _, { expr = true })
 
 -- [[ Quickfix list ]]
 utils.map('[q', '<Cmd>cprevious<CR>')
