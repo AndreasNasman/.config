@@ -31,21 +31,23 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('nasse-lsp-attach', { clear = true }),
                 callback = function(event)
-                    local function map(lhs, rhs, mode)
-                        mode = mode or 'n'
-                        vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
+                    ---@param lhs string
+                    ---@param rhs string|function
+                    ---@param mode string|string[]|nil
+                    local function buffer_map(lhs, rhs, mode)
+                        utils.map(lhs, rhs, mode, event.buf)
                     end
 
-                    map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
-                    map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
-                    map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
-                    map('<Leader>lr', vim.lsp.buf.rename)
-                    map('<Leader>lt', require('telescope.builtin').lsp_type_definitions)
-                    map('<Leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
-                    map('gd', require('telescope.builtin').lsp_definitions)
-                    map('gD', vim.lsp.buf.declaration)
-                    map('gI', require('telescope.builtin').lsp_implementations)
-                    map('gr', require('telescope.builtin').lsp_references)
+                    buffer_map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
+                    buffer_map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
+                    buffer_map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
+                    buffer_map('<Leader>lr', vim.lsp.buf.rename)
+                    buffer_map('<Leader>lt', require('telescope.builtin').lsp_type_definitions)
+                    buffer_map('<Leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+                    buffer_map('gd', require('telescope.builtin').lsp_definitions)
+                    buffer_map('gD', vim.lsp.buf.declaration)
+                    buffer_map('gI', require('telescope.builtin').lsp_implementations)
+                    buffer_map('gr', require('telescope.builtin').lsp_references)
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -73,7 +75,7 @@ return {
                     end
 
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-                        map('<Leader>th', function()
+                        buffer_map('<Leader>th', function()
                             local new_value = not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
                             utils.notify_toggle('inlay hints', new_value)
                             vim.lsp.inlay_hint.enable(new_value)
