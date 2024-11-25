@@ -170,7 +170,12 @@ return {
 
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
                         map('<Leader>th', function()
-                            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+                            local new_value = not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
+                            vim.notify(
+                                string.format('Toggling inlay hints %s', new_value and 'on' or 'off'),
+                                vim.log.levels.INFO
+                            )
+                            vim.lsp.inlay_hint.enable(new_value)
                         end)
                     end
                 end,

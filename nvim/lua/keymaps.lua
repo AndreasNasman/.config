@@ -116,7 +116,9 @@ end)
 
 -- Options
 local function toggleOption(option)
-    vim.opt[option] = not vim.opt[option]:get()
+    local new_value = not vim.opt[option]:get()
+    vim.notify(string.format('Toggling option `%s` %s', option, new_value and 'on' or 'off'), vim.log.levels.INFO)
+    vim.opt[option] = new_value
 end
 
 vim.keymap.set('n', '<Leader>tn', function()
@@ -127,7 +129,13 @@ vim.keymap.set('n', '<Leader>ts', function()
 end)
 
 -- Other
-vim.keymap.set('n', '<Leader>tx', '<Cmd>TSContextToggle<CR>')
+vim.keymap.set('n', '<Leader>tx', function()
+    vim.notify(
+        string.format('Toggling Treesitter context %s', not require('treesitter-context').enabled() and 'on' or 'off'),
+        vim.log.levels.INFO
+    )
+    vim.cmd('TSContextToggle')
+end)
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
 -- [[ Utilities ]]
