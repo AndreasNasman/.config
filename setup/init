@@ -73,9 +73,6 @@ if ! grep --quiet fish $SHELLS_PATH; then
     chsh -s $(which fish)
 fi
 
-echo '📶 (Re)starting SketchyBar service.'
-brew services restart sketchybar
-
 echo '🍫 Autohiding the Dock and increasing the animation delay.'
 # https://macos-defaults.com/dock/autohide.html
 defaults write com.apple.dock "autohide" -bool "true"
