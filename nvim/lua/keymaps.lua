@@ -82,10 +82,11 @@ vim.keymap.set('n', '<Tab>7', '<Cmd>tabnext 7<CR>')
 vim.keymap.set('n', '<Tab>8', '<Cmd>tabnext 8<CR>')
 vim.keymap.set('n', '<Tab>9', '<Cmd>$tabnext<CR>')
 
--- [[ Toggles ]]
+-- [[ Toggle ]]
+-- Commands
 ---@param command string
 ---@param filetype string
-local function toggle(command, filetype)
+local function toggle_command(command, filetype)
     local is_open = vim.bo[vim.api.nvim_get_current_buf()].filetype == filetype
     if is_open then
         vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), {})
@@ -95,24 +96,37 @@ local function toggle(command, filetype)
 end
 
 vim.keymap.set('n', '<Leader>B', function()
-    toggle('Gitsigns blame', 'gitsigns-blame')
+    toggle_command('Gitsigns blame', 'gitsigns-blame')
 end)
 vim.keymap.set('n', '<Leader>li', function()
-    toggle('LspInfo', 'checkhealth')
+    toggle_command('LspInfo', 'checkhealth')
 end)
 vim.keymap.set('n', '<Leader>m', function()
-    toggle('Mason', 'mason')
+    toggle_command('Mason', 'mason')
 end)
 vim.keymap.set('n', '<Leader>o', function()
-    toggle('Oil', 'oil')
+    toggle_command('Oil', 'oil')
 end)
 vim.keymap.set('n', '<Leader>q', function()
-    toggle('copen', 'qf')
+    toggle_command('copen', 'qf')
 end)
 vim.keymap.set('n', '<Leader>z', function()
-    toggle('Lazy', 'lazy')
+    toggle_command('Lazy', 'lazy')
 end)
 
+-- Options
+local function toggleOption(option)
+    vim.opt[option] = not vim.opt[option]:get()
+end
+
+vim.keymap.set('n', '<Leader>tn', function()
+    toggleOption('number')
+end)
+vim.keymap.set('n', '<Leader>ts', function()
+    toggleOption('spell')
+end)
+
+-- Other
 vim.keymap.set('n', '<Leader>tx', '<Cmd>TSContextToggle<CR>')
 vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
