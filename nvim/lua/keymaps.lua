@@ -3,24 +3,24 @@ local utils = require('utils')
 -- [[ Prerequisites ]]
 -- Separate <C-i> from <Tab>.
 -- https://www.reddit.com/r/neovim/comments/vguomm/comment/id5p016/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-vim.keymap.set('n', '<C-i>', '<C-i>')
+utils.map('<C-i>', '<C-i>')
 
 -- [[ Clipboard ]]
 -- Black hole
-vim.keymap.set('x', '<Leader>p', '"_c<C-r>"<esc>')
-vim.keymap.set({ 'n', 'x' }, '<Leader>d', '"_d')
+utils.map('<Leader>d', '"_d', { 'n', 'x' })
+utils.map('<Leader>p', '"_c<C-r>"<esc>', 'x')
 
 -- System
 local function sync_to_system_clipboard()
     vim.fn.setreg('+', vim.fn.getreg('"'))
 end
 
-vim.keymap.set('n', '<Leader>+', sync_to_system_clipboard)
-vim.keymap.set({ 'n', 'x' }, '<Leader>Y', '"+y$')
-vim.keymap.set({ 'n', 'x' }, '<Leader>y', '"+y')
+utils.map('<Leader>+', sync_to_system_clipboard)
+utils.map('<Leader>Y', '"+y$', { 'n', 'x' })
+utils.map('<Leader>y', '"+y', { 'n', 'x' })
 
 -- [[ Diagnostics ]]
-vim.keymap.set('n', '<D-d>', vim.diagnostic.open_float)
+utils.map('<D-d>', vim.diagnostic.open_float)
 
 -- [[ File path ]]
 ---@param pattern string
@@ -31,24 +31,24 @@ local function copy_file_path(pattern)
     vim.notify('File path copied to the clipboard: ' .. file_path, vim.log.levels.INFO)
 end
 
-vim.keymap.set('n', '<Leader>pa', function()
+utils.map('<Leader>pa', function()
     copy_file_path('%:p')
 end)
-vim.keymap.set('n', '<Leader>pn', function()
+utils.map('<Leader>pn', function()
     copy_file_path('%:t')
 end)
-vim.keymap.set('n', '<Leader>pr', function()
+utils.map('<Leader>pr', function()
     copy_file_path('%:~:.')
 end)
 
 -- [[ Fixes ]]
 -- Make `<BS>` delete default snippet parameters (e.g., in the `function` snippet in JS/TS).
 -- https://github.com/L3MON4D3/LuaSnip/issues/622
-vim.keymap.set('s', '<BS>', '<C-o>s')
+utils.map('<BS>', '<C-o>s', 's')
 
 -- [[ History ]]
-vim.keymap.set('c', '<C-n>', '<Down>')
-vim.keymap.set('c', '<C-p>', '<Up>')
+utils.map('<C-n>', '<Down>', 'c')
+utils.map('<C-p>', '<Up>', 'c')
 
 -- [[ Jump list ]]
 ---@param direction string
@@ -66,27 +66,27 @@ vim.keymap.set('n', 'j', add_move_with_count_to_jumplist('j'), { expr = true })
 vim.keymap.set('n', 'k', add_move_with_count_to_jumplist('k'), { expr = true })
 
 -- [[ Quickfix list ]]
-vim.keymap.set('n', '[q', '<Cmd>cprevious<CR>')
-vim.keymap.set('n', ']q', '<Cmd>cnext<CR>')
+utils.map('[q', '<Cmd>cprevious<CR>')
+utils.map(']q', '<Cmd>cnext<CR>')
 
 -- [[ Tabs ]]
 -- Management
-vim.keymap.set('n', '<Tab>n', '<Cmd>tabnew<CR>')
-vim.keymap.set('n', '<Tab>w', '<Cmd>tabclose<CR>')
+utils.map('<Tab>n', '<Cmd>tabnew<CR>')
+utils.map('<Tab>w', '<Cmd>tabclose<CR>')
 
 -- Navigation
-vim.keymap.set('n', '<Tab>h', '<Cmd>tabprevious<CR>')
-vim.keymap.set('n', '<Tab>l', '<Cmd>tabnext<CR>')
+utils.map('<Tab>h', '<Cmd>tabprevious<CR>')
+utils.map('<Tab>l', '<Cmd>tabnext<CR>')
 
-vim.keymap.set('n', '<Tab>1', '<Cmd>tabnext 1<CR>')
-vim.keymap.set('n', '<Tab>2', '<Cmd>tabnext 2<CR>')
-vim.keymap.set('n', '<Tab>3', '<Cmd>tabnext 3<CR>')
-vim.keymap.set('n', '<Tab>4', '<Cmd>tabnext 4<CR>')
-vim.keymap.set('n', '<Tab>5', '<Cmd>tabnext 5<CR>')
-vim.keymap.set('n', '<Tab>6', '<Cmd>tabnext 6<CR>')
-vim.keymap.set('n', '<Tab>7', '<Cmd>tabnext 7<CR>')
-vim.keymap.set('n', '<Tab>8', '<Cmd>tabnext 8<CR>')
-vim.keymap.set('n', '<Tab>9', '<Cmd>$tabnext<CR>')
+utils.map('<Tab>1', '<Cmd>tabnext 1<CR>')
+utils.map('<Tab>2', '<Cmd>tabnext 2<CR>')
+utils.map('<Tab>3', '<Cmd>tabnext 3<CR>')
+utils.map('<Tab>4', '<Cmd>tabnext 4<CR>')
+utils.map('<Tab>5', '<Cmd>tabnext 5<CR>')
+utils.map('<Tab>6', '<Cmd>tabnext 6<CR>')
+utils.map('<Tab>7', '<Cmd>tabnext 7<CR>')
+utils.map('<Tab>8', '<Cmd>tabnext 8<CR>')
+utils.map('<Tab>9', '<Cmd>$tabnext<CR>')
 
 -- [[ Toggle ]]
 -- Commands
@@ -101,22 +101,22 @@ local function toggle_command(command, filetype)
     end
 end
 
-vim.keymap.set('n', '<Leader>B', function()
+utils.map('<Leader>B', function()
     toggle_command('Gitsigns blame', 'gitsigns-blame')
 end)
-vim.keymap.set('n', '<Leader>li', function()
+utils.map('<Leader>li', function()
     toggle_command('LspInfo', 'checkhealth')
 end)
-vim.keymap.set('n', '<Leader>m', function()
+utils.map('<Leader>m', function()
     toggle_command('Mason', 'mason')
 end)
-vim.keymap.set('n', '<Leader>o', function()
+utils.map('<Leader>o', function()
     toggle_command('Oil', 'oil')
 end)
-vim.keymap.set('n', '<Leader>q', function()
+utils.map('<Leader>q', function()
     toggle_command('copen', 'qf')
 end)
-vim.keymap.set('n', '<Leader>z', function()
+utils.map('<Leader>z', function()
     toggle_command('Lazy', 'lazy')
 end)
 
@@ -128,33 +128,33 @@ local function toggleOption(option)
     vim.opt[option] = new_value
 end
 
-vim.keymap.set('n', '<Leader>tn', function()
+utils.map('<Leader>tn', function()
     toggleOption('number')
 end)
-vim.keymap.set('n', '<Leader>ts', function()
+utils.map('<Leader>ts', function()
     toggleOption('spell')
 end)
 
 -- Other
-vim.keymap.set('n', '<Leader>tx', function()
+utils.map('<Leader>tx', function()
     utils.notify_toggle('Treesitter context', not require('treesitter-context').enabled())
     vim.cmd('TSContextToggle')
 end)
-vim.keymap.set('n', '<Leader>u', '<Cmd>UndotreeToggle<CR>')
+utils.map('<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
 -- [[ Utilities ]]
-vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
-vim.keymap.set('x', '.', ':normal .<CR>') -- Repeat the last dot command in Visual mode.
+utils.map('.', ':normal .<CR>', 'x') -- Repeat the last dot command in Visual mode.
+utils.map('<Esc>', '<Cmd>nohlsearch<CR>') -- Stop the highlighting for the 'hlsearch' option when pressing `<Esc>`.
 
 -- [[ Windows ]]
 -- Full screen
-vim.keymap.set('n', '<Leader>wf', '<C-w>_<C-w>|')
+utils.map('<Leader>wf', '<C-w>_<C-w>|')
 
 -- Management
-vim.keymap.set('n', '<Leader>wh', '<Cmd>leftabove vsplit<CR>')
-vim.keymap.set('n', '<Leader>wj', '<Cmd>belowright split<CR>')
-vim.keymap.set('n', '<Leader>wk', '<Cmd>aboveleft split<CR>')
-vim.keymap.set('n', '<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
+utils.map('<Leader>wh', '<Cmd>leftabove vsplit<CR>')
+utils.map('<Leader>wj', '<Cmd>belowright split<CR>')
+utils.map('<Leader>wk', '<Cmd>aboveleft split<CR>')
+utils.map('<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
 
 -- Mapping
-vim.keymap.set('n', '<Leader>w', '<C-w>')
+utils.map('<Leader>w', '<C-w>')
