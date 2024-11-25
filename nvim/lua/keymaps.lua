@@ -44,6 +44,10 @@ end)
 -- https://github.com/L3MON4D3/LuaSnip/issues/622
 vim.keymap.set('s', '<BS>', '<C-o>s')
 
+-- [[ History ]]
+vim.keymap.set('c', '<C-n>', '<Down>')
+vim.keymap.set('c', '<C-p>', '<Up>')
+
 -- [[ Jump list ]]
 ---@param direction string
 local function add_move_with_count_to_jumplist(direction)
