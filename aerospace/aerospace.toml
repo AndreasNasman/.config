@@ -37,7 +37,13 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-# Workspace focus.
+# Window resize
+alt-ctrl-0 = 'balance-sizes'
+alt-ctrl-h = 'resize width -50'
+alt-ctrl-j = 'resize height -50'
+alt-ctrl-k = 'resize height +50'
+alt-ctrl-l = 'resize width +50'
+
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -100,10 +106,5 @@ v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 # Layout switching.
 slash = ['layout tiles horizontal vertical', 'mode main']
 comma = ['layout accordion horizontal vertical', 'mode main']
-
-# Window resizing.
-minus = 'resize smart -50'
-equal = 'resize smart +50'
-0 = 'balance-sizes'
 
 esc = ['reload-config', 'mode main']
