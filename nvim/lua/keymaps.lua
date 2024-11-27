@@ -47,7 +47,8 @@ end)
 utils.map('<BS>', '<C-o>s', 's')
 
 -- [[ Git ]]
-local function open_git_file_in_browser(remote)
+---@param remote string
+local function browse_git_file(remote)
     remote = remote or 'origin'
 
     local git_directory_path =
@@ -93,11 +94,11 @@ local function open_git_file_in_browser(remote)
             ),
         })
     else
-        vim.notify('Unknown remote URL ' .. remote_url, vim.log.levels.ERROR)
+        vim.notify('Unhandeled remote URL ' .. remote_url, vim.log.levels.info)
     end
 end
 
-utils.map('<Leader>gf', open_git_file_in_browser)
+utils.map('<Leader>gf', browse_git_file)
 
 -- [[ History ]]
 utils.map('<C-n>', '<Down>', 'c')
