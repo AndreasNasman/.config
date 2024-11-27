@@ -115,8 +115,8 @@ local function add_move_with_count_to_jumplist(direction)
     end
 end
 
-utils.map('j', add_move_with_count_to_jumplist('j'), _, { expr = true })
-utils.map('k', add_move_with_count_to_jumplist('k'), _, { expr = true })
+utils.map('j', add_move_with_count_to_jumplist('j'), nil, { expr = true })
+utils.map('k', add_move_with_count_to_jumplist('k'), nil, { expr = true })
 
 -- [[ Quickfix list ]]
 utils.map('[q', '<Cmd>cprevious<CR>')
