@@ -25,13 +25,13 @@ PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 # https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 cmd-alt-h = []
 
-# Window focus.
+# Window focus
 alt-h = 'focus left --boundaries-action stop'
 alt-j = 'focus down --boundaries-action stop'
 alt-k = 'focus up --boundaries-action stop'
 alt-l = 'focus right --boundaries-action stop'
 
-# Window movement.
+# Window movement
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
@@ -44,6 +44,7 @@ alt-ctrl-j = 'resize height -50'
 alt-ctrl-k = 'resize height +50'
 alt-ctrl-l = 'resize width +50'
 
+# Workspace focus
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -55,7 +56,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
 
-# Window movement between workspaces.
+# Window movement between workspaces
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -67,15 +68,15 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
-# Monitor focus.
+# Monitor focus
 alt-ctrl-cmd-1 = 'focus-monitor 1'
 alt-ctrl-cmd-2 = 'focus-monitor 2'
 
-# Window movement between monitors.
+# Window movement between monitors
 alt-ctrl-cmd-shift-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 
-# App focus cycling.
+# App focus cycling
 alt-enter = 'exec-and-forget cycle-app-windows kitty'
 alt-ctrl-cmd-enter = 'exec-and-forget cycle-app-windows kitty'
 
@@ -94,7 +95,7 @@ alt-ctrl-cmd-t = "exec-and-forget cycle-app-windows 'Microsoft Teams'"
 alt-ctrl-cmd-v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
 alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
 
-# Workspace switching.
+# Workspace switching
 alt-tab = 'workspace-back-and-forth'
 
 alt-backtick = 'mode service'
@@ -103,7 +104,7 @@ alt-backtick = 'mode service'
 r = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
 
-# Layout switching.
+# Layout switching
 slash = ['layout tiles horizontal vertical', 'mode main']
 comma = ['layout accordion horizontal vertical', 'mode main']
 
