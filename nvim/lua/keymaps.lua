@@ -46,6 +46,59 @@ end)
 -- https://github.com/L3MON4D3/LuaSnip/issues/622
 utils.map('<BS>', '<C-o>s', 's')
 
+-- [[ Git ]]
+local function open_git_file_in_browser(remote)
+    remote = remote or 'origin'
+
+    local git_directory_path =
+        vim.fs.find('.git', { limit = 1, path = vim.fn.expand('%:p'), type = 'directory', upward = true })[1]
+    -- The path is ".git" when launched (mistakenly) from oil.nvim.
+    if git_directory_path == nil or git_directory_path == '.git' then
+        vim.notify('Not a Git repository', vim.log.levels.INFO)
+        return
+    end
+    local project_path = git_directory_path:gsub('%.git$', '')
+
+    local remote_url = vim.system({ 'git', '-C', project_path, 'config', '--get', 'remote.' .. remote .. '.url' })
+        :wait().stdout
+        :gsub('\n', '')
+    if remote_url == nil or remote_url == '' then
+        vim.notify('No URL defined for remote ' .. remote, vim.log.levels.INFO)
+        return
+    end
+
+    local branch = vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
+    if branch == nil or branch == '' then
+        vim.notify('No checked out branch')
+        return
+    end
+
+    local absolute_file_path = vim.fn.expand('%:p')
+    -- `gsub` matches regular expressions by default.
+    -- We must escape magic characters with a %-sign to match literals.
+    local escaped_project_path = project_path:gsub('[%-%_]', '%%%1')
+    local project_relative_file_path = absolute_file_path:gsub(escaped_project_path, '')
+    local line_number = vim.api.nvim_win_get_cursor(0)[1]
+
+    if remote_url:match('github') or remote_url:match('gitlab') then
+        vim.system({
+            'open',
+            string.format(
+                '%s%s/blob/%s/%s#L%s',
+                remote_url:gsub('%.git$', ''),
+                remote_url:match('gitlab') and '/-' or '',
+                branch,
+                project_relative_file_path,
+                line_number
+            ),
+        })
+    else
+        vim.notify('Unknown remote URL ' .. remote_url, vim.log.levels.ERROR)
+    end
+end
+
+utils.map('<Leader>gf', open_git_file_in_browser)
+
 -- [[ History ]]
 utils.map('<C-n>', '<Down>', 'c')
 utils.map('<C-p>', '<Up>', 'c')
