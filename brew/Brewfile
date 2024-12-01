@@ -22,7 +22,8 @@ brew "gnupg"
 brew "jq"
 brew "luarocks"
 brew "mysql-client@8.4"
-brew "neovim"
+brew "utf8proc", args: ["HEAD"]
+brew "neovim", args: ["HEAD"]
 brew "pinentry-mac"
 brew "pnpm"
 brew "ripgrep"
