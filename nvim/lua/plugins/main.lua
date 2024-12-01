@@ -94,14 +94,6 @@ return {
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
     {
-        'iamcco/markdown-preview.nvim',
-        build = function()
-            vim.fn['mkdp#util#install']()
-        end,
-        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        ft = { 'markdown' },
-    },
-    {
         'lewis6991/gitsigns.nvim',
         lazy = false,
         opts = {
