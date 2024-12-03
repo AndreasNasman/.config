@@ -157,24 +157,26 @@ return {
         dependencies = 'rafamadriz/friendly-snippets',
         lazy = false,
         opts = {
+            completion = {
+                documentation = {
+                    auto_show = true,
+                    window = {
+                        border = 'rounded',
+                        winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                    },
+                },
+                list = { selection = 'auto_insert' },
+                menu = {
+                    border = 'rounded',
+                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                },
+            },
             keymap = {
                 preset = 'enter',
                 ['<C-h>'] = { 'snippet_backward', 'fallback' },
                 ['<C-l>'] = { 'snippet_forward', 'fallback' },
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
-            },
-            windows = {
-                autocomplete = {
-                    border = 'rounded',
-                    selection = 'auto_insert',
-                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
-                },
-                documentation = {
-                    auto_show = true,
-                    border = 'rounded',
-                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
-                },
             },
         },
         version = 'v0.*',
