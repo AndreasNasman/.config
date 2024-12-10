@@ -82,8 +82,8 @@ return {
                         ['<C-n>'] = actions.move_selection_next,
                         ['<C-p>'] = actions.move_selection_previous,
 
-                        ['<Down>'] = actions.cycle_history_next,
-                        ['<Up>'] = actions.cycle_history_prev,
+                        ['j'] = actions.cycle_history_next,
+                        ['k'] = actions.cycle_history_prev,
 
                         ['<Leader>h'] = toggle_hidden,
                         ['<Leader>i'] = toggle_gitignore,
