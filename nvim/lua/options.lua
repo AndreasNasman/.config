@@ -1,14 +1,3 @@
--- Borders
--- Targets all LSP handlers, like hover and signature help.
-local handlers = vim.lsp.handlers
-for name, handler in pairs(handlers) do
-    if type(handler) == 'function' then
-        handlers[name] = vim.lsp.with(handler, {
-            border = 'rounded',
-        })
-    end
-end
-
 -- Completion
 vim.opt.completeopt = 'menu,menuone,noselect'
 
