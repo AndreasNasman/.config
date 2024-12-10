@@ -38,7 +38,11 @@ return {
                         utils.map(lhs, rhs, mode, { buffer = event.buf })
                     end
 
-                    buffer_map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x', 'i' })
+                    local config = { border = 'rounded' }
+
+                    buffer_map('<C-k>', function()
+                        vim.lsp.buf.signature_help(config)
+                    end, { 'n', 'x', 'i' })
                     buffer_map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
                     buffer_map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
                     buffer_map('<Leader>lr', vim.lsp.buf.rename)
@@ -48,6 +52,9 @@ return {
                     buffer_map('gD', vim.lsp.buf.declaration)
                     buffer_map('gI', require('telescope.builtin').lsp_implementations)
                     buffer_map('gr', require('telescope.builtin').lsp_references)
+                    buffer_map('K', function()
+                        vim.lsp.buf.hover(config)
+                    end)
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
