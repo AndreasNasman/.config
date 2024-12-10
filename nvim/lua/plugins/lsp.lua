@@ -95,7 +95,6 @@ return {
 
             local servers = {
                 ['jinja-lsp'] = {},
-                basedpyright = {},
                 beautysh = {},
                 cssls = {},
                 denols = {},
