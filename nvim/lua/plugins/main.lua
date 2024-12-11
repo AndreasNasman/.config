@@ -166,11 +166,11 @@ return {
             utils.map('<D-l>', smart_splits.move_cursor_right)
 
             -- Resizing
-            utils.map('<C-D-h>', smart_splits.resize_left)
-            utils.map('<C-D-j>', smart_splits.resize_down)
-            utils.map('<C-D-k>', smart_splits.resize_up)
-            utils.map('<C-D-l>', smart_splits.resize_right)
-            utils.map('<C-D-=>', '<C-w>=')
+            utils.map('<C-D-h>', smart_splits.resize_left, { 'n', 'x' })
+            utils.map('<C-D-j>', smart_splits.resize_down, { 'n', 'x' })
+            utils.map('<C-D-k>', smart_splits.resize_up, { 'n', 'x' })
+            utils.map('<C-D-l>', smart_splits.resize_right, { 'n', 'x' })
+            utils.map('<C-D-=>', '<C-w>=', { 'n', 'x' })
 
             smart_splits.setup(opts)
         end,
