@@ -59,13 +59,13 @@ local function browse_git_file(remote)
     local remote_url = vim.system({ 'git', '-C', project_path, 'config', '--get', 'remote.' .. remote .. '.url' })
         :wait().stdout
         :gsub('\n', '')
-    if remote_url == nil or remote_url == '' then
+    if remote_url == '' then
         vim.notify('No URL defined for remote ' .. remote, vim.log.levels.INFO)
         return
     end
 
     local branch = vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
-    if branch == nil or branch == '' then
+    if branch == '' then
         vim.notify('No checked out branch')
         return
     end
