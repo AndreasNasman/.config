@@ -48,7 +48,8 @@ local function browse_git_file(remote)
 
     local git_directory_path =
         vim.fs.find('.git', { limit = 1, path = vim.fn.expand('%:p'), type = 'directory', upward = true })[1]
-    -- The path is ".git" when launched (mistakenly) from oil.nvim.
+    -- The path is ".git" when triggered (mistakenly) from oil.nvim in the root
+    -- of a project.
     if git_directory_path == nil or git_directory_path == '.git' then
         vim.notify('Not a Git repository', vim.log.levels.INFO)
         return
