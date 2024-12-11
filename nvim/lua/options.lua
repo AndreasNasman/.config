@@ -7,12 +7,7 @@ vim.opt.guicursor:append('a:blinkon100')
 vim.opt.updatetime = 250 -- Speed up "highlight under cursor".
 
 -- Diagnostics
-vim.diagnostic.config({
-    float = {
-        border = 'rounded',
-        source = true,
-    },
-})
+vim.diagnostic.config({ float = { border = 'rounded', source = true } })
 
 -- Folds
 vim.opt.foldenable = false
