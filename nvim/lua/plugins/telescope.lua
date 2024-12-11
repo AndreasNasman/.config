@@ -14,7 +14,7 @@ return {
         }
 
         ---@param command function
-        ---@param opts_override? table
+        ---@param opts_override? table|nil
         local function run(command, opts_override)
             command(vim.tbl_extend('force', opts, opts_override or {}))
         end
