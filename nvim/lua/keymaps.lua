@@ -47,7 +47,7 @@ end)
 utils.map('<BS>', '<C-o>s', 's')
 
 -- [[ Git ]]
----@param remote string
+---@param remote? string|nil
 local function browse_git_file(remote)
     remote = remote or 'origin'
 

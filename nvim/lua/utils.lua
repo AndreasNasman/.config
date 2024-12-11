@@ -3,7 +3,7 @@ local M = {}
 ---@param lhs string
 ---@param rhs string|function
 ---@param mode? string|string[]|nil
----@param opts? vim.keymap.set.Opts
+---@param opts? vim.keymap.set.Opts|nil
 function M.map(lhs, rhs, mode, opts)
     vim.keymap.set(mode or 'n', lhs, rhs, opts)
 end
