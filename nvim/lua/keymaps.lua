@@ -124,6 +124,8 @@ utils.map('<Leader><Tab>n', '<Cmd>tabnew<CR>')
 utils.map('<Leader><Tab>w', '<Cmd>tabclose<CR>')
 
 -- Navigation
+utils.map('<D-[>', '<Cmd>tabprevious<CR>')
+utils.map('<D-]>', '<Cmd>tabnext<CR>')
 utils.map('<Leader><Tab>h', '<Cmd>tabprevious<CR>')
 utils.map('<Leader><Tab>l', '<Cmd>tabnext<CR>')
 
