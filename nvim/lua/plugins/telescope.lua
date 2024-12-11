@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 return {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -102,26 +104,26 @@ return {
         telescope.load_extension('ui-select')
 
         -- [[ Builtins ]]
-        vim.keymap.set('n', '<Leader>sd', builtin.diagnostics)
-        vim.keymap.set('n', '<Leader>sh', builtin.help_tags)
-        vim.keymap.set('n', '<Leader>sk', builtin.keymaps)
-        vim.keymap.set('n', '<Leader>sm', builtin.man_pages)
-        vim.keymap.set('n', '<Leader>so', builtin.buffers)
-        vim.keymap.set('n', '<Leader>sr', builtin.oldfiles)
-        vim.keymap.set('n', '<Leader>sR', builtin.resume)
-        vim.keymap.set('n', '<Leader>st', builtin.builtin)
+        utils.map('<Leader>sd', builtin.diagnostics)
+        utils.map('<Leader>sh', builtin.help_tags)
+        utils.map('<Leader>sk', builtin.keymaps)
+        utils.map('<Leader>sm', builtin.man_pages)
+        utils.map('<Leader>so', builtin.buffers)
+        utils.map('<Leader>sr', builtin.oldfiles)
+        utils.map('<Leader>sR', builtin.resume)
+        utils.map('<Leader>st', builtin.builtin)
 
         -- With custom options.
-        vim.keymap.set('n', '<Leader>s/', function()
+        utils.map('<Leader>s/', function()
             run(builtin.live_grep, { grep_open_files = true })
         end)
-        vim.keymap.set('n', '<Leader>sf', function()
+        utils.map('<Leader>sf', function()
             run(builtin.find_files)
         end)
-        vim.keymap.set('n', '<Leader>sg', function()
+        utils.map('<Leader>sg', function()
             run(builtin.live_grep)
         end)
-        vim.keymap.set('n', '<Leader>sn', function()
+        utils.map('<Leader>sn', function()
             run(builtin.find_files, { cwd = vim.fn.stdpath('config') })
         end)
     end,

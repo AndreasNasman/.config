@@ -146,31 +146,31 @@ return {
             local smart_splits = require('smart-splits')
 
             -- Movement
-            vim.keymap.set('n', '<D-H>', function()
+            utils.map('<D-H>', function()
                 smart_splits.swap_buf_left({ move_cursor = true })
             end)
-            vim.keymap.set('n', '<D-J>', function()
+            utils.map('<D-J>', function()
                 smart_splits.swap_buf_down({ move_cursor = true })
             end)
-            vim.keymap.set('n', '<D-K>', function()
+            utils.map('<D-K>', function()
                 smart_splits.swap_buf_up({ move_cursor = true })
             end)
-            vim.keymap.set('n', '<D-L>', function()
+            utils.map('<D-L>', function()
                 smart_splits.swap_buf_right({ move_cursor = true })
             end)
 
             -- Navigation
-            vim.keymap.set('n', '<D-h>', smart_splits.move_cursor_left)
-            vim.keymap.set('n', '<D-j>', smart_splits.move_cursor_down)
-            vim.keymap.set('n', '<D-k>', smart_splits.move_cursor_up)
-            vim.keymap.set('n', '<D-l>', smart_splits.move_cursor_right)
+            utils.map('<D-h>', smart_splits.move_cursor_left)
+            utils.map('<D-j>', smart_splits.move_cursor_down)
+            utils.map('<D-k>', smart_splits.move_cursor_up)
+            utils.map('<D-l>', smart_splits.move_cursor_right)
 
             -- Resizing
-            vim.keymap.set('n', '<C-D-h>', smart_splits.resize_left)
-            vim.keymap.set('n', '<C-D-j>', smart_splits.resize_down)
-            vim.keymap.set('n', '<C-D-k>', smart_splits.resize_up)
-            vim.keymap.set('n', '<C-D-l>', smart_splits.resize_right)
-            vim.keymap.set('n', '<C-D-=>', '<C-w>=')
+            utils.map('<C-D-h>', smart_splits.resize_left)
+            utils.map('<C-D-j>', smart_splits.resize_down)
+            utils.map('<C-D-k>', smart_splits.resize_up)
+            utils.map('<C-D-l>', smart_splits.resize_right)
+            utils.map('<C-D-=>', '<C-w>=')
 
             smart_splits.setup(opts)
         end,
