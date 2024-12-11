@@ -42,15 +42,27 @@ end)
 utils.map('<BS>', '<C-o>s', 's')
 
 -- [[ Git ]]
+---@param object 'commit'|'file'
 ---@param remote? string|nil
-local function browse_git_file(remote)
+local function browser_git_object(object, remote)
     remote = remote or 'origin'
 
+    local current_buffer = vim.fn.getbufinfo(vim.fn.bufnr('%'))[1]
+    local alternate_buffer = vim.fn.getbufinfo(vim.fn.bufnr('#'))[1]
+    local buffer
+    if current_buffer.listed == 1 then
+        buffer = current_buffer
+    elseif alternate_buffer.listed == 1 then
+        buffer = alternate_buffer
+    else
+        vim.notify('No current or alternate listed buffer found', vim.log.levels.INFO)
+        return
+    end
+    local absolute_file_path = vim.fn.fnamemodify(buffer.name, ':p')
+
     local git_directory_path =
-        vim.fs.find('.git', { limit = 1, path = vim.fn.expand('%:p'), type = 'directory', upward = true })[1]
-    -- The path is ".git" when triggered (mistakenly) from oil.nvim in the root
-    -- of a project.
-    if git_directory_path == nil or git_directory_path == '.git' then
+        vim.fs.find('.git', { limit = 1, path = absolute_file_path, type = 'directory', upward = true })[1]
+    if git_directory_path == nil then
         vim.notify('Not a Git repository', vim.log.levels.INFO)
         return
     end
@@ -64,37 +76,55 @@ local function browse_git_file(remote)
         return
     end
 
-    local branch = vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
-    if branch == '' then
-        vim.notify('No checked out branch')
-        return
-    end
-
-    local absolute_file_path = vim.fn.expand('%:p')
-    -- `gsub` matches regular expressions by default.
-    -- We must escape magic characters with a %-sign to match literals.
-    local escaped_project_path = project_path:gsub('[%-%_]', '%%%1')
-    local project_relative_file_path = absolute_file_path:gsub(escaped_project_path, '')
-    local line_number = vim.api.nvim_win_get_cursor(0)[1]
-
     if remote_url:match('github') or remote_url:match('gitlab') then
-        vim.system({
-            'open',
-            string.format(
-                '%s%s/blob/%s/%s#L%s',
-                remote_url:gsub('%.git$', ''),
-                remote_url:match('gitlab') and '/-' or '',
-                branch,
-                project_relative_file_path,
-                line_number
-            ),
-        })
+        if object == 'commit' then
+            local commit_hash = vim.fn.expand('<cword>')
+            local valid_commit_hash_length = 8
+            if not commit_hash:match('^[a-f0-9]+$') or #commit_hash ~= valid_commit_hash_length then
+                vim.notify('No Git hash detected under the cursor', vim.log.levels.INFO)
+                return
+            end
+
+            vim.system({
+                'open',
+                string.format('%s/commit/%s', remote_url:gsub('%.git$', ''), commit_hash),
+            })
+        elseif object == 'file' then
+            local branch =
+                vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
+            if branch == '' then
+                vim.notify('No checked out branch', vim.log.levels.INFO)
+                return
+            end
+            -- `gsub` matches regular expressions by default.
+            -- We must escape magic characters with a %-sign to match literals.
+            local escaped_project_path = project_path:gsub('[%-%_]', '%%%1')
+            local project_relative_file_path = absolute_file_path:gsub(escaped_project_path, '')
+            local line_number = vim.api.nvim_win_get_cursor(0)[1]
+
+            vim.system({
+                'open',
+                string.format(
+                    '%s%s/blob/%s/%s#L%s',
+                    remote_url:gsub('%.git$', ''),
+                    remote_url:match('gitlab') and '/-' or '',
+                    branch,
+                    project_relative_file_path,
+                    line_number
+                ),
+            })
+        end
     else
-        vim.notify('Unhandeled remote URL ' .. remote_url, vim.log.levels.info)
+        vim.notify('Unhandled remote URL ' .. remote_url, vim.log.levels.INFO)
     end
 end
 
-utils.map('<Leader>gf', browse_git_file)
+utils.map('<Leader>gc', function()
+    browser_git_object('commit')
+end)
+utils.map('<Leader>gf', function()
+    browser_git_object('file')
+end)
 
 -- [[ History ]]
 utils.map('<C-n>', '<Down>', 'c')
