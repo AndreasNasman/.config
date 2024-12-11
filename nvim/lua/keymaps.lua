@@ -1,10 +1,5 @@
 local utils = require('utils')
 
--- [[ Prerequisites ]]
--- Separate <C-i> from <Tab>.
--- https://www.reddit.com/r/neovim/comments/vguomm/comment/id5p016/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-utils.map('<C-i>', '<C-i>')
-
 -- [[ Clipboard ]]
 -- Black hole
 utils.map('<Leader>d', '"_d', { 'n', 'x' })
@@ -125,22 +120,22 @@ utils.map(']q', '<Cmd>cnext<CR>')
 
 -- [[ Tabs ]]
 -- Management
-utils.map('<Tab>n', '<Cmd>tabnew<CR>')
-utils.map('<Tab>w', '<Cmd>tabclose<CR>')
+utils.map('<Leader><Tab>n', '<Cmd>tabnew<CR>')
+utils.map('<Leader><Tab>w', '<Cmd>tabclose<CR>')
 
 -- Navigation
-utils.map('<Tab>h', '<Cmd>tabprevious<CR>')
-utils.map('<Tab>l', '<Cmd>tabnext<CR>')
+utils.map('<Leader><Tab>h', '<Cmd>tabprevious<CR>')
+utils.map('<Leader><Tab>l', '<Cmd>tabnext<CR>')
 
-utils.map('<Tab>1', '<Cmd>tabnext 1<CR>')
-utils.map('<Tab>2', '<Cmd>tabnext 2<CR>')
-utils.map('<Tab>3', '<Cmd>tabnext 3<CR>')
-utils.map('<Tab>4', '<Cmd>tabnext 4<CR>')
-utils.map('<Tab>5', '<Cmd>tabnext 5<CR>')
-utils.map('<Tab>6', '<Cmd>tabnext 6<CR>')
-utils.map('<Tab>7', '<Cmd>tabnext 7<CR>')
-utils.map('<Tab>8', '<Cmd>tabnext 8<CR>')
-utils.map('<Tab>9', '<Cmd>$tabnext<CR>')
+utils.map('<Leader><Tab>1', '<Cmd>tabnext 1<CR>')
+utils.map('<Leader><Tab>2', '<Cmd>tabnext 2<CR>')
+utils.map('<Leader><Tab>3', '<Cmd>tabnext 3<CR>')
+utils.map('<Leader><Tab>4', '<Cmd>tabnext 4<CR>')
+utils.map('<Leader><Tab>5', '<Cmd>tabnext 5<CR>')
+utils.map('<Leader><Tab>6', '<Cmd>tabnext 6<CR>')
+utils.map('<Leader><Tab>7', '<Cmd>tabnext 7<CR>')
+utils.map('<Leader><Tab>8', '<Cmd>tabnext 8<CR>')
+utils.map('<Leader><Tab>9', '<Cmd>$tabnext<CR>')
 
 -- [[ Toggle ]]
 -- Commands
