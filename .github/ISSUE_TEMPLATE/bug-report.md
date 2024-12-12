@@ -2,8 +2,8 @@
 name: Bug report
 about: Report a bug to improve this project
 title: ''
-labels: bug
 assignees: ''
+labels: bug
 ---
 
 ## Describe the bug
