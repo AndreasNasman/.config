@@ -4,6 +4,7 @@ about: Report a bug to improve this project
 title: ''
 assignees: ''
 labels: bug
+projects: 'projects/1'
 ---
 
 ## Describe the bug
