@@ -4,6 +4,8 @@ cd (dirname (status --current-filename))
 
 echo '📀 Updating Git submodules.'
 git submodule update --init --recursive --remote
+echo '🗃️ Updating whatis databases'
+makewhatis
 echo '🍺 Updating Homebrew packages.'
 brew update
 echo '🍺 Upgrading Homebrew packages.'
