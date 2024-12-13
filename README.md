@@ -50,8 +50,8 @@ section serves as a reminder of what to set up manually.
 
 GPG keys should be device-specific. If you configure them with an expiration
 date, GitHub can show commits as "Verified" but expired. This approach
-eliminates the need to copy private keys between devices (which you shouldn't do
-anyway).
+eliminates the need to copy private keys between devices (which you should not
+do anyway).
 
 Follow these guides to set up GPG commit signing:
 
