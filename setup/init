@@ -15,6 +15,9 @@ for script in $(realpath $(pwd)/../bin/*); do
     sudo ln -s $script /usr/local/bin/$(basename $script)
 done
 
+echo '🗃️ Updating whatis databases'
+makewhatis
+
 echo '📀 Initializing and fetching data for Git submodules.'
 # https://git-scm.com/book/en/v2/Git-Tools-Submodules#_cloning_submodules
 git submodule update --init --recursive --remote

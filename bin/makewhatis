@@ -1,10 +1,29 @@
 #!/usr/bin/env zsh
 
-# This script creates `whatis` files to speed up man page lookups. `Telescope
-# man_pages` uses `apropos` on Mac, which can utilize the `whatis` files to
-# speed up the process.
+# This script creates whatis databases to speed up man page lookups.
+# `:Telescope man_pages` uses `apropos` on Mac, which can utilize the whatis
+# databases to speed up the process.
 #
-# Whether we launch kitty and fish through Alfred or Aerospace, `manpath` still
+# It also updates the MANPATH environment variable in Neovim that Telescope
+# uses to prevent reading invalid paths, i.e., paths where we can not create a
+# whatis database.
+#
+# Whether we launch kitty and fish through Alfred or Aerospace, `manpath`
 # contains duplicate or faulty entries, but the command still works fine.
 
+manpath=$(manpath)
 sudo /usr/libexec/makewhatis $(manpath)
+
+# Set the separator to `:` for splitting and joining arrays.
+IFS=':'
+read -rA manpath_split <<<$manpath
+
+valid_manpaths=()
+for dir in $manpath_split; do
+	if [ -f $dir/whatis ]; then
+		valid_manpaths+=$dir
+	fi
+done
+valid_manpaths_joined="${valid_manpaths[*]}"
+
+sed -i '' "s|MANPATH = .*|MANPATH = '$valid_manpaths_joined'|" $(pwd)/../nvim/lua/options.lua
