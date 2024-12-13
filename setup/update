@@ -1,6 +1,6 @@
-#!/usr/bin/env fish
+#!/usr/bin/env zsh
 
-cd (dirname (status --current-filename))
+cd $(dirname $0)
 
 echo '📀 Updating Git submodules.'
 git submodule update --init --recursive --remote
