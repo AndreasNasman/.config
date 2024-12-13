@@ -95,7 +95,6 @@ return {
 
             local servers = {
                 ['jinja-lsp'] = {},
-                beautysh = {},
                 cssls = {},
                 denols = {},
                 djlint = {},
@@ -108,6 +107,7 @@ return {
                 perlnavigator = {},
                 pyright = {},
                 ruff = {},
+                shfmt = {},
                 stylua = {},
                 svelte = {},
                 tailwindcss = {},
@@ -216,7 +216,7 @@ return {
                 svelte = { 'deno_fmt' },
                 toml = { 'taplo' },
                 typescript = { 'deno_fmt' },
-                zsh = { 'beautysh' },
+                zsh = { 'shfmt' },
             },
         },
     },

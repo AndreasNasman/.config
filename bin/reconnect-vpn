@@ -9,8 +9,7 @@ networksetup -disconnectpppoeservice "$vpn_name"
 
 max_reconnect_attempts=10
 reconnect_attempt=1
-while [ $reconnect_attempt -le $max_reconnect_attempts ]
-do
+while [ $reconnect_attempt -le $max_reconnect_attempts ]; do
     vpn_status=$(networksetup -showpppoestatus "$vpn_name")
     if [ "$vpn_status" = 'disconnected' ]; then
         networksetup -connectpppoeservice "$vpn_name"

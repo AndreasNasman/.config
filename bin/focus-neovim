@@ -5,12 +5,12 @@
 filename=$1
 line=$2
 
-neovim_windows_in_the_current_tab=$(kitty @ ls -m 'state:parent_active and var:IS_NVIM=1' 2> /dev/null)
+neovim_windows_in_the_current_tab=$(kitty @ ls -m 'state:parent_active and var:IS_NVIM=1' 2>/dev/null)
 
 if [ -z "$neovim_windows_in_the_current_tab" ]; then
     nvim +$line -- $filename
 else
     window_id=$(echo $neovim_windows_in_the_current_tab | jq '.[0].tabs[0].windows[0].id')
-    nvim --server /tmp/nvim-server.$window_id --remote-send ":e $filename|$line<CR>" 1> /dev/null
+    nvim --server /tmp/nvim-server.$window_id --remote-send ":e $filename|$line<CR>" 1>/dev/null
     kitty @ focus-window --match id:$window_id
 fi
