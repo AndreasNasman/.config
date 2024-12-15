@@ -247,3 +247,22 @@ utils.map('<Leader>wl', '<Cmd>rightbelow vsplit<CR>')
 
 -- Mapping
 utils.map('<Leader>w', '<C-w>')
+
+-- Movement
+utils.map('<D-H>', '<Cmd>SmartSwapLeft<CR>')
+utils.map('<D-J>', '<Cmd>SmartSwapDown<CR>')
+utils.map('<D-K>', '<Cmd>SmartSwapUp<CR>')
+utils.map('<D-L>', '<Cmd>SmartSwapRight<CR>')
+
+-- Navigation
+utils.map('<D-h>', '<Cmd>SmartCursorMoveLeft<CR>')
+utils.map('<D-j>', '<Cmd>SmartCursorMoveDown<CR>')
+utils.map('<D-k>', '<Cmd>SmartCursorMoveUp<CR>')
+utils.map('<D-l>', '<Cmd>SmartCursorMoveRight<CR>')
+
+-- Resizing
+utils.map('<C-D-=>', '<C-w>=', { 'n', 'x' })
+utils.map('<C-D-h>', '<Cmd>SmartResizeLeft<CR>', { 'n', 'x' })
+utils.map('<C-D-j>', '<Cmd>SmartResizeDown<CR>', { 'n', 'x' })
+utils.map('<C-D-k>', '<Cmd>SmartResizeUp<CR>', { 'n', 'x' })
+utils.map('<C-D-l>', '<Cmd>SmartResizeRight<CR>', { 'n', 'x' })
