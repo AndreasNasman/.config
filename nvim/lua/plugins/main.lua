@@ -142,39 +142,10 @@ return {
     {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
-        config = function(_, opts)
-            local smart_splits = require('smart-splits')
-
-            -- Movement
-            utils.map('<D-H>', function()
-                smart_splits.swap_buf_left({ move_cursor = true })
-            end)
-            utils.map('<D-J>', function()
-                smart_splits.swap_buf_down({ move_cursor = true })
-            end)
-            utils.map('<D-K>', function()
-                smart_splits.swap_buf_up({ move_cursor = true })
-            end)
-            utils.map('<D-L>', function()
-                smart_splits.swap_buf_right({ move_cursor = true })
-            end)
-
-            -- Navigation
-            utils.map('<D-h>', smart_splits.move_cursor_left)
-            utils.map('<D-j>', smart_splits.move_cursor_down)
-            utils.map('<D-k>', smart_splits.move_cursor_up)
-            utils.map('<D-l>', smart_splits.move_cursor_right)
-
-            -- Resizing
-            utils.map('<C-D-h>', smart_splits.resize_left, { 'n', 'x' })
-            utils.map('<C-D-j>', smart_splits.resize_down, { 'n', 'x' })
-            utils.map('<C-D-k>', smart_splits.resize_up, { 'n', 'x' })
-            utils.map('<C-D-l>', smart_splits.resize_right, { 'n', 'x' })
-            utils.map('<C-D-=>', '<C-w>=', { 'n', 'x' })
-
-            smart_splits.setup(opts)
-        end,
-        opts = { at_edge = 'stop' },
+        opts = {
+            at_edge = 'stop',
+            cursor_follows_swapped_bufs = true,
+        },
         lazy = false,
     },
     {
