@@ -1,17 +1,19 @@
 # Bitwarden Accelerator
 
-Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
+Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 
 ---
 
 ## Table of Contents
 
 * [Key Features](#features)
+* [Installing](#installing)
 * [Options](#options)
 * [Invoking](#invoking)
 * [Main Menu](#mainMenu)
 * [Item List](#itemList)
 * [More Menu](#moreMenu)
+* [Reporting Bugs](#bugs)
 
 ---
 
@@ -22,6 +24,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 
 * Login with username and password, or API Key
 * Two-step logins with Authenticator app, YubiKey OTP, or Email
+* Activity timeout to logout or lock your vault
 
 #### Selecting items
 
@@ -34,10 +37,20 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 	* Cards by brand (eg., search for "Visa")
 	* Identities by any field in the item
 
+<!---
+#### Adding items
+
+* Add new login items to your vault
+--->
+
 #### Selecting fields
 
 * Copy username, password, TOTP code, or notes to the clipboard
 * Copy TOTP code instead of password if called shortly after copying an item's password
+
+#### Editig fields
+
+* Edit an item's username, password, or name without leaving Alfred
 
 #### Miscellaneous
 
@@ -45,7 +58,17 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
 * View any item in a separate window to copy/paste multiple fields easily
 * View any item's fields within Alfred when using a [Universal Action](https://www.alfredapp.com/universal-actions/)
-* (Optional) Automatically sync vault in the background using a MacOS Launch Agent
+* (Optional) Automatically sync vault in the background using a macOS Launch Agent
+
+---
+
+<a name="installing"></a>
+## Installing
+
+1. Download the workflow <a href="https://github.com/ajrosen/Bitwarden-Accelerator/releases/latest/download/Bitwarden.Accelerator.alfredworkflow">here</a>
+2. Open the downloaded file to add it to Alfred
+3. Install the *Bitwarden CLI*<sup>(1)</sup> from the [Bitwarden website](https://bitwarden.com/help/cli/), with `brew install bitwarden-cli`, or with `port -N install bitwarden-cli`.
+4. Install *jq*<sup>(2)</sup> from from the [website](https://jqlang.github.io/jq/download/), with `brew install jq`, or `port -N install jq`.
 
 ---
 
@@ -55,6 +78,10 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 ### Bitwarden user
 
 Your Bitwarden email address.
+
+### Auto Sync
+
+Installs a macOS *Launch Agent* that automatically syncs your vault every *Sync Interval* minutes.
 
 ### Login method
 
@@ -67,6 +94,18 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 ### Two-step login method
 
 Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
+
+### Vault timeout
+
+How long Bitwarden can be inactive before timing out. *Inactivity* is determined by the time since invoking the workflow.
+
+### Custom timeout
+
+Sets the timeout value when *Vault timeout* is *Custom*.
+
+### Vault timeout action
+
+What Bitwarden will do once the vault timeout is reached.  Choices are **Lock vault** and **Logout**.
 
 ### Bitwarden server
 
@@ -84,13 +123,21 @@ How many seconds Bitwarden Accelerator will keep your password (or other field) 
 
 Bitwarden Accelerator will sync your vault when you load the worfklow if it has not been synced in this many minutes.
 
-### Auto Sync
-
-Installs a MacOS *Launch Agent* that automatically syncs your vault every *Sync Interval* minutes.
-
 ### Notifications
 
 Uncheck this to keep Bitwarden Accelerator from displaying a notification when copying your password (or other field) to the clipboard.
+
+### Workflow Keyword
+
+Keyword used to bring up Bitwarden Accelerator's main menu
+
+### Search Keyword
+
+Keyword used to bring up Bitwarden Accelerator's search menu
+
+### Trash Keyword
+
+Keyword used to search deleted items
 
 ---
 
@@ -99,11 +146,15 @@ Uncheck this to keep Bitwarden Accelerator from displaying a notification when c
 
 There are three ways to invoke Bitwarden Accelerator.
 
-1. Using the keyword ***bw*** will provide a list of operations.  The list depends on whether you are logged into or logged out of Bitwarden, and whether your vault is locked or unlocked.
+1. Using the Workflow Keyword (default: ***bw***) will provide a list of operations.  The list depends on whether you are logged into or logged out of Bitwarden, and whether your vault is locked or unlocked.
 2. Typing the ***hotkey*** will start a search of your vault.  This is the same as choosing the **Search Vault** operation from the main menu.
 3. As a Universal Action, you can view an item's fields directly in Alfred.
 
 The default hotkey is ***Control-Command-L***, because the Bitwarden browser extension uses *Shift-Command-L*.  If you wish to change or disable the hotkey, open the workflow in *Alfred Preferences*.  The hotkey trigger is in the top-left corner.
+
+### Trash
+
+Use the Trash Keyword (default: ***.bwtrash***) will list any deleted items.  Select an item to restore it.
 
 ---
 
@@ -152,17 +203,31 @@ Lists all items in your vault.
 
 Shows a list of all the folders in your vault, then searches your vault for items in the selected folder.
 
+<!---
+* **Add item**
+
+Adds a new login item to your vault.  You will be prompted for the item's *Name*, *Username*, and *Password*.
+
+If your web browser is the front-most window, the default *Name* will be the active tab's domain name.
+
+The default *Username* will be your Bitwarden email address.
+
+The default *Password* will be a random password generated by Bitwarden.  It is 20 characters and includes uppercase letters, lowercase letters, numbers, and special characters.
+--->
+
 * **Lock Vault**
 
 Locks your Bitwarden vault.
 
 * **Set Default Vault**
 
-Filter searches to a specific *Vault* (Organization), *My Vault*, or All Vaults.  Note that changing this setting will revert *Default Collection* to *All Collections*.
+Filter searches to a specific *Vault* (Organization), *My Vault*, or All Vaults.  Or, set the default Organization for future searches with the Command modifier on the next screen.
+
+Note that changing this setting with the Command modifier will also revert *Default Collection* to *All Collections*.
 
 * **Set Default Collection**
 
-Filters searches to a specific *Collection*, or *All Collections*.
+Filters searches to a specific *Collection*, or *All Collections*.  Or, set the default Collection for future searches with the Command modifier on the next screen.
 
 * **Sync Vault**
 
@@ -186,7 +251,8 @@ All items in your vault are shown, sorted by each item's *name*.  If your web br
 Supported browsers:
 
 * [Safari](https://www.apple.com/safari/)
-* [Firefox](https://www.mozilla.org/)<sup>(2)</sup>
+* [Firefox](https://www.mozilla.org/)<sup>(3)</sup>
+* [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)<sup>(3)</sup>
 * [Chrome](https://www.google.com/chrome/)
 * [Edge](https://www.microsoft.com/edge)
 * [Opera](https://www.opera.com/)
@@ -194,6 +260,7 @@ Supported browsers:
 * [Vivaldi](https://vivaldi.com/)
 * [Ghost](https://ghostbrowser.com/)
 * [Arc](https://arc.net/)
+* [Zen](https://zen-browser.app/)<sup>(3)</sup>
 
 The default behavior when selecting an item depends on its *type*.
 
@@ -208,11 +275,12 @@ Copy a login item's password to the clipboard.  Use these modifiers to copy othe
 	Option			Opens a new menu with additional actions
 	Fn			Show all fields in a dialog window
 
+	Control + Command	Open URL in your default browser
 	Command + Option	View all fields in Alfred
 
-#### *Automatic field rotation*
+*Automatic field rotation*
 
-When selecting the *same* item within 15 seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
+When selecting the *same* login item within *Sync Interval* seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
 
 * **Secure notes**
 
@@ -240,12 +308,31 @@ Marks or unmarks the item as a *Favorite* and syncs your vault.
 
 If an item has attachments, this will show you a list with their names and sizes.  Select one to save that attachment to the *Downloads Folder*.
 
+**Edit Item**
+
+Lets you edit the username, password, or name of the item.
+
 **Delete Item**
 
 Deletes the item from your vault.
 
-You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.  However, Bitwarden Accelerator *does not support* recovering items from your vault's Trash.
+You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.
 
 ---
-1. *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
-2. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
+
+<a name="bugs"></a>
+## Reporting Bugs
+
+When reporting bugs, please include the following information:
+
+- Version of Bitwarden Accelerator
+- Version of Bitwarden CLI (`bw --version`)
+- Version of jq (`jq --version`)
+- What you are trying to do
+  - What result you are getting
+  - What result you are expecting
+
+---
+1. *If the [Bitwarden CLI](https://bitwarden.com/help/cli/) is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
+2. *macOS 15.1 (Sequoia) includes jq, so it is not neccessary to install separately.*
+3. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration).*

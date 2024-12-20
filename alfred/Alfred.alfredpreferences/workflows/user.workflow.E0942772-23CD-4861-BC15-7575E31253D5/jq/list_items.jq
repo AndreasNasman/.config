@@ -41,7 +41,8 @@ def alfred(fn; on):
 	username: .login.username,
 	folder: folderName(.folderId; fn),
 	url: [ URIs ],
-	collections: [ (select(.collectionIds[] | length > 0) | .collectionIds[]) ],
+	default_url: .login.uris[0].uri,
+	collections: [ (select(.collectionIds + [] | length > 0) | .collectionIds[]) ],
 	collectionCount: .collectionIds | length,
 	organization: orgName(.organizationId; on),
 	attachmentCount: .attachments | length,
@@ -69,14 +70,16 @@ def searchFields:
 def filter:
 . | select($search == "" or (searchFields | test($search; "i")))
   | select($folderId == "" or $folderId == .folderId)
-  | select($collectionId == "" or (.collectionIds[] | test($collectionId)))
-  | select(($organizationId == "")
-	     or ($organizationId == .organizationId)
-	     or (($organizationId == "0") and (.organizationId == null)))
+  | select($collectionId == "0" or ($collectionId == "")
+			 or (.collectionIds[] | test($collectionId)))
+  | select(($organizationId == "0") or ($organizationId == .organizationId)
+	     or (($organizationId == "1") and (.organizationId == null)))
 ;
 
 ##################################################
 # Main
+
+log(input_filename) |
 
 if $recent != "" then
   # Recent
@@ -102,3 +105,5 @@ else
     | alfred($folderNames; $organizationNames)
   ]
 end
+
+  | log("\(length) items")

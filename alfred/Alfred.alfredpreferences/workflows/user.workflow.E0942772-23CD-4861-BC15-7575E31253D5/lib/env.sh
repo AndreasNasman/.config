@@ -26,20 +26,32 @@ FETCH_FILE="${alfred_workflow_cache}"/last_item
 RESULTS_DIR="${alfred_workflow_cache}"/results
 STATUS_FILE="${alfred_workflow_cache}"/status
 SYNC_FILE="${alfred_workflow_cache}"/sync
+TIMER_FILE="${alfred_workflow_cache}"/timer
 
-touch "${alfred_workflow_cache}"/collection_id
-touch "${alfred_workflow_cache}"/collection_name
+mkdir -p "${alfred_workflow_cache}"
 
-touch "${alfred_workflow_cache}"/organization_id
-touch "${alfred_workflow_cache}"/organization_name
+# Check workflow version
+touch "${alfred_workflow_cache}"/version
+VERSION=$(cat "${alfred_workflow_cache}"/version)
+if [ "${VERSION}" != "${alfred_workflow_version}" ]; then
+    echo "${alfred_workflow_version}" > "${alfred_workflow_cache}"/version
 
-COLLECTION_ID="$(cat "${alfred_workflow_cache}"/collection_id)"
-COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
+    # Set default organization and collection
+    echo '' > "${alfred_workflow_cache}"/collection_id
+    echo '' > "${alfred_workflow_cache}"/collection_name
 
-ORGANIZATION_ID="$(cat "${alfred_workflow_cache}"/organization_id)"
+    echo '0' > "${alfred_workflow_cache}"/organization_id
+    echo 'All Vaults' > "${alfred_workflow_cache}"/organization_name
+fi
+
+ORGANIZATION_ID="${ORGANIZATION_ID:-$(cat "${alfred_workflow_cache}"/organization_id)}"
 ORGANIZATION_NAME="$(cat "${alfred_workflow_cache}"/organization_name)"
 
-LAST_SYNC="$(cat "${SYNC_FILE}")"
+COLLECTION_ID="${COLLECTION_ID:-$(cat "${alfred_workflow_cache}"/collection_id)}"
+COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
+
+LAST_SYNC=0
+[ -f "${SYNC_FILE}" ] && LAST_SYNC="$(cat "${SYNC_FILE}")"
 
 # Helper functions
 cacheVault() {
@@ -49,11 +61,15 @@ cacheVault() {
 
     for OBJECT in ${OBJECTS}; do
 	curl -s "${API}"/list/object/"${OBJECT}" \
-	     --connect-timeout 3 \
-	     --max-time 5 \
 	     | jq -L jq -r -f jq/clean.jq \
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
+
+    curl -s "${API}"/list/object/items?trash \
+	 --connect-timeout 3 \
+	 --max-time 5 \
+	| jq -L jq -r -f jq/clean.jq \
+	     > "${DATA_DIR}"/trash
 }
 
 saveSync() {
@@ -63,25 +79,12 @@ saveSync() {
     cacheVault
 }
 
-# item() {
-#     echo ', {'
-#     echo '  "title": "'"${1}"'"'
-#     echo ', "arg": "'"${2}"'"'
-#     echo ', "subtitle": "'"${3}"'"'
-#     mods "${3}"
-#     echo '}'
-# }
-
-# mods() {
-#     echo ', "mods": { "msbc": {}'
-#     for mod in "cmd" "alt" "control" "shift" "function"; do
-# 	echo ', "'"${mod}"'": { "valid": "true", "subtitle": "'"${1}"'" }'
-#     done
-#     echo '}'
-# }
-
 log() {
     [ "${DEBUG}" != 1 ] && return
 
-    echo "$(date): [$(basename ${BASH_SOURCE[1]}):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+    echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+}
+
+curl() {
+    /usr/bin/curl --connect-timeout 3 --max-time 5 "${@}"
 }
