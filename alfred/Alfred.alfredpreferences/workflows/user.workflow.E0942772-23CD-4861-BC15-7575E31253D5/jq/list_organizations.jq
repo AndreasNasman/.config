@@ -1,17 +1,20 @@
-def all:
+include "bw";
+
+def allVaults:
   {
     title: "All Vaults",
-    arg: "",
+    subtitle: "􀆔 (Cmd) to save as default for future searches",
+    arg: 0,
   }
 ;
 
 def myVault:
   {
     title: "My Vault",
-    arg: "My Vault",
+    arg: 1,
     variables: {
 	organizationName: "My Vault",
-	organizationId: 0,
+	organizationId: null,
       }
   }
 ;
@@ -33,9 +36,17 @@ def alfred:
 ##################################################
 # Main
 
-[ all ] + [ myVault ] +
+log(input_filename) |
+
+[ allVaults ] + [ myVault ] +
 [
   .data.data[]
   | select(.name | tostring | test($search; "i"))
+  | log([ .id, .name ])
   | alfred
+] +
+[ {
+    title: "👈 Return to Main Menu",
+    arg: "👈"
+  }
 ]

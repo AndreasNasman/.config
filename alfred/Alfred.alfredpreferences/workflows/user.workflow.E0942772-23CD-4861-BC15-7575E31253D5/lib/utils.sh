@@ -1,6 +1,43 @@
 #!/bin/bash
 
-# shellcheck disable=1090,2034,2154
+# shellcheck disable=1090,1091,2034,2086,2154
+
+resetTimer() {
+    echo "${NOW}" > "${TIMER_FILE}"
+}
+
+checkTimeout() {
+    vaultTimeout=${vaultTimeout:=-1}
+
+    # Never
+    [ ${vaultTimeout} -eq -1 ] && return
+
+    # Custom
+    [ ${vaultTimeout} -eq -2 ] && vaultTimeout=${customTimeout}
+
+    # Get timer
+    TIMER=0
+    [ -f "${TIMER_FILE}" ] && TIMER=$(cat "${TIMER_FILE}")
+
+    # Check timer
+    if [ $((NOW - TIMER)) -gt $((vaultTimeout * 60)) ]; then
+	CMD='tell application id "com.runningwithcrayons.Alfred" to run trigger'
+
+	# Timed out
+	if [ "${vaultTimeoutAction}" == "lock" ]; then
+	    osascript -e "${CMD} \"notifyLocked\" in workflow \"${alfred_workflow_bundleid}\""
+	    . ./lock.sh > /dev/null
+	else
+	    osascript -e "${CMD} \"notifyLoggedOut\" in workflow \"${alfred_workflow_bundleid}\""
+	    . ./logout.sh > /dev/null
+	fi
+
+	. ./lib/status.sh
+    fi
+
+    # Reset timer
+    resetTimer
+}
 
 saveSelection() {
     cat > "${FETCH_FILE}" << EOF
@@ -35,7 +72,7 @@ mod() {
 
     echo '"'"${MOD}"'": {'
     echo '"valid":' "${VALID}"
-    [ "${SUBTITLE}" != "" ] && echo ', "subtitle": "'"${SUBTITLE}"'"'
+    echo ', "subtitle": "'"${SUBTITLE}"'"'
     echo '}'
 }
 
@@ -47,7 +84,7 @@ mods() {
     echo '"mods": {'
 
     mod "cmd" "${SUBTITLE}" "${VALID}"
-    for modifier in "alt" "control" "shift" "function"; do
+    for modifier in "alt" "control" "shift" "function" "cmd+control" "cmd+alt"; do
 	echo ", $(mod "${modifier}" "${SUBTITLE}" "${VALID}")"
     done
 
@@ -95,7 +132,7 @@ item() {
     [ "${SUBTITLE}" != "" ] && echo -n ', "subtitle": "'"${SUBTITLE}"'"'
     [ "${UUID}" != "" ] && echo -n ', "uid": "'"${UUID}"'"'
     [ "${ICON}" != "" ] && echo -n ", $(icon "${ICON}")"
-    [ "${MODS}" != "" ] && echo -n ", $(mods "${SUBTITLE}")"
+    echo -n ", $(mods "${SUBTITLE}")"
 
     if [ "${COPY}" != "" ] || [ "${LARGE}" != "" ]; then
 	echo -n ", $(text "${COPY}" "${LARGE}")"

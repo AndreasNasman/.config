@@ -2,9 +2,6 @@
 
 # shellcheck disable=1090,2154
 
-. lib/env.sh
-. lib/utils.sh
-
 function clean() {
     find "${RESULTS_DIR}" -type f -delete
 }
@@ -18,10 +15,11 @@ function q() {
     SKIP="${4}"
 
     log "SEARCH = ${1}, ICON = ${2}, SKIP = ${3}"
+    log "folderId = ${folderId}, organizationId = ${ORGANIZATION_ID}, collectionId = ${COLLECTION_ID}"
 
     jq \
 	-L jq \
-	--rawfile {,"${DATA_DIR}/"}organizations \
+	--rawfile {,"${DATA_DIR}"/}organizations \
 	--rawfile {,"${DATA_DIR}"/}collections \
 	--rawfile {,"${DATA_DIR}"/}folders \
 	--arg folderId "${folderId}" \
@@ -32,7 +30,7 @@ function q() {
 	--arg recent "${RECENT}" \
 	--arg skip "${SKIP}" \
 	-r -f jq/list_items.jq \
-	"${DATA_DIR}"/items
+	"${DATA_DIR}"/items 2>>"${LOG_FILE}"
 }
 
 # Refresh lists
@@ -66,4 +64,12 @@ fi
 # List items
 q "${*}" "" "" "${old_objectId}" >> "${RESULTS_DIR}"/3
 
-jq -s flatten "${RESULTS_DIR}"/?
+# Check for empty list
+S=$(find "${RESULTS_DIR}"/? -size +10c | wc -l)
+if [[ "${S}" =~ "0" ]]; then
+    echo '[ { "title": "No items found", "arg": "", "valid": false,'
+    mods "" false
+    echo '} ]'
+else
+    jq -s flatten "${RESULTS_DIR}"/?
+fi
