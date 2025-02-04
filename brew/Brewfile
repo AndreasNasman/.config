@@ -21,7 +21,6 @@ brew "glab"
 brew "gnupg"
 brew "jq"
 brew "mysql-client@8.4"
-brew "utf8proc", args: ["HEAD"]
 brew "neovim", args: ["HEAD"]
 brew "pinentry-mac"
 brew "pnpm"
