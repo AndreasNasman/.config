@@ -14,11 +14,8 @@ return {
         init = function()
             vim.cmd.colorscheme('catppuccin')
             local palette = require('catppuccin.palettes').get_palette()
-            local color_utils = require('catppuccin.utils.colors')
             vim.api.nvim_set_hl(0, 'NormalFloat', {})
             vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.rosewater })
-            vim.api.nvim_set_hl(0, 'GitSignsAddInline', { bg = color_utils.darken(palette.green, 0.36, palette.base) })
-            vim.api.nvim_set_hl(0, 'GitSignsDeleteInline', { bg = color_utils.darken(palette.red, 0.36, palette.base) })
             vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = palette.base, bg = palette.flamingo })
             vim.api.nvim_set_hl(0, 'MiniStatuslineFileinfo', { fg = palette.base, bg = palette.lavender })
         end,
