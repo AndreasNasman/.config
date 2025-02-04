@@ -9,33 +9,33 @@ api.iunmap(":");
 api.Hints.setCharacters("fdsajklghvcxzmbnuioprewqty");
 
 const Catppuccin = {
-	// Flavor: Mocha
-	Base: "#1e1e2e",
-	Blue: "#89b4fa",
-	Crust: "#11111b",
-	Flamingo: "#f2cdcd",
-	Green: "#a6e3a1",
-	Lavender: "#b4befe",
-	Mantle: "#181825",
-	Maroon: "#eba0ac",
-	Mauve: "#cba6f7",
-	Overlay0: "#6c7086",
-	Overlay1: "#7f849c",
-	Overlay2: "#9399b2",
-	Peach: "#fab387",
-	Pink: "#f5c2e7",
-	Red: "#f38ba8",
-	Rosewater: "#f5e0dc",
-	Sapphire: "#74c7ec",
-	Sky: "#89dceb",
-	Subtext0: "#a6adc8",
-	Subtext1: "#bac2de",
-	Surface0: "#313244",
-	Surface1: "#45475a",
-	Surface2: "#585b70",
-	Teal: "#94e2d5",
-	Text: "#cdd6f4",
-	Yellow: "#f9e2af",
+  // Flavor: Mocha
+  Base: "#1e1e2e",
+  Blue: "#89b4fa",
+  Crust: "#11111b",
+  Flamingo: "#f2cdcd",
+  Green: "#a6e3a1",
+  Lavender: "#b4befe",
+  Mantle: "#181825",
+  Maroon: "#eba0ac",
+  Mauve: "#cba6f7",
+  Overlay0: "#6c7086",
+  Overlay1: "#7f849c",
+  Overlay2: "#9399b2",
+  Peach: "#fab387",
+  Pink: "#f5c2e7",
+  Red: "#f38ba8",
+  Rosewater: "#f5e0dc",
+  Sapphire: "#74c7ec",
+  Sky: "#89dceb",
+  Subtext0: "#a6adc8",
+  Subtext1: "#bac2de",
+  Surface0: "#313244",
+  Surface1: "#45475a",
+  Surface2: "#585b70",
+  Teal: "#94e2d5",
+  Text: "#cdd6f4",
+  Yellow: "#f9e2af",
 };
 
 // https://github.com/brookhong/Surfingkeys/blob/master/docs/API.md#visualstyle
@@ -53,9 +53,9 @@ const styles = `
 `;
 api.Hints.style(styles);
 api.Hints.style(
-	`div { ${styles} }
+  `div { ${styles} }
    div.begin { color: ${Catppuccin.Crust}; }`,
-	"text",
+  "text",
 );
 
 /* List of pages to block. */
@@ -66,9 +66,11 @@ settings.tabsThreshold = 0;
 
 settings.theme = `
 :root {
-  ${Object.entries(Catppuccin)
-		.map(([key, value]) => `--catppuccin-${key.toLowerCase()}: ${value};`)
-		.join(" ")}
+  ${
+  Object.entries(Catppuccin)
+    .map(([key, value]) => `--catppuccin-${key.toLowerCase()}: ${value};`)
+    .join(" ")
+}
 }
 
 /*
