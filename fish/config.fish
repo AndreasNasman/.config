@@ -16,8 +16,6 @@ if not contains $_asdf_shims $PATH
 end
 set --erase _asdf_shims
 
-# https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
-fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
 # To use Homebrew's version, `curl` must be explicitly added to `$PATH`.
 fish_add_path (brew --prefix curl)/bin
 # https://gitlab.abo.fi/nasse/todos/-/issues/2136
