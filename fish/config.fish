@@ -6,9 +6,9 @@ source (brew --prefix asdf)/libexec/asdf.fish
 # https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
 fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
 # To use Homebrew's version, `curl` must be explicitly added to `$PATH`.
-fish_add_path /opt/homebrew/opt/curl/bin
+fish_add_path (brew --prefix curl)/bin
 # https://gitlab.abo.fi/nasse/todos/-/issues/2136
-fish_add_path /opt/homebrew/Cellar/mysql-client@8.4/8.4.3/bin
+fish_add_path (brew --prefix mysql-client)@8.4/bin
 # Prepend asdf to PATH last always with `--move`.
 fish_add_path --move $ASDF_DIR/bin $HOME/.asdf/shims
 
