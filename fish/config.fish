@@ -38,10 +38,6 @@ set --global --export MANWIDTH 999
 # https://trello.com/c/Zm0ToMQm
 set --global --export SKETCHY_BAR_HEIGHT 20
 
-# https://github.com/asdf-vm/asdf-ruby#install
-# https://github.com/rbenv/ruby-build/wiki#macos
-set --global --export RUBY_CONFIGURE_OPTS --with-openssl-dir=(brew --prefix openssl@3)
-
 set --global --export LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/lazygit/themes-mergable/mocha/yellow.yml"
 
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
