@@ -1,7 +1,20 @@
 # https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
 eval (/opt/homebrew/bin/brew shellenv)
-# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
-source (brew --prefix asdf)/libexec/asdf.fish
+
+# https://asdf-vm.com/guide/getting-started.html#_2-configure-asdf
+# ASDF configuration code
+if test -z $ASDF_DATA_DIR
+    set _asdf_shims "$HOME/.asdf/shims"
+else
+    set _asdf_shims "$ASDF_DATA_DIR/shims"
+end
+
+# Do not use fish_add_path (added in Fish 3.2) because it
+# potentially changes the order of items in PATH
+if not contains $_asdf_shims $PATH
+    set -gx --prepend PATH $_asdf_shims
+end
+set --erase _asdf_shims
 
 # https://sw.kovidgoyal.net/kitty/faq/#things-behave-differently-when-running-kitty-from-system-launcher-vs-from-another-terminal
 fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
@@ -9,8 +22,6 @@ fish_add_path (brew --prefix)/bin (brew --prefix)/sbin
 fish_add_path (brew --prefix curl)/bin
 # https://gitlab.abo.fi/nasse/todos/-/issues/2136
 fish_add_path (brew --prefix mysql-client)@8.4/bin
-# Prepend asdf to PATH last always with `--move`.
-fish_add_path --move $ASDF_DIR/bin $HOME/.asdf/shims
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
