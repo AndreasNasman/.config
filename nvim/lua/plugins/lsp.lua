@@ -91,8 +91,6 @@ return {
                 end,
             })
 
-            require('mason').setup({ ui = { border = 'rounded', height = 0.8 } })
-
             local servers = {
                 ['jinja-lsp'] = {},
                 cssls = {},
@@ -139,7 +137,7 @@ return {
             { 'j-hui/fidget.nvim', opts = {} },
             'WhoIsSethDaniel/mason-tool-installer.nvim',
             'williamboman/mason-lspconfig.nvim',
-            { 'williamboman/mason.nvim', config = true },
+            { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
         },
         ft = {
             'css',
