@@ -37,7 +37,7 @@ return {
         },
         priority = 1000,
     },
-    { 'danymat/neogen', config = true, event = 'UIEnter' },
+    { 'danymat/neogen', event = 'UIEnter', opts = {} },
     {
         'echasnovski/mini.nvim',
         config = function()
