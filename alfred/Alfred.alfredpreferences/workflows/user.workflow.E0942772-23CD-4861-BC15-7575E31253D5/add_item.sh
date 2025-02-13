@@ -46,22 +46,15 @@ fi
 [ "${PASSWORD}" == "" ] && exit
 
 # Build payload
-JSON='{ "type": 1, "name": "'"${SITE}"'"'
-JSON+=',"organizationId": '
-if [ "${ORGANIZATION_ID}" == "" ]; then
-    JSON+='null'
-else
-    JSON+='"'"${ORGANIZATION_ID}"'"'
-fi
-JSON+=',"login": {'
-JSON+=' "username": "'"${USERNAME}"'"'
-JSON+=',"password": "'"${PASSWORD}"'"'
-JSON+=',"uris": [ { "match": null, "uri": "'"${URL}"'" } ]'
-JSON+='} }'
-
-PAYLOAD=$(echo "${JSON}" | base64)
+PAYLOAD='{ "type": 1, "name": "'"${SITE}"'"'
+[ "${#ORGANIZATION_ID}" -gt 1 ] && PAYLOAD+=',"organizationId": "'"${ORGANIZATION_ID}"'"'
+PAYLOAD+=',"login": {'
+PAYLOAD+=' "username": "'"${USERNAME}"'"'
+PAYLOAD+=',"password": "'"${PASSWORD}"'"'
+PAYLOAD+=',"uris": [ { "match": null, "uri": "'"${URL}"'" } ]'
+PAYLOAD+='} }'
 
 # Add item
-S=$(curl -s -H 'Content-Type: application/json' -d "${ENCODED_PAYLOAD}" "${API}"/object/item | jq -j .success)
+S=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${API}"/object/item | jq -j .success)
 
 echo -n "Added ${SITE//,/ },Success: ${S}"
