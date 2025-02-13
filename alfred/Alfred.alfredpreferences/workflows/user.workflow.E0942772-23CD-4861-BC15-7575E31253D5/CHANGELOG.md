@@ -1,3 +1,17 @@
+## 6.4.0
+
+* Add support for SSH Keys
+
+## 6.3.0
+
+* Fix and reintroduce Add item
+* Show which Bitwarden server is being used in the Login to Bitwarden title
+* Fix server URL for bitwarden.eu again
+
+## 6.2.2
+
+* Fix server URL for bitwarden.eu
+
 ## 6.2.1
 
 * Fix opening an item's URL when there is more than one
