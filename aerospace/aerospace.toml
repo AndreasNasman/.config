@@ -77,7 +77,6 @@ alt-ctrl-cmd-shift-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 
 # App focus cycling
-alt-enter = 'exec-and-forget cycle-app-windows kitty'
 alt-ctrl-cmd-enter = 'exec-and-forget cycle-app-windows kitty'
 
 alt-ctrl-cmd-c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # "c" as in "container".
@@ -85,6 +84,7 @@ alt-ctrl-cmd-d = 'exec-and-forget cycle-app-windows DBeaver'
 alt-ctrl-cmd-f = 'exec-and-forget cycle-app-windows Finder'
 alt-ctrl-cmd-g = "exec-and-forget cycle-app-windows 'Google Chrome'"
 alt-ctrl-cmd-i = "exec-and-forget cycle-app-windows 'IntelliJ IDEA CE'"
+alt-ctrl-cmd-k = 'exec-and-forget cycle-app-windows kitty'
 alt-ctrl-cmd-m = "exec-and-forget cycle-app-windows 'MuseScore 4'"
 alt-ctrl-cmd-n = 'exec-and-forget cycle-app-windows Notion'
 alt-ctrl-cmd-o = "exec-and-forget cycle-app-windows 'Microsoft Outlook'"
