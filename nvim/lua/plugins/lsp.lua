@@ -1,5 +1,7 @@
 local utils = require('utils')
 
+local blink_completion_winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None'
+
 return {
     {
         'folke/lazydev.nvim',
@@ -169,13 +171,13 @@ return {
                     auto_show = true,
                     window = {
                         border = 'rounded',
-                        winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                        winhighlight = blink_completion_winhighlight,
                     },
                 },
                 list = { selection = { preselect = false } },
                 menu = {
                     border = 'rounded',
-                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
+                    winhighlight = blink_completion_winhighlight,
                 },
             },
             keymap = {
