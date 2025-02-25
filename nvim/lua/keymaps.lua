@@ -2,7 +2,7 @@ local utils = require('utils')
 
 -- [[ Clipboard ]]
 -- Black hole
-utils.map('<Leader>d', '"_d', { 'n', 'x' })
+utils.map('<BS>', '"_d', { 'n', 'x' })
 utils.map('<Leader>p', '"_c<C-r>"<esc>', 'x')
 
 -- System
@@ -15,7 +15,7 @@ utils.map('<Leader>Y', '"+y$', { 'n', 'x' })
 utils.map('<Leader>y', '"+y', { 'n', 'x' })
 
 -- [[ Diagnostics ]]
-utils.map('<D-d>', vim.diagnostic.open_float)
+utils.map('<Leader>d', vim.diagnostic.open_float)
 
 -- [[ File path ]]
 ---@param pattern string
