@@ -187,6 +187,13 @@ return {
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
             },
+            signature = {
+                enabled = true,
+                window = {
+                    border = 'rounded',
+                    winhighlight = blink_completion_winhighlight,
+                },
+            },
         },
         version = '*',
     },
