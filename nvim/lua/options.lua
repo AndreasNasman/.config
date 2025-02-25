@@ -7,7 +7,17 @@ vim.opt.guicursor:append('a:blinkon100')
 vim.opt.updatetime = 250 -- Speed up "highlight under cursor".
 
 -- Diagnostics
-vim.diagnostic.config({ float = { border = 'rounded', source = true } })
+vim.diagnostic.config({
+    float = { border = 'rounded', source = true },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+        },
+    },
+})
 
 -- Environment
 -- Environment variable to speed up `:Telescope man_pages`.
