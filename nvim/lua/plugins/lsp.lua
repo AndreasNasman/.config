@@ -161,6 +161,8 @@ return {
         'saghen/blink.cmp',
         dependencies = 'rafamadriz/friendly-snippets',
         lazy = false,
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
         opts = {
             completion = {
                 documentation = {
@@ -170,7 +172,7 @@ return {
                         winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
                     },
                 },
-                list = { selection = 'auto_insert' },
+                list = { selection = { preselect = false } },
                 menu = {
                     border = 'rounded',
                     winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
@@ -184,7 +186,7 @@ return {
                 ['<Tab>'] = { 'select_next', 'fallback' },
             },
         },
-        version = 'v0.*',
+        version = '*',
     },
     {
         'stevearc/conform.nvim',
