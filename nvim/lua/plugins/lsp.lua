@@ -114,6 +114,8 @@ return {
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             require('mason-lspconfig').setup({
+                automatic_installation = false,
+                ensure_installed = {},
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
