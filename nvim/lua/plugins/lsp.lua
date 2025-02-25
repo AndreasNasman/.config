@@ -56,7 +56,7 @@ return {
                     end)
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
-                    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+                    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
                         local highlight_augroup = vim.api.nvim_create_augroup('nasse-lsp-highlight', { clear = false })
 
                         vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -80,7 +80,7 @@ return {
                         })
                     end
 
-                    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+                    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
                         buffer_map('<Leader>th', function()
                             local new_value = not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
                             utils.notify_toggle('inlay hints', new_value)
