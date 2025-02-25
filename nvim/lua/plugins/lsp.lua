@@ -184,6 +184,10 @@ return {
                 preset = 'enter',
                 ['<C-h>'] = { 'snippet_backward', 'fallback' },
                 ['<C-l>'] = { 'snippet_forward', 'fallback' },
+
+                ['<C-e>'] = { 'hide_signature', 'hide', 'fallback' },
+                ['<C-Space>'] = { 'show', 'show_signature' },
+
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
             },
