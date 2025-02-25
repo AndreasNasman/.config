@@ -74,7 +74,7 @@ in the `Load settings from:` text field.
 
 I have based my Neovim configuration on
 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), hash
-[5bdde24](https://github.com/nvim-lua/kickstart.nvim/commit/5bdde24dfb353d365d908c5dd700f412ed2ffb17).
+[34e7d29](https://github.com/nvim-lua/kickstart.nvim/commit/34e7d29aa7b6e95cf09d62baf4c9082db5b129c0).
 
 ## Inspiration
 
