@@ -74,12 +74,12 @@ return {
             })
             require('mini.surround').setup({
                 mappings = {
-                    add = '<D-s>a',
-                    delete = '<D-s>d',
+                    add = '<Leader>sa',
+                    delete = '<Leader>sd',
                     find = '',
                     find_left = '',
                     highlight = '',
-                    replace = '<D-s>r',
+                    replace = '<Leader>sr',
                     suffix_last = '',
                     suffix_next = '',
                     update_n_lines = '',
