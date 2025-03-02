@@ -56,6 +56,10 @@ vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Status line
+vim.opt.laststatus = 3
+vim.opt.winbar = '%=%f'
+
 -- Tabs & Spaces
 -- http://vimcasts.org/episodes/tabs-and-spaces/
 local tab_width_in_spaces = 2
