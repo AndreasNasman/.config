@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 396 on 2024-10-10 at 11:25 (EEST)-->
-<!--Last edited by Ukelele version 415 on 2025-03-04 at 18:21 (EET)-->
+<!--Last edited by Ukelele version 415 on 2025-03-04 at 18:23 (EET)-->
 <keyboard group="126" id="-13389" name="US-SV" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="Modifiers"/>
@@ -280,11 +280,11 @@
             <key code="28" output=""/>
             <key code="29" output=""/>
             <key code="30" output=""/>
-            <key code="31" output="ö"/>
+            <key code="31" output="å"/>
             <key code="32" output=""/>
             <key code="33" output=""/>
             <key code="34" output="i"/>
-            <key code="35" output="å"/>
+            <key code="35" output=""/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output=""/>
             <key code="38" output=""/>
@@ -386,11 +386,11 @@
             <key code="28" output=""/>
             <key code="29" output=""/>
             <key code="30" output=""/>
-            <key code="31" output="Ö"/>
+            <key code="31" output="Å"/>
             <key code="32" output=""/>
             <key code="33" output=""/>
             <key code="34" output=""/>
-            <key code="35" output="Å"/>
+            <key code="35" output=""/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output=""/>
             <key code="38" output=""/>
