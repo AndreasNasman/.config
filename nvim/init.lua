@@ -14,9 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins', {
-    defaults = {
-        lazy = true,
-    },
+    defaults = { lazy = true },
     install = { colorscheme = { 'catppuccin' } },
     performance = {
         rtp = {
@@ -38,8 +36,5 @@ require('lazy').setup('plugins', {
             },
         },
     },
-    ui = {
-        backdrop = 100,
-        border = 'rounded',
-    },
+    ui = { backdrop = 100, border = 'rounded' },
 })
