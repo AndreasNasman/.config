@@ -110,7 +110,7 @@ return {
         utils.map('<Leader>fm', builtin.man_pages)
         utils.map('<Leader>fb', builtin.buffers)
         utils.map('<Leader>fo', builtin.oldfiles)
-        utils.map('<Leader>f;', builtin.resume)
+        utils.map('<Leader>fr', builtin.resume)
         utils.map('<Leader>ft', builtin.builtin)
 
         -- With custom options.
