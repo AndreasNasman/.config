@@ -191,7 +191,7 @@ return {
         cmd = 'Oil',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = 'UIEnter',
-        opts = {},
+        opts = { view_options = { show_hidden = true } },
     },
     { 'tpope/vim-abolish', event = 'UIEnter' },
     { 'tpope/vim-sleuth', lazy = false },
