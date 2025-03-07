@@ -158,14 +158,10 @@ utils.map('<Leader><Tab>w', '<Cmd>tabclose<CR>')
 -- Movement
 utils.map('<C-D-[>', '<Cmd>-tabmove<CR>')
 utils.map('<C-D-]>', '<Cmd>+tabmove<CR>')
-utils.map('<Leader><Tab>H', '<Cmd>-tabmove<CR>')
-utils.map('<Leader><Tab>L', '<Cmd>+tabmove<CR>')
 
 -- Navigation
 utils.map('<D-[>', '<Cmd>tabprevious<CR>')
 utils.map('<D-]>', '<Cmd>tabnext<CR>')
-utils.map('<Leader><Tab>h', '<Cmd>tabprevious<CR>')
-utils.map('<Leader><Tab>l', '<Cmd>tabnext<CR>')
 
 utils.map('<Leader><Tab>1', '<Cmd>tabnext 1<CR>')
 utils.map('<Leader><Tab>2', '<Cmd>tabnext 2<CR>')
