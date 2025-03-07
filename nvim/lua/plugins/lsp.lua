@@ -186,7 +186,8 @@ return {
                 ['<C-l>'] = { 'snippet_forward', 'fallback' },
 
                 ['<C-e>'] = { 'hide_signature', 'hide', 'fallback' },
-                ['<C-Space>'] = { 'show', 'show_signature' },
+                ['<C-k>'] = { 'fallback' },
+                ['<C-Space>'] = { 'show_signature', 'show' },
 
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
