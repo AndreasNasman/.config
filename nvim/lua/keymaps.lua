@@ -152,6 +152,7 @@ utils.map(']q', '<Cmd>cnext<CR>')
 -- [[ Tabs ]]
 -- Management
 utils.map('<Leader><Tab>n', '<Cmd>tabnew<CR>')
+utils.map('<Leader><Tab>o', '<Cmd>tabonly<CR>')
 utils.map('<Leader><Tab>w', '<Cmd>tabclose<CR>')
 
 -- Movement
