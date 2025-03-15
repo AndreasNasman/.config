@@ -3,14 +3,21 @@
 [core]
 	autocrlf = false
 	editor = nvim -c 'set spell'
+	pager = delta
 [credential]
 	helper = osxkeychain
+[delta]
+	navigate = true
 [diff]
 	colorMoved = zebra
 [fetch]
 	prune = true
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = zdiff3
 [push]
 	default = current
 [user]
