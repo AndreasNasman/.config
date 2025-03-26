@@ -1,0 +1,19 @@
+" Mappings
+let mapleader = " "
+map <leader>y "+y
+map <leader>Y "+y$
+map g; <Action>(JumpToLastChange)
+map gcc <Action>(CommentByLineComment)
+
+" Options
+set ignorecase
+set incsearch
+set relativenumber
+set smartcase
+
+" Plugins
+set highlightedyank
+set surround
+
+# Settings
+set ideajoin
