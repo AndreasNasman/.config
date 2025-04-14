@@ -46,17 +46,17 @@ setup/update
 Some parts of the setup are not feasible to automate in a script. The following
 section serves as a reminder of what to set up manually.
 
-### GPG keys
+### Git commit signing with SSH
 
-GPG keys should be device-specific. If you configure them with an expiration
-date, GitHub can show commits as "Verified" but expired. This approach
-eliminates the need to copy private keys between devices (which you should not
-do anyway).
+You should keep the key to sign Git commits with SSH out of version control.
+`git/config` contains an include-reference to a `config.local` file that
+contains the signing key. Follow these steps to add the signing key:
 
-Follow these guides to set up GPG commit signing:
-
-- <https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification>
-- <https://docs.gitlab.com/ee/user/project/repository/signed_commits/gpg.html>
+1. Open the desktop version 1Password.
+1. Find the signing key item.
+1. Click the "More options" menu (three dots) and choose "Configure Commit
+   Signing...".
+1. Copy the `user.signingkey` part and add it to `git/config.local` file.
 
 ### Surfingkeys
 
