@@ -36,6 +36,7 @@
       # programs.fish.enable = true;
 
       system.defaults = {
+            dock.autohide = true;
       };
 
       # Set Git commit hash for darwin-version.
