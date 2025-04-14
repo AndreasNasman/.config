@@ -12,6 +12,10 @@
 	colorMoved = zebra
 [fetch]
 	prune = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [init]
 	defaultBranch = main
 [interactive]
@@ -21,9 +25,8 @@
 [push]
 	default = current
 [user]
-	email = andreas.z.nasman@gmail.com
+	email = AndreasNasman@users.noreply.github.com
 	name = Andreas Näsman
-	signingkey = 24257EB1A7795E27
-# Override should be at the bottom.
-[includeIf "gitdir:~/Projects/ICT/"]
-	path = ~/Projects/ICT/.gitconfig
+# Overrides should be at the bottom.
+[include]
+	path = ./config.local

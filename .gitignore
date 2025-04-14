@@ -43,6 +43,7 @@ Temporary Items
 # End of https://www.toptal.com/developers/gitignore/api/macos,fish
 
 gh/
+git/config.local
 glab-cli/
 gnupg/*
 !gnupg/gpg-agent.conf
