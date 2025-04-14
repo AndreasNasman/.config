@@ -37,6 +37,7 @@
 
       system.defaults = {
             dock.autohide = true;
+            NSGlobalDomain.AppleInterfaceStyle = "Dark";
       };
 
       # Set Git commit hash for darwin-version.
