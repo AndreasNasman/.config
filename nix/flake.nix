@@ -4,18 +4,23 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    mac-app-util.url = "github:hraban/mac-app-util";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util }:
   let
     configuration = { pkgs, ... }: {
+      nixpkgs.config.allowUnfree = true;
+
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [
             pkgs.git
+            pkgs.kitty
             pkgs.neovim
+            pkgs.obsidian
             pkgs.vim
         ];
 
@@ -45,7 +50,7 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Andreass-MacBook-Pro
     darwinConfigurations."Andreass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ mac-app-util.darwinModules.default configuration ];
     };
   };
 }
