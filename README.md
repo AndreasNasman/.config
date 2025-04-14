@@ -65,7 +65,7 @@ Follow these guides to set up GPG commit signing:
 1. Paste
 
 ```plain
-https://raw.githubusercontent.com/AndreasNasman/.config/refs/heads/mac/surfingkeys/theme.js
+https://raw.githubusercontent.com/AndreasNasman/.config/refs/heads/main/surfingkeys/theme.js
 ```
 
 in the `Load settings from:` text field.
