@@ -1,5 +1,5 @@
-# https://docs.brew.sh/Manpage#shellenv-bashcshfishpwshshtcshzsh
-eval (/opt/homebrew/bin/brew shellenv)
+# https://docs.brew.sh/Manpage#shellenv-shell-
+eval (brew shellenv)
 
 # https://asdf-vm.com/guide/getting-started.html#_2-configure-asdf
 # ASDF configuration code
