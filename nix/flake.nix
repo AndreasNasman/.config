@@ -19,6 +19,11 @@
             pkgs.vim
         ];
 
+      fonts.packages = [
+            pkgs.jetbrains-mono
+            pkgs.nerd-fonts.symbols-only
+      ];
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
