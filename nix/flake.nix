@@ -27,6 +27,9 @@
 
       homebrew = {
         enable = true;
+        onActivation.autoUpdate = true;
+        onActivation.cleanup = "zap";
+        onActivation.upgrade = true;
       };
 
       fonts.packages = [
