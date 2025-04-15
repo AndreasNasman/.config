@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,7 +12,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
   let
     username = "andreas";
     configuration = { pkgs, ... }: {
@@ -34,6 +33,7 @@
         pkgs.kitty
         pkgs.neovim
         pkgs.obsidian
+        pkgs.raycast
         pkgs.vim
       ];
 
@@ -87,7 +87,6 @@
     darwinConfigurations."Andreass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
-        mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
