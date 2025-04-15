@@ -5,10 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     mac-app-util.url = "github:hraban/mac-app-util";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
   let
     configuration = { pkgs, ... }: {
       nixpkgs.config.allowUnfree = true;
@@ -23,6 +24,10 @@
         pkgs.obsidian
         pkgs.vim
       ];
+
+      homebrew = {
+        enable = true;
+      };
 
       fonts.packages = [
         pkgs.jetbrains-mono
@@ -65,6 +70,13 @@
       modules = [
         configuration
         mac-app-util.darwinModules.default
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            user = "andreas";
+          };
+        }
       ];
     };
   };
