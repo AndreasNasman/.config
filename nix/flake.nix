@@ -31,6 +31,7 @@
         pkgs.delta
         pkgs.git
         pkgs.kitty
+        pkgs.lazygit
         pkgs.neovim
         pkgs.obsidian
         pkgs.raycast
