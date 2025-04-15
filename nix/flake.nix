@@ -15,19 +15,18 @@
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [
-            pkgs.delta
-            pkgs.git
-            pkgs.kitty
-            pkgs.neovim
-            pkgs.obsidian
-            pkgs.vim
-        ];
+      environment.systemPackages = [
+        pkgs.delta
+        pkgs.git
+        pkgs.kitty
+        pkgs.neovim
+        pkgs.obsidian
+        pkgs.vim
+      ];
 
       fonts.packages = [
-            pkgs.jetbrains-mono
-            pkgs.nerd-fonts.symbols-only
+        pkgs.jetbrains-mono
+        pkgs.nerd-fonts.symbols-only
       ];
 
       # Necessary for using flakes on this system.
@@ -37,15 +36,15 @@
       # programs.fish.enable = true;
 
       system.defaults = {
-            dock.autohide = true;
-            NSGlobalDomain.AppleInterfaceStyle = "Dark";
-            NSGlobalDomain.InitialKeyRepeat = 15;
-            NSGlobalDomain.KeyRepeat = 2;
+        dock.autohide = true;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        NSGlobalDomain.InitialKeyRepeat = 15;
+        NSGlobalDomain.KeyRepeat = 2;
       };
 
       system.keyboard = {
-            enableKeyMapping = true;
-            remapCapsLockToEscape = true;
+        enableKeyMapping = true;
+        remapCapsLockToEscape = true;
       };
 
       # Set Git commit hash for darwin-version.
@@ -63,7 +62,10 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Andreass-MacBook-Pro
     darwinConfigurations."Andreass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [ mac-app-util.darwinModules.default configuration ];
+      modules = [
+        configuration
+        mac-app-util.darwinModules.default
+      ];
     };
   };
 }
