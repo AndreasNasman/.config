@@ -49,6 +49,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".hushlogin".text = "";
   };
 
   # Home Manager can also manage your environment variables through
