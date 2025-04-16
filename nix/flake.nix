@@ -17,9 +17,12 @@
     username = "andreas";
     configuration = { pkgs, ... }: {
       users = {
+        knownUsers = [ "${username}" ];
         users.${username} = {
           home = "/Users/${username}";
           name = "${username}";
+          shell = pkgs.fish;
+          uid = 501; # https://github.com/nix-darwin/nix-darwin/issues/1237
         };
       };
 
@@ -66,7 +69,7 @@
       nix.settings.experimental-features = "nix-command flakes";
 
       # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
+      programs.fish.enable = true;
 
       system.defaults = {
         dock.autohide = true;
