@@ -80,6 +80,7 @@
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.InitialKeyRepeat = 15;
         NSGlobalDomain.KeyRepeat = 2;
+        trackpad.Clicking = true;
       };
 
       system.keyboard = {
