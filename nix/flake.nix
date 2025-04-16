@@ -52,11 +52,11 @@
           "1password"
           "grammarly-desktop"
           "notion"
+          "parallels"
           "ukelele"
         ];
         enable = true;
         masApps = {
-          "Parallels Desktop" = 1085114709;
           "Xcode" = 497799835;
         };
         onActivation.autoUpdate = true;
