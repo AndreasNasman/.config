@@ -50,6 +50,10 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".hushlogin".text = "";
+    ".ssh/config".text = ''
+      Host *
+        IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -74,8 +78,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.ssh = {
-    enable = true;
-    extraConfig = "IdentityAgent \"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-  };
 }
