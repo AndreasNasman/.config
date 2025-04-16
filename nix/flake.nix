@@ -28,20 +28,28 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
+        pkgs.aerospace
         pkgs.alacritty # TODO: Remove after VM testing.
         pkgs.delta
         pkgs.git
+        pkgs.google-chrome
         pkgs.kitty
         pkgs.lazygit
         pkgs.neovim
         pkgs.obsidian
         pkgs.raycast
+        pkgs.slack
+        pkgs.tailscale
         pkgs.vim
+        pkgs.zoom-us
       ];
 
       homebrew = {
         casks = [
           "1password"
+          "grammarly-desktop"
+          "notion"
+          "ukelele"
         ];
         enable = true;
         onActivation.autoUpdate = true;
