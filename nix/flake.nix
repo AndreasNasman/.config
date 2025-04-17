@@ -32,7 +32,6 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.aerospace
-        pkgs.alacritty # TODO: Remove after VM testing.
         pkgs.delta
         pkgs.git
         pkgs.google-chrome
