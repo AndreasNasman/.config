@@ -33,6 +33,7 @@
       environment.systemPackages = [
         pkgs.aerospace
         pkgs.delta
+        pkgs.fd
         pkgs.git
         pkgs.google-chrome
         pkgs.kitty
@@ -40,6 +41,7 @@
         pkgs.neovim
         pkgs.obsidian
         pkgs.raycast
+        pkgs.ripgrep
         pkgs.slack
         pkgs.tailscale
         pkgs.vim
