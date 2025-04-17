@@ -32,6 +32,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.aerospace
+        pkgs.cargo
         pkgs.delta
         pkgs.fd
         pkgs.git
@@ -39,6 +40,7 @@
         pkgs.kitty
         pkgs.lazygit
         pkgs.neovim
+        pkgs.nodejs
         pkgs.obsidian
         pkgs.raycast
         pkgs.ripgrep
