@@ -156,6 +156,7 @@ return {
             ensure_installed = {
                 'css',
                 'csv',
+                'fish',
                 'gitcommit',
                 'html',
                 'javascript',
@@ -164,6 +165,7 @@ return {
                 'lua',
                 'luadoc',
                 'markdown',
+                'nix',
                 'python',
                 'robots',
                 'svelte',
