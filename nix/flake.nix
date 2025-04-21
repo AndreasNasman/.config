@@ -63,6 +63,7 @@
           homebrew = {
             casks = [
               "1password"
+              "android-studio"
               "grammarly-desktop"
               "notion"
               "parallels"
