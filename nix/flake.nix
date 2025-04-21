@@ -40,6 +40,7 @@
         pkgs.kitty
         pkgs.lazygit
         pkgs.neovim
+        pkgs.nixfmt-rfc-style
         pkgs.nodejs
         pkgs.obsidian
         pkgs.raycast

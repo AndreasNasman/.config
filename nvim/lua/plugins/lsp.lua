@@ -94,6 +94,7 @@ return {
 
             local servers = {
                 ['jinja-lsp'] = {},
+                ['nil'] = {},
                 cssls = {},
                 denols = {},
                 djlint = {},
@@ -151,6 +152,7 @@ return {
             'jsonc',
             'lua',
             'markdown',
+            'nix',
             'perl',
             'python',
             'svelte',
@@ -228,6 +230,7 @@ return {
                 jsonc = { 'deno_fmt' },
                 lua = { 'stylua' },
                 markdown = { 'markdownlint', 'deno_fmt' },
+                nix = { 'nixfmt' },
                 python = { 'ruff_fix', 'ruff_format' },
                 svelte = { 'deno_fmt' },
                 toml = { 'taplo' },
