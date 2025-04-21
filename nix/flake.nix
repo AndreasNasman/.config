@@ -80,6 +80,7 @@
 
       system.defaults = {
         dock.autohide = true;
+        NSGlobalDomain."com.apple.keyboard.fnState" = true;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.InitialKeyRepeat = 15;
         NSGlobalDomain.KeyRepeat = 2;
