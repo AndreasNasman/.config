@@ -66,6 +66,7 @@
               "grammarly-desktop"
               "notion"
               "parallels"
+              "sf-symbols"
               "ukelele"
             ];
             enable = true;
