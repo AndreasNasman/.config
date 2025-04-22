@@ -236,6 +236,7 @@ return {
                 toml = { 'taplo' },
                 typescript = { 'deno_fmt' },
                 typescriptreact = { 'deno_fmt' },
+                yaml = { 'deno_fmt' },
                 zsh = { 'shfmt' },
             },
         },
