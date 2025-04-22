@@ -57,7 +57,6 @@
             pkgs.raycast
             pkgs.ripgrep
             pkgs.slack
-            pkgs.tailscale
             pkgs.vim
             pkgs.zoom-us
           ];
@@ -70,6 +69,7 @@
               "notion"
               "parallels"
               "sf-symbols"
+              "tailscale"
               "ukelele"
             ];
             enable = true;
