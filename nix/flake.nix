@@ -45,6 +45,7 @@
             pkgs.aerospace
             pkgs.cargo
             pkgs.delta
+            pkgs.deno
             pkgs.fd
             pkgs.git
             pkgs.google-chrome
