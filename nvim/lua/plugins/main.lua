@@ -158,6 +158,7 @@ return {
                 'csv',
                 'fish',
                 'gitcommit',
+                'gitignore',
                 'html',
                 'javascript',
                 'json',
@@ -173,6 +174,7 @@ return {
                 'typescript',
                 'vim',
                 'vimdoc',
+                'yaml',
             },
             highlight = { additional_vim_regex_highlighting = { 'ruby' }, enable = true },
             incremental_selection = {
