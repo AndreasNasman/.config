@@ -42,6 +42,7 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,fish
 
+.android/
 gh/
 git/config.local
 glab-cli/
