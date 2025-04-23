@@ -94,5 +94,8 @@
     disableCursorLocationMagnification = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run /usr/bin/defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool true
     '';
+    preventSleepOnPowerAdapter = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run /usr/bin/sudo /usr/bin/pmset -c sleep 0
+    '';
   };
 }
