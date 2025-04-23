@@ -89,5 +89,10 @@
     copyKeyboardLayout = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run cp -f ${../ukelele}/* $HOME/Library/Keyboard\ Layouts/
     '';
+    # We must call `defaults` directly since it isn't in PATH.
+    # Also, `write` requires a non-quoted absolute path to work.
+    disableCursorLocationMagnification = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run /usr/bin/defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool true
+    '';
   };
 }
