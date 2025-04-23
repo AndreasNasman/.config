@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -78,4 +83,11 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.activation = {
+    # Symlinked keyboard layouts don't show up in Input Sources.
+    copyKeyboardLayout = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run cp -f ${../ukelele}/* $HOME/Library/Keyboard\ Layouts/
+    '';
+  };
 }
