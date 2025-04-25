@@ -97,6 +97,7 @@
             dock.autohide = true;
             NSGlobalDomain."com.apple.keyboard.fnState" = true;
             NSGlobalDomain.AppleInterfaceStyle = "Dark";
+            NSGlobalDomain.ApplePressAndHoldEnabled = false;
             NSGlobalDomain.InitialKeyRepeat = 15;
             NSGlobalDomain.KeyRepeat = 2;
             trackpad.Clicking = true;
