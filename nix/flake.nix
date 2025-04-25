@@ -66,6 +66,7 @@
             casks = [
               "1password"
               "android-studio"
+              "cursorcerer"
               "grammarly-desktop"
               "notion"
               "parallels"

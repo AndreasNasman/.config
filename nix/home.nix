@@ -94,6 +94,9 @@
     disableCursorLocationMagnification = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run /usr/bin/defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool true
     '';
+    hideIdleCursor = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run /usr/bin/defaults write ~/Library/Preferences/com.doomlaser.cursorcerer.plist idleHide 3
+    '';
     preventSleepOnPowerAdapter = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run /usr/bin/sudo /usr/bin/pmset -c sleep 0
     '';
