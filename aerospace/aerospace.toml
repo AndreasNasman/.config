@@ -26,10 +26,10 @@ PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
 cmd-alt-h = []
 
 # Window focus
-alt-h = 'focus left --boundaries-action stop'
-alt-j = 'focus down --boundaries-action stop'
-alt-k = 'focus up --boundaries-action stop'
-alt-l = 'focus right --boundaries-action stop'
+alt-h = 'focus left --boundaries all-monitors-outer-frame'
+alt-j = 'focus down --boundaries all-monitors-outer-frame'
+alt-k = 'focus up --boundaries all-monitors-outer-frame'
+alt-l = 'focus right --boundaries all-monitors-outer-frame'
 
 # Window movement
 alt-shift-h = 'move left'
