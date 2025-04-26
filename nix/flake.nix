@@ -47,22 +47,28 @@
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
             pkgs.aerospace
-            pkgs.cargo
             pkgs.delta
             pkgs.deno
-            pkgs.fd
             pkgs.git
             pkgs.google-chrome
             pkgs.kitty
             pkgs.lazygit
             pkgs.neovim
             pkgs.nixfmt-rfc-style
-            pkgs.nodejs
             pkgs.obsidian
             pkgs.raycast
-            pkgs.ripgrep
-            pkgs.slack
             pkgs.vim
+
+            # Mason LSPs
+            pkgs.cargo
+            pkgs.nodejs
+
+            # Telescope
+            pkgs.fd
+            pkgs.ripgrep
+
+            # Work
+            pkgs.slack
             pkgs.zoom-us
           ];
 
