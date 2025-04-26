@@ -95,7 +95,11 @@
           programs.fish.enable = true;
 
           system.defaults = {
-            dock.autohide = true;
+            dock = {
+              autohide = true;
+              persistent-apps = [ ];
+              show-recents = false;
+            };
             NSGlobalDomain."com.apple.keyboard.fnState" = true;
             NSGlobalDomain.AppleInterfaceStyle = "Dark";
             NSGlobalDomain.ApplePressAndHoldEnabled = false;
