@@ -107,6 +107,7 @@
               dock = {
                 autohide = true;
                 persistent-apps = [ ];
+                persistent-others = [ ];
                 show-recents = false;
               };
               NSGlobalDomain = {
