@@ -37,7 +37,11 @@
             };
           };
 
-          nixpkgs.config.allowUnfree = true;
+          nixpkgs = {
+            config.allowUnfree = true;
+            # The platform the configuration will be used on.
+            hostPlatform = "aarch64-darwin";
+          };
 
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
@@ -78,9 +82,11 @@
             masApps = {
               "Xcode" = 497799835;
             };
-            onActivation.autoUpdate = true;
-            onActivation.cleanup = "zap";
-            onActivation.upgrade = true;
+            onActivation = {
+              autoUpdate = true;
+              cleanup = "zap";
+              upgrade = true;
+            };
           };
 
           fonts.packages = [
@@ -94,35 +100,33 @@
           # Enable alternative shell support in nix-darwin.
           programs.fish.enable = true;
 
-          system.defaults = {
-            dock = {
-              autohide = true;
-              persistent-apps = [ ];
-              show-recents = false;
+          system = {
+            # Set Git commit hash for darwin-version.
+            configurationRevision = self.rev or self.dirtyRev or null;
+            defaults = {
+              dock = {
+                autohide = true;
+                persistent-apps = [ ];
+                show-recents = false;
+              };
+              NSGlobalDomain = {
+                "com.apple.keyboard.fnState" = true;
+                AppleInterfaceStyle = "Dark";
+                ApplePressAndHoldEnabled = false;
+                InitialKeyRepeat = 15;
+                KeyRepeat = 2;
+              };
+              trackpad.Clicking = true;
             };
-            NSGlobalDomain."com.apple.keyboard.fnState" = true;
-            NSGlobalDomain.AppleInterfaceStyle = "Dark";
-            NSGlobalDomain.ApplePressAndHoldEnabled = false;
-            NSGlobalDomain.InitialKeyRepeat = 15;
-            NSGlobalDomain.KeyRepeat = 2;
-            trackpad.Clicking = true;
+            keyboard = {
+              enableKeyMapping = true;
+              nonUS.remapTilde = true;
+              remapCapsLockToEscape = true;
+            };
+            # Used for backwards compatibility, please read the changelog before changing.
+            # $ darwin-rebuild changelog
+            stateVersion = 6;
           };
-
-          system.keyboard = {
-            enableKeyMapping = true;
-            nonUS.remapTilde = true;
-            remapCapsLockToEscape = true;
-          };
-
-          # Set Git commit hash for darwin-version.
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-
-          # Used for backwards compatibility, please read the changelog before changing.
-          # $ darwin-rebuild changelog
-          system.stateVersion = 6;
-
-          # The platform the configuration will be used on.
-          nixpkgs.hostPlatform = "aarch64-darwin";
 
           security.pam.services.sudo_local.touchIdAuth = true;
         };
