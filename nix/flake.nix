@@ -104,6 +104,11 @@
             # Set Git commit hash for darwin-version.
             configurationRevision = self.rev or self.dirtyRev or null;
             defaults = {
+              finder = {
+                FXPreferredViewStyle = "clmv";
+                NewWindowTarget = "Other";
+                NewWindowTargetPath = "file:///Users/andreas/Downloads/";
+              };
               dock = {
                 autohide = true;
                 persistent-apps = [ ];
