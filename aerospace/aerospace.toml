@@ -76,25 +76,6 @@ alt-ctrl-cmd-2 = 'focus-monitor 2'
 alt-ctrl-cmd-shift-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
 alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 
-# App focus cycling
-alt-ctrl-cmd-enter = 'exec-and-forget cycle-app-windows kitty'
-
-alt-ctrl-cmd-c = "exec-and-forget cycle-app-windows 'Docker Desktop'"           # "c" as in "container".
-alt-ctrl-cmd-d = 'exec-and-forget cycle-app-windows DBeaver'
-alt-ctrl-cmd-f = 'exec-and-forget cycle-app-windows Finder'
-alt-ctrl-cmd-g = "exec-and-forget cycle-app-windows 'Google Chrome'"
-alt-ctrl-cmd-i = "exec-and-forget cycle-app-windows 'IntelliJ IDEA CE'"
-alt-ctrl-cmd-k = 'exec-and-forget cycle-app-windows kitty'
-alt-ctrl-cmd-m = "exec-and-forget cycle-app-windows 'MuseScore 4'"
-alt-ctrl-cmd-n = 'exec-and-forget cycle-app-windows Notion'
-alt-ctrl-cmd-o = "exec-and-forget cycle-app-windows 'Microsoft Outlook'"
-alt-ctrl-cmd-p = "exec-and-forget cycle-app-windows 'Parallels Desktop'"
-alt-ctrl-cmd-r = "exec-and-forget cycle-app-windows 'Microsoft Remote Desktop'"
-alt-ctrl-cmd-s = "exec-and-forget cycle-app-windows 'System Settings'"
-alt-ctrl-cmd-t = "exec-and-forget cycle-app-windows 'Microsoft Teams'"
-alt-ctrl-cmd-v = "exec-and-forget cycle-app-windows 'Visual Studio Code'"
-alt-ctrl-cmd-z = 'exec-and-forget cycle-app-windows zoom.us'
-
 # Workspace switching
 alt-tab = 'workspace-back-and-forth'
 
