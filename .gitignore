@@ -54,4 +54,4 @@ kitty/neighboring_window.py
 kitty/relative_resize.py
 kitty/split_window.py
 lazygit/state.yml
-raycast/config.json
+raycast/
