@@ -75,6 +75,7 @@
           homebrew = {
             casks = [
               "1password"
+              "1password-cli"
               "android-studio"
               "cursorcerer"
               "grammarly-desktop"
