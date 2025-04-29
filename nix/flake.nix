@@ -122,6 +122,7 @@
                 persistent-apps = [ ];
                 persistent-others = [ ];
                 show-recents = false;
+                wvous-br-corner = 1;
               };
               NSGlobalDomain = {
                 "com.apple.keyboard.fnState" = true;
