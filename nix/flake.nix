@@ -87,6 +87,7 @@
             ];
             enable = true;
             masApps = {
+              "Numbers" = 409203825;
               "Xcode" = 497799835;
             };
             onActivation = {
