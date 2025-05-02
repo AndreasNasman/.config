@@ -50,7 +50,6 @@
             pkgs.delta
             pkgs.deno
             pkgs.git
-            pkgs.google-chrome
             pkgs.kitty
             pkgs.lazygit
             pkgs.neovim
@@ -78,6 +77,7 @@
               "1password-cli"
               "android-studio"
               "cursorcerer"
+              "google-chrome"
               "grammarly-desktop"
               "notion"
               "parallels"
