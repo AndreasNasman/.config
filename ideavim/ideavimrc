@@ -15,5 +15,5 @@ set smartcase
 set highlightedyank
 set surround
 
-# Settings
+" Settings
 set ideajoin
