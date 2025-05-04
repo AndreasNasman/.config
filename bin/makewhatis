@@ -8,7 +8,7 @@
 # uses to prevent reading invalid paths, i.e., paths where we can not create a
 # whatis database.
 #
-# Whether we launch kitty and fish through Alfred or Aerospace, `manpath`
+# Whether we launch kitty and fish through Raycast or Aerospace, `manpath`
 # contains duplicate or faulty entries, but the command still works fine.
 
 manpath=$(manpath)
