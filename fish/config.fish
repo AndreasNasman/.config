@@ -23,7 +23,6 @@ fish_add_path (brew --prefix mysql-client)@8.4/bin
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
-set --global --export GNUPGHOME $XDG_CONFIG_HOME/gnupg
 
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set --global --export EDITOR nvim
