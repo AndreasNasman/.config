@@ -4,8 +4,6 @@
 	autocrlf = false
 	editor = nvim -c 'set spell'
 	pager = delta
-[credential]
-	helper = osxkeychain
 [delta]
 	navigate = true
 [diff]
