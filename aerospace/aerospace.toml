@@ -3,11 +3,6 @@ on-focus-changed = ['move-mouse window-lazy-center']
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 start-at-login = true
 
-[exec.env-vars]
-# The Aerospace executable is located in `/opt/homebrew/bin,` and my custom
-# script is symlinked to `/usr/local/bin.`
-PATH = '/opt/homebrew/bin:/usr/local/bin:${PATH}'
-
 [workspace-to-monitor-force-assignment]
 # https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 1 = 1
@@ -82,9 +77,6 @@ alt-tab = 'workspace-back-and-forth'
 alt-backtick = 'mode service'
 
 [mode.service.binding]
-r = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
-v = ["exec-and-forget reconnect-vpn 'ICT VPN'", 'mode main']
-
 # Layout switching
 slash = ['layout tiles horizontal vertical', 'mode main']
 comma = ['layout accordion horizontal vertical', 'mode main']
