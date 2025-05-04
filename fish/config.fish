@@ -1,11 +1,6 @@
 # https://docs.brew.sh/Manpage#shellenv-shell-
 eval (brew shellenv)
 
-# To use Homebrew's version, `curl` must be explicitly added to `$PATH`.
-fish_add_path (brew --prefix curl)/bin
-# https://gitlab.abo.fi/nasse/todos/-/issues/2136
-fish_add_path (brew --prefix mysql-client)@8.4/bin
-
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
 
