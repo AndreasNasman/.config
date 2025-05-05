@@ -58,11 +58,15 @@
             pkgs.raycast
             pkgs.vim
 
-            # Mason LSPs
+            # Neovim
+            ## Mason LSPs
             pkgs.cargo
             pkgs.nodejs
 
-            # Telescope
+            ## Swift Treesitter parser
+            pkgs.tree-sitter
+
+            ## Telescope
             pkgs.fd
             pkgs.ripgrep
 

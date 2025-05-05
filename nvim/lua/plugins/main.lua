@@ -170,6 +170,7 @@ return {
                 'python',
                 'robots',
                 'svelte',
+                'swift',
                 'toml',
                 'typescript',
                 'vim',
