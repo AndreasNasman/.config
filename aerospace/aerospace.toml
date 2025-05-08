@@ -76,6 +76,7 @@ alt-tab = 'workspace-back-and-forth'
 
 # Layout switching
 alt-comma = ['layout accordion horizontal vertical', 'mode main']
+alt-period = 'fullscreen'
 alt-slash = ['layout tiles horizontal vertical', 'mode main']
 
 alt-esc = ['reload-config', 'mode main']
