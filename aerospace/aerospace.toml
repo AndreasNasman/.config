@@ -74,11 +74,8 @@ alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 # Workspace switching
 alt-tab = 'workspace-back-and-forth'
 
-alt-backtick = 'mode service'
-
-[mode.service.binding]
 # Layout switching
-slash = ['layout tiles horizontal vertical', 'mode main']
-comma = ['layout accordion horizontal vertical', 'mode main']
+alt-comma = ['layout accordion horizontal vertical', 'mode main']
+alt-slash = ['layout tiles horizontal vertical', 'mode main']
 
-esc = ['reload-config', 'mode main']
+alt-esc = ['reload-config', 'mode main']
