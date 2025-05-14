@@ -62,7 +62,7 @@ return {
                         local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
 
                         return MiniStatusline.combine_groups({
-                            { hl = mode_hl, strings = { mode } },
+                            { hl = mode_hl, strings = { ' ', mode } },
                             { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
                             '%<',
                             { hl = 'MiniStatuslineFilename', strings = { filename } },
