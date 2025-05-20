@@ -54,7 +54,6 @@
             pkgs.lazygit
             pkgs.neovim
             pkgs.nixfmt-rfc-style
-            pkgs.obsidian
             pkgs.raycast
             pkgs.vim
 
@@ -84,6 +83,7 @@
               "google-chrome"
               "grammarly-desktop"
               "notion"
+              "obsidian"
               "parallels"
               "sf-symbols"
               "tailscale"
