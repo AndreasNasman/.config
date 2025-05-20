@@ -1,9 +1,6 @@
 # https://docs.brew.sh/Manpage#shellenv-shell-
 eval (brew shellenv)
 
-# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
-
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set --global --export EDITOR nvim
 set --global --export VISUAL nvim
@@ -12,10 +9,11 @@ set --global --export VISUAL nvim
 set --global --export MANPAGER 'nvim +Man!'
 set --global --export MANWIDTH 999
 
-# https://trello.com/c/Zm0ToMQm
-set --global --export SKETCHY_BAR_HEIGHT 20
-
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
 set --global --export LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/lazygit/themes-mergable/mocha/yellow.yml"
+
+set --global --export SKETCHY_BAR_HEIGHT 20
 
 # https://fishshell.com/docs/current/cmds/fish_greeting.html#example
 set --universal fish_greeting
