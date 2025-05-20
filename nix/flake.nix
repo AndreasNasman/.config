@@ -49,6 +49,7 @@
             pkgs.aerospace
             pkgs.delta
             pkgs.deno
+            pkgs.ffmpeg
             pkgs.git
             pkgs.kitty
             pkgs.lazygit
