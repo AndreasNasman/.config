@@ -1,5 +1,6 @@
 " Mappings
 let mapleader = " "
+map <leader>d <Action>(ShowHoverInfo)
 map <leader>y "+y
 map <leader>Y "+y$
 map g; <Action>(JumpToLastChange)
