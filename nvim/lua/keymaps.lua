@@ -81,8 +81,7 @@ local function browser_git_object(object, remote)
     local url = ''
     if object == 'commit' then
         local commit_hash = vim.fn.expand('<cword>')
-        local valid_commit_hash_length = 8
-        if not commit_hash:match('^[a-f0-9]+$') or #commit_hash ~= valid_commit_hash_length then
+        if not commit_hash:match('^[a-f0-9]+$') or #commit_hash < 7 or #commit_hash > 8 then
             vim.notify('No Git hash detected under the cursor', vim.log.levels.INFO)
             return
         end
