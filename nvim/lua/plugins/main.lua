@@ -127,6 +127,7 @@ return {
                     gitsigns.preview_hunk()
                 end)
             end,
+            preview_config = { border = 'rounded' },
         },
     },
     { 'mbbill/undotree', event = 'UIEnter' },
