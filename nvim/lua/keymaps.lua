@@ -71,52 +71,41 @@ local function browser_git_object(object, remote)
     local remote_url = vim.system({ 'git', '-C', project_path, 'config', '--get', 'remote.' .. remote .. '.url' })
         :wait().stdout
         :gsub('\n', '')
+        :gsub('^git@(.*):', 'https://%1/')
+        :gsub('%.git$', '')
     if remote_url == '' then
         vim.notify('No URL defined for remote ' .. remote, vim.log.levels.INFO)
         return
     end
 
-    if remote_url:match('github') or remote_url:match('gitlab') then
-        if object == 'commit' then
-            local commit_hash = vim.fn.expand('<cword>')
-            local valid_commit_hash_length = 8
-            if not commit_hash:match('^[a-f0-9]+$') or #commit_hash ~= valid_commit_hash_length then
-                vim.notify('No Git hash detected under the cursor', vim.log.levels.INFO)
-                return
-            end
-
-            vim.system({
-                'open',
-                string.format('%s/commit/%s', remote_url:gsub('%.git$', ''), commit_hash),
-            })
-        elseif object == 'file' then
-            local branch =
-                vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
-            if branch == '' then
-                vim.notify('No checked out branch', vim.log.levels.INFO)
-                return
-            end
-            -- `gsub` matches regular expressions by default.
-            -- We must escape magic characters with a %-sign to match literals.
-            local escaped_project_path = project_path:gsub('[%-%_]', '%%%1')
-            local project_relative_file_path = absolute_file_path:gsub(escaped_project_path, '')
-            local line_number = vim.api.nvim_win_get_cursor(0)[1]
-
-            vim.system({
-                'open',
-                string.format(
-                    '%s%s/blob/%s/%s#L%s',
-                    remote_url:gsub('%.git$', ''),
-                    remote_url:match('gitlab') and '/-' or '',
-                    branch,
-                    project_relative_file_path,
-                    line_number
-                ),
-            })
+    local url = ''
+    if object == 'commit' then
+        local commit_hash = vim.fn.expand('<cword>')
+        local valid_commit_hash_length = 8
+        if not commit_hash:match('^[a-f0-9]+$') or #commit_hash ~= valid_commit_hash_length then
+            vim.notify('No Git hash detected under the cursor', vim.log.levels.INFO)
+            return
         end
-    else
-        vim.notify('Unhandled remote URL ' .. remote_url, vim.log.levels.INFO)
+
+        url = string.format('%s/commit/%s', remote_url, commit_hash)
+    elseif object == 'file' then
+        local branch =
+            vim.system({ 'git', '-C', project_path, 'branch', '--show-current' }):wait().stdout:gsub('\n', '')
+        if branch == '' then
+            vim.notify('No checked out branch', vim.log.levels.INFO)
+            return
+        end
+        -- `gsub` matches regular expressions by default.
+        -- We must escape magic characters with a %-sign to match literals.
+        local escaped_project_path = project_path:gsub('[%-%_]', '%%%1')
+        local project_relative_file_path = absolute_file_path:gsub(escaped_project_path, '')
+        local line_number = vim.api.nvim_win_get_cursor(0)[1]
+
+        url = string.format('%s/blob/%s/%s#L%s', remote_url, branch, project_relative_file_path, line_number)
     end
+
+    vim.notify('Opening URL ' .. url, vim.log.levels.INFO)
+    vim.system({ 'open', url })
 end
 
 utils.map('<Leader>gc', function()
