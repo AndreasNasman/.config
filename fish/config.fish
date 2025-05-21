@@ -46,3 +46,8 @@ function fish_user_key_bindings
         bind -M $mode \ef forward-word
     end
 end
+
+# Walkbase
+fish_add_path '/Applications/Postgres.app/Contents/Versions/17/bin/'
+
+direnv hook fish | source
