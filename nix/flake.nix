@@ -71,21 +71,28 @@
             pkgs.ripgrep
 
             # Work
+            pkgs.cmake
+            pkgs.direnv
             pkgs.slack
             pkgs.zoom-us
           ];
 
           homebrew = {
+            brews = [
+              "golang-migrate"
+            ];
             casks = [
               "1password"
               "1password-cli"
               "android-studio"
               "cursorcerer"
+              "docker"
               "google-chrome"
               "grammarly-desktop"
               "notion"
               "obsidian"
               "parallels"
+              "postgres-unofficial"
               "sf-symbols"
               "tailscale"
               "ukelele"

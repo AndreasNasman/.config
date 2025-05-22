@@ -166,6 +166,7 @@ return {
                 'jsonc',
                 'lua',
                 'luadoc',
+                'make',
                 'markdown',
                 'nix',
                 'python',
