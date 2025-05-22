@@ -41,6 +41,29 @@ To update relevant files when the setup changes, run the following script:
 setup/update
 ```
 
+## Nix
+
+### Troubleshooting
+
+#### `system.keyboard` configurations not working
+
+After a macOS system update, your Nix keyboard configurations might stop
+working.
+
+To remedy this, run this command
+([source](https://github.com/nix-darwin/nix-darwin/issues/905#issuecomment-2816336630))
+and make note of the path:
+
+```sh
+nix-store --query --tree /run/current-system  | grep --only-matching --extended-regexp '/nix/store/.+-activate-system-start' | xargs nix-store --query --requisites | grep bash
+```
+
+Then, open Input Monitoring in System Settings and add the Bash command to the
+allowed applications.
+
+If you run `darwin-rebuild` and restart your system, keyboard changes will take
+effect! 🎉
+
 ## Manual setup
 
 Some parts of the setup are not feasible to automate in a script. The following
@@ -56,19 +79,17 @@ contains the signing key. Follow these steps to add the signing key:
 1. Find the signing key item.
 1. Click the "More options" menu (three dots) and choose "Configure Commit
    Signing...".
-1. Copy the `user.signingkey` part and add it to `git/config.local` file.
+1. Copy the `user.signingkey` part and add it to the `git/config.local` file.
 
 ### Surfingkeys
 
 1. Open Surfingkeys settings.
 1. Tick the `Advanced mode` checkbox.
-1. Paste
+1. Paste the content below in the `Load settings from:` text field.
 
 ```plain
 https://raw.githubusercontent.com/AndreasNasman/.config/refs/heads/main/surfingkeys/theme.js
 ```
-
-in the `Load settings from:` text field.
 
 ## Neovim
 
