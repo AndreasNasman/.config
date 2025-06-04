@@ -79,23 +79,25 @@
 
           homebrew = {
             brews = [
+              # Work
               "golang-migrate"
             ];
             casks = [
               "1password"
               "1password-cli"
-              "android-studio"
               "cursorcerer"
-              "docker"
               "google-chrome"
               "grammarly-desktop"
               "notion"
               "obsidian"
+              "sf-symbols"
+              "ukelele"
+              # Work
+              "android-studio"
+              "docker"
               "parallels"
               "postgres-unofficial"
-              "sf-symbols"
               "tailscale"
-              "ukelele"
             ];
             enable = true;
             masApps = {
