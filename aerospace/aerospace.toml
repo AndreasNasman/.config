@@ -33,7 +33,7 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # Window resize
-alt-ctrl-0 = 'balance-sizes'
+alt-ctrl-equal = 'balance-sizes'
 alt-ctrl-h = 'resize width -50'
 alt-ctrl-j = 'resize height -50'
 alt-ctrl-k = 'resize height +50'
