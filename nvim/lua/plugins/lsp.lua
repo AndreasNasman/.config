@@ -137,8 +137,8 @@ return {
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-            'williamboman/mason-lspconfig.nvim',
-            { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
+            'mason-org/mason-lspconfig.nvim',
+            { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
         },
         ft = {
             'css',
