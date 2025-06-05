@@ -136,9 +136,9 @@ return {
         cmd = 'Mason',
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
-            'mason-org/mason-lspconfig.nvim',
+            { 'mason-org/mason-lspconfig.nvim' },
             { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
+            { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
         },
         ft = {
             'css',
@@ -160,7 +160,7 @@ return {
     },
     {
         'saghen/blink.cmp',
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = { 'rafamadriz/friendly-snippets' },
         lazy = false,
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
