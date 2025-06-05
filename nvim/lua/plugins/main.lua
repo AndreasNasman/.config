@@ -146,6 +146,7 @@ return {
         },
         lazy = false,
     },
+    { 'NMAC427/guess-indent.nvim', lazy = false, opts = {} },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -201,6 +202,5 @@ return {
         opts = { view_options = { show_hidden = true } },
     },
     { 'tpope/vim-abolish', event = 'UIEnter' },
-    { 'tpope/vim-sleuth', lazy = false },
     { 'windwp/nvim-ts-autotag', event = 'UIEnter', opts = {} },
 }
