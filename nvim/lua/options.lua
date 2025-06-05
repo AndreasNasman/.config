@@ -26,6 +26,9 @@ vim.diagnostic.config({
 vim.env.MANPATH = '/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:/opt/homebrew/share/man:/opt/homebrew/opt/mysql-client@8.4/share/man:/opt/homebrew/opt/curl/share/man:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man:/Library/Developer/CommandLineTools/usr/share/man'
 -- stylua: ignore end
 
+-- Editor
+vim.opt.confirm = true
+
 -- Folds
 vim.opt.foldenable = false
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
