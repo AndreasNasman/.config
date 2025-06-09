@@ -95,6 +95,7 @@
               "google-chrome"
               "grammarly-desktop"
               "lookaway"
+              "musescore"
               "notion"
               "obsidian"
               "sf-symbols"
