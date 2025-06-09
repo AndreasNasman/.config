@@ -23,7 +23,6 @@ return {
         opts = {
             flavour = 'mocha',
             integrations = {
-                blink_cmp = true,
                 mason = true,
                 native_lsp = {
                     underlines = {
