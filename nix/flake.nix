@@ -77,6 +77,7 @@
             pkgs.python3
             pkgs.slack
             pkgs.uv
+            pkgs.websocat
             pkgs.zoom-us
           ];
 
