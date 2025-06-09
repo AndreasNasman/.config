@@ -73,7 +73,10 @@
             # Work
             pkgs.cmake
             pkgs.direnv
+            pkgs.redis
+            pkgs.python3
             pkgs.slack
+            pkgs.uv
             pkgs.zoom-us
           ];
 
@@ -81,6 +84,7 @@
             brews = [
               # Work
               "golang-migrate"
+              "libmagic"
             ];
             casks = [
               "1password"
