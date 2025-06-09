@@ -50,6 +50,7 @@
             pkgs.delta
             pkgs.deno
             pkgs.ffmpeg
+            pkgs.gh
             pkgs.git
             pkgs.kitty
             pkgs.lazygit
