@@ -93,6 +93,7 @@
               "cursorcerer"
               "google-chrome"
               "grammarly-desktop"
+              "lookaway"
               "notion"
               "obsidian"
               "sf-symbols"
