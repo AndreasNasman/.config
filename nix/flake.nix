@@ -105,8 +105,10 @@
             ];
             enable = true;
             masApps = {
+              "GarageBand" = 682658836;
               "Numbers" = 409203825;
               "Xcode" = 497799835;
+              "iMovie" = 408981434;
             };
             onActivation = {
               autoUpdate = true;
