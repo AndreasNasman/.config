@@ -39,6 +39,13 @@ alt-ctrl-j = 'resize height -50'
 alt-ctrl-k = 'resize height +50'
 alt-ctrl-l = 'resize width +50'
 
+# Window structure
+alt-ctrl-shift-equal = 'flatten-workspace-tree'
+alt-ctrl-shift-h = 'join-with left'
+alt-ctrl-shift-j = 'join-with down'
+alt-ctrl-shift-k = 'join-with up'
+alt-ctrl-shift-l = 'join-with right'
+
 # Workspace focus
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
