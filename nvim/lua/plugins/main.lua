@@ -142,6 +142,7 @@ return {
         opts = {
             at_edge = 'stop',
             cursor_follows_swapped_bufs = true,
+            disable_multiplexer_nav_when_zoomed = false,
         },
         lazy = false,
     },
