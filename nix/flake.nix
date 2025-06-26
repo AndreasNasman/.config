@@ -105,6 +105,7 @@
               "obsidian"
               "sf-symbols"
               "ukelele"
+
               # Work
               "android-studio"
               "docker"
