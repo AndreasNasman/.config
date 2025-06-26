@@ -96,7 +96,10 @@
               "cursorcerer"
               "google-chrome"
               "grammarly-desktop"
-              "lookaway"
+              {
+                greedy = true;
+                name = "lookaway";
+              }
               "musescore"
               "notion"
               "obsidian"
