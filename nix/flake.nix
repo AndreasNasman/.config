@@ -108,10 +108,10 @@
 
               # Work
               "android-studio"
-              "docker"
+              "docker-desktop"
               "parallels"
               "postgres-unofficial"
-              "tailscale"
+              "tailscale-app"
             ];
             enable = true;
             masApps = {
