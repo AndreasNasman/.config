@@ -57,6 +57,7 @@
             pkgs.neovim
             pkgs.nixfmt-rfc-style
             pkgs.raycast
+            pkgs.tree
             pkgs.vim
 
             # Neovim
