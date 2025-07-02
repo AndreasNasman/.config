@@ -219,7 +219,7 @@ end)
 utils.map('<Leader>tb', '<Cmd>Gitsigns toggle_current_line_blame<CR>')
 utils.map('<Leader>tc', function()
     utils.notify_toggle('Treesitter context', not require('treesitter-context').enabled())
-    vim.cmd('TSContextToggle')
+    vim.cmd('TSContext toggle')
 end)
 utils.map('<Leader>u', '<Cmd>UndotreeToggle<CR>')
 
