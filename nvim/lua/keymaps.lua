@@ -167,7 +167,7 @@ local colorcolumn_values = { '', '120', '80' }
 local current_colorcolumn_index = 1
 vim.keymap.set('n', '<Leader>tw', function()
     current_colorcolumn_index = current_colorcolumn_index % #colorcolumn_values + 1
-    vim.opt.colorcolumn = colorcolumn_values[current_colorcolumn_index]
+    vim.o.colorcolumn = colorcolumn_values[current_colorcolumn_index]
 end)
 
 ---@param command string

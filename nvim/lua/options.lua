@@ -1,10 +1,10 @@
 -- Completion
-vim.opt.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Cursor
-vim.opt.cursorline = true
+vim.o.cursorline = true
 vim.opt.guicursor:append('a:blinkon100')
-vim.opt.updatetime = 250 -- Speed up "highlight under cursor".
+vim.o.updatetime = 250 -- Speed up "highlight under cursor".
 
 -- Diagnostics
 vim.diagnostic.config({
@@ -27,50 +27,50 @@ vim.env.MANPATH = '/usr/local/share/man:/Applications/kitty.app/Contents/Resourc
 -- stylua: ignore end
 
 -- Editor
-vim.opt.confirm = true
+vim.o.confirm = true
 
 -- Folds
-vim.opt.foldenable = false
+vim.o.foldenable = false
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo.foldmethod = 'expr'
 
 -- History
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Plugin requisites
-vim.opt.ruler = false
-vim.opt.showmode = false
-vim.opt.signcolumn = 'yes'
+vim.o.ruler = false
+vim.o.showmode = false
+vim.o.signcolumn = 'yes'
 
 -- Search & Replace
-vim.opt.ignorecase = true
-vim.opt.inccommand = 'split'
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.inccommand = 'split'
+vim.o.smartcase = true
 
 -- Splits
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Status line
-vim.opt.laststatus = 3
-vim.opt.winbar = '%=%f'
+vim.o.laststatus = 3
+vim.o.winbar = '%=%f'
 
 -- Tabs & Spaces
 -- http://vimcasts.org/episodes/tabs-and-spaces/
 local tab_width_in_spaces = 2
-vim.opt.shiftwidth = tab_width_in_spaces
-vim.opt.softtabstop = tab_width_in_spaces
-vim.opt.tabstop = tab_width_in_spaces
+vim.o.shiftwidth = tab_width_in_spaces
+vim.o.softtabstop = tab_width_in_spaces
+vim.o.tabstop = tab_width_in_spaces
 
 -- Text
-vim.opt.breakindent = true
-vim.opt.list = true
+vim.o.breakindent = true
+vim.o.list = true
 vim.opt.listchars = { nbsp = '', tab = '󰌒 ', trail = '󱁐' }
