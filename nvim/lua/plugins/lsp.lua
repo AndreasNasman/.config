@@ -160,8 +160,19 @@ return {
     },
     {
         'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets' },
         lazy = false,
+        dependencies = {
+            {
+                'L3MON4D3/LuaSnip',
+                build = 'make install_jsregexp',
+                dependencies = {
+                    'rafamadriz/friendly-snippets',
+                    config = function()
+                        require('luasnip.loaders.from_vscode').lazy_load()
+                    end,
+                },
+            },
+        },
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
@@ -198,6 +209,7 @@ return {
                     winhighlight = blink_completion_winhighlight,
                 },
             },
+            snippets = { preset = 'luasnip' },
         },
         version = '*',
     },
