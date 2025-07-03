@@ -160,7 +160,6 @@ return {
     },
     {
         'saghen/blink.cmp',
-        lazy = false,
         dependencies = {
             {
                 'L3MON4D3/LuaSnip',
@@ -173,6 +172,7 @@ return {
                 },
             },
         },
+        event = 'UIEnter',
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
