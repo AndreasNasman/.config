@@ -95,7 +95,7 @@ https://raw.githubusercontent.com/AndreasNasman/.config/refs/heads/main/surfingk
 
 I have based my Neovim configuration on
 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), hash
-[34e7d29](https://github.com/nvim-lua/kickstart.nvim/commit/34e7d29aa7b6e95cf09d62baf4c9082db5b129c0).
+[3338d39](https://github.com/nvim-lua/kickstart.nvim/commit/3338d3920620861f8313a2745fd5d2be39f39534).
 
 ## Inspiration
 
