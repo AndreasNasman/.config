@@ -43,7 +43,7 @@ return {
 
                     buffer_map('<C-k>', function()
                         vim.lsp.buf.signature_help(config)
-                    end, { 'n', 'x', 'i' })
+                    end, { 'n', 'x' })
                     buffer_map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
                     buffer_map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
                     buffer_map('<Leader>lr', vim.lsp.buf.rename)
@@ -194,10 +194,6 @@ return {
                 preset = 'enter',
                 ['<C-h>'] = { 'snippet_backward', 'fallback' },
                 ['<C-l>'] = { 'snippet_forward', 'fallback' },
-
-                ['<C-e>'] = { 'hide_signature', 'hide', 'fallback' },
-                ['<C-k>'] = { 'fallback' },
-                ['<C-Space>'] = { 'show_signature', 'show' },
 
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
