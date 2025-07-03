@@ -206,6 +206,12 @@ return {
                 },
             },
             snippets = { preset = 'luasnip' },
+            sources = {
+                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+                providers = {
+                    lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+                },
+            },
         },
         version = '*',
     },
