@@ -112,20 +112,14 @@ return {
             }
             require('mason-tool-installer').setup({ ensure_installed = vim.tbl_keys(servers) })
 
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
             require('mason-lspconfig').setup({
                 automatic_installation = false,
                 ensure_installed = {},
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
-                        server.capabilities = vim.tbl_deep_extend(
-                            'force',
-                            {},
-                            capabilities,
-                            server.capabilities or {},
-                            require('blink.cmp').get_lsp_capabilities(server.capabilities)
-                        )
+                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
                         require('lspconfig')[server_name].setup(server)
                     end,
                 },
@@ -138,6 +132,7 @@ return {
             { 'j-hui/fidget.nvim', opts = {} },
             { 'mason-org/mason-lspconfig.nvim' },
             { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
+            { 'saghen/blink.cmp' },
             { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
         },
         ft = {
