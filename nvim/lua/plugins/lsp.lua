@@ -170,12 +170,7 @@ return {
         ---@type blink.cmp.Config
         opts = {
             completion = {
-                documentation = {
-                    auto_show = true,
-                    window = {
-                        border = 'rounded',
-                    },
-                },
+                documentation = { auto_show = true, window = { border = 'rounded' } },
                 list = { selection = { preselect = false } },
                 menu = {
                     border = 'rounded',
@@ -190,18 +185,11 @@ return {
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
             },
-            signature = {
-                enabled = true,
-                window = {
-                    border = 'rounded',
-                },
-            },
+            signature = { enabled = true, window = { border = 'rounded' } },
             snippets = { preset = 'luasnip' },
             sources = {
                 default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
-                providers = {
-                    lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-                },
+                providers = { lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 } },
             },
         },
         version = '*',

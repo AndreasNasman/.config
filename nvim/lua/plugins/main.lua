@@ -139,11 +139,7 @@ return {
     {
         'mrjones2014/smart-splits.nvim',
         build = './kitty/install-kittens.bash',
-        opts = {
-            at_edge = 'stop',
-            cursor_follows_swapped_bufs = true,
-            disable_multiplexer_nav_when_zoomed = false,
-        },
+        opts = { at_edge = 'stop', cursor_follows_swapped_bufs = true, disable_multiplexer_nav_when_zoomed = false },
         lazy = false,
     },
     { 'NMAC427/guess-indent.nvim', lazy = false, opts = {} },

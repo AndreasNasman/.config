@@ -8,11 +8,7 @@ return {
         local builtin = require('telescope.builtin')
         local actions_state = require('telescope.actions.state')
 
-        local opts = {
-            additional_args = {},
-            hidden = false,
-            no_ignore = false,
-        }
+        local opts = { additional_args = {}, hidden = false, no_ignore = false }
 
         ---@param command function
         ---@param opts_override? table|nil
@@ -94,9 +90,7 @@ return {
                     },
                 },
             },
-            extensions = {
-                ['ui-select'] = { require('telescope.themes').get_dropdown() },
-            },
+            extensions = { ['ui-select'] = { require('telescope.themes').get_dropdown() } },
         })
 
         telescope.load_extension('fzf')
