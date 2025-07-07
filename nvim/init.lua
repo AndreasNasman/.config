@@ -36,5 +36,5 @@ require('lazy').setup('plugins', {
             },
         },
     },
-    ui = { backdrop = 100, border = 'none' },
+    ui = { border = 'none' },
 })
