@@ -1,3 +1,6 @@
+-- Border
+vim.o.winborder = 'rounded'
+
 -- Completion
 vim.o.completeopt = 'menu,menuone,noselect'
 
@@ -8,7 +11,7 @@ vim.o.updatetime = 250 -- Speed up "highlight under cursor".
 
 -- Diagnostics
 vim.diagnostic.config({
-    float = { border = 'rounded', source = true },
+    float = { source = true },
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = ' ',

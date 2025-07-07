@@ -37,11 +37,7 @@ return {
                         utils.map(lhs, rhs, mode, { buffer = event.buf })
                     end
 
-                    local config = { border = 'rounded' }
-
-                    buffer_map('<C-k>', function()
-                        vim.lsp.buf.signature_help(config)
-                    end, { 'n', 'x' })
+                    buffer_map('<C-k>', vim.lsp.buf.signature_help, { 'n', 'x' })
                     buffer_map('<Leader>la', vim.lsp.buf.code_action, { 'n', 'x' })
                     buffer_map('<Leader>ld', require('telescope.builtin').lsp_document_symbols)
                     buffer_map('<Leader>lr', vim.lsp.buf.rename)
@@ -51,9 +47,7 @@ return {
                     buffer_map('gD', vim.lsp.buf.declaration)
                     buffer_map('gI', require('telescope.builtin').lsp_implementations)
                     buffer_map('gr', require('telescope.builtin').lsp_references)
-                    buffer_map('K', function()
-                        vim.lsp.buf.hover(config)
-                    end)
+                    buffer_map('K', vim.lsp.buf.hover)
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -122,14 +116,12 @@ return {
                     end,
                 },
             })
-
-            require('lspconfig.ui.windows').default_options.border = 'rounded'
         end,
         cmd = 'Mason',
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
             { 'mason-org/mason-lspconfig.nvim' },
-            { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded', height = 0.8 } } },
+            { 'mason-org/mason.nvim', opts = { ui = { border = 'none', height = 0.8 } } },
             { 'saghen/blink.cmp' },
             { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
         },
@@ -170,12 +162,9 @@ return {
         ---@type blink.cmp.Config
         opts = {
             completion = {
-                documentation = { auto_show = true, window = { border = 'rounded' } },
+                documentation = { auto_show = true },
                 list = { selection = { preselect = false } },
-                menu = {
-                    border = 'rounded',
-                    winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None',
-                },
+                menu = { winhighlight = 'Normal:None,FloatBorder:None,CursorLine:BlinkCmpMenuSelection,Search:None' },
             },
             keymap = {
                 preset = 'enter',
@@ -185,7 +174,7 @@ return {
                 ['<S-Tab>'] = { 'select_prev', 'fallback' },
                 ['<Tab>'] = { 'select_next', 'fallback' },
             },
-            signature = { enabled = true, window = { border = 'rounded' } },
+            signature = { enabled = true },
             snippets = { preset = 'luasnip' },
             sources = {
                 default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
