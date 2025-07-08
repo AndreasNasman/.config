@@ -210,6 +210,7 @@ end
 
 utils.map('<Leader>tn', function()
     toggleOption('number')
+    toggleOption('relativenumber')
 end)
 utils.map('<Leader>ts', function()
     toggleOption('spell')
