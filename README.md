@@ -43,8 +43,7 @@ setup/update
 
 ## Manual setup
 
-Some parts of the setup are not feasible to automate in a script. The following
-section serves as a reminder of what to set up manually.
+The following section serves as a reminder of what to set up manually.
 
 ### Git commit signing with SSH
 
