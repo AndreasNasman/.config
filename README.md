@@ -45,11 +45,12 @@ setup/update
 
 The following section serves as a reminder of what to set up manually.
 
-### Git commit signing with SSH
+### Git
 
-You should keep the key to sign Git commits with SSH out of version control.
-`git/config` contains an include-reference to a `config.local` file that
-contains the signing key. Follow these steps to add the signing key:
+We need to set up SSH commit signing manually since we should exclude signing
+keys from version control. `git/config` contains an include-reference to a
+`config.local` file that contains the signing key. Follow these steps to add the
+signing key:
 
 1. Open the desktop version 1Password.
 1. Find the signing key item.
