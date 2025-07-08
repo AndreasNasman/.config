@@ -94,6 +94,10 @@
               "1password"
               "1password-cli"
               "cursorcerer"
+              {
+                greedy = true;
+                name = "firefox";
+              }
               "google-chrome"
               "grammarly-desktop"
               {
