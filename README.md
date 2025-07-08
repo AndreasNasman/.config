@@ -45,6 +45,12 @@ setup/update
 
 The following section serves as a reminder of what to set up manually.
 
+## Firefox
+
+1. Navigate to <about:config>.
+1. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+1. Restart Firefox.
+
 ### Git
 
 We need to set up SSH commit signing manually since we should exclude signing

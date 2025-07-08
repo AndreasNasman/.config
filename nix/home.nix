@@ -89,6 +89,9 @@
     copyKeyboardLayout = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run cp -f ${../ukelele}/* $HOME/Library/Keyboard\ Layouts/
     '';
+    copyFirefoxStyleSheet = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      find $HOME/Library/Application\ Support/Firefox/Profiles/ -type d -name "*.default-release-*" -exec mkdir -p "{}/chrome/" \; -exec cp -f ${../firefox}/userChrome.css "{}/chrome/" \;
+    '';
     # We must call `defaults` directly since it isn't in PATH.
     # Also, `write` requires a non-quoted absolute path to work.
     disableCursorLocationMagnification = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

@@ -1,0 +1,7 @@
+#navigator-toolbox {
+  margin-top: -40px;
+}
+
+#navigator-toolbox:focus-within {
+  margin-top: 0;
+}
