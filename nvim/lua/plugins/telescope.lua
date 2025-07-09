@@ -72,6 +72,7 @@ return {
 
         telescope.setup({
             defaults = {
+                border = false,
                 layout_config = { height = 0.99, width = 0.99 },
                 layout_strategy = 'vertical',
                 mappings = {
