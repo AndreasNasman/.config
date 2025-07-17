@@ -9,31 +9,11 @@ return {
         lazy = false,
     },
     {
-        'catppuccin/nvim',
-        lazy = false,
-        init = function()
-            vim.cmd.colorscheme('catppuccin')
-            local palette = require('catppuccin.palettes').get_palette()
-            vim.api.nvim_set_hl(0, 'NormalFloat', {})
-            vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.rosewater })
-            vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = palette.base, bg = palette.flamingo })
-            vim.api.nvim_set_hl(0, 'MiniStatuslineFileinfo', { fg = palette.base, bg = palette.lavender })
+        'folke/tokyonight.nvim',
+        config = function()
+            vim.cmd.colorscheme('tokyonight-night')
         end,
-        name = 'catppuccin',
-        opts = {
-            flavour = 'mocha',
-            integrations = {
-                mason = true,
-                native_lsp = {
-                    underlines = {
-                        errors = { 'undercurl' },
-                        hints = { 'undercurl' },
-                        information = { 'undercurl' },
-                        warnings = { 'undercurl' },
-                    },
-                },
-            },
-        },
+        lazy = false,
         priority = 1000,
     },
     { 'danymat/neogen', event = 'UIEnter', opts = {} },

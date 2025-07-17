@@ -28,3 +28,4 @@
 # Overrides should be at the bottom.
 [include]
 	path = ./config.local
+	path = ../tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
