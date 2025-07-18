@@ -3,6 +3,11 @@ on-focus-changed = ['move-mouse window-lazy-center']
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 start-at-login = true
 
+# https://ghostty.org/docs/help/macos-tiling-wms#aerospace
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["layout floating"]
+
 # https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
 1 = 1
@@ -82,6 +87,7 @@ alt-ctrl-cmd-shift-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
 alt-tab = 'workspace-back-and-forth'
 
 # Layout switching
+alt-backslash = 'layout floating tiling'
 alt-comma = ['layout accordion horizontal vertical', 'mode main']
 alt-period = 'fullscreen'
 alt-slash = ['layout tiles horizontal vertical', 'mode main']
