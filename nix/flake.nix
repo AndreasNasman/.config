@@ -98,6 +98,10 @@
                 greedy = true;
                 name = "firefox";
               }
+              {
+                greedy = true;
+                name = "ghostty@tip";
+              }
               "google-chrome"
               "grammarly-desktop"
               {
