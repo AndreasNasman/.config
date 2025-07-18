@@ -24,8 +24,6 @@ alias cp='cp -i'
 alias lg='lazygit'
 alias rm='rm -i'
 
-alias nvim="nvim --listen /tmp/nvim-server.$KITTY_WINDOW_ID"
-
 # Use the `nvim` alias to benefit from its function.
 alias v.='nvim .'
 alias v='nvim'

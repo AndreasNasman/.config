@@ -5,7 +5,4 @@ git:
     pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 gui:
   enlargedSideViewLocation: top
-os:
-  edit: "focus-neovim {{filename}}"
-  editAtLine: "focus-neovim {{filename}} {{line}}"
 promptToReturnFromSubprocess: false
