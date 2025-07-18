@@ -11,7 +11,7 @@ set --global --export MANWIDTH 999
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set --global --export XDG_CONFIG_HOME (path resolve (status dirname)/../)
-set --global --export LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/tokyonight.nvim/extras/lazygit/tokyonight_night.yml"
+set --global --export LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/fish/themes/tokyonight.nvim/extras/lazygit/tokyonight_night.yml"
 
 set --global --export SKETCHY_BAR_HEIGHT 20
 
@@ -30,7 +30,7 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
-fish_config theme choose ../../tokyonight.nvim/extras/fish_themes/tokyonight_night
+fish_config theme choose tokyonight.nvim/extras/fish_themes/tokyonight_night
 
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings

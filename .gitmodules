@@ -1,9 +1,9 @@
+[submodule "fish/themes/tokyonight.nvim"]
+	path = fish/themes/tokyonight.nvim
+	url = git@github.com:folke/tokyonight.nvim.git
 [submodule "ghostty/ghostty-shader-playground"]
 	path = ghostty/ghostty-shader-playground
 	url = git@github.com:KroneCorylus/ghostty-shader-playground.git
 [submodule "ghostty/ghostty-shaders"]
 	path = ghostty/ghostty-shaders
 	url = git@github.com:hackr-sh/ghostty-shaders.git
-[submodule "tokyonight.nvim"]
-	path = tokyonight.nvim
-	url = git@github.com:folke/tokyonight.nvim.git
