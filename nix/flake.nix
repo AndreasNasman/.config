@@ -103,7 +103,6 @@
                 name = "ghostty@tip";
               }
               "google-chrome"
-              "grammarly-desktop"
               {
                 greedy = true;
                 name = "lookaway";
