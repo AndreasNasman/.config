@@ -89,6 +89,7 @@ return {
                 cssls = {},
                 denols = {},
                 emmet_language_server = {},
+                harper_ls = {},
                 html = {},
                 jsonls = {},
                 lua_ls = { settings = { Lua = { hint = { enable = true } } } },
