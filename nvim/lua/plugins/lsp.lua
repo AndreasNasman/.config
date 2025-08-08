@@ -122,7 +122,7 @@ return {
         dependencies = {
             { 'j-hui/fidget.nvim', opts = {} },
             { 'mason-org/mason-lspconfig.nvim' },
-            { 'mason-org/mason.nvim', opts = { ui = { border = 'none' } } },
+            { 'mason-org/mason.nvim', opts = {} },
             { 'saghen/blink.cmp' },
             { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
         },
