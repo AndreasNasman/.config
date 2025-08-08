@@ -118,6 +118,7 @@
               "docker-desktop"
               "parallels"
               "postgres-unofficial"
+              "steam"
               "tailscale-app"
             ];
             enable = true;
