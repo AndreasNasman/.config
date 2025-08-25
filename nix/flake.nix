@@ -91,9 +91,18 @@
               "libmagic"
             ];
             casks = [
-              "1password"
-              "1password-cli"
-              "cursorcerer"
+              {
+                greedy = true;
+                name = "1password";
+              }
+              {
+                greedy = true;
+                name = "1password-cli";
+              }
+              {
+                greedy = true;
+                name = "cursorcerer";
+              }
               {
                 greedy = true;
                 name = "firefox";
@@ -106,19 +115,52 @@
                 greedy = true;
                 name = "lookaway";
               }
-              "musescore"
-              "notion"
-              "obsidian"
-              "sf-symbols"
-              "ukelele"
+              {
+                greedy = true;
+                name = "musescore";
+              }
+              {
+                greedy = true;
+                name = "notion";
+              }
+              {
+                greedy = true;
+                name = "obsidian";
+              }
+              {
+                greedy = true;
+                name = "sf-symbols";
+              }
+              {
+                greedy = true;
+                name = "ukelele";
+              }
 
               # Work
-              "android-studio"
-              "docker-desktop"
-              "parallels"
-              "postgres-unofficial"
-              "steam"
-              "tailscale-app"
+              {
+                greedy = true;
+                name = "android-studio";
+              }
+              {
+                greedy = true;
+                name = "docker-desktop";
+              }
+              {
+                greedy = true;
+                name = "parallels";
+              }
+              {
+                greedy = true;
+                name = "postgres-unofficial";
+              }
+              {
+                greedy = true;
+                name = "steam";
+              }
+              {
+                greedy = true;
+                name = "tailscale-app";
+              }
             ];
             enable = true;
             masApps = {
