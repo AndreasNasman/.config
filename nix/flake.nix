@@ -102,7 +102,6 @@
                 greedy = true;
                 name = "ghostty@tip";
               }
-              "google-chrome"
               {
                 greedy = true;
                 name = "lookaway";
