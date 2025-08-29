@@ -209,6 +209,7 @@
                 ApplePressAndHoldEnabled = false;
                 InitialKeyRepeat = 15;
                 KeyRepeat = 2;
+                NSAutomaticPeriodSubstitutionEnabled = false;
               };
               trackpad.Clicking = true;
             };
