@@ -86,6 +86,8 @@
 
           homebrew = {
             brews = [
+              "git-filter-repo"
+
               # Work
               "golang-migrate"
               "libmagic"
