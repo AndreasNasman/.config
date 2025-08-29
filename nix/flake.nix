@@ -200,6 +200,8 @@
               };
               dock = {
                 autohide = true;
+                # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
+                expose-group-apps = true;
                 persistent-apps = [ ];
                 persistent-others = [ ];
                 show-recents = false;
