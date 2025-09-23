@@ -107,6 +107,10 @@
               }
               {
                 greedy = true;
+                name = "discord";
+              }
+              {
+                greedy = true;
                 name = "firefox";
               }
               {
