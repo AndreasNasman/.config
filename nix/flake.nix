@@ -115,7 +115,7 @@
               }
               {
                 greedy = true;
-                name = "ghostty@tip";
+                name = "ghostty";
               }
               {
                 greedy = true;

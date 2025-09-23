@@ -3,4 +3,4 @@ custom-shader = ghostty-shader-playground/shaders/cursor_smear_fade.glsl
 custom-shader = ghostty-shaders/bloom.glsl
 font-family = JetBrains Mono font-size = 15
 macos-titlebar-proxy-icon = hidden
-theme = tokyonight_night
+theme = TokyoNight Night
