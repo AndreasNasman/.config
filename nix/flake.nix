@@ -220,6 +220,9 @@
                 NSAutomaticPeriodSubstitutionEnabled = false;
               };
               trackpad.Clicking = true;
+              WindowManager = {
+                EnableStandardClickToShowDesktop = false;
+              };
             };
             keyboard = {
               enableKeyMapping = true;
