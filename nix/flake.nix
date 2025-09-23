@@ -219,6 +219,9 @@
                 KeyRepeat = 2;
                 NSAutomaticPeriodSubstitutionEnabled = false;
               };
+              spaces = {
+                spans-displays = true;
+              };
               trackpad.Clicking = true;
               WindowManager = {
                 EnableStandardClickToShowDesktop = false;
