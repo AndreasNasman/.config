@@ -103,6 +103,10 @@
               }
               {
                 greedy = true;
+                name = "bambu-studio";
+              }
+              {
+                greedy = true;
                 name = "cursorcerer";
               }
               {
