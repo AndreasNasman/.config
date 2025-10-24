@@ -34,6 +34,13 @@ fish_config theme choose tokyonight.nvim/extras/fish_themes/tokyonight_night
 
 # https://fishshell.com/docs/current/interactive.html#command-line-editor
 fish_vi_key_bindings
+# https://fishshell.com/docs/current/interactive.html#vi-mode-commands
+set fish_cursor_default block blink
+set fish_cursor_insert line blink
+set fish_cursor_replace_one underscore blink
+set fish_cursor_replace underscore blink
+set fish_cursor_external line blink
+set fish_cursor_visual block blink
 
 # https://fishshell.com/docs/current/interactive.html#autosuggestions
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906
