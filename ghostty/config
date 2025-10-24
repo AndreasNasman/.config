@@ -1,5 +1,12 @@
 custom-shader = ghostty-shader-playground/public/shaders/cursor_blaze_no_trail.glsl
 custom-shader = ghostty-shader-playground/public/shaders/cursor_smear_fade.glsl
 custom-shader = ghostty-shaders/bloom.glsl
+
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:down
+keybind = super+k=goto_split:up
+keybind = super+l=goto_split:right
+
 macos-titlebar-proxy-icon = hidden
+
 theme = TokyoNight Night
