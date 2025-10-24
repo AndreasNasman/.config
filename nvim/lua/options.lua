@@ -6,7 +6,7 @@ vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Cursor
 vim.o.cursorline = true
-vim.opt.guicursor:append('a:blinkon100')
+vim.opt.guicursor:append('a:blinkwait100-blinkon100-blinkoff100')
 vim.o.updatetime = 250 -- Speed up "highlight under cursor".
 
 -- Diagnostics
