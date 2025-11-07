@@ -20,8 +20,10 @@ return {
     {
         'echasnovski/mini.nvim',
         config = function()
+            local spec_treesitter = require('mini.ai').gen_spec.treesitter
             require('mini.ai').setup({
                 custom_textobjects = {
+                    F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
                     g = function()
                         return {
                             from = { col = 1, line = 1 },
@@ -65,7 +67,10 @@ return {
                 },
             })
         end,
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = {
+            { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
+            { 'nvim-tree/nvim-web-devicons' },
+        },
         event = 'UIEnter',
     },
     { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, event = 'UIEnter', opts = {} },
