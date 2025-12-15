@@ -56,7 +56,6 @@
             pkgs.lazygit
             pkgs.neovim
             pkgs.nixfmt-rfc-style
-            pkgs.raycast
             pkgs.tree
             pkgs.vim
 
@@ -77,11 +76,9 @@
             pkgs.direnv
             pkgs.redis
             pkgs.python3
-            pkgs.slack
             pkgs.uv
             pkgs.vault
             pkgs.websocat
-            pkgs.zoom-us
           ];
 
           homebrew = {
@@ -165,11 +162,23 @@
               }
               {
                 greedy = true;
+                name = "raycast";
+              }
+              {
+                greedy = true;
+                name = "slack";
+              }
+              {
+                greedy = true;
                 name = "steam";
               }
               {
                 greedy = true;
                 name = "tailscale-app";
+              }
+              {
+                greedy = true;
+                name = "zoom";
               }
             ];
             enable = true;
