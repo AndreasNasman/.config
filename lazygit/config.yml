@@ -1,8 +1,8 @@
 git:
   overrideGpg: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 gui:
   enlargedSideViewLocation: top
 promptToReturnFromSubprocess: false
