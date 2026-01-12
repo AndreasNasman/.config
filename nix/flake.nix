@@ -112,6 +112,10 @@
               }
               {
                 greedy = true;
+                name = "dorico";
+              }
+              {
+                greedy = true;
                 name = "firefox";
               }
               {
