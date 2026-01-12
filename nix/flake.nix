@@ -84,6 +84,7 @@
 
           homebrew = {
             brews = [
+              "coreutils"
               "git-filter-repo"
 
               # Work

@@ -51,6 +51,8 @@ function fish_user_key_bindings
     end
 end
 
+fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
+
 # Walkbase
 fish_add_path '/Applications/Postgres.app/Contents/Versions/17/bin/'
 
