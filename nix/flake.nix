@@ -133,6 +133,10 @@
               }
               {
                 greedy = true;
+                name = "google-chrome";
+              }
+              {
+                greedy = true;
                 name = "lookaway";
               }
               {
