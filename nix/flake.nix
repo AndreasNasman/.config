@@ -104,6 +104,10 @@
               }
               {
                 greedy = true;
+                name = "autodesk-fusion";
+              }
+              {
+                greedy = true;
                 name = "bambu-studio";
               }
               {
