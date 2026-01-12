@@ -89,6 +89,9 @@
               # Work
               "golang-migrate"
               "libmagic"
+              ## Sentry
+              "getsentry/tools/sentry-wizard"
+              "sentry-cli"
             ];
             casks = [
               {
