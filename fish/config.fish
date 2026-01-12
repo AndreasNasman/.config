@@ -1,6 +1,8 @@
 # https://docs.brew.sh/Manpage#shellenv-shell-
 eval (brew shellenv)
 
+set --global fish_key_bindings fish_vi_key_bindings
+
 # https://fishshell.com/docs/current/interactive.html#shared-bindings
 set --global --export EDITOR nvim
 set --global --export VISUAL nvim
@@ -32,8 +34,6 @@ alias vim='nvim'
 
 fish_config theme choose tokyonight.nvim/extras/fish_themes/tokyonight_night
 
-# https://fishshell.com/docs/current/interactive.html#command-line-editor
-fish_vi_key_bindings
 # https://fishshell.com/docs/current/interactive.html#vi-mode-commands
 set fish_cursor_default block blink
 set fish_cursor_insert line blink
