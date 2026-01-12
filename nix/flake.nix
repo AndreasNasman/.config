@@ -56,6 +56,7 @@
             pkgs.lazygit
             pkgs.neovim
             pkgs.nixfmt-rfc-style
+            pkgs.pnpm
             pkgs.tree
             pkgs.vim
 
