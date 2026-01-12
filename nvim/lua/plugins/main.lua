@@ -32,6 +32,7 @@ return {
                     end,
                 },
             })
+            require('mini.pairs').setup()
             require('mini.statusline').setup({
                 content = {
                     active = function()
