@@ -48,7 +48,6 @@
           environment.systemPackages = [
             pkgs.aerospace
             pkgs.delta
-            pkgs.deno
             pkgs.ffmpeg
             pkgs.gh
             pkgs.git
@@ -85,6 +84,7 @@
           homebrew = {
             brews = [
               "coreutils"
+              "deno"
               "git-filter-repo"
 
               # Work
