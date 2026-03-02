@@ -46,7 +46,6 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
-            pkgs.aerospace
             pkgs.delta
             pkgs.ffmpeg
             pkgs.gh
@@ -142,6 +141,10 @@
               {
                 greedy = true;
                 name = "musescore";
+              }
+              {
+                greedy = true;
+                name = "nikitabobko/tap/aerospace";
               }
               {
                 greedy = true;
