@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+SCRIPT_DIR="${0:A:h}"
+
 # https://github.com/nix-darwin/nix-darwin#prerequisites
 # https://lix.systems/install/#on-any-other-linuxmacos-system
 echo '📦 Installing Nix using the Lix installer as recommended in the nix-darwin documentation.' && sleep 1
@@ -10,7 +12,7 @@ echo '💾 Sourcing Nix as instructed in the Nix install output.' && sleep 1
 
 # https://github.com/nix-darwin/nix-darwin#step-2-installing-nix-darwin
 echo '📦 Installing Nix packages and building initial system configuration. This step may take a while.' && sleep 1
-sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ./nix#haga
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake "$SCRIPT_DIR#haga"
 
 echo '💾 Activating system configuration.' && sleep 1
 exec zsh
