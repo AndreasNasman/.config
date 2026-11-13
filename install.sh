@@ -9,5 +9,8 @@ echo '💾 Sourcing Nix as instructed in the Nix install output.' && sleep 1
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
 # https://github.com/nix-darwin/nix-darwin#step-2-installing-nix-darwin
-echo '📦 Installing nix-darwin. This step may take a while.' && sleep 1
+echo '📦 Installing Nix packages and building initial system configuration. This step may take a while.' && sleep 1
 sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ./nix#haga
+
+echo '💾 Activating system configuration.' && sleep 1
+exec zsh
