@@ -1,4 +1,4 @@
-# Configuration derived from `nix flake init -t nix-darwin/master`.
+# Configuration derived from `nix flake init --template nix-darwin/master`.
 {
   description = "Example nix-darwin system flake";
 
