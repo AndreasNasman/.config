@@ -2,4 +2,4 @@
 
 SCRIPT_DIR="${0:A:h}"
 
-source "$SCRIPT_DIR/install.sh"
+source "$SCRIPT_DIR/nix/install.sh"
