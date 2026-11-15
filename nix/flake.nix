@@ -62,14 +62,9 @@
             home-manager.users.${user} = ./home.nix;
           }
 
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              user = user;
-            };
-          }
+          ./homebrew.nix
         ];
+        specialArgs = { inherit inputs user; };
       };
     };
 }
