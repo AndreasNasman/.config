@@ -5,8 +5,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "andreas";
-  home.homeDirectory = "/Users/andreas";
+  #home.username = "andreas";
+  #home.homeDirectory = "/Users/andreas";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -74,5 +74,5 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  #programs.home-manager.enable = true;
 }
