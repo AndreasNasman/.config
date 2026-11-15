@@ -9,6 +9,7 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs =
@@ -17,6 +18,7 @@
       nix-darwin,
       nixpkgs,
       home-manager,
+      nix-homebrew,
     }:
     let
       configuration = { pkgs, ... }: {
@@ -57,6 +59,14 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.andreas = ./home.nix;
+          }
+
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              user = "andreas";
+            };
           }
         ];
       };
