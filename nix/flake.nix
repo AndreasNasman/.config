@@ -1,4 +1,6 @@
-# Configuration derived from `nix flake init --template nix-darwin/master`.
+# Configuration derived from:
+# `nix flake init --template nix-darwin/master`
+# https://nix-community.github.io/home-manager/nix-flakes/nix-darwin.html
 {
   description = "Example nix-darwin system flake";
 
@@ -6,6 +8,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs =
@@ -13,6 +16,7 @@
       self,
       nix-darwin,
       nixpkgs,
+      home-manager,
     }:
     let
       configuration = { pkgs, ... }: {
@@ -44,7 +48,17 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#haga
       darwinConfigurations."haga" = nix-darwin.lib.darwinSystem {
-        modules = [ configuration ];
+        modules = [
+          configuration
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.andreas = ./home.nix;
+          }
+        ];
       };
     };
 }
