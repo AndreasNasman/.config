@@ -21,6 +21,7 @@
       nix-homebrew,
     }:
     let
+      user = "andreas";
       configuration = { pkgs, ... }: {
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
@@ -43,7 +44,7 @@
         # The platform the configuration will be used on.
         nixpkgs.hostPlatform = "aarch64-darwin";
 
-        users.users.andreas.home = "/Users/andreas";
+        users.users.${user}.home = "/Users/${user}";
       };
     in
     {
@@ -58,14 +59,14 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.andreas = ./home.nix;
+            home-manager.users.${user} = ./home.nix;
           }
 
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
               enable = true;
-              user = "andreas";
+              user = user;
             };
           }
         ];
