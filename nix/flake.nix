@@ -54,7 +54,7 @@
         modules = [
           configuration
 
-          ./home.nix
+          ./home-manager.nix
 
           ./homebrew.nix
         ];
