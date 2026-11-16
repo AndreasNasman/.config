@@ -13,7 +13,6 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.${user} = { config, pkgs, ... }: {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
