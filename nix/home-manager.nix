@@ -5,7 +5,6 @@
   user,
   ...
 }:
-
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager

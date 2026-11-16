@@ -52,9 +52,7 @@
       darwinConfigurations."haga" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
-
           ./home-manager.nix
-
           ./homebrew.nix
         ];
         specialArgs = { inherit inputs user; };
