@@ -17,8 +17,7 @@
       self,
       nix-darwin,
       nixpkgs,
-      home-manager,
-      nix-homebrew,
+      ...
     }:
     let
       user = "andreas";
