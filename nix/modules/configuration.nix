@@ -30,4 +30,13 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   users.users.${user}.home = "/Users/${user}";
+
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
+  };
 }
