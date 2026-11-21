@@ -17,15 +17,15 @@
   # Enable alternative shell support in nix-darwin.
   # programs.fish.enable = true;
 
-  # Set Git commit hash for darwin-version.
-  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 7;
-
-  # Necessary for using Homebrew (as root).
-  system.primaryUser = "andreas";
+  system = {
+    # Set Git commit hash for darwin-version.
+    configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+    # Necessary for using Homebrew (as root).
+    primaryUser = "andreas";
+    # Used for backwards compatibility, please read the changelog before changing.
+    # $ darwin-rebuild changelog
+    stateVersion = 7;
+  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
