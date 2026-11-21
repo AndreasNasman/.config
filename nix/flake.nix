@@ -19,9 +19,6 @@
       nixpkgs,
       ...
     }:
-    let
-      user = "andreas";
-    in
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#haga
@@ -31,7 +28,10 @@
           ./home-manager.nix
           ./homebrew.nix
         ];
-        specialArgs = { inherit inputs user; };
+        specialArgs = {
+          inherit inputs;
+          user = "andreas";
+        };
       };
     };
 }
