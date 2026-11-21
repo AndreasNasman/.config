@@ -1,3 +1,5 @@
+# Configuration derived from:
+# `nix flake init --template nix-darwin/master`
 {
   inputs,
   user,

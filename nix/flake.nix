@@ -1,6 +1,5 @@
 # Configuration derived from:
 # `nix flake init --template nix-darwin/master`
-# https://nix-community.github.io/home-manager/nix-flakes/nix-darwin.html
 {
   description = "Example nix-darwin system flake";
 

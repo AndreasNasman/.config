@@ -1,3 +1,5 @@
+# Configuration derived from:
+# https://github.com/zhaofengli/nix-homebrew#a-new-installation
 {
   inputs,
   user,

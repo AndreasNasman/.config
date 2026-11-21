@@ -1,4 +1,5 @@
 # Configuration derived from:
+# https://nix-community.github.io/home-manager/nix-flakes/nix-darwin.html
 # `nix shell nixpkgs#home-manager --command home-manager init`
 {
   inputs,
