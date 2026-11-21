@@ -14,8 +14,6 @@
   outputs =
     inputs@{ nix-darwin, ... }:
     {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#haga
       darwinConfigurations."haga" = nix-darwin.lib.darwinSystem {
         modules = [
           ./modules/configuration.nix
