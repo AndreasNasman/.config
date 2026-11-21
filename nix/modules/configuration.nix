@@ -30,6 +30,7 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  # Necessary for using Home Manager.
   users.users.${user}.home = "/Users/${user}";
 
   homebrew = {
