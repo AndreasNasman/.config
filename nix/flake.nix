@@ -13,12 +13,7 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nix-darwin,
-      nixpkgs,
-      ...
-    }:
+    inputs@{ nix-darwin, ... }:
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#haga
