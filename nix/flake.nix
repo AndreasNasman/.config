@@ -1,8 +1,6 @@
 # Configuration derived from:
 # `nix flake init --template nix-darwin/master`
 {
-  description = "Example nix-darwin system flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
