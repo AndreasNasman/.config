@@ -24,7 +24,8 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 7;
 
-  #system.primaryUser = "andreas";
+  # Necessary for using Homebrew (as root).
+  system.primaryUser = "andreas";
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
