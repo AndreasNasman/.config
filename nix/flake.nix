@@ -19,9 +19,9 @@
       # $ darwin-rebuild build --flake .#haga
       darwinConfigurations."haga" = nix-darwin.lib.darwinSystem {
         modules = [
-          ./configuration.nix
-          ./home-manager.nix
-          ./homebrew.nix
+          ./modules/configuration.nix
+          ./modules/home-manager.nix
+          ./modules/homebrew.nix
         ];
         specialArgs = {
           inherit inputs;
