@@ -35,6 +35,9 @@
 
   homebrew = {
     enable = true;
+    casks = [
+      "raycast"
+    ];
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
