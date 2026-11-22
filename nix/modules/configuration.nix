@@ -2,6 +2,7 @@
 # `nix flake init --template nix-darwin/master`
 {
   inputs,
+  pkgs,
   user,
   ...
 }:
@@ -11,8 +12,11 @@
   environment.systemPackages = [
   ];
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    package = pkgs.lix;
+    # Necessary for using flakes on this system.
+    settings.experimental-features = "nix-command flakes";
+  };
 
   # Enable alternative shell support in nix-darwin.
   # programs.fish.enable = true;
